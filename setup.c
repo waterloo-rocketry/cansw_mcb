@@ -4,11 +4,11 @@
 void pin_init(void){
     // LEDs
     TRISA0 = 0; // set A0 as an output for the red/white LED
-    //ANSELA0 = 0; // Enable digital input buffer (Useful for reading the LED state)
+    ANSELA0 = 0; // Enable digital input buffer (Useful for reading the LED state)
     LATA0 = 1; // turn the red/white LED off
 
     TRISA1 = 0; // set A1 as an output for the green/blue LED
-    //ANSELA1 = 0; // Enable digital input buffer
+    ANSELA1 = 0; // Enable digital input buffer
     LATA1 = 1; // turn the green/blue LED off
     
 #if (DEVICE_ID == MCU)
@@ -32,10 +32,6 @@ void osc_init(void){
         // try to wait for the oscillator to come back
         for (uint16_t i = 0; i < 60000; i++) {}
     }
-}
-
-void heartbeat(bool last) {
-    LATA0 = !last;
 }
 
 #pragma config FEXTOSC = HS     // External Oscillator Selection (HS (crystal oscillator) above 8 MHz; PFM set to high power)

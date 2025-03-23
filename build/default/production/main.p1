@@ -1,34 +1,50 @@
 Version 4.0 HI-TECH Software Intermediate Code
+[t ~ __interrupt . k ]
+[t T1 __interrupt irq ( 31 ) ]
+"26111 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 26111:     struct {
+[s S1090 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1090 . I2C1TXIF I2C1IF I2C1EIF U1RXIF U1TXIF U1EIF U1IF TMR0IF ]
+"26121
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 26121:     struct {
+[s S1091 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S1091 . . RXBNIF . TXBNIF ]
+"26110
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 26110: typedef union {
+[u S1089 `S1090 1 `S1091 1 ]
+[n S1089 . . . ]
+"26128
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 26128: extern volatile PIR3bits_t PIR3bits __attribute__((address(0x39A3)));
+[v _PIR3bits `VS1089 ~T0 @X0 0 e@14755 ]
+"11 rocketlib/include/timer.h
+[; ;rocketlib/include/timer.h: 11: void timer0_handle_interrupt(void);
+[v _timer0_handle_interrupt `(v ~T0 @X0 0 ef ]
 [p mainexit ]
-"35 ./setup.h
-[; ;./setup.h: 35: void pin_init(void);
+"37 ./setup.h
+[; ;./setup.h: 37: void pin_init(void);
 [v _pin_init `(v ~T0 @X0 0 ef ]
-"37
-[; ;./setup.h: 37: void osc_init(void);
+"39
+[; ;./setup.h: 39: void osc_init(void);
 [v _osc_init `(v ~T0 @X0 0 ef ]
-"27188 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 27188:     struct {
-[s S1135 :4 `uc 1 :3 `uc 1 ]
-[n S1135 . CDIV COSC ]
-"27192
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 27192:     struct {
-[s S1136 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1136 . CDIV0 CDIV1 CDIV2 CDIV3 COSC0 COSC1 COSC2 ]
-"27187
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 27187: typedef union {
-[u S1134 `S1135 1 `S1136 1 ]
-[n S1134 . . . ]
-"27202
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 27202: extern volatile OSCCON2bits_t OSCCON2bits __attribute__((address(0x39DA)));
-[v _OSCCON2bits `VS1134 ~T0 @X0 0 e@14810 ]
-"12760
-[v _LATA1 `Vb ~T0 @X0 0 e@130513 ]
-"12757
+"7 rocketlib/include/timer.h
+[; ;rocketlib/include/timer.h: 7: void timer0_init(void);
+[v _timer0_init `(v ~T0 @X0 0 ef ]
+"5347 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h
+[s S3143 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S3143 . INT0EDG INT1EDG INT2EDG . IPEN GIEL GIE ]
+"5356
+[s S3144 :7 `uc 1 :1 `uc 1 ]
+[n S3144 . . GIEH ]
+"5346
+[u S3142 `S3143 1 `S3144 1 ]
+[n S3142 . . . ]
+"5361
+[v _INTCON0bits `VS3142 ~T0 @X0 0 e@16338 ]
+"14 rocketlib/include/timer.h
+[; ;rocketlib/include/timer.h: 14: uint32_t millis(void);
+[v _millis `(ul ~T0 @X0 0 ef ]
+"12757 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h
 [v _LATA0 `Vb ~T0 @X0 0 e@130512 ]
-[v F205 `(v ~T0 @X0 1 tf1`ul ]
-"20 C:\Program Files\Microchip\xc8\v3.00\pic\include/builtins.h
-[v __delay `JF205 ~T0 @X0 0 e ]
-[p i __delay ]
 "272 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 272: __asm("CIOCON equ 03700h");
 [; <" CIOCON equ 03700h ;# ">
@@ -3071,56 +3087,82 @@ Version 4.0 HI-TECH Software Intermediate Code
 "72326
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 72326: __asm("TOSU equ 03FFFh");
 [; <" TOSU equ 03FFFh ;# ">
+[v $root$_ISR `(v ~T0 @X0 0 e ]
+"13 main.c
+[; ;main.c: 13: void __attribute__((picinterrupt(("irq(31)")))) ISR(void) {
+[v _ISR `(v ~T1 @X0 1 ef ]
+{
+[e :U _ISR ]
+[f ]
+"14
+[; ;main.c: 14:     if (PIR3bits.TMR0IF) {
+[e $ ! != -> . . _PIR3bits 0 7 `i -> 0 `i 3255  ]
+{
+"15
+[; ;main.c: 15:         timer0_handle_interrupt();
+[e ( _timer0_handle_interrupt ..  ]
+"16
+[; ;main.c: 16:         PIR3bits.TMR0IF = 0;
+[e = . . _PIR3bits 0 7 -> -> 0 `i `uc ]
+"17
+[; ;main.c: 17:     }
+}
+[e :U 3255 ]
+"18
+[; ;main.c: 18: }
+[e :UE 3254 ]
+}
 [v $root$_main `(v ~T0 @X0 0 e ]
-"15 main.c
-[; ;main.c: 15: int main(void) {
+"21
+[; ;main.c: 21: int main(void) {
 [v _main `(i ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"16
-[; ;main.c: 16:     pin_init();
-[e ( _pin_init ..  ]
-"17
-[; ;main.c: 17:     osc_init();
-[e ( _osc_init ..  ]
-"18
-[; ;main.c: 18:     if (OSCCON2bits.COSC != 0b011) {
-[e $ ! != -> . . _OSCCON2bits 0 1 `i -> 3 `i 3255  ]
-{
-"19
-[; ;main.c: 19:         LATA1 = 0;
-[e = _LATA1 -> -> 0 `i `b ]
-"20
-[; ;main.c: 20:     }
-}
-[e :U 3255 ]
-"21
-[; ;main.c: 21:     while(1) {
-[e :U 3257 ]
-{
 "22
-[; ;main.c: 22:         __asm(" clrwdt");
-[; <"  clrwdt ;# ">
+[; ;main.c: 22:     pin_init();
+[e ( _pin_init ..  ]
 "23
-[; ;main.c: 23:         LATA0 = 0;
-[e = _LATA0 -> -> 0 `i `b ]
+[; ;main.c: 23:     osc_init();
+[e ( _osc_init ..  ]
 "24
-[; ;main.c: 24:         _delay((unsigned long)((500)*(12000000/4000.0)));
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 12000000 `l `d .4000.0 `ul ]
-"25
-[; ;main.c: 25:         LATA0 = 1;
-[e = _LATA0 -> -> 1 `i `b ]
-"26
-[; ;main.c: 26:         _delay((unsigned long)((500)*(12000000/4000.0)));
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 12000000 `l `d .4000.0 `ul ]
+[; ;main.c: 24:     timer0_init();
+[e ( _timer0_init ..  ]
 "27
-[; ;main.c: 27:     }
-}
-[e :U 3256 ]
-[e $U 3257  ]
+[; ;main.c: 27:     INTCON0bits.GIE = 1;
+[e = . . _INTCON0bits 0 6 -> -> 1 `i `uc ]
+"30
+[; ;main.c: 30:     uint32_t last_millis = 0;
+[v _last_millis `ul ~T0 @X0 1 a ]
+[e = _last_millis -> -> -> 0 `i `l `ul ]
+"33
+[; ;main.c: 33:     while(1) {
 [e :U 3258 ]
-"29
-[; ;main.c: 29: }
-[e :UE 3254 ]
+{
+"34
+[; ;main.c: 34:         __asm(" clrwdt");
+[; <"  clrwdt ;# ">
+"36
+[; ;main.c: 36:         if ((millis() - last_millis) > 500) {
+[e $ ! > - ( _millis ..  _last_millis -> -> -> 500 `i `l `ul 3260  ]
+{
+"37
+[; ;main.c: 37:             last_millis = millis();
+[e = _last_millis ( _millis ..  ]
+"38
+[; ;main.c: 38:             (LATA0 = !LATA0);
+[e = _LATA0 ! _LATA0 ]
+"39
+[; ;main.c: 39:         }
+}
+[e :U 3260 ]
+"40
+[; ;main.c: 40:     }
+}
+[e :U 3257 ]
+[e $U 3258  ]
+[e :U 3259 ]
+"42
+[; ;main.c: 42: }
+[e :UE 3256 ]
 }

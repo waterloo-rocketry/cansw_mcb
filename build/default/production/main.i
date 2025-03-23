@@ -36641,12 +36641,10 @@ unsigned char __t3rd16on(void);
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdbool.h" 1 3
 # 4 "main.c" 2
 # 1 "./setup.h" 1
-# 35 "./setup.h"
+# 37 "./setup.h"
 void pin_init(void);
 
 void osc_init(void);
-
-void heartbeat(_Bool last_heartbeat);
 # 5 "main.c" 2
 # 1 "canlib/canlib.h" 1
 
@@ -37481,20 +37479,33 @@ char *tempnam(const char *, const char *);
 
 
 
+void __attribute__((picinterrupt(("irq(31)")))) ISR(void) {
+    if (PIR3bits.TMR0IF) {
+        timer0_handle_interrupt();
+        PIR3bits.TMR0IF = 0;
+    }
+}
 
 
 int main(void) {
     pin_init();
     osc_init();
-    if (OSCCON2bits.COSC != 0b011) {
-        LATA1 = 0;
-    }
+    timer0_init();
+
+
+    INTCON0bits.GIE = 1;
+
+
+    uint32_t last_millis = 0;
+
+
     while(1) {
         __asm(" clrwdt");
-        LATA0 = 0;
-        _delay((unsigned long)((500)*(12000000/4000.0)));
-        LATA0 = 1;
-        _delay((unsigned long)((500)*(12000000/4000.0)));
+
+        if ((millis() - last_millis) > 500) {
+            last_millis = millis();
+            (LATA0 = !LATA0);
+        }
     }
 
 }
