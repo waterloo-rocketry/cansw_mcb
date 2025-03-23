@@ -18,6 +18,8 @@
 // Time between "high speed" sensor checks
 #define MAX_SENSOR_LOOP_TIME_DIFF_ms 5
 
+#define HEARTBEAT() (LATA0 = !LATA0)
+
 // LEDs
 #if (BOARD_ID == MCU)
 #define RED_LED_ON() (LATA0 = 0)
@@ -35,8 +37,5 @@
 void pin_init(void);
 
 void osc_init(void);
-
-void heartbeat(bool last_heartbeat);
-
 
 #endif	/* MCB_H */

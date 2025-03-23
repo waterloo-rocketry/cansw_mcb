@@ -37,8 +37,7 @@
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>
-    <Elem>canlib</Elem>
-    <Elem>rocketlib/pic18f26k83</Elem>
+    <Elem>.</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -267,6 +266,8 @@
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="0-ffff"/>
         <property key="poweroptions.powerenable" value="true"/>
+        <property key="programmerToGoFilePath"
+                  value="C:/Users/zkhua/OneDrive/Documents/GitHub/cansw_mcb/debug/default/default_ptg"/>
         <property key="programmerToGoImageName" value="default_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>

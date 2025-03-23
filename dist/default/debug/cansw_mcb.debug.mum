@@ -1,0 +1,8 @@
+
+18F26K83 Memory Summary:
+    Program space        used   64Ch (  1612) of 10000h bytes   (  2.5%)
+    Data space           used    75h (   117) of  1000h bytes   (  2.9%)
+    Configuration bits   used     1h (     1) of     5h words   ( 20.0%)
+    EEPROM space         used     0h (     0) of   400h bytes   (  0.0%)
+    ID Location space    used     0h (     0) of    10h bytes   (  0.0%)
+
