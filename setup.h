@@ -1,14 +1,6 @@
 #ifndef MCB_H
 #define	MCB_H
 
-#define MCU 0
-#define FS 1
-
-#define BOARD_ID MCU
-#ifndef BOARD_ID
-#define BOARD_ID FS
-#endif
-
 
 #include <xc.h>
 #include "stdbool.h"
@@ -21,13 +13,13 @@
 #define HEARTBEAT() (LATA0 = !LATA0)
 
 // LEDs
-#if (BOARD_ID == MCU)
+#if (BOARD_INST_UNIQUE_ID == BOARD_INST_ID_CANARD_MOTOR_PRIMARY)
 #define RED_LED_ON() (LATA0 = 0)
 #define RED_LED_OFF() (LATA0 = 1)
 #define GREEN_LED_ON() (LATA1 = 0)
 #define GREEN_LED_OFF() (LATA1 = 1)
 
-#elif (Board_ID == FS)
+#elif (BOARD_INST_UNIQUE_ID == BOARD_INST_ID_CANARD_MOTOR_FAILSAFE)
 #define WHITE_LED_ON() (LATA0 = 0)
 #define WHITE_LED_OFF() (LATA1 = 1)
 #define BLUE_LED_ON() (LATA0 = 0)

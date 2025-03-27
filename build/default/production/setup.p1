@@ -3154,7 +3154,67 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;setup.c: 35: }
 [e :UE 3251 ]
 }
-"37
-[p x FEXTOSC  =  HS      ]
 "38
+[p x FEXTOSC  =  HS     ]
+"39
 [p x RSTOSC  =  HFINTOSC_1MHZ ]
+"42
+[p x CLKOUTEN  =  OFF    ]
+"43
+[p x PR1WAY  =  ON       ]
+"44
+[p x CSWEN  =  ON        ]
+"45
+[p x FCMEN  =  ON        ]
+"48
+[p x MCLRE  =  EXTMCLR   ]
+"49
+[p x PWRTS  =  PWRT_OFF  ]
+"50
+[p x MVECEN  =  OFF      ]
+"51
+[p x IVT1WAY  =  ON      ]
+"52
+[p x LPBOREN  =  OFF     ]
+"53
+[p x BOREN  =  SBORDIS   ]
+"56
+[p x BORV  =  VBOR_2P45  ]
+"57
+[p x ZCD  =  OFF         ]
+"58
+[p x PPS1WAY  =  ON      ]
+"59
+[p x STVREN  =  ON       ]
+"60
+[p x DEBUG  =  OFF       ]
+"61
+[p x XINST  =  OFF       ]
+"64
+[p x WDTCPS  =  WDTCPS_31 ]
+"65
+[p x WDTE  =  ON        ]
+"68
+[p x WDTCWS  =  WDTCWS_7 ]
+"69
+[p x WDTCCS  =  SC       ]
+"72
+[p x BBSIZE  =  BBSIZE_512 ]
+"73
+[p x BBEN  =  OFF        ]
+"74
+[p x SAFEN  =  OFF       ]
+"75
+[p x WRTAPP  =  OFF      ]
+"78
+[p x WRTB  =  OFF        ]
+"79
+[p x WRTC  =  OFF        ]
+"80
+[p x WRTD  =  OFF        ]
+"81
+[p x WRTSAF  =  OFF      ]
+"82
+[p x LVP  =  ON          ]
+"85
+[p x CP  =  OFF          ]

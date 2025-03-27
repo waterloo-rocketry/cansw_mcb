@@ -5,6 +5,11 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>setup.h</itemPath>
+      <itemPath>rocketlib/include/timer.h</itemPath>
+      <itemPath>canlib/message_types.h</itemPath>
+      <itemPath>canlib/canlib.h</itemPath>
+      <itemPath>canlib/can.h</itemPath>
+      <itemPath>pwm.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -34,6 +39,7 @@
       </logicalFolder>
       <itemPath>main.c</itemPath>
       <itemPath>setup.c</itemPath>
+      <itemPath>pwm.c</itemPath>
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>
@@ -88,7 +94,8 @@
         <property key="call-prologues" value="false"/>
         <property key="default-bitfield-type" value="true"/>
         <property key="default-char-type" value="true"/>
-        <property key="define-macros" value=""/>
+        <property key="define-macros"
+                  value="BOARD_TYPE_UNIQUE_ID=BOARD_TYPE_ID_CANARD_MOTOR;BOARD_INST_UNIQUE_ID=BOARD_INST_ID_CANARD_MOTOR_FAILSAFE"/>
         <property key="disable-optimizations" value="true"/>
         <property key="extra-include-directories" value="canlib;rocketlib\include"/>
         <property key="favor-optimization-for" value="-speed,+space"/>
@@ -199,8 +206,6 @@
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="0-ffff"/>
         <property key="poweroptions.powerenable" value="true"/>
-        <property key="programmerToGoFilePath"
-                  value="C:/Users/zkhua/OneDrive/Documents/GitHub/cansw_mcb/debug/default/default_ptg"/>
         <property key="programmerToGoImageName" value="default_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>
@@ -301,24 +306,6 @@
         <property key="coverage-enable" value=""/>
         <property key="stack-guidance" value="false"/>
       </XC8-CO>
-      <XC8-config-global>
-        <property key="advanced-elf" value="true"/>
-        <property key="constdata-progmem" value="false"/>
-        <property key="gcc-opt-driver-new" value="true"/>
-        <property key="gcc-opt-std" value="-std=c99"/>
-        <property key="gcc-output-file-format" value="dwarf-3"/>
-        <property key="mapped-progmem" value="false"/>
-        <property key="omit-pack-options" value="false"/>
-        <property key="omit-pack-options-new" value="1"/>
-        <property key="output-file-format" value="-mcof,+elf"/>
-        <property key="smart-io-format" value=""/>
-        <property key="stack-size-high" value="auto"/>
-        <property key="stack-size-low" value="auto"/>
-        <property key="stack-size-main" value="auto"/>
-        <property key="stack-type" value="compiled"/>
-        <property key="user-pack-device-support" value=""/>
-        <property key="wpo-lto" value="false"/>
-      </XC8-config-global>
     </conf>
   </confs>
 </configurationDescriptor>
