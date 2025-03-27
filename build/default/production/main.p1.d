@@ -17,4 +17,5 @@ canlib/util/can_tx_buffer.h  \
 canlib/util/timing_util.h  \
 canlib/pic18f26k83/pic18f26k83_can.h  \
 canlib/pic18f26k83/../can.h  \
-rocketlib/include/timer.h 
+rocketlib/include/timer.h  \
+pwm.h 

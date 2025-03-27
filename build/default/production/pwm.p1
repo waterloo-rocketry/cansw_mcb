@@ -1,58 +1,71 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[t ~ __interrupt . k ]
-[t T1 __interrupt irq ( 31 ) ]
-"26111 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 26111:     struct {
-[s S1090 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1090 . I2C1TXIF I2C1IF I2C1EIF U1RXIF U1TXIF U1EIF U1IF TMR0IF ]
-"26121
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 26121:     struct {
-[s S1091 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S1091 . . RXBNIF . TXBNIF ]
-"26110
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 26110: typedef union {
-[u S1089 `S1090 1 `S1091 1 ]
-[n S1089 . . . ]
-"26128
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 26128: extern volatile PIR3bits_t PIR3bits __attribute__((address(0x39A3)));
-[v _PIR3bits `VS1089 ~T0 @X0 0 e@14755 ]
-"11 rocketlib/include/timer.h
-[; ;rocketlib/include/timer.h: 11: void timer0_handle_interrupt(void);
-[v _timer0_handle_interrupt `(v ~T0 @X0 0 ef ]
-[p mainexit ]
-"29 ./setup.h
-[; ;./setup.h: 29: void pin_init(void);
-[v _pin_init `(v ~T0 @X0 0 ef ]
-"31
-[; ;./setup.h: 31: void osc_init(void);
-[v _osc_init `(v ~T0 @X0 0 ef ]
-"12760 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h
-[v _LATA1 `Vb ~T0 @X0 0 e@130513 ]
-"7 rocketlib/include/timer.h
-[; ;rocketlib/include/timer.h: 7: void timer0_init(void);
-[v _timer0_init `(v ~T0 @X0 0 ef ]
-"12 ./pwm.h
-[; ;./pwm.h: 12: void pwm_init(void);
-[v _pwm_init `(v ~T0 @X0 0 ef ]
-"5347 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h
-[s S3143 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S3143 . INT0EDG INT1EDG INT2EDG . IPEN GIEL GIE ]
-"5356
-[s S3144 :7 `uc 1 :1 `uc 1 ]
-[n S3144 . . GIEH ]
-"5346
-[u S3142 `S3143 1 `S3144 1 ]
-[n S3142 . . . ]
-"5361
-[v _INTCON0bits `VS3142 ~T0 @X0 0 e@16338 ]
-"14 rocketlib/include/timer.h
-[; ;rocketlib/include/timer.h: 14: uint32_t millis(void);
-[v _millis `(ul ~T0 @X0 0 ef ]
-"12757 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h
-[v _LATA0 `Vb ~T0 @X0 0 e@130512 ]
-"14 ./pwm.h
-[; ;./pwm.h: 14: void updatePulseWidth(uint8_t angle);
-[v _updatePulseWidth `(v ~T0 @X0 0 ef1`uc ]
+"28971 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 28971: extern volatile unsigned char RB3PPS __attribute__((address(0x3A0B)));
+[v _RB3PPS `Vuc ~T0 @X0 0 e@14859 ]
+"18376
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 18376:         unsigned EID0 :1;
+[v _TRISB3 `Vb ~T0 @X0 0 e@130587 ]
+"2152
+[v _T2PR `Vuc ~T0 @X0 0 e@16299 ]
+"61854
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 61854:     struct {
+[s S2710 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S2710 . MODE FMT OUT . EN ]
+"61861
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 61861:     struct {
+[s S2711 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S2711 . MODE0 MODE1 MODE2 MODE3 ]
+"61867
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 61867:     struct {
+[s S2712 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S2712 . CCP3MODE CCP3FMT CCP3OUT . CCP3EN ]
+"61874
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 61874:     struct {
+[s S2713 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S2713 . CCP3MODE0 CCP3MODE1 CCP3MODE2 CCP3MODE3 ]
+"61853
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 61853: typedef union {
+[u S2709 `S2710 1 `S2711 1 `S2712 1 `S2713 1 ]
+[n S2709 . . . . . ]
+"61881
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 61881: extern volatile CCP3CONbits_t CCP3CONbits __attribute__((address(0x3F76)));
+[v _CCP3CONbits `VS2709 ~T0 @X0 0 e@16246 ]
+"61828
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 61828: extern volatile unsigned char CCPR3H __attribute__((address(0x3F75)));
+[v _CCPR3H `Vuc ~T0 @X0 0 e@16245 ]
+"61808
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 61808: extern volatile unsigned char CCPR3L __attribute__((address(0x3F74)));
+[v _CCPR3L `Vuc ~T0 @X0 0 e@16244 ]
+"26189
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 26189:     struct {
+[s S1093 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1093 . TMR1IF TMR1GIF TMR2IF CCP1IF NCO1IF CWG1IF CLC1IF INT1IF ]
+"26188
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 26188: typedef union {
+[u S1092 `S1093 1 ]
+[n S1092 . . ]
+"26200
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 26200: extern volatile PIR4bits_t PIR4bits __attribute__((address(0x39A4)));
+[v _PIR4bits `VS1092 ~T0 @X0 0 e@14756 ]
+"2469
+[v _T2CLK `Vuc ~T0 @X0 0 e@16302 ]
+"2196
+[s S3005 :4 `uc 1 :3 `uc 1 :1 `uc 1 ]
+[n S3005 . OUTPS CKPS ON ]
+"2201
+[s S3006 :4 `uc 1 :3 `uc 1 :1 `uc 1 ]
+[n S3006 . T2OUTPS T2CKPS T2ON ]
+"2206
+[s S3007 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S3007 . T2OUTPS0 T2OUTPS1 T2OUTPS2 T2OUTPS3 T2CKPS0 T2CKPS1 T2CKPS2 ]
+"2215
+[s S3008 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S3008 . OUTPS0 OUTPS1 OUTPS2 OUTPS3 CKPS0 CKPS1 CKPS2 TMR2ON ]
+"2195
+[u S3004 `S3005 1 `S3006 1 `S3007 1 `S3008 1 ]
+[n S3004 . . . . . ]
+"2226
+[v _T2CONbits `VS3004 ~T0 @X0 0 e@16300 ]
 "272 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 272: __asm("CIOCON equ 03700h");
 [; <" CIOCON equ 03700h ;# ">
@@ -3095,90 +3108,118 @@ Version 4.0 HI-TECH Software Intermediate Code
 "72326
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 72326: __asm("TOSU equ 03FFFh");
 [; <" TOSU equ 03FFFh ;# ">
-"14 main.c
-[; ;main.c: 14: static void __attribute__((picinterrupt(("irq(31)")))) ISR(void) {
-[v _ISR `(v ~T1 @X0 1 sf ]
+"3 pwm.c
+[; ;pwm.c: 3: const uint16_t MOTOR_MIN_PULSE_WIDTH_US = 500;
+[v _MOTOR_MIN_PULSE_WIDTH_US `Cus ~T0 @X0 1 e ]
+[i _MOTOR_MIN_PULSE_WIDTH_US
+-> -> 500 `i `us
+]
+"4
+[; ;pwm.c: 4: const uint16_t MOTOR_MAX_PULSE_WIDTH_US = 2500;
+[v _MOTOR_MAX_PULSE_WIDTH_US `Cus ~T0 @X0 1 e ]
+[i _MOTOR_MAX_PULSE_WIDTH_US
+-> -> 2500 `i `us
+]
+"5
+[; ;pwm.c: 5: const uint16_t MOTOR_CENTER_PULSE_WIDTH_US = 1500;
+[v _MOTOR_CENTER_PULSE_WIDTH_US `Cus ~T0 @X0 1 e ]
+[i _MOTOR_CENTER_PULSE_WIDTH_US
+-> -> 1500 `i `us
+]
+"8
+[; ;pwm.c: 8: void pwm_init(void){
+[v _pwm_init `(v ~T0 @X0 1 ef ]
 {
-[e :U _ISR ]
+[e :U _pwm_init ]
 [f ]
-"15
-[; ;main.c: 15:     if (PIR3bits.TMR0IF) {
-[e $ ! != -> . . _PIR3bits 0 7 `i -> 0 `i 3255  ]
-{
-"16
-[; ;main.c: 16:         timer0_handle_interrupt();
-[e ( _timer0_handle_interrupt ..  ]
+"13
+[; ;pwm.c: 13:     RB3PPS = 0b001011;
+[e = _RB3PPS -> -> 11 `i `uc ]
+"14
+[; ;pwm.c: 14:     TRISB3 = 1;
+[e = _TRISB3 -> -> 1 `i `b ]
 "17
-[; ;main.c: 17:         PIR3bits.TMR0IF = 0;
-[e = . . _PIR3bits 0 7 -> -> 0 `i `uc ]
-"18
-[; ;main.c: 18:     }
-}
-[e :U 3255 ]
-"19
-[; ;main.c: 19: }
-[e :UE 3254 ]
-}
-[v $root$_main `(v ~T0 @X0 0 e ]
-"23
-[; ;main.c: 23: int main(void) {
-[v _main `(i ~T0 @X0 1 ef ]
-{
-[e :U _main ]
-[f ]
-"24
-[; ;main.c: 24:     pin_init();
-[e ( _pin_init ..  ]
-"25
-[; ;main.c: 25:     osc_init();
-[e ( _osc_init ..  ]
+[; ;pwm.c: 17:     T2PR = 233;
+[e = _T2PR -> -> 233 `i `uc ]
+"20
+[; ;pwm.c: 20:     CCP3CONbits.EN = 0b1;
+[e = . . _CCP3CONbits 0 4 -> -> 1 `i `uc ]
+"21
+[; ;pwm.c: 21:     CCP3CONbits.FMT = 0b0;
+[e = . . _CCP3CONbits 0 1 -> -> 0 `i `uc ]
+"22
+[; ;pwm.c: 22:     CCP3CONbits.MODE = 0b1100;
+[e = . . _CCP3CONbits 0 0 -> -> 12 `i `uc ]
 "26
-[; ;main.c: 26:     LATA1 = 0;
-[e = _LATA1 -> -> 0 `i `b ]
+[; ;pwm.c: 26:     CCPR3H = (562 >> 8) & 0xFF;
+[e = _CCPR3H -> & >> -> 562 `i -> 8 `i -> 255 `i `uc ]
 "27
-[; ;main.c: 27:     timer0_init();
-[e ( _timer0_init ..  ]
-"28
-[; ;main.c: 28:     pwm_init();
-[e ( _pwm_init ..  ]
+[; ;pwm.c: 27:     CCPR3L = 562 & 0xFF;
+[e = _CCPR3L -> & -> 562 `i -> 255 `i `uc ]
 "31
-[; ;main.c: 31:     INTCON0bits.GIE = 1;
-[e = . . _INTCON0bits 0 6 -> -> 1 `i `uc ]
-"34
-[; ;main.c: 34:     uint32_t last_millis = 0;
-[v _last_millis `ul ~T0 @X0 1 a ]
-[e = _last_millis -> -> -> 0 `i `l `ul ]
-"36
-[; ;main.c: 36:     while(1) {
-[e :U 3258 ]
-{
+[; ;pwm.c: 31:     PIR4bits.TMR2IF = 0;
+[e = . . _PIR4bits 0 2 -> -> 0 `i `uc ]
+"33
+[; ;pwm.c: 33:     T2CLK = 0b0001;
+[e = _T2CLK -> -> 1 `i `uc ]
+"35
+[; ;pwm.c: 35:     T2CONbits.CKPS = 0b101;
+[e = . . _T2CONbits 0 1 -> -> 5 `i `uc ]
 "37
-[; ;main.c: 37:         __asm(" clrwdt");
-[; <"  clrwdt ;# ">
-"39
-[; ;main.c: 39:         if ((millis() - last_millis) > 500) {
-[e $ ! > - ( _millis ..  _last_millis -> -> -> 500 `i `l `ul 3260  ]
-{
-"40
-[; ;main.c: 40:             last_millis = millis();
-[e = _last_millis ( _millis ..  ]
+[; ;pwm.c: 37:     T2CONbits.ON = 1;
+[e = . . _T2CONbits 0 2 -> -> 1 `i `uc ]
 "41
-[; ;main.c: 41:             (LATA0 = !LATA0);
-[e = _LATA0 ! _LATA0 ]
+[; ;pwm.c: 41:     while (PIR4bits.TMR2IF == 0)
+[e $U 3251  ]
+[e :U 3252 ]
 "42
-[; ;main.c: 42:         }
+[; ;pwm.c: 42:     {}
+{
 }
-[e :U 3260 ]
-"44
-[; ;main.c: 44:         updatePulseWidth(100);
-[e ( _updatePulseWidth (1 -> -> 100 `i `uc ]
+[e :U 3251 ]
+"41
+[; ;pwm.c: 41:     while (PIR4bits.TMR2IF == 0)
+[e $ == -> . . _PIR4bits 0 2 `i -> 0 `i 3252  ]
+[e :U 3253 ]
 "45
-[; ;main.c: 45:     }
+[; ;pwm.c: 45:     TRISB3 = 0;
+[e = _TRISB3 -> -> 0 `i `b ]
+"46
+[; ;pwm.c: 46: }
+[e :UE 3250 ]
 }
-[e :U 3257 ]
-[e $U 3258  ]
-[e :U 3259 ]
-"47
-[; ;main.c: 47: }
-[e :UE 3256 ]
+"48
+[; ;pwm.c: 48: void updatePulseWidth(uint8_t angle)
+[v _updatePulseWidth `(v ~T0 @X0 1 ef1`uc ]
+"49
+[; ;pwm.c: 49: {
+{
+[e :U _updatePulseWidth ]
+"48
+[; ;pwm.c: 48: void updatePulseWidth(uint8_t angle)
+[v _angle `uc ~T0 @X0 1 r1 ]
+"49
+[; ;pwm.c: 49: {
+[f ]
+"50
+[; ;pwm.c: 50:     uint32_t pulse_width_us = (uint32_t) (MOTOR_MIN_PULSE_WIDTH_US + (float) angle * (MOTOR_MAX_PULSE_WIDTH_US - MOTOR_MIN_PULSE_WIDTH_US) / (10 * 20));
+[v _pulse_width_us `ul ~T0 @X0 1 a ]
+[e = _pulse_width_us -> + -> -> _MOTOR_MIN_PULSE_WIDTH_US `ui `f / * -> _angle `f -> - -> _MOTOR_MAX_PULSE_WIDTH_US `ui -> _MOTOR_MIN_PULSE_WIDTH_US `ui `f -> * -> 10 `i -> 20 `i `f `ul ]
+"51
+[; ;pwm.c: 51:     uint8_t tmr2_prescale = 1 << T2CONbits.CKPS;
+[v _tmr2_prescale `uc ~T0 @X0 1 a ]
+[e = _tmr2_prescale -> << -> 1 `i -> . . _T2CONbits 0 1 `i `uc ]
+"52
+[; ;pwm.c: 52:     uint32_t bitWrite = (uint32_t) ((float) pulse_width_us / 1000000 * (float) 12000000 / tmr2_prescale);
+[v _bitWrite `ul ~T0 @X0 1 a ]
+[e = _bitWrite -> / * / -> _pulse_width_us `f -> -> 1000000 `l `f -> -> 12000000 `l `f -> -> _tmr2_prescale `i `f `ul ]
+"53
+[; ;pwm.c: 53:     CCPR3H = (bitWrite >> 8) & 0xFF;
+[e = _CCPR3H -> & >> _bitWrite -> 8 `i -> -> -> 255 `i `l `ul `uc ]
+"54
+[; ;pwm.c: 54:     CCPR3L = bitWrite & 0xFF;
+[e = _CCPR3L -> & _bitWrite -> -> -> 255 `i `l `ul `uc ]
+"55
+[; ;pwm.c: 55: }
+[e :UE 3254 ]
 }
