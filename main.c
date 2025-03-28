@@ -2,12 +2,11 @@
 #include "stdint.h"
 #include "stdbool.h"     
 #include "setup.h"
-#include "canlib.h"
-#include "can.h"
 #include "timer.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include "pwm.h"
+#include "can_handler.h"
 
 #define _XTAL_FREQ 12000000 //12MHz
 

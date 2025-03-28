@@ -1,4 +1,4 @@
-# 1 "setup.c"
+# 1 "can_handler.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 285 "<built-in>" 3
@@ -6,9 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "setup.c" 2
-# 1 "./setup.h" 1
-
+# 1 "can_handler.c" 2
+# 1 "./can_handler.h" 1
 
 
 
@@ -36641,9 +36640,746 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/xc.h" 2 3
-# 6 "./setup.h" 2
+# 5 "./can_handler.h" 2
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdio.h" 1 3
+# 24 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdio.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 1 3
+# 12 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
+typedef void * va_list[1];
+
+
+
+
+typedef void * __isoc_va_list[1];
+# 143 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
+typedef __int24 ssize_t;
+# 255 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
+typedef long long off_t;
+# 409 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
+typedef struct _IO_FILE FILE;
+# 25 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdio.h" 2 3
+# 52 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdio.h" 3
+typedef union _G_fpos64_t {
+ char __opaque[16];
+ double __align;
+} fpos_t;
+
+extern FILE *const stdin;
+extern FILE *const stdout;
+extern FILE *const stderr;
+
+
+
+
+
+FILE *fopen(const char *restrict, const char *restrict);
+FILE *freopen(const char *restrict, const char *restrict, FILE *restrict);
+int fclose(FILE *);
+
+int remove(const char *);
+int rename(const char *, const char *);
+
+int feof(FILE *);
+int ferror(FILE *);
+int fflush(FILE *);
+void clearerr(FILE *);
+
+int fseek(FILE *, long, int);
+long ftell(FILE *);
+void rewind(FILE *);
+
+int fgetpos(FILE *restrict, fpos_t *restrict);
+int fsetpos(FILE *, const fpos_t *);
+
+size_t fread(void *restrict, size_t, size_t, FILE *restrict);
+size_t fwrite(const void *restrict, size_t, size_t, FILE *restrict);
+
+int fgetc(FILE *);
+int getc(FILE *);
+int getchar(void);
+
+
+
+
+
+int ungetc(int, FILE *);
+int getch(void);
+
+int fputc(int, FILE *);
+int putc(int, FILE *);
+int putchar(int);
+
+
+
+
+
+void putch(char);
+
+char *fgets(char *restrict, int, FILE *restrict);
+
+char *gets(char *);
+
+
+int fputs(const char *restrict, FILE *restrict);
+int puts(const char *);
+
+__attribute__((__format__(__printf__, 1, 2)))
+int printf(const char *restrict, ...);
+__attribute__((__format__(__printf__, 2, 3)))
+int fprintf(FILE *restrict, const char *restrict, ...);
+__attribute__((__format__(__printf__, 2, 3)))
+int sprintf(char *restrict, const char *restrict, ...);
+__attribute__((__format__(__printf__, 3, 4)))
+int snprintf(char *restrict, size_t, const char *restrict, ...);
+
+__attribute__((__format__(__printf__, 1, 0)))
+int vprintf(const char *restrict, __isoc_va_list);
+int vfprintf(FILE *restrict, const char *restrict, __isoc_va_list);
+__attribute__((__format__(__printf__, 2, 0)))
+int vsprintf(char *restrict, const char *restrict, __isoc_va_list);
+__attribute__((__format__(__printf__, 3, 0)))
+int vsnprintf(char *restrict, size_t, const char *restrict, __isoc_va_list);
+
+__attribute__((__format__(__scanf__, 1, 2)))
+int scanf(const char *restrict, ...);
+__attribute__((__format__(__scanf__, 2, 3)))
+int fscanf(FILE *restrict, const char *restrict, ...);
+__attribute__((__format__(__scanf__, 2, 3)))
+int sscanf(const char *restrict, const char *restrict, ...);
+
+__attribute__((__format__(__scanf__, 1, 0)))
+int vscanf(const char *restrict, __isoc_va_list);
+int vfscanf(FILE *restrict, const char *restrict, __isoc_va_list);
+__attribute__((__format__(__scanf__, 2, 0)))
+int vsscanf(const char *restrict, const char *restrict, __isoc_va_list);
+
+void perror(const char *);
+
+int setvbuf(FILE *restrict, char *restrict, int, size_t);
+void setbuf(FILE *restrict, char *restrict);
+
+char *tmpnam(char *);
+FILE *tmpfile(void);
+
+
+
+
+FILE *fmemopen(void *restrict, size_t, const char *restrict);
+FILE *open_memstream(char **, size_t *);
+FILE *fdopen(int, const char *);
+FILE *popen(const char *, const char *);
+int pclose(FILE *);
+int fileno(FILE *);
+int fseeko(FILE *, off_t, int);
+off_t ftello(FILE *);
+int dprintf(int, const char *restrict, ...);
+int vdprintf(int, const char *restrict, __isoc_va_list);
+void flockfile(FILE *);
+int ftrylockfile(FILE *);
+void funlockfile(FILE *);
+int getc_unlocked(FILE *);
+int getchar_unlocked(void);
+int putc_unlocked(int, FILE *);
+int putchar_unlocked(int);
+ssize_t getdelim(char **restrict, size_t *restrict, int, FILE *restrict);
+ssize_t getline(char **restrict, size_t *restrict, FILE *restrict);
+int renameat(int, const char *, int, const char *);
+char *ctermid(char *);
+
+
+
+
+
+
+
+char *tempnam(const char *, const char *);
+# 7 "./can_handler.h" 2
+
+
+# 1 "canlib/canlib.h" 1
+
+
+
+# 1 "canlib/can.h" 1
+# 10 "canlib/can.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdbool.h" 1 3
-# 7 "./setup.h" 2
+# 11 "canlib/can.h" 2
+
+
+
+typedef uint32_t can_sid_t;
+
+
+typedef struct {
+
+    uint8_t brp;
+
+    uint8_t sjw;
+
+
+    uint8_t sam;
+
+    uint8_t seg1ph;
+
+    uint8_t seg2ph;
+
+    uint8_t prseg;
+
+
+
+    _Bool btlmode;
+} can_timing_t;
+
+
+typedef struct {
+
+    can_sid_t sid;
+
+    uint8_t data_len;
+
+    uint8_t data[8];
+} can_msg_t;
+# 5 "canlib/canlib.h" 2
+# 1 "canlib/message_types.h" 1
+
+
+
+
+
+
+typedef enum {
+    PRIO_HIGHEST = 0x0,
+    PRIO_HIGH = 0x1,
+    PRIO_MEDIUM = 0x2,
+    PRIO_LOW = 0x3,
+} can_msg_prio_t;
+
+
+typedef enum {
+    MSG_GENERAL_BOARD_STATUS = 0x001,
+    MSG_RESET_CMD = 0x002,
+    MSG_DEBUG_RAW = 0x003,
+    MSG_CONFIG_SET = 0x004,
+    MSG_CONFIG_STATUS = 0x005,
+    MSG_ACTUATOR_CMD = 0x006,
+    MSG_ACTUATOR_ANALOG_CMD = 0x007,
+    MSG_ACTUATOR_STATUS = 0x008,
+    MSG_ALT_ARM_CMD = 0x009,
+    MSG_ALT_ARM_STATUS = 0x00A,
+    MSG_SENSOR_TEMP = 0x00B,
+    MSG_SENSOR_ALTITUDE = 0x00C,
+    MSG_SENSOR_IMU_X = 0x00D,
+    MSG_SENSOR_IMU_Y = 0x00E,
+    MSG_SENSOR_IMU_Z = 0x00F,
+    MSG_SENSOR_MAG_X = 0x010,
+    MSG_SENSOR_MAG_Y = 0x011,
+    MSG_SENSOR_MAG_Z = 0x012,
+    MSG_SENSOR_ANALOG = 0x013,
+    MSG_GPS_TIMESTAMP = 0x014,
+    MSG_GPS_LATITUDE = 0x015,
+    MSG_GPS_LONGITUDE = 0x016,
+    MSG_GPS_ALTITUDE = 0x017,
+    MSG_GPS_INFO = 0x018,
+    MSG_STATE_EST_DATA = 0x019,
+    MSG_LEDS_ON = 0x01A,
+    MSG_LEDS_OFF = 0x01B,
+    MSG_ID_ENUM_MAX = 0x01C,
+} can_msg_type_t;
+
+
+typedef enum {
+    BOARD_TYPE_ID_ANY = 0x00,
+    BOARD_TYPE_ID_INJ_SENSOR = 0x01,
+    BOARD_TYPE_ID_CANARD_MOTOR = 0x02,
+    BOARD_TYPE_ID_CAMERA = 0x03,
+    BOARD_TYPE_ID_POWER = 0x04,
+    BOARD_TYPE_ID_LOGGER = 0x05,
+    BOARD_TYPE_ID_PROCESSOR = 0x06,
+    BOARD_TYPE_ID_TELEMETRY = 0x07,
+    BOARD_TYPE_ID_GPS = 0x08,
+    BOARD_TYPE_ID_SRAD_GNSS = 0x09,
+    BOARD_TYPE_ID_ALTIMETER = 0x0A,
+    BOARD_TYPE_ID_ARMING = 0x0B,
+    BOARD_TYPE_ID_PAY_SENSOR = 0x40,
+    BOARD_TYPE_ID_PAY_MOTOR = 0x41,
+    BOARD_TYPE_ID_RLCS_GLS = 0x80,
+    BOARD_TYPE_ID_RLCS_RELAY = 0x81,
+    BOARD_TYPE_ID_RLCS_HEATING = 0x82,
+    BOARD_TYPE_ID_DAQ = 0x83,
+    BOARD_TYPE_ID_CHARGING = 0x84,
+    BOARD_TYPE_ID_THERMOCOUPLE = 0x85,
+    BOARD_TYPE_ID_USB = 0x86,
+    BOARD_TYPE_ID_FYDP25_TVCA = 0xC0,
+} can_board_type_id_t;
+
+
+typedef enum {
+    BOARD_INST_ID_ANY = 0x00,
+    BOARD_INST_ID_GENERIC = 0x01,
+} can_board_inst_id_t;
+
+typedef enum {
+    BOARD_INST_ID_CANARD_MOTOR_PRIMARY = 0x02,
+    BOARD_INST_ID_CANARD_MOTOR_FAILSAFE = 0x03,
+} can_board_inst_id_canard_motor_t;
+
+typedef enum {
+    BOARD_INST_ID_CAMERA_INJ_A = 0x04,
+    BOARD_INST_ID_CAMERA_INJ_B = 0x05,
+    BOARD_INST_ID_CAMERA_VENT_A = 0x06,
+    BOARD_INST_ID_CAMERA_VENT_B = 0x07,
+    BOARD_INST_ID_CAMERA_VENT_C = 0x08,
+    BOARD_INST_ID_CAMERA_VENT_D = 0x09,
+    BOARD_INST_ID_CAMERA_RECOVERY = 0x0A,
+} can_board_inst_id_camera_t;
+
+typedef enum {
+    BOARD_INST_ID_POWER_ROCKET = 0x0B,
+    BOARD_INST_ID_POWER_PAYLOAD = 0x0C,
+} can_board_inst_id_power_t;
+
+typedef enum {
+    BOARD_INST_ID_THERMOCOUPLE_1 = 0x0D,
+    BOARD_INST_ID_THERMOCOUPLE_2 = 0x0E,
+    BOARD_INST_ID_THERMOCOUPLE_3 = 0x0F,
+    BOARD_INST_ID_THERMOCOUPLE_4 = 0x10,
+} can_board_inst_id_thermocouple_t;
+
+typedef enum {
+    E_NOMINAL = 0x00,
+    E_5V_OVER_CURRENT = 0x01,
+    E_5V_OVER_VOLTAGE = 0x02,
+    E_5V_UNDER_VOLTAGE = 0x04,
+    E_12V_OVER_CURRENT = 0x08,
+    E_12V_OVER_VOLTAGE = 0x10,
+    E_12V_UNDER_VOLTAGE = 0x20,
+    E_IO_ERROR = 0x40,
+    E_FS_ERROR = 0x80,
+} can_general_board_status_t;
+
+typedef enum {
+    ACTUATOR_OX_INJECTOR_VALVE = 0x00,
+    ACTUATOR_FUEL_INJECTOR_VALVE = 0x01,
+    ACTUATOR_CHARGE_ENABLE = 0x02,
+    ACTUATOR_5V_RAIL_ROCKET = 0x03,
+    ACTUATOR_5V_RAIL_PAYLOAD = 0x04,
+    ACTUATOR_TELEMETRY = 0x05,
+    ACTUATOR_CAMERA_INJ_A = 0x06,
+    ACTUATOR_CAMERA_INJ_B = 0x07,
+    ACTUATOR_CAMERA_VENT_A = 0x08,
+    ACTUATOR_CAMERA_VENT_B = 0x09,
+    ACTUATOR_CAMERA_VENT_C = 0x0A,
+    ACTUATOR_CAMERA_VENT_D = 0x0B,
+    ACTUATOR_CAMERA_RECOVERY = 0x0C,
+    ACTUATOR_PROC_ESTIMATOR_INIT = 0x0D,
+    ACTUATOR_CANARD_ENABLE = 0x0E,
+    ACTUATOR_CANARD_ANGLE = 0x0F,
+    ACTUATOR_ENUM_MAX = 0x10,
+} can_actuator_id_t;
+
+typedef enum {
+    ACT_STATE_ON = 0x00,
+    ACT_STATE_OFF = 0x01,
+    ACT_STATE_UNK = 0x02,
+    ACT_STATE_ILLEGAL = 0x03,
+    ACT_STATE_ENUM_MAX = 0x04,
+} can_actuator_state_t;
+
+typedef enum {
+    ALTIMETER_RAVEN = 0x00,
+    ALTIMETER_STRATOLOGGER = 0x01,
+    ALTIMETER_SRAD = 0x02,
+    ALTIMETER_ENUM_MAX = 0x03,
+} can_altimeter_id_t;
+
+typedef enum {
+    ALT_ARM_STATE_DISARMED = 0x00,
+    ALT_ARM_STATE_ARMED = 0x01,
+    ALT_ARM_STATE_ENUM_MAX = 0x02,
+} can_alt_arm_state_t;
+
+typedef enum {
+    IMU_PROC_ALTIMU10 = 0x00,
+    IMU_PROC_MTI630 = 0x01,
+    IMU_PROC_LSM6DSO32 = 0x02,
+    IMU_SRAD_ALT_ALTIMU10 = 0x03,
+    IMU_ENUM_MAX = 0x04,
+} can_imu_id_t;
+
+typedef enum {
+    SENSOR_5V_VOLT = 0x00,
+    SENSOR_5V_CURR = 0x01,
+    SENSOR_12V_VOLT = 0x02,
+    SENSOR_12V_CURR = 0x03,
+    SENSOR_CHARGE_VOLT = 0x04,
+    SENSOR_CHARGE_CURR = 0x05,
+    SENSOR_BATT_VOLT = 0x06,
+    SENSOR_BATT_CURR = 0x07,
+    SENSOR_MOTOR_CURR = 0x08,
+    SENSOR_PRESSURE_OX = 0x09,
+    SENSOR_PRESSURE_FUEL = 0x0A,
+    SENSOR_PRESSURE_CC = 0x0B,
+    SENSOR_BARO_PRESSURE = 0x0C,
+    SENSOR_BARO_TEMP = 0x0D,
+    SENSOR_RA_BATT_VOLT_1 = 0x0E,
+    SENSOR_RA_BATT_VOLT_2 = 0x0F,
+    SENSOR_RA_BATT_CURR_1 = 0x10,
+    SENSOR_RA_BATT_CURR_2 = 0x11,
+    SENSOR_RA_MAG_VOLT_1 = 0x12,
+    SENSOR_RA_MAG_VOLT_2 = 0x13,
+    SENSOR_FPS = 0x14,
+    SENSOR_CANARD_ENCODER_1 = 0x15,
+    SENSOR_CANARD_ENCODER_2 = 0x16,
+    SENSOR_PROC_FLIGHT_PHASE_STATUS = 0x17,
+    SENSOR_VELOCITY = 0x18,
+    SENSOR_ENUM_MAX = 0x19,
+} can_analog_sensor_id_t;
+
+typedef enum {
+    STATE_ID_ATT_Q0 = 0x00,
+    STATE_ID_ATT_Q1 = 0x01,
+    STATE_ID_ATT_Q2 = 0x02,
+    STATE_ID_ATT_Q3 = 0x03,
+    STATE_ID_RATE_WX = 0x04,
+    STATE_ID_RATE_WY = 0x05,
+    STATE_ID_RATE_WZ = 0x06,
+    STATE_ID_VEL_VX = 0x07,
+    STATE_ID_VEL_VY = 0x08,
+    STATE_ID_VEL_VZ = 0x09,
+    STATE_ID_ALT = 0x0A,
+    STATE_ID_COEFF_CL = 0x0B,
+    STATE_ID_CANARD_ANGLE = 0x0C,
+    STATE_ID_ENUM_MAX = 0x0D,
+} can_state_est_id_t;
+# 6 "canlib/canlib.h" 2
+
+# 1 "canlib/message/msg_actuator.h" 1
+# 10 "canlib/message/msg_actuator.h"
+_Bool build_actuator_cmd_msg(
+    can_msg_prio_t prio, uint16_t timestamp, can_actuator_id_t actuator_id,
+    can_actuator_state_t actuator_cmd, can_msg_t *output
+);
+
+_Bool build_actuator_analog_cmd_msg(
+    can_msg_prio_t prio, uint32_t timestamp, can_actuator_id_t actuator_id, uint16_t actuator_cmd,
+    can_msg_t *output
+);
+
+_Bool build_actuator_status_msg(
+    can_msg_prio_t prio, uint16_t timestamp, can_actuator_id_t actuator_id,
+    can_actuator_state_t actuator_curr_state, can_actuator_id_t actuator_cmd_state,
+    can_msg_t *output
+);
+
+
+
+
+
+int get_actuator_id(const can_msg_t *msg);
+
+
+
+
+
+int get_curr_actuator_state(const can_msg_t *msg);
+
+
+
+
+
+
+int get_cmd_actuator_state(const can_msg_t *msg);
+
+
+
+
+
+
+uint16_t get_cmd_actuator_state_analog(const can_msg_t *msg);
+# 8 "canlib/canlib.h" 2
+# 1 "canlib/message/msg_common.h" 1
+# 26 "canlib/message/msg_common.h"
+void write_timestamp_2bytes(uint16_t timestamp, can_msg_t *output);
+
+uint16_t get_message_type(const can_msg_t *msg);
+
+uint8_t get_board_type_unique_id(const can_msg_t *msg);
+uint8_t get_board_inst_unique_id(const can_msg_t *msg);
+
+uint16_t get_timestamp(const can_msg_t *msg);
+# 9 "canlib/canlib.h" 2
+# 1 "canlib/message/msg_general.h" 1
+# 15 "canlib/message/msg_general.h"
+_Bool build_general_board_status_msg(
+    can_msg_prio_t prio, uint16_t timestamp, uint32_t general_error_bitfield,
+    uint16_t board_specific_error_bitfield, can_msg_t *output
+);
+
+
+
+
+_Bool build_reset_msg(
+    can_msg_prio_t prio, uint16_t timestamp, uint8_t board_type_id, uint8_t board_inst_id,
+    can_msg_t *output
+);
+
+
+
+
+_Bool build_debug_raw_msg(
+    can_msg_prio_t prio, uint16_t timestamp, const uint8_t *data, can_msg_t *output
+);
+
+_Bool build_config_set_msg(
+    can_msg_prio_t prio, uint16_t timestamp, uint8_t board_type_id, uint8_t board_inst_id,
+    uint16_t config_id, uint16_t config_value, can_msg_t *output
+);
+
+_Bool build_config_status_msg(
+    can_msg_prio_t prio, uint16_t timestamp, uint16_t config_id, uint16_t config_value,
+    can_msg_t *output
+);
+
+_Bool get_general_board_status(
+    const can_msg_t *msg, uint32_t *general_error_bitfield, uint16_t *board_specific_error_bitfield
+);
+
+
+
+
+
+_Bool get_reset_board_id(const can_msg_t *msg, uint8_t *board_type_id, uint8_t *board_inst_id);
+
+_Bool check_board_need_reset(const can_msg_t *msg);
+
+_Bool get_debug_raw_data(const can_msg_t *msg, uint8_t *data);
+
+_Bool get_config_set_target_board(
+    const can_msg_t *msg, uint8_t *board_type_id, uint8_t *board_inst_id
+);
+
+_Bool get_config_id_value(const can_msg_t *msg, uint16_t *config_id, uint16_t *config_value);
+# 10 "canlib/canlib.h" 2
+# 1 "canlib/message/msg_gps.h" 1
+# 14 "canlib/message/msg_gps.h"
+_Bool build_gps_time_msg(
+    can_msg_prio_t prio, uint16_t timestamp, uint8_t utc_hours, uint8_t utc_mins, uint8_t utc_secs,
+    uint8_t utc_dsecs, can_msg_t *output
+);
+
+
+
+
+
+
+_Bool build_gps_lat_msg(
+    can_msg_prio_t prio, uint16_t timestamp, uint8_t degrees, uint8_t minutes, uint16_t dminutes,
+    uint8_t direction, can_msg_t *output
+);
+
+
+
+
+
+
+_Bool build_gps_lon_msg(
+    can_msg_prio_t prio, uint16_t timestamp, uint8_t degrees, uint8_t minutes, uint16_t dminutes,
+    uint8_t direction, can_msg_t *output
+);
+
+
+
+
+
+_Bool build_gps_alt_msg(
+    can_msg_prio_t prio, uint16_t timestamp, uint16_t altitude, uint8_t daltitude, uint8_t units,
+    can_msg_t *output
+);
+
+
+
+
+
+_Bool build_gps_info_msg(
+    can_msg_prio_t prio, uint16_t timestamp, uint8_t num_sat, uint8_t quality, can_msg_t *output
+);
+
+
+
+
+
+_Bool get_gps_time(
+    const can_msg_t *msg, uint8_t *utc_hours, uint8_t *utc_mins, uint8_t *utc_secs,
+    uint8_t *utc_dsecs
+);
+
+
+
+
+
+
+_Bool get_gps_lat(
+    const can_msg_t *msg, uint8_t *degrees, uint8_t *minutes, uint16_t *dminutes, uint8_t *direction
+);
+
+
+
+
+
+
+_Bool get_gps_lon(
+    const can_msg_t *msg, uint8_t *degrees, uint8_t *minutes, uint16_t *dminutes, uint8_t *direction
+);
+
+
+
+
+
+
+_Bool get_gps_alt(const can_msg_t *msg, uint16_t *altitude, uint8_t *daltitude, uint8_t *units);
+
+
+
+
+
+_Bool get_gps_info(const can_msg_t *msg, uint8_t *num_sat, uint8_t *quality);
+# 11 "canlib/canlib.h" 2
+# 1 "canlib/message/msg_recovery.h" 1
+# 13 "canlib/message/msg_recovery.h"
+_Bool build_alt_arm_cmd_msg(
+    can_msg_prio_t prio, uint16_t timestamp, can_altimeter_id_t alt_id, can_alt_arm_state_t arm_cmd,
+    can_msg_t *output
+);
+
+
+
+
+_Bool build_alt_arm_status_msg(
+    can_msg_prio_t prio, uint16_t timestamp, can_altimeter_id_t alt_id,
+    can_alt_arm_state_t arm_state, uint16_t v_drogue, uint16_t v_main, can_msg_t *output
+);
+
+
+
+
+
+_Bool get_alt_arm_state(
+    const can_msg_t *msg, can_altimeter_id_t *alt_id, can_alt_arm_state_t *arm_state
+);
+
+
+
+
+
+_Bool get_pyro_voltage_data(const can_msg_t *msg, uint16_t *v_drogue, uint16_t *v_main);
+# 12 "canlib/canlib.h" 2
+# 1 "canlib/message/msg_sensor.h" 1
+# 16 "canlib/message/msg_sensor.h"
+_Bool build_temp_data_msg(
+    can_msg_prio_t prio, uint16_t timestamp, uint8_t sensor_num, int32_t temp, can_msg_t *output
+);
+
+
+
+
+_Bool build_altitude_data_msg(
+    can_msg_prio_t prio, uint16_t timestamp, int32_t altitude, can_msg_t *output
+);
+
+
+
+
+_Bool build_imu_data_msg(
+    can_msg_prio_t prio, uint16_t timestamp, char axis, can_imu_id_t imu_id, uint16_t linear_accel,
+    uint16_t angular_velocity, can_msg_t *output
+);
+
+
+
+
+_Bool build_mag_data_msg(
+    can_msg_prio_t prio, uint16_t timestamp, char axis, can_imu_id_t imu_id, uint16_t mag_value,
+    can_msg_t *output
+);
+
+
+
+
+
+
+_Bool build_analog_data_msg(
+    can_msg_prio_t prio, uint16_t timestamp, can_analog_sensor_id_t sensor_id, uint16_t sensor_data,
+    can_msg_t *output
+);
+
+_Bool is_sensor_data(const can_msg_t *msg);
+
+
+
+
+
+_Bool get_temp_data(const can_msg_t *msg, uint8_t *sensor_num, int32_t *temp);
+
+
+
+
+
+_Bool get_altitude_data(const can_msg_t *msg, int32_t *altitude);
+
+_Bool get_imu_mag_id_dimension(const can_msg_t *msg, can_imu_id_t *imu_id, char *dimension);
+
+
+
+
+
+_Bool get_imu_data(const can_msg_t *msg, uint16_t *linear_accel, uint16_t *angular_velocity);
+
+_Bool get_mag_data(const can_msg_t *msg, uint16_t *mag_value);
+
+
+
+
+
+
+_Bool get_analog_data(
+    const can_msg_t *msg, can_analog_sensor_id_t *sensor_id, uint16_t *output_data
+);
+# 13 "canlib/canlib.h" 2
+# 1 "canlib/message/msg_state_est.h" 1
+# 13 "canlib/message/msg_state_est.h"
+_Bool build_state_est_data_msg(
+    can_msg_prio_t prio, uint16_t timestamp, can_state_est_id_t state_id, const float *state_data,
+    can_msg_t *output
+);
+
+
+
+
+
+_Bool get_state_est_data(const can_msg_t *msg, can_state_est_id_t *state_id, float *state_data);
+# 14 "canlib/canlib.h" 2
+
+# 1 "canlib/util/can_rcv_buffer.h" 1
+# 26 "canlib/util/can_rcv_buffer.h"
+# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stddef.h" 1 3
+# 19 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stddef.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 1 3
+# 138 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
+typedef int ptrdiff_t;
+# 20 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stddef.h" 2 3
+# 27 "canlib/util/can_rcv_buffer.h" 2
+
+
+
+
+
+
+void rcvb_init(void *pool, size_t pool_size);
+# 42 "canlib/util/can_rcv_buffer.h"
+void rcvb_push_message(const can_msg_t *msg);
+# 53 "canlib/util/can_rcv_buffer.h"
+_Bool rcvb_has_overflowed(void);
 
 
 
@@ -36651,92 +37387,143 @@ unsigned char __t3rd16on(void);
 
 
 
-
-void pin_init(void);
-
-void osc_init(void);
-# 2 "setup.c" 2
-
-
-void pin_init(void){
-
-    TRISA0 = 0;
-    ANSELA0 = 0;
-    LATA0 = 1;
-
-    TRISA1 = 0;
-    ANSELA1 = 0;
-    LATA1 = 1;
-
-
-    TRISB4 = 1;
-    TRISB5 = 1;
+void rcvb_clear_overflow_flag(void);
+# 70 "canlib/util/can_rcv_buffer.h"
+_Bool rcvb_is_full(void);
 
 
 
 
 
+_Bool rcvb_is_empty(void);
+
+
+
+
+
+_Bool rcvb_pop_message(can_msg_t *msg);
+
+
+
+
+
+_Bool rcvb_peek_message(can_msg_t *msg);
+# 16 "canlib/canlib.h" 2
+# 1 "canlib/util/can_tx_buffer.h" 1
+# 12 "canlib/util/can_tx_buffer.h"
+void txb_init(void *pool, size_t pool_size,
+              void (*can_send_fp)(const can_msg_t *),
+              _Bool (*can_tx_ready)(void));
+
+
+
+
+
+
+_Bool txb_enqueue(const can_msg_t *msg);
+
+
+
+
+
+
+void txb_heartbeat(void);
+# 17 "canlib/canlib.h" 2
+# 1 "canlib/util/timing_util.h" 1
+
+
+
+
+
+
+
+_Bool can_generate_timing_params(uint32_t can_frequency, can_timing_t *timing);
+# 18 "canlib/canlib.h" 2
+
+
+
+
+
+
+
+# 1 "canlib/pic18f26k83/pic18f26k83_can.h" 1
+# 16 "canlib/pic18f26k83/pic18f26k83_can.h"
+void can_init(const can_timing_t *timing,
+              void (*receive_callback)(const can_msg_t *message));
+
+
+void can_send(const can_msg_t* message);
+
+
+_Bool can_send_rdy(void);
+
+
+void can_handle_interrupt(void);
+# 26 "canlib/canlib.h" 2
+# 10 "./can_handler.h" 2
+
+
+
+
+
+
+void can_setup(void);
+
+void can_receive_callback(const can_msg_t *msg);
+
+void send_status_ok(void);
+
+void can_log(const can_msg_t *msg);
+# 2 "can_handler.c" 2
+
+void can_setup(void) {
+    CANRXPPS = 0x11;
+    RC0PPS = 0x33;
+
+
+
+    TRISC0 = 0;
+    LATC0 = 1;
+    ODCC0 = 1;
+    ANSELC0 = 0;
+
+
+    TRISC1 = 1;
+    ANSELC1 = 0;
+
+    can_timing_t timing;
+    can_generate_timing_params(12000000, &timing);
+    can_init(&timing, can_receive_callback);
 
 }
 
-void osc_init(void){
+void can_receive_callback(const can_msg_t *msg) {
 
-    OSCCON1 = 0b01110000;
-
-    while (OSCCON3bits.ORDY == 0) {}
-
-    if (OSCCON2 != 0b01110000) {
-
-        for (uint16_t i = 0; i < 60000; i++) {}
+    if (get_board_type_unique_id(msg) == BOARD_TYPE_ID_CANARD_MOTOR) {
+        return;
     }
+    uint16_t msg_type = get_message_type(msg);
+    int actuator_id;
+    int actuator_state;
+
+    switch(msg_type) {
+
+        case MSG_ACTUATOR_CMD:
+            actuator_id = get_actuator_id(msg);
+            if (actuator_id == ACTUATOR_CANARD_ENABLE) {
+                actuator_state = get_cmd_actuator_state(msg);
+                if (actuator_state == ACT_STATE_ON) {
+                    TRISC5 = 0;
+                }
+                else if (actuator_state == ACT_STATE_OFF) {
+                    TRISC5 = 1;
+                }
+            }
+# 57 "can_handler.c"
+        default:
+            break;
+
+
+    }
+
 }
-
-
-#pragma config FEXTOSC = HS
-#pragma config RSTOSC = HFINTOSC_1MHZ
-
-
-#pragma config CLKOUTEN = OFF
-#pragma config PR1WAY = ON
-#pragma config CSWEN = ON
-#pragma config FCMEN = ON
-
-
-#pragma config MCLRE = EXTMCLR
-#pragma config PWRTS = PWRT_OFF
-#pragma config MVECEN = OFF
-#pragma config IVT1WAY = ON
-#pragma config LPBOREN = OFF
-#pragma config BOREN = SBORDIS
-
-
-#pragma config BORV = VBOR_2P45
-#pragma config ZCD = OFF
-#pragma config PPS1WAY = ON
-#pragma config STVREN = ON
-#pragma config DEBUG = OFF
-#pragma config XINST = OFF
-
-
-#pragma config WDTCPS = WDTCPS_31
-#pragma config WDTE = ON
-
-
-#pragma config WDTCWS = WDTCWS_7
-#pragma config WDTCCS = SC
-
-
-#pragma config BBSIZE = BBSIZE_512
-#pragma config BBEN = OFF
-#pragma config SAFEN = OFF
-#pragma config WRTAPP = OFF
-
-
-#pragma config WRTB = OFF
-#pragma config WRTC = OFF
-#pragma config WRTD = OFF
-#pragma config WRTSAF = OFF
-#pragma config LVP = ON
-
-
-#pragma config CP = OFF

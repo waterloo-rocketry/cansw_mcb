@@ -11,13 +11,13 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\zkhua\AppData\Local\Temp\xcAs14nc.\driver_tmp_9.o
+$C:\Users\zkhua\AppData\Local\Temp\xcAsr70.\driver_tmp_9.o
 init CODE 0 1A 1A 4 1 2
 reset_vec CODE 0 0 0 4 1 2
 config CONFIG 4 300000 300000 A 1 1
 $dist/default/production\cansw_mcb.production.o
 ivt0x8 CODE 0 8 8 12 1 2
-cinit CODE 0 2260 2260 22 1 2
+cinit CODE 0 2260 2260 24 1 2
 text0 CODE 0 20EE 20EE 96 1 2
 text1 CODE 0 1E4C 1E4C 19C 1 2
 text2 CODE 0 1C98 1C98 1B4 1 2
@@ -25,18 +25,18 @@ text3 CODE 0 1FE8 1FE8 106 1 2
 text4 CODE 0 14BE 14BE 44A 1 2
 text5 CODE 0 1908 1908 390 1 2
 text6 CODE 0 1008 1008 4B6 1 2
-text7 CODE 0 2282 2282 1E 1 2
+text7 CODE 0 2284 2284 1E 1 2
 text8 CODE 0 21CE 21CE 44 1 2
-text9 CODE 0 22BA 22BA 14 1 2
+text9 CODE 0 22BC 22BC 14 1 2
 text10 CODE 0 2184 2184 4A 1 2
 text11 CODE 0 223A 223A 26 1 2
-text12 CODE 0 22A0 22A0 1A 1 2
+text12 CODE 0 22A2 22A2 1A 1 2
 text13 CODE 0 2212 2212 28 1 2
 cstackCOMRAM COMRAM 1 1 1 5C 1 1
-cstackBANK0 BANK0 1 7E 7E 16 1 1
-bssBANK0 BANK0 1 60 60 1E 1 1
+cstackBANK0 BANK0 1 7D 7D 16 1 1
+bssBANK0 BANK0 1 60 60 1D 1 1
 smallconst SMALLCONST 0 1000 1000 8 1 2
-bssCOMRAM COMRAM 1 5D 5D 2 1 1
+bssCOMRAM COMRAM 1 5D 5D 3 1 1
 config CONFIG 4 300000 300000 A 1 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
@@ -44,9 +44,9 @@ config CONFIG 4 300000 300000 A 1 1
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM 94-FFF 1
+RAM 93-FFF 1
 SFR 3700-3FFF 1
-BANK0 94-FF 1
+BANK0 93-FF 1
 BANK1 100-1FF 1
 BANK2 200-2FF 1
 BANK3 300-3FF 1
@@ -58,24 +58,22 @@ BANK8 800-8FF 1
 BANK9 900-9FF 1
 CONST 4-7 1
 CONST 1E-FFF 1
-CONST 22CE-FFFF 1
+CONST 22D0-FFFF 1
 IDLOC 200000-20000F 1
-SMALLCONST 22CE-FFFF 1
+SMALLCONST 22D0-FFFF 1
 CODE 4-7 1
 CODE 1E-FFF 1
-CODE 22CE-FFFF 1
+CODE 22D0-FFFF 1
 BANK10 A00-AFF 1
 BANK11 B00-BFF 1
 BANK12 C00-CFF 1
 BANK13 D00-DFF 1
 BANK14 E00-EFF 1
 BANK15 F00-FFF 1
-BIGRAM 5F-5F 1
-BIGRAM 94-FFF 1
+BIGRAM 93-FFF 1
 BIGSFR 3700-3FFF 1
-COMRAM 5F-5F 1
 EEDATA 310000-3103FF 1
-MEDIUMCONST 22CE-FFFF 1
+MEDIUMCONST 22D0-FFFF 1
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -96,11 +94,11 @@ $dist/default/production\cansw_mcb.production.o
 2226 text13 CODE >55:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\rocketlib/pic18f26k83/timer.c
 222A text13 CODE >56:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\rocketlib/pic18f26k83/timer.c
 2238 text13 CODE >58:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\rocketlib/pic18f26k83/timer.c
-22A0 text12 CODE >14:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\main.c
-22A0 text12 CODE >15:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\main.c
-22B0 text12 CODE >16:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\main.c
-22B4 text12 CODE >17:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\main.c
-22B8 text12 CODE >19:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\main.c
+22A2 text12 CODE >13:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\main.c
+22A2 text12 CODE >14:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\main.c
+22B2 text12 CODE >15:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\main.c
+22B6 text12 CODE >16:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\main.c
+22BA text12 CODE >18:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\main.c
 223A text11 CODE >23:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\rocketlib/pic18f26k83/timer.c
 223A text11 CODE >24:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\rocketlib/pic18f26k83/timer.c
 223C text11 CODE >25:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\rocketlib/pic18f26k83/timer.c
@@ -113,16 +111,16 @@ $dist/default/production\cansw_mcb.production.o
 2198 text10 CODE >31:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\setup.c
 21AA text10 CODE >33:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\setup.c
 21CC text10 CODE >35:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\setup.c
-22BA text9 CODE >4:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\setup.c
-22BA text9 CODE >6:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\setup.c
-22BC text9 CODE >7:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\setup.c
-22C0 text9 CODE >8:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\setup.c
-22C2 text9 CODE >10:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\setup.c
-22C4 text9 CODE >11:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\setup.c
-22C6 text9 CODE >12:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\setup.c
-22C8 text9 CODE >15:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\setup.c
-22CA text9 CODE >16:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\setup.c
-22CC text9 CODE >23:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\setup.c
+22BC text9 CODE >4:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\setup.c
+22BC text9 CODE >6:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\setup.c
+22BE text9 CODE >7:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\setup.c
+22C2 text9 CODE >8:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\setup.c
+22C4 text9 CODE >10:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\setup.c
+22C6 text9 CODE >11:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\setup.c
+22C8 text9 CODE >12:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\setup.c
+22CA text9 CODE >15:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\setup.c
+22CC text9 CODE >16:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\setup.c
+22CE text9 CODE >23:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\setup.c
 21CE text8 CODE >8:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\pwm.c
 21CE text8 CODE >13:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\pwm.c
 21D4 text8 CODE >14:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\pwm.c
@@ -140,16 +138,16 @@ $dist/default/production\cansw_mcb.production.o
 2200 text8 CODE >42:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\pwm.c
 220E text8 CODE >45:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\pwm.c
 2210 text8 CODE >46:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\pwm.c
-2282 text7 CODE >30:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\rocketlib/pic18f26k83/timer.c
-2282 text7 CODE >31:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\rocketlib/pic18f26k83/timer.c
-2286 text7 CODE >33:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\rocketlib/pic18f26k83/timer.c
-2288 text7 CODE >34:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\rocketlib/pic18f26k83/timer.c
-228A text7 CODE >36:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\rocketlib/pic18f26k83/timer.c
-228E text7 CODE >37:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\rocketlib/pic18f26k83/timer.c
-2292 text7 CODE >39:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\rocketlib/pic18f26k83/timer.c
-229A text7 CODE >40:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\rocketlib/pic18f26k83/timer.c
-229C text7 CODE >43:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\rocketlib/pic18f26k83/timer.c
-229E text7 CODE >44:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\rocketlib/pic18f26k83/timer.c
+2284 text7 CODE >30:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\rocketlib/pic18f26k83/timer.c
+2284 text7 CODE >31:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\rocketlib/pic18f26k83/timer.c
+2288 text7 CODE >33:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\rocketlib/pic18f26k83/timer.c
+228A text7 CODE >34:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\rocketlib/pic18f26k83/timer.c
+228C text7 CODE >36:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\rocketlib/pic18f26k83/timer.c
+2290 text7 CODE >37:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\rocketlib/pic18f26k83/timer.c
+2294 text7 CODE >39:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\rocketlib/pic18f26k83/timer.c
+229C text7 CODE >40:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\rocketlib/pic18f26k83/timer.c
+229E text7 CODE >43:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\rocketlib/pic18f26k83/timer.c
+22A0 text7 CODE >44:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\rocketlib/pic18f26k83/timer.c
 1008 text6 CODE >10:C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\sprcadd.c
 1008 text6 CODE >21:C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\sprcadd.c
 100E text6 CODE >22:C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\sprcadd.c
@@ -500,40 +498,41 @@ $dist/default/production\cansw_mcb.production.o
 1FDA text1 CODE >53:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\pwm.c
 1FE0 text1 CODE >54:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\pwm.c
 1FE6 text1 CODE >55:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\pwm.c
+20EE text0 CODE >22:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\main.c
 20EE text0 CODE >23:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\main.c
-20EE text0 CODE >24:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\main.c
-20F2 text0 CODE >25:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\main.c
-20F6 text0 CODE >26:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\main.c
-20F8 text0 CODE >27:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\main.c
-20FC text0 CODE >28:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\main.c
-2100 text0 CODE >31:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\main.c
-2102 text0 CODE >34:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\main.c
+20F2 text0 CODE >24:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\main.c
+20F6 text0 CODE >25:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\main.c
+20F8 text0 CODE >26:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\main.c
+20FC text0 CODE >27:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\main.c
+2100 text0 CODE >30:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\main.c
+2102 text0 CODE >33:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\main.c
+2114 text0 CODE >35:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\main.c
 2114 text0 CODE >36:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\main.c
-2114 text0 CODE >37:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\main.c
-2116 text0 CODE >39:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\main.c
-2150 text0 CODE >40:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\main.c
-2164 text0 CODE >41:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\main.c
-2176 text0 CODE >44:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\main.c
-2260 cinit CODE >10462:C:\Users\zkhua\AppData\Local\Temp\xcAs14nc.\driver_tmp_1.s
-2260 cinit CODE >10464:C:\Users\zkhua\AppData\Local\Temp\xcAs14nc.\driver_tmp_1.s
-2260 cinit CODE >10467:C:\Users\zkhua\AppData\Local\Temp\xcAs14nc.\driver_tmp_1.s
-2260 cinit CODE >10493:C:\Users\zkhua\AppData\Local\Temp\xcAs14nc.\driver_tmp_1.s
-2264 cinit CODE >10494:C:\Users\zkhua\AppData\Local\Temp\xcAs14nc.\driver_tmp_1.s
-2266 cinit CODE >10495:C:\Users\zkhua\AppData\Local\Temp\xcAs14nc.\driver_tmp_1.s
-2266 cinit CODE >10496:C:\Users\zkhua\AppData\Local\Temp\xcAs14nc.\driver_tmp_1.s
-2268 cinit CODE >10497:C:\Users\zkhua\AppData\Local\Temp\xcAs14nc.\driver_tmp_1.s
-226A cinit CODE >10498:C:\Users\zkhua\AppData\Local\Temp\xcAs14nc.\driver_tmp_1.s
-226C cinit CODE >10501:C:\Users\zkhua\AppData\Local\Temp\xcAs14nc.\driver_tmp_1.s
-226E cinit CODE >10502:C:\Users\zkhua\AppData\Local\Temp\xcAs14nc.\driver_tmp_1.s
-2270 cinit CODE >10510:C:\Users\zkhua\AppData\Local\Temp\xcAs14nc.\driver_tmp_1.s
-2272 cinit CODE >10511:C:\Users\zkhua\AppData\Local\Temp\xcAs14nc.\driver_tmp_1.s
-2274 cinit CODE >10512:C:\Users\zkhua\AppData\Local\Temp\xcAs14nc.\driver_tmp_1.s
-2276 cinit CODE >10513:C:\Users\zkhua\AppData\Local\Temp\xcAs14nc.\driver_tmp_1.s
-2278 cinit CODE >10514:C:\Users\zkhua\AppData\Local\Temp\xcAs14nc.\driver_tmp_1.s
-227A cinit CODE >10515:C:\Users\zkhua\AppData\Local\Temp\xcAs14nc.\driver_tmp_1.s
-227C cinit CODE >10521:C:\Users\zkhua\AppData\Local\Temp\xcAs14nc.\driver_tmp_1.s
-227C cinit CODE >10523:C:\Users\zkhua\AppData\Local\Temp\xcAs14nc.\driver_tmp_1.s
-227E cinit CODE >10524:C:\Users\zkhua\AppData\Local\Temp\xcAs14nc.\driver_tmp_1.s
+2116 text0 CODE >38:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\main.c
+2150 text0 CODE >39:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\main.c
+2164 text0 CODE >40:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\main.c
+2176 text0 CODE >43:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\main.c
+2260 cinit CODE >12511:C:\Users\zkhua\AppData\Local\Temp\xcAsr70.\driver_tmp_1.s
+2260 cinit CODE >12513:C:\Users\zkhua\AppData\Local\Temp\xcAsr70.\driver_tmp_1.s
+2260 cinit CODE >12516:C:\Users\zkhua\AppData\Local\Temp\xcAsr70.\driver_tmp_1.s
+2260 cinit CODE >12542:C:\Users\zkhua\AppData\Local\Temp\xcAsr70.\driver_tmp_1.s
+2264 cinit CODE >12543:C:\Users\zkhua\AppData\Local\Temp\xcAsr70.\driver_tmp_1.s
+2266 cinit CODE >12544:C:\Users\zkhua\AppData\Local\Temp\xcAsr70.\driver_tmp_1.s
+2266 cinit CODE >12545:C:\Users\zkhua\AppData\Local\Temp\xcAsr70.\driver_tmp_1.s
+2268 cinit CODE >12546:C:\Users\zkhua\AppData\Local\Temp\xcAsr70.\driver_tmp_1.s
+226A cinit CODE >12547:C:\Users\zkhua\AppData\Local\Temp\xcAsr70.\driver_tmp_1.s
+226C cinit CODE >12550:C:\Users\zkhua\AppData\Local\Temp\xcAsr70.\driver_tmp_1.s
+226E cinit CODE >12551:C:\Users\zkhua\AppData\Local\Temp\xcAsr70.\driver_tmp_1.s
+2270 cinit CODE >12552:C:\Users\zkhua\AppData\Local\Temp\xcAsr70.\driver_tmp_1.s
+2272 cinit CODE >12560:C:\Users\zkhua\AppData\Local\Temp\xcAsr70.\driver_tmp_1.s
+2274 cinit CODE >12561:C:\Users\zkhua\AppData\Local\Temp\xcAsr70.\driver_tmp_1.s
+2276 cinit CODE >12562:C:\Users\zkhua\AppData\Local\Temp\xcAsr70.\driver_tmp_1.s
+2278 cinit CODE >12563:C:\Users\zkhua\AppData\Local\Temp\xcAsr70.\driver_tmp_1.s
+227A cinit CODE >12564:C:\Users\zkhua\AppData\Local\Temp\xcAsr70.\driver_tmp_1.s
+227C cinit CODE >12565:C:\Users\zkhua\AppData\Local\Temp\xcAsr70.\driver_tmp_1.s
+227E cinit CODE >12571:C:\Users\zkhua\AppData\Local\Temp\xcAsr70.\driver_tmp_1.s
+227E cinit CODE >12573:C:\Users\zkhua\AppData\Local\Temp\xcAsr70.\driver_tmp_1.s
+2280 cinit CODE >12574:C:\Users\zkhua\AppData\Local\Temp\xcAsr70.\driver_tmp_1.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -546,10 +545,10 @@ $dist/default/production\cansw_mcb.production.o
 # was defined in a psect then <psect> will be "-". File-name
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
-_overflow_flag 5E 0 COMRAM 1 bssCOMRAM dist/default/production\cansw_mcb.production.o
+_overflow_flag 68 0 BANK0 1 bssBANK0 dist/default/production\cansw_mcb.production.o
 __Lmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\cansw_mcb.production.o
-__Hspace_0 22CE 0 ABS 0 - dist/default/production\cansw_mcb.production.o
-__Hspace_1 94 0 ABS 0 - dist/default/production\cansw_mcb.production.o
+__Hspace_0 22D0 0 ABS 0 - dist/default/production\cansw_mcb.production.o
+__Hspace_1 93 0 ABS 0 - dist/default/production\cansw_mcb.production.o
 __Hspace_2 0 0 ABS 0 - dist/default/production\cansw_mcb.production.o
 __Hspace_4 60000A 0 ABS 0 - dist/default/production\cansw_mcb.production.o
 _timer0_handle_interrupt 2212 0 CODE 0 text13 dist/default/production\cansw_mcb.production.o
@@ -565,11 +564,11 @@ __end_of_timer0_handle_interrupt 223A 0 CODE 0 text13 dist/default/production\ca
 __L__absolute__ 0 0 ABS 0 __absolute__ dist/default/production\cansw_mcb.production.o
 __Lsmallconst 1000 0 SMALLCONST 0 smallconst dist/default/production\cansw_mcb.production.o
 _T2PR 3FAB 0 ABS 0 - dist/default/production\cansw_mcb.production.o
-___sp 0 0 STACK 2 stack C:\Users\zkhua\AppData\Local\Temp\xcAs14nc.\driver_tmp_9.o
+___sp 0 0 STACK 2 stack C:\Users\zkhua\AppData\Local\Temp\xcAsr70.\driver_tmp_9.o
 _main 20EE 0 CODE 0 text0 dist/default/production\cansw_mcb.production.o
-___stack_hi 0 0 STACK 2 stack C:\Users\zkhua\AppData\Local\Temp\xcAs14nc.\driver_tmp_9.o
-___stack_lo 0 0 STACK 2 stack C:\Users\zkhua\AppData\Local\Temp\xcAs14nc.\driver_tmp_9.o
-start 1A 0 CODE 0 init C:\Users\zkhua\AppData\Local\Temp\xcAs14nc.\driver_tmp_9.o
+___stack_hi 0 0 STACK 2 stack C:\Users\zkhua\AppData\Local\Temp\xcAsr70.\driver_tmp_9.o
+___stack_lo 0 0 STACK 2 stack C:\Users\zkhua\AppData\Local\Temp\xcAsr70.\driver_tmp_9.o
+start 1A 0 CODE 0 init C:\Users\zkhua\AppData\Local\Temp\xcAsr70.\driver_tmp_9.o
 ___flmul@aexp 20 0 COMRAM 1 cstackCOMRAM dist/default/production\cansw_mcb.production.o
 ___flmul@bexp 21 0 COMRAM 1 cstackCOMRAM dist/default/production\cansw_mcb.production.o
 ___flmul@prod 22 0 COMRAM 1 cstackCOMRAM dist/default/production\cansw_mcb.production.o
@@ -580,29 +579,30 @@ __HbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\cansw_mcb.production.o
 __Hpowerup 0 0 CODE 0 powerup dist/default/production\cansw_mcb.production.o
 _RXB0DLCbits 3F85 0 ABS 0 - dist/default/production\cansw_mcb.production.o
 _osc_init 2184 0 CODE 0 text10 dist/default/production\cansw_mcb.production.o
-__accesstop 60 0 ABS 0 - C:\Users\zkhua\AppData\Local\Temp\xcAs14nc.\driver_tmp_9.o
-intlevel0 0 0 CODE 0 text C:\Users\zkhua\AppData\Local\Temp\xcAs14nc.\driver_tmp_9.o
-intlevel1 0 0 CODE 0 text C:\Users\zkhua\AppData\Local\Temp\xcAs14nc.\driver_tmp_9.o
-intlevel2 0 0 CODE 0 text C:\Users\zkhua\AppData\Local\Temp\xcAs14nc.\driver_tmp_9.o
-intlevel3 0 0 CODE 0 text C:\Users\zkhua\AppData\Local\Temp\xcAs14nc.\driver_tmp_9.o
+__accesstop 60 0 ABS 0 - C:\Users\zkhua\AppData\Local\Temp\xcAsr70.\driver_tmp_9.o
+intlevel0 0 0 CODE 0 text C:\Users\zkhua\AppData\Local\Temp\xcAsr70.\driver_tmp_9.o
+intlevel1 0 0 CODE 0 text C:\Users\zkhua\AppData\Local\Temp\xcAsr70.\driver_tmp_9.o
+intlevel2 0 0 CODE 0 text C:\Users\zkhua\AppData\Local\Temp\xcAsr70.\driver_tmp_9.o
+intlevel3 0 0 CODE 0 text C:\Users\zkhua\AppData\Local\Temp\xcAsr70.\driver_tmp_9.o
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\cansw_mcb.production.o
-_pin_init 22BA 0 CODE 0 text9 dist/default/production\cansw_mcb.production.o
+_pin_init 22BC 0 CODE 0 text9 dist/default/production\cansw_mcb.production.o
 __LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\cansw_mcb.production.o
 _TXB0DLCbits 37E5 0 ABS 0 - dist/default/production\cansw_mcb.production.o
 __end_of_osc_init 21CE 0 CODE 0 text10 dist/default/production\cansw_mcb.production.o
-_timer0_init 2282 0 CODE 0 text7 dist/default/production\cansw_mcb.production.o
+_timer0_init 2284 0 CODE 0 text7 dist/default/production\cansw_mcb.production.o
 __Hifardata 0 0 CODE 0 ifardata dist/default/production\cansw_mcb.production.o
-__end_of_pin_init 22CE 0 CODE 0 text9 dist/default/production\cansw_mcb.production.o
+__end_of_pin_init 22D0 0 CODE 0 text9 dist/default/production\cansw_mcb.production.o
 __Hclrtext 0 0 ABS 0 clrtext dist/default/production\cansw_mcb.production.o
 _COMSTATbits 3F90 0 ABS 0 - dist/default/production\cansw_mcb.production.o
 ivt0x8_base 8 0 CODE 0 ivt0x8 dist/default/production\cansw_mcb.production.o
-___inthi_sp 0 0 STACK 2 stack C:\Users\zkhua\AppData\Local\Temp\xcAs14nc.\driver_tmp_9.o
-___intlo_sp 0 0 STACK 2 stack C:\Users\zkhua\AppData\Local\Temp\xcAs14nc.\driver_tmp_9.o
+___inthi_sp 0 0 STACK 2 stack C:\Users\zkhua\AppData\Local\Temp\xcAsr70.\driver_tmp_9.o
+___intlo_sp 0 0 STACK 2 stack C:\Users\zkhua\AppData\Local\Temp\xcAsr70.\driver_tmp_9.o
 osc_init@i 1 0 COMRAM 1 cstackCOMRAM dist/default/production\cansw_mcb.production.o
+_can_receive_callback 0 0 ABS 0 - dist/default/production\cansw_mcb.production.o
 _CCPR3H 3F75 0 ABS 0 - dist/default/production\cansw_mcb.production.o
 _CCPR3L 3F74 0 ABS 0 - dist/default/production\cansw_mcb.production.o
 ?_millis 1 0 COMRAM 1 cstackCOMRAM dist/default/production\cansw_mcb.production.o
-main@last_millis 90 0 BANK0 1 cstackBANK0 dist/default/production\cansw_mcb.production.o
+main@last_millis 8F 0 BANK0 1 cstackBANK0 dist/default/production\cansw_mcb.production.o
 __Lintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\cansw_mcb.production.o
 ___fldiv@aexp 40 0 COMRAM 1 cstackCOMRAM dist/default/production\cansw_mcb.production.o
 ___fldiv@bexp 3F 0 COMRAM 1 cstackCOMRAM dist/default/production\cansw_mcb.production.o
@@ -613,7 +613,8 @@ __end_of___fladd 14BE 0 CODE 0 text6 dist/default/production\cansw_mcb.productio
 __end_of___fldiv 1C98 0 CODE 0 text5 dist/default/production\cansw_mcb.production.o
 __end_of___flmul 1908 0 CODE 0 text4 dist/default/production\cansw_mcb.production.o
 __end_of___fltol 20EE 0 CODE 0 text3 dist/default/production\cansw_mcb.production.o
-_can_rcv_cb 68 0 BANK0 1 bssBANK0 dist/default/production\cansw_mcb.production.o
+_can_rcv_cb 5D 0 COMRAM 1 bssCOMRAM dist/default/production\cansw_mcb.production.o
+_CANRXPPS 3AED 0 ABS 0 - dist/default/production\cansw_mcb.production.o
 ___fladd@a 45 0 COMRAM 1 cstackCOMRAM dist/default/production\cansw_mcb.production.o
 ___fladd@b 41 0 COMRAM 1 cstackCOMRAM dist/default/production\cansw_mcb.production.o
 ___fldiv@a 2C 0 COMRAM 1 cstackCOMRAM dist/default/production\cansw_mcb.production.o
@@ -626,12 +627,13 @@ __HnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\cansw_mcb.production.o
 _pwm_init 21CE 0 CODE 0 text8 dist/default/production\cansw_mcb.production.o
 ___rparam_used 1 0 ABS 0 - dist/default/production\cansw_mcb.production.o
 _RB3PPS 3A0B 0 ABS 0 - dist/default/production\cansw_mcb.production.o
-_updatePulseWidth$2148 82 0 BANK0 1 cstackBANK0 dist/default/production\cansw_mcb.production.o
+_RC0PPS 3A10 0 ABS 0 - dist/default/production\cansw_mcb.production.o
+_updatePulseWidth$2290 81 0 BANK0 1 cstackBANK0 dist/default/production\cansw_mcb.production.o
 __end_of_millis 2260 0 CODE 0 text11 dist/default/production\cansw_mcb.production.o
 _RXB0D0 3F86 0 ABS 0 - dist/default/production\cansw_mcb.production.o
 _RXB1D0 37F6 0 ABS 0 - dist/default/production\cansw_mcb.production.o
 _millis_counter 60 0 BANK0 1 bssBANK0 dist/default/production\cansw_mcb.production.o
-__pcstackBANK0 7E 0 BANK0 1 cstackBANK0 dist/default/production\cansw_mcb.production.o
+__pcstackBANK0 7D 0 BANK0 1 cstackBANK0 dist/default/production\cansw_mcb.production.o
 __end_of_MOTOR_MIN_PULSE_WIDTH_US 1007 0 SMALLCONST 0 smallconst dist/default/production\cansw_mcb.production.o
 __end_of_pwm_init 2212 0 CODE 0 text8 dist/default/production\cansw_mcb.production.o
 _TRISA0 1FE10 0 ABS 0 - dist/default/production\cansw_mcb.production.o
@@ -639,8 +641,11 @@ _TRISA1 1FE11 0 ABS 0 - dist/default/production\cansw_mcb.production.o
 _TRISB3 1FE1B 0 ABS 0 - dist/default/production\cansw_mcb.production.o
 _TRISB4 1FE1C 0 ABS 0 - dist/default/production\cansw_mcb.production.o
 _TRISB5 1FE1D 0 ABS 0 - dist/default/production\cansw_mcb.production.o
+_TRISC0 1FE20 0 ABS 0 - dist/default/production\cansw_mcb.production.o
+_TRISC1 1FE21 0 ABS 0 - dist/default/production\cansw_mcb.production.o
+_TRISC5 1FE25 0 ABS 0 - dist/default/production\cansw_mcb.production.o
 _TXB0D0 37E6 0 ABS 0 - dist/default/production\cansw_mcb.production.o
-isa$xinst 0 0 ABS 0 - C:\Users\zkhua\AppData\Local\Temp\xcAs14nc.\driver_tmp_9.o
+isa$xinst 0 0 ABS 0 - C:\Users\zkhua\AppData\Local\Temp\xcAsr70.\driver_tmp_9.o
 _CANSTATbits 3F8E 0 ABS 0 - dist/default/production\cansw_mcb.production.o
 __Hbank0 0 0 ABS 0 bank0 dist/default/production\cansw_mcb.production.o
 __Hbank1 0 0 ABS 0 bank1 dist/default/production\cansw_mcb.production.o
@@ -687,6 +692,8 @@ __Hcomram 0 0 ABS 0 comram dist/default/production\cansw_mcb.production.o
 __Hconfig 30000A 0 CONFIG 4 config dist/default/production\cansw_mcb.production.o
 _ANSELA0 1D200 0 ABS 0 - dist/default/production\cansw_mcb.production.o
 _ANSELA1 1D201 0 ABS 0 - dist/default/production\cansw_mcb.production.o
+_ANSELC0 1D300 0 ABS 0 - dist/default/production\cansw_mcb.production.o
+_ANSELC1 1D301 0 ABS 0 - dist/default/production\cansw_mcb.production.o
 __Lbank0 0 0 ABS 0 bank0 dist/default/production\cansw_mcb.production.o
 __Lbank1 0 0 ABS 0 bank1 dist/default/production\cansw_mcb.production.o
 __Lbank2 0 0 ABS 0 bank2 dist/default/production\cansw_mcb.production.o
@@ -733,17 +740,17 @@ __Lrbit 0 0 COMRAM 1 rbit dist/default/production\cansw_mcb.production.o
 __Lrbss 0 0 COMRAM 1 rbss dist/default/production\cansw_mcb.production.o
 __Ltemp 0 0 COMRAM 1 temp dist/default/production\cansw_mcb.production.o
 __Ltext 0 0 ABS 0 text dist/default/production\cansw_mcb.production.o
-timer0_handle_interrupt@internal_count 5D 0 COMRAM 1 bssCOMRAM dist/default/production\cansw_mcb.production.o
+timer0_handle_interrupt@internal_count 5F 0 COMRAM 1 bssCOMRAM dist/default/production\cansw_mcb.production.o
 __LcstackBANK0 0 0 ABS 0 cstackBANK0 dist/default/production\cansw_mcb.production.o
 _CIOCONbits 3700 0 ABS 0 - dist/default/production\cansw_mcb.production.o
 __HcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\cansw_mcb.production.o
 __Hirdata 0 0 CODE 0 irdata dist/default/production\cansw_mcb.production.o
-_ISR 22A0 0 CODE 0 text12 dist/default/production\cansw_mcb.production.o
-__S0 22CE 0 ABS 0 - dist/default/production\cansw_mcb.production.o
-__S1 94 0 ABS 0 - dist/default/production\cansw_mcb.production.o
+_ISR 22A2 0 CODE 0 text12 dist/default/production\cansw_mcb.production.o
+__S0 22D0 0 ABS 0 - dist/default/production\cansw_mcb.production.o
+__S1 93 0 ABS 0 - dist/default/production\cansw_mcb.production.o
 __S4 0 0 ABS 0 - dist/default/production\cansw_mcb.production.o
 __S5 0 0 ABS 0 - dist/default/production\cansw_mcb.production.o
-_buf 74 0 BANK0 1 bssBANK0 dist/default/production\cansw_mcb.production.o
+_buf 73 0 BANK0 1 bssBANK0 dist/default/production\cansw_mcb.production.o
 _ctx 64 0 BANK0 1 bssBANK0 dist/default/production\cansw_mcb.production.o
 __Hivt0x8 1A 0 CODE 0 ivt0x8 dist/default/production\cansw_mcb.production.o
 IVTBASEH 3FD6 0 ABS 0 - dist/default/production\cansw_mcb.production.o
@@ -754,15 +761,15 @@ _MOTOR_CENTER_PULSE_WIDTH_US 1001 0 SMALLCONST 0 smallconst dist/default/product
 __Lbigdata 0 0 BIGRAM 1 bigdata dist/default/production\cansw_mcb.production.o
 __Hnvrram 0 0 COMRAM 1 nvrram dist/default/production\cansw_mcb.production.o
 ___xxtofl 1C98 0 CODE 0 text2 dist/default/production\cansw_mcb.production.o
-__end_of_ISR 22BA 0 CODE 0 text12 dist/default/production\cansw_mcb.production.o
-updatePulseWidth@pulse_width_us 7E 0 BANK0 1 cstackBANK0 dist/default/production\cansw_mcb.production.o
-__end_of_timer0_init 22A0 0 CODE 0 text7 dist/default/production\cansw_mcb.production.o
+__end_of_ISR 22BC 0 CODE 0 text12 dist/default/production\cansw_mcb.production.o
+updatePulseWidth@pulse_width_us 7D 0 BANK0 1 cstackBANK0 dist/default/production\cansw_mcb.production.o
+__end_of_timer0_init 22A2 0 CODE 0 text7 dist/default/production\cansw_mcb.production.o
 __Hramtop 1000 0 RAM 0 ramtop dist/default/production\cansw_mcb.production.o
 __Hrparam 0 0 COMRAM 1 rparam dist/default/production\cansw_mcb.production.o
 __end_of___xxtofl 1E4C 0 CODE 0 text2 dist/default/production\cansw_mcb.production.o
 __activetblptr 3 0 ABS 0 - dist/default/production\cansw_mcb.production.o
 __Hstruct 0 0 COMRAM 1 struct dist/default/production\cansw_mcb.production.o
-updatePulseWidth@angle 86 0 BANK0 1 cstackBANK0 dist/default/production\cansw_mcb.production.o
+updatePulseWidth@angle 85 0 BANK0 1 cstackBANK0 dist/default/production\cansw_mcb.production.o
 __LbssBANK0 0 0 ABS 0 bssBANK0 dist/default/production\cansw_mcb.production.o
 __Htext10 0 0 ABS 0 text10 dist/default/production\cansw_mcb.production.o
 __Htext11 0 0 ABS 0 text11 dist/default/production\cansw_mcb.production.o
@@ -774,7 +781,7 @@ _millis 223A 0 CODE 0 text11 dist/default/production\cansw_mcb.production.o
 ___fladd@signs 4D 0 COMRAM 1 cstackCOMRAM dist/default/production\cansw_mcb.production.o
 __ptext10 2184 0 CODE 0 text10 dist/default/production\cansw_mcb.production.o
 __ptext11 223A 0 CODE 0 text11 dist/default/production\cansw_mcb.production.o
-__ptext12 22A0 0 CODE 0 text12 dist/default/production\cansw_mcb.production.o
+__ptext12 22A2 0 CODE 0 text12 dist/default/production\cansw_mcb.production.o
 __ptext13 2212 0 CODE 0 text13 dist/default/production\cansw_mcb.production.o
 ___fladd 1008 0 CODE 0 text6 dist/default/production\cansw_mcb.production.o
 ___fldiv 1908 0 CODE 0 text5 dist/default/production\cansw_mcb.production.o
@@ -786,7 +793,7 @@ __Lbank12 0 0 ABS 0 bank12 dist/default/production\cansw_mcb.production.o
 __Lbank13 0 0 ABS 0 bank13 dist/default/production\cansw_mcb.production.o
 __Lbank14 0 0 ABS 0 bank14 dist/default/production\cansw_mcb.production.o
 __Lbank15 0 0 ABS 0 bank15 dist/default/production\cansw_mcb.production.o
-_buf@can_tx_buffer$F868 6A 0 BANK0 1 bssBANK0 dist/default/production\cansw_mcb.production.o
+_buf@can_tx_buffer$F868 69 0 BANK0 1 bssBANK0 dist/default/production\cansw_mcb.production.o
 __Lbigbss 0 0 BIGRAM 1 bigbss dist/default/production\cansw_mcb.production.o
 __Lbigram 0 0 ABS 0 bigram dist/default/production\cansw_mcb.production.o
 __Lbigsfr 0 0 ABS 0 bigsfr dist/default/production\cansw_mcb.production.o
@@ -795,13 +802,13 @@ __Lconfig 0 0 CONFIG 4 config dist/default/production\cansw_mcb.production.o
 ___fldiv@grs 3B 0 COMRAM 1 cstackCOMRAM dist/default/production\cansw_mcb.production.o
 ___fldiv@rem 34 0 COMRAM 1 cstackCOMRAM dist/default/production\cansw_mcb.production.o
 __Lfarbss 0 0 FARRAM 0 farbss dist/default/production\cansw_mcb.production.o
-___inthi_stack_hi 0 0 STACK 2 stack C:\Users\zkhua\AppData\Local\Temp\xcAs14nc.\driver_tmp_9.o
-___inthi_stack_lo 0 0 STACK 2 stack C:\Users\zkhua\AppData\Local\Temp\xcAs14nc.\driver_tmp_9.o
+___inthi_stack_hi 0 0 STACK 2 stack C:\Users\zkhua\AppData\Local\Temp\xcAsr70.\driver_tmp_9.o
+___inthi_stack_lo 0 0 STACK 2 stack C:\Users\zkhua\AppData\Local\Temp\xcAsr70.\driver_tmp_9.o
 __Lfardata 0 0 FARRAM 0 fardata dist/default/production\cansw_mcb.production.o
-isa$std 1 0 ABS 0 - C:\Users\zkhua\AppData\Local\Temp\xcAs14nc.\driver_tmp_9.o
+isa$std 1 0 ABS 0 - C:\Users\zkhua\AppData\Local\Temp\xcAsr70.\driver_tmp_9.o
 ___fldiv@new_exp 39 0 COMRAM 1 cstackCOMRAM dist/default/production\cansw_mcb.production.o
-stackhi 0 0 ABS 0 - C:\Users\zkhua\AppData\Local\Temp\xcAs14nc.\driver_tmp_9.o
-stacklo 0 0 ABS 0 - C:\Users\zkhua\AppData\Local\Temp\xcAs14nc.\driver_tmp_9.o
+stackhi 0 0 ABS 0 - C:\Users\zkhua\AppData\Local\Temp\xcAsr70.\driver_tmp_9.o
+stacklo 0 0 ABS 0 - C:\Users\zkhua\AppData\Local\Temp\xcAsr70.\driver_tmp_9.o
 _OSCCON1 39D9 0 ABS 0 - dist/default/production\cansw_mcb.production.o
 _OSCCON2 39DA 0 ABS 0 - dist/default/production\cansw_mcb.production.o
 _updatePulseWidth 1E4C 0 CODE 0 text1 dist/default/production\cansw_mcb.production.o
@@ -819,7 +826,7 @@ _PIR4bits 39A4 0 ABS 0 - dist/default/production\cansw_mcb.production.o
 _PIR5bits 39A5 0 ABS 0 - dist/default/production\cansw_mcb.production.o
 __LcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\cansw_mcb.production.o
 ___fltol@exp1 5A 0 COMRAM 1 cstackCOMRAM dist/default/production\cansw_mcb.production.o
-end_of_initialization 227C 0 CODE 0 cinit dist/default/production\cansw_mcb.production.o
+end_of_initialization 227E 0 CODE 0 cinit dist/default/production\cansw_mcb.production.o
 __Lnvrram 0 0 COMRAM 1 nvrram dist/default/production\cansw_mcb.production.o
 ?___fladd 41 0 COMRAM 1 cstackCOMRAM dist/default/production\cansw_mcb.production.o
 ?___fldiv 28 0 COMRAM 1 cstackCOMRAM dist/default/production\cansw_mcb.production.o
@@ -828,7 +835,7 @@ __Lnvrram 0 0 COMRAM 1 nvrram dist/default/production\cansw_mcb.production.o
 __Hreset_vec 4 0 CODE 0 reset_vec dist/default/production\cansw_mcb.production.o
 __HbssBANK0 0 0 ABS 0 bssBANK0 dist/default/production\cansw_mcb.production.o
 _RXB1CONbits 37F0 0 ABS 0 - dist/default/production\cansw_mcb.production.o
-updatePulseWidth@tmr2_prescale 87 0 BANK0 1 cstackBANK0 dist/default/production\cansw_mcb.production.o
+updatePulseWidth@tmr2_prescale 86 0 BANK0 1 cstackBANK0 dist/default/production\cansw_mcb.production.o
 __Lramtop 1000 0 RAM 0 ramtop dist/default/production\cansw_mcb.production.o
 __Lrparam 0 0 COMRAM 1 rparam dist/default/production\cansw_mcb.production.o
 _TXB0EIDH 37E3 0 ABS 0 - dist/default/production\cansw_mcb.production.o
@@ -843,16 +850,16 @@ __ptext3 1FE8 0 CODE 0 text3 dist/default/production\cansw_mcb.production.o
 __ptext4 14BE 0 CODE 0 text4 dist/default/production\cansw_mcb.production.o
 __ptext5 1908 0 CODE 0 text5 dist/default/production\cansw_mcb.production.o
 __ptext6 1008 0 CODE 0 text6 dist/default/production\cansw_mcb.production.o
-__ptext7 2282 0 CODE 0 text7 dist/default/production\cansw_mcb.production.o
+__ptext7 2284 0 CODE 0 text7 dist/default/production\cansw_mcb.production.o
 __ptext8 21CE 0 CODE 0 text8 dist/default/production\cansw_mcb.production.o
-__ptext9 22BA 0 CODE 0 text9 dist/default/production\cansw_mcb.production.o
+__ptext9 22BC 0 CODE 0 text9 dist/default/production\cansw_mcb.production.o
 _OSCCON3bits 39DB 0 ABS 0 - dist/default/production\cansw_mcb.production.o
 __Lstruct 0 0 COMRAM 1 struct dist/default/production\cansw_mcb.production.o
 __Ltext10 0 0 ABS 0 text10 dist/default/production\cansw_mcb.production.o
 __Ltext11 0 0 ABS 0 text11 dist/default/production\cansw_mcb.production.o
 __Ltext12 0 0 ABS 0 text12 dist/default/production\cansw_mcb.production.o
 __Ltext13 0 0 ABS 0 text13 dist/default/production\cansw_mcb.production.o
-__ramtop 1000 0 RAM 0 ramtop C:\Users\zkhua\AppData\Local\Temp\xcAs14nc.\driver_tmp_9.o
+__ramtop 1000 0 RAM 0 ramtop C:\Users\zkhua\AppData\Local\Temp\xcAsr70.\driver_tmp_9.o
 __Lpowerup 0 0 CODE 0 powerup dist/default/production\cansw_mcb.production.o
 ?___xxtofl 1 0 COMRAM 1 cstackCOMRAM dist/default/production\cansw_mcb.production.o
 __Leeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\cansw_mcb.production.o
@@ -866,15 +873,15 @@ ___fltol@sign1 59 0 COMRAM 1 cstackCOMRAM dist/default/production\cansw_mcb.prod
 __psmallconst 1000 0 SMALLCONST 0 smallconst dist/default/production\cansw_mcb.production.o
 __Lreset_vec 0 0 CODE 0 reset_vec dist/default/production\cansw_mcb.production.o
 _CCP3CONbits 3F76 0 ABS 0 - dist/default/production\cansw_mcb.production.o
-___heap_hi 0 0 ABS 0 - C:\Users\zkhua\AppData\Local\Temp\xcAs14nc.\driver_tmp_9.o
-___heap_lo 0 0 ABS 0 - C:\Users\zkhua\AppData\Local\Temp\xcAs14nc.\driver_tmp_9.o
+___heap_hi 0 0 ABS 0 - C:\Users\zkhua\AppData\Local\Temp\xcAsr70.\driver_tmp_9.o
+___heap_lo 0 0 ABS 0 - C:\Users\zkhua\AppData\Local\Temp\xcAsr70.\driver_tmp_9.o
 ___fltol@f1 51 0 COMRAM 1 cstackCOMRAM dist/default/production\cansw_mcb.production.o
 ___param_bank 0 0 ABS 0 - dist/default/production\cansw_mcb.production.o
-___intlo_stack_hi 0 0 STACK 2 stack C:\Users\zkhua\AppData\Local\Temp\xcAs14nc.\driver_tmp_9.o
-___intlo_stack_lo 0 0 STACK 2 stack C:\Users\zkhua\AppData\Local\Temp\xcAs14nc.\driver_tmp_9.o
+___intlo_stack_hi 0 0 STACK 2 stack C:\Users\zkhua\AppData\Local\Temp\xcAsr70.\driver_tmp_9.o
+___intlo_stack_lo 0 0 STACK 2 stack C:\Users\zkhua\AppData\Local\Temp\xcAsr70.\driver_tmp_9.o
 _RXB0CONbits 3F80 0 ABS 0 - dist/default/production\cansw_mcb.production.o
 __Hbigdata 0 0 BIGRAM 1 bigdata dist/default/production\cansw_mcb.production.o
-__end_of__initialization 227C 0 CODE 0 cinit dist/default/production\cansw_mcb.production.o
+__end_of__initialization 227E 0 CODE 0 cinit dist/default/production\cansw_mcb.production.o
 millis@res 5 0 COMRAM 1 cstackCOMRAM dist/default/production\cansw_mcb.production.o
 __Libigdata 0 0 CODE 0 ibigdata dist/default/production\cansw_mcb.production.o
 __Lclrtext 0 0 ABS 0 clrtext dist/default/production\cansw_mcb.production.o
@@ -884,10 +891,12 @@ __pcstackCOMRAM 1 0 COMRAM 1 cstackCOMRAM dist/default/production\cansw_mcb.prod
 _T0CON0bits 3FB8 0 ABS 0 - dist/default/production\cansw_mcb.production.o
 _T0CON1bits 3FB9 0 ABS 0 - dist/default/production\cansw_mcb.production.o
 __end_of_main 2184 0 CODE 0 text0 dist/default/production\cansw_mcb.production.o
-updatePulseWidth@bitWrite 88 0 BANK0 1 cstackBANK0 dist/default/production\cansw_mcb.production.o
+updatePulseWidth@bitWrite 87 0 BANK0 1 cstackBANK0 dist/default/production\cansw_mcb.production.o
 _CANCONbits 3F8F 0 ABS 0 - dist/default/production\cansw_mcb.production.o
 _LATA0 1FDD0 0 ABS 0 - dist/default/production\cansw_mcb.production.o
 _LATA1 1FDD1 0 ABS 0 - dist/default/production\cansw_mcb.production.o
+_LATC0 1FDE0 0 ABS 0 - dist/default/production\cansw_mcb.production.o
+_ODCC0 1D310 0 ABS 0 - dist/default/production\cansw_mcb.production.o
 _T2CLK 3FAE 0 ABS 0 - dist/default/production\cansw_mcb.production.o
 __HRAM 0 0 ABS 0 - dist/default/production\cansw_mcb.production.o
 __Hbss 0 0 RAM 1 bss dist/default/production\cansw_mcb.production.o
@@ -939,10 +948,10 @@ __Hintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\cansw_mcb.prod
 # All other numeric quantities are in decimal.
 %SEGMENTS
 ivt0x8 0 8 8 16 1
-text6 0 1008 1008 12C6 1
-cstackCOMRAM 1 1 1 5E 1
+text6 0 1008 1008 12C8 1
+cstackCOMRAM 1 1 1 5F 1
 reset_vec 0 0 0 4 1
-bssBANK0 1 60 60 34 1
+bssBANK0 1 60 60 33 1
 smallconst 0 1000 1000 8 1
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section

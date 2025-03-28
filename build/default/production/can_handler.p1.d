@@ -1,8 +1,5 @@
-build/default/production/main.p1:  \
-main.c  \
-setup.h  \
-rocketlib/include/timer.h  \
-pwm.h  \
+build/default/production/can_handler.p1:  \
+can_handler.c  \
 can_handler.h  \
 canlib/canlib.h  \
 canlib/can.h  \
