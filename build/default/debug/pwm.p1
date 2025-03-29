@@ -1,69 +1,71 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"32526 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 32526: extern volatile unsigned char CANRXPPS __attribute__((address(0x3AED)));
-[v _CANRXPPS `Vuc ~T0 @X0 0 e@15085 ]
-"29221
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 29221: extern volatile unsigned char RC0PPS __attribute__((address(0x3A10)));
-[v _RC0PPS `Vuc ~T0 @X0 0 e@14864 ]
-"18391
-[v _TRISC0 `Vb ~T0 @X0 0 e@130592 ]
-"12805
-[v _LATC0 `Vb ~T0 @X0 0 e@130528 ]
-"14269
-[v _ODCC0 `Vb ~T0 @X0 0 e@119568 ]
-"7924
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 7924: 
-[v _ANSELC0 `Vb ~T0 @X0 0 e@119552 ]
-"18394
-[v _TRISC1 `Vb ~T0 @X0 0 e@130593 ]
-"7927
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 7927: 
-[v _ANSELC1 `Vb ~T0 @X0 0 e@119553 ]
-"17 canlib/can.h
-[; ;canlib/can.h: 17: typedef struct {
-[s S3252 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `a 1 ]
-[n S3252 . brp sjw sam seg1ph seg2ph prseg btlmode ]
-"8 canlib/util/timing_util.h
-[; ;canlib/util/timing_util.h: 8: _Bool can_generate_timing_params(uint32_t can_frequency, can_timing_t *timing);
-[v _can_generate_timing_params `(a ~T0 @X0 0 ef2`ul`*S3252 ]
-"38 canlib/can.h
-[; ;canlib/can.h: 38: typedef struct {
-[s S3253 `ul 1 `uc 1 `uc -> 8 `i ]
-[n S3253 . sid data_len data ]
-[v F23565 `(v ~T0 @X0 0 tf1`*CS3253 ]
-"16 canlib/pic18f26k83/pic18f26k83_can.h
-[; ;canlib/pic18f26k83/pic18f26k83_can.h: 16: void can_init(const can_timing_t *timing,
-[v _can_init `(v ~T0 @X0 0 ef2`*CS3252`*F23565 ]
-"16 ./can_handler.h
-[; ;./can_handler.h: 16: void can_receive_callback(const can_msg_t *msg);
-[v _can_receive_callback `(v ~T0 @X0 0 ef1`*CS3253 ]
-"30 canlib/message/msg_common.h
-[; ;canlib/message/msg_common.h: 30: uint8_t get_board_type_unique_id(const can_msg_t *msg);
-[v _get_board_type_unique_id `(uc ~T0 @X0 0 ef1`*CS3253 ]
-"26 can_handler.c
-[; ;can_handler.c: 26:     if (get_board_type_unique_id(msg) == BOARD_TYPE_ID_CANARD_MOTOR) {
-[c E23141 0 1 2 3 4 5 6 7 8 9 10 11 64 65 128 129 130 131 132 133 134 192 .. ]
-[n E23141 . BOARD_TYPE_ID_ANY BOARD_TYPE_ID_INJ_SENSOR BOARD_TYPE_ID_CANARD_MOTOR BOARD_TYPE_ID_CAMERA BOARD_TYPE_ID_POWER BOARD_TYPE_ID_LOGGER BOARD_TYPE_ID_PROCESSOR BOARD_TYPE_ID_TELEMETRY BOARD_TYPE_ID_GPS BOARD_TYPE_ID_SRAD_GNSS BOARD_TYPE_ID_ALTIMETER BOARD_TYPE_ID_ARMING BOARD_TYPE_ID_PAY_SENSOR BOARD_TYPE_ID_PAY_MOTOR BOARD_TYPE_ID_RLCS_GLS BOARD_TYPE_ID_RLCS_RELAY BOARD_TYPE_ID_RLCS_HEATING BOARD_TYPE_ID_DAQ BOARD_TYPE_ID_CHARGING BOARD_TYPE_ID_THERMOCOUPLE BOARD_TYPE_ID_USB BOARD_TYPE_ID_FYDP25_TVCA  ]
-"28 canlib/message/msg_common.h
-[; ;canlib/message/msg_common.h: 28: uint16_t get_message_type(const can_msg_t *msg);
-[v _get_message_type `(us ~T0 @X0 0 ef1`*CS3253 ]
-"50 canlib/message/msg_actuator.h
-[; ;canlib/message/msg_actuator.h: 50: uint16_t get_cmd_actuator_state_analog(const can_msg_t *msg);
-[v _get_cmd_actuator_state_analog `(us ~T0 @X0 0 ef1`*CS3253 ]
-"14 ./pwm.h
-[; ;./pwm.h: 14: void updatePulseWidth(uint8_t angle);
-[v _updatePulseWidth `(v ~T0 @X0 0 ef1`uc ]
-"12757 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h
-[v _LATA0 `Vb ~T0 @X0 0 e@130512 ]
-"12760
-[v _LATA1 `Vb ~T0 @X0 0 e@130513 ]
-"55 canlib/message/msg_general.h
-[; ;canlib/message/msg_general.h: 55: _Bool check_board_need_reset(const can_msg_t *msg);
-[v _check_board_need_reset `(a ~T0 @X0 0 ef1`*CS3253 ]
-"79 can_handler.c
-[; ;can_handler.c: 79:     }
-[c E23111 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 .. ]
-[n E23111 . MSG_GENERAL_BOARD_STATUS MSG_RESET_CMD MSG_DEBUG_RAW MSG_CONFIG_SET MSG_CONFIG_STATUS MSG_ACTUATOR_CMD MSG_ACTUATOR_ANALOG_CMD MSG_ACTUATOR_STATUS MSG_ALT_ARM_CMD MSG_ALT_ARM_STATUS MSG_SENSOR_TEMP MSG_SENSOR_ALTITUDE MSG_SENSOR_IMU_X MSG_SENSOR_IMU_Y MSG_SENSOR_IMU_Z MSG_SENSOR_MAG_X MSG_SENSOR_MAG_Y MSG_SENSOR_MAG_Z MSG_SENSOR_ANALOG MSG_GPS_TIMESTAMP MSG_GPS_LATITUDE MSG_GPS_LONGITUDE MSG_GPS_ALTITUDE MSG_GPS_INFO MSG_STATE_EST_DATA MSG_LEDS_ON MSG_LEDS_OFF MSG_ID_ENUM_MAX  ]
+"28971 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 28971: extern volatile unsigned char RB3PPS __attribute__((address(0x3A0B)));
+[v _RB3PPS `Vuc ~T0 @X0 0 e@14859 ]
+"18376
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 18376:         unsigned EID0 :1;
+[v _TRISB3 `Vb ~T0 @X0 0 e@130587 ]
+"2152
+[v _T2PR `Vuc ~T0 @X0 0 e@16299 ]
+"61854
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 61854:     struct {
+[s S2710 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S2710 . MODE FMT OUT . EN ]
+"61861
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 61861:     struct {
+[s S2711 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S2711 . MODE0 MODE1 MODE2 MODE3 ]
+"61867
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 61867:     struct {
+[s S2712 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S2712 . CCP3MODE CCP3FMT CCP3OUT . CCP3EN ]
+"61874
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 61874:     struct {
+[s S2713 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S2713 . CCP3MODE0 CCP3MODE1 CCP3MODE2 CCP3MODE3 ]
+"61853
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 61853: typedef union {
+[u S2709 `S2710 1 `S2711 1 `S2712 1 `S2713 1 ]
+[n S2709 . . . . . ]
+"61881
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 61881: extern volatile CCP3CONbits_t CCP3CONbits __attribute__((address(0x3F76)));
+[v _CCP3CONbits `VS2709 ~T0 @X0 0 e@16246 ]
+"61828
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 61828: extern volatile unsigned char CCPR3H __attribute__((address(0x3F75)));
+[v _CCPR3H `Vuc ~T0 @X0 0 e@16245 ]
+"61808
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 61808: extern volatile unsigned char CCPR3L __attribute__((address(0x3F74)));
+[v _CCPR3L `Vuc ~T0 @X0 0 e@16244 ]
+"26189
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 26189:     struct {
+[s S1093 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1093 . TMR1IF TMR1GIF TMR2IF CCP1IF NCO1IF CWG1IF CLC1IF INT1IF ]
+"26188
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 26188: typedef union {
+[u S1092 `S1093 1 ]
+[n S1092 . . ]
+"26200
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 26200: extern volatile PIR4bits_t PIR4bits __attribute__((address(0x39A4)));
+[v _PIR4bits `VS1092 ~T0 @X0 0 e@14756 ]
+"2469
+[v _T2CLK `Vuc ~T0 @X0 0 e@16302 ]
+"2196
+[s S3005 :4 `uc 1 :3 `uc 1 :1 `uc 1 ]
+[n S3005 . OUTPS CKPS ON ]
+"2201
+[s S3006 :4 `uc 1 :3 `uc 1 :1 `uc 1 ]
+[n S3006 . T2OUTPS T2CKPS T2ON ]
+"2206
+[s S3007 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S3007 . T2OUTPS0 T2OUTPS1 T2OUTPS2 T2OUTPS3 T2CKPS0 T2CKPS1 T2CKPS2 ]
+"2215
+[s S3008 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S3008 . OUTPS0 OUTPS1 OUTPS2 OUTPS3 CKPS0 CKPS1 CKPS2 TMR2ON ]
+"2195
+[u S3004 `S3005 1 `S3006 1 `S3007 1 `S3008 1 ]
+[n S3004 . . . . . ]
+"2226
+[v _T2CONbits `VS3004 ~T0 @X0 0 e@16300 ]
 "272 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 272: __asm("CIOCON equ 03700h");
 [; <" CIOCON equ 03700h ;# ">
@@ -3106,160 +3108,118 @@ Version 4.0 HI-TECH Software Intermediate Code
 "72326
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 72326: __asm("TOSU equ 03FFFh");
 [; <" TOSU equ 03FFFh ;# ">
-"3 can_handler.c
-[; ;can_handler.c: 3: void can_setup(void) {
-[v _can_setup `(v ~T0 @X0 1 ef ]
-{
-[e :U _can_setup ]
-[f ]
+"3 pwm.c
+[; ;pwm.c: 3: const uint16_t MOTOR_MIN_PULSE_WIDTH_US = 500;
+[v _MOTOR_MIN_PULSE_WIDTH_US `Cus ~T0 @X0 1 e ]
+[i _MOTOR_MIN_PULSE_WIDTH_US
+-> -> 500 `i `us
+]
 "4
-[; ;can_handler.c: 4:     CANRXPPS = 0x11;
-[e = _CANRXPPS -> -> 17 `i `uc ]
+[; ;pwm.c: 4: const uint16_t MOTOR_MAX_PULSE_WIDTH_US = 2500;
+[v _MOTOR_MAX_PULSE_WIDTH_US `Cus ~T0 @X0 1 e ]
+[i _MOTOR_MAX_PULSE_WIDTH_US
+-> -> 2500 `i `us
+]
 "5
-[; ;can_handler.c: 5:     RC0PPS = 0x33;
-[e = _RC0PPS -> -> 51 `i `uc ]
-"9
-[; ;can_handler.c: 9:     TRISC0 = 0;
-[e = _TRISC0 -> -> 0 `i `b ]
-"10
-[; ;can_handler.c: 10:     LATC0 = 1;
-[e = _LATC0 -> -> 1 `i `b ]
-"11
-[; ;can_handler.c: 11:     ODCC0 = 1;
-[e = _ODCC0 -> -> 1 `i `b ]
-"12
-[; ;can_handler.c: 12:     ANSELC0 = 0;
-[e = _ANSELC0 -> -> 0 `i `b ]
-"15
-[; ;can_handler.c: 15:     TRISC1 = 1;
-[e = _TRISC1 -> -> 1 `i `b ]
-"16
-[; ;can_handler.c: 16:     ANSELC1 = 0;
-[e = _ANSELC1 -> -> 0 `i `b ]
-"18
-[; ;can_handler.c: 18:     can_timing_t timing;
-[v _timing `S3252 ~T0 @X0 1 a ]
-"19
-[; ;can_handler.c: 19:     can_generate_timing_params(12000000, &timing);
-[e ( _can_generate_timing_params (2 , -> -> 12000000 `l `ul &U _timing ]
-"20
-[; ;can_handler.c: 20:     can_init(&timing, can_receive_callback);
-[e ( _can_init (2 , -> &U _timing `*CS3252 &U _can_receive_callback ]
-"22
-[; ;can_handler.c: 22: }
-[e :UE 3254 ]
-}
-"24
-[; ;can_handler.c: 24: void can_receive_callback(const can_msg_t *msg) {
-[v _can_receive_callback `(v ~T0 @X0 1 ef1`*CS3253 ]
+[; ;pwm.c: 5: const uint16_t MOTOR_CENTER_PULSE_WIDTH_US = 1500;
+[v _MOTOR_CENTER_PULSE_WIDTH_US `Cus ~T0 @X0 1 e ]
+[i _MOTOR_CENTER_PULSE_WIDTH_US
+-> -> 1500 `i `us
+]
+"8
+[; ;pwm.c: 8: void pwm_init(void){
+[v _pwm_init `(v ~T0 @X0 1 ef ]
 {
-[e :U _can_receive_callback ]
-[v _msg `*CS3253 ~T0 @X0 1 r1 ]
+[e :U _pwm_init ]
 [f ]
+"13
+[; ;pwm.c: 13:     RB3PPS = 0b001011;
+[e = _RB3PPS -> -> 11 `i `uc ]
+"14
+[; ;pwm.c: 14:     TRISB3 = 1;
+[e = _TRISB3 -> -> 1 `i `b ]
+"17
+[; ;pwm.c: 17:     T2PR = 233;
+[e = _T2PR -> -> 233 `i `uc ]
+"20
+[; ;pwm.c: 20:     CCP3CONbits.EN = 0b1;
+[e = . . _CCP3CONbits 0 4 -> -> 1 `i `uc ]
+"21
+[; ;pwm.c: 21:     CCP3CONbits.FMT = 0b0;
+[e = . . _CCP3CONbits 0 1 -> -> 0 `i `uc ]
+"22
+[; ;pwm.c: 22:     CCP3CONbits.MODE = 0b1100;
+[e = . . _CCP3CONbits 0 0 -> -> 12 `i `uc ]
 "26
-[; ;can_handler.c: 26:     if (get_board_type_unique_id(msg) == BOARD_TYPE_ID_CANARD_MOTOR) {
-[e $ ! == -> ( _get_board_type_unique_id (1 _msg `i -> . `E23141 2 `i 3256  ]
-{
+[; ;pwm.c: 26:     CCPR3H = (562 >> 8) & 0xFF;
+[e = _CCPR3H -> & >> -> 562 `i -> 8 `i -> 255 `i `uc ]
 "27
-[; ;can_handler.c: 27:         return;
-[e $UE 3255  ]
-"28
-[; ;can_handler.c: 28:     }
-}
-[e :U 3256 ]
-"29
-[; ;can_handler.c: 29:     uint16_t msg_type = get_message_type(msg);
-[v _msg_type `us ~T0 @X0 1 a ]
-[e = _msg_type ( _get_message_type (1 _msg ]
-"30
-[; ;can_handler.c: 30:     int actuator_id;
-[v _actuator_id `i ~T0 @X0 1 a ]
+[; ;pwm.c: 27:     CCPR3L = 562 & 0xFF;
+[e = _CCPR3L -> & -> 562 `i -> 255 `i `uc ]
 "31
-[; ;can_handler.c: 31:     int actuator_state;
-[v _actuator_state `i ~T0 @X0 1 a ]
+[; ;pwm.c: 31:     PIR4bits.TMR2IF = 0;
+[e = . . _PIR4bits 0 2 -> -> 0 `i `uc ]
 "33
-[; ;can_handler.c: 33:     switch(msg_type) {
-[e $U 3258  ]
-{
-"36
-[; ;can_handler.c: 36:         case MSG_ACTUATOR_ANALOG_CMD:
-[e :U 3259 ]
+[; ;pwm.c: 33:     T2CLK = 0b0001;
+[e = _T2CLK -> -> 1 `i `uc ]
+"35
+[; ;pwm.c: 35:     T2CONbits.CKPS = 0b101;
+[e = . . _T2CONbits 0 1 -> -> 5 `i `uc ]
 "37
-[; ;can_handler.c: 37:             actuator_state = get_cmd_actuator_state_analog (msg);
-[e = _actuator_state -> ( _get_cmd_actuator_state_analog (1 _msg `i ]
-"38
-[; ;can_handler.c: 38:             if (actuator_state >= 0 && actuator_state <=200) {
-[e $ ! && >= _actuator_state -> 0 `i <= _actuator_state -> 200 `i 3260  ]
-{
-"39
-[; ;can_handler.c: 39:                 updatePulseWidth(actuator_state);
-[e ( _updatePulseWidth (1 -> _actuator_state `uc ]
-"40
-[; ;can_handler.c: 40:             }
-}
-[e :U 3260 ]
+[; ;pwm.c: 37:     T2CONbits.ON = 1;
+[e = . . _T2CONbits 0 2 -> -> 1 `i `uc ]
 "41
-[; ;can_handler.c: 41:             break;
-[e $U 3257  ]
-"59
-[; ;can_handler.c: 59:         case MSG_LEDS_ON:
-[e :U 3261 ]
-"60
-[; ;can_handler.c: 60:             LATA0 = 0;
-[e = _LATA0 -> -> 0 `i `b ]
-"61
-[; ;can_handler.c: 61:             LATA1 = 0;
-[e = _LATA1 -> -> 0 `i `b ]
-"62
-[; ;can_handler.c: 62:             break;
-[e $U 3257  ]
-"64
-[; ;can_handler.c: 64:         case MSG_LEDS_OFF:
-[e :U 3262 ]
-"65
-[; ;can_handler.c: 65:             LATA0 = 1;
-[e = _LATA0 -> -> 1 `i `b ]
-"66
-[; ;can_handler.c: 66:             LATA1 = 1;
-[e = _LATA1 -> -> 1 `i `b ]
-"67
-[; ;can_handler.c: 67:             break;
-[e $U 3257  ]
-"69
-[; ;can_handler.c: 69:         case MSG_RESET_CMD:
-[e :U 3263 ]
-"70
-[; ;can_handler.c: 70:             if (check_board_need_reset(msg)) {
-[e $ ! != -> ( _check_board_need_reset (1 _msg `i -> 0 `i 3264  ]
+[; ;pwm.c: 41:     while (PIR4bits.TMR2IF == 0)
+[e $U 3251  ]
+[e :U 3252 ]
+"42
+[; ;pwm.c: 42:     {}
 {
-"71
-[; ;can_handler.c: 71:                 __asm("reset");
-[; <" reset ;# ">
-"72
-[; ;can_handler.c: 72:             }
 }
-[e :U 3264 ]
-"73
-[; ;can_handler.c: 73:             break;
-[e $U 3257  ]
-"75
-[; ;can_handler.c: 75:         default:
-[e :U 3265 ]
-"76
-[; ;can_handler.c: 76:             break;
-[e $U 3257  ]
-"79
-[; ;can_handler.c: 79:     }
+[e :U 3251 ]
+"41
+[; ;pwm.c: 41:     while (PIR4bits.TMR2IF == 0)
+[e $ == -> . . _PIR4bits 0 2 `i -> 0 `i 3252  ]
+[e :U 3253 ]
+"45
+[; ;pwm.c: 45:     TRISB3 = 0;
+[e = _TRISB3 -> -> 0 `i `b ]
+"46
+[; ;pwm.c: 46: }
+[e :UE 3250 ]
 }
-[e $U 3257  ]
-[e :U 3258 ]
-[e [\ -> _msg_type `ui , $ -> . `E23111 6 `ui 3259
- , $ -> . `E23111 25 `ui 3261
- , $ -> . `E23111 26 `ui 3262
- , $ -> . `E23111 1 `ui 3263
- 3265 ]
-[e :U 3257 ]
-"81
-[; ;can_handler.c: 81: }
-[e :UE 3255 ]
+"48
+[; ;pwm.c: 48: void updatePulseWidth(uint8_t angle)
+[v _updatePulseWidth `(v ~T0 @X0 1 ef1`uc ]
+"49
+[; ;pwm.c: 49: {
+{
+[e :U _updatePulseWidth ]
+"48
+[; ;pwm.c: 48: void updatePulseWidth(uint8_t angle)
+[v _angle `uc ~T0 @X0 1 r1 ]
+"49
+[; ;pwm.c: 49: {
+[f ]
+"50
+[; ;pwm.c: 50:     uint32_t pulse_width_us = (uint32_t) (MOTOR_MIN_PULSE_WIDTH_US + (float) angle * (MOTOR_MAX_PULSE_WIDTH_US - MOTOR_MIN_PULSE_WIDTH_US) / (10 * 20));
+[v _pulse_width_us `ul ~T0 @X0 1 a ]
+[e = _pulse_width_us -> + -> -> _MOTOR_MIN_PULSE_WIDTH_US `ui `f / * -> _angle `f -> - -> _MOTOR_MAX_PULSE_WIDTH_US `ui -> _MOTOR_MIN_PULSE_WIDTH_US `ui `f -> * -> 10 `i -> 20 `i `f `ul ]
+"51
+[; ;pwm.c: 51:     uint8_t tmr2_prescale = 1 << T2CONbits.CKPS;
+[v _tmr2_prescale `uc ~T0 @X0 1 a ]
+[e = _tmr2_prescale -> << -> 1 `i -> . . _T2CONbits 0 1 `i `uc ]
+"52
+[; ;pwm.c: 52:     uint32_t bitWrite = (uint32_t) ((float) pulse_width_us / 1000000 * (float) 12000000 / tmr2_prescale);
+[v _bitWrite `ul ~T0 @X0 1 a ]
+[e = _bitWrite -> / * / -> _pulse_width_us `f -> -> 1000000 `l `f -> -> 12000000 `l `f -> -> _tmr2_prescale `i `f `ul ]
+"53
+[; ;pwm.c: 53:     CCPR3H = (bitWrite >> 8) & 0xFF;
+[e = _CCPR3H -> & >> _bitWrite -> 8 `i -> -> -> 255 `i `l `ul `uc ]
+"54
+[; ;pwm.c: 54:     CCPR3L = bitWrite & 0xFF;
+[e = _CCPR3L -> & _bitWrite -> -> -> 255 `i `l `ul `uc ]
+"55
+[; ;pwm.c: 55: }
+[e :UE 3254 ]
 }

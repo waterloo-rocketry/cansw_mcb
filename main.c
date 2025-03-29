@@ -10,22 +10,25 @@
 
 #define _XTAL_FREQ 12000000 //12MHz
 
-static void __interrupt(irq(IRQ_TMR0)) ISR(void) {
-    if (PIR3bits.TMR0IF) {  // Check if Timer0 overflowed
-        timer0_handle_interrupt();  // Call function to update millis()
-        PIR3bits.TMR0IF = 0;  // Clear the interrupt flag
+void __interrupt() ISR(void) {
+    if (PIR5) {
+        can_handle_interrupt();
+    }
+    // Handle Timer0 Overflow Interrupt
+    if (PIR3bits.TMR0IF) {
+        timer0_handle_interrupt();  // Update millis()
+        PIR3bits.TMR0IF = 0;  // Clear Timer0 interrupt flag
     }
 }
-
 
 
 int main(void) {
     pin_init();
     osc_init();
-    LATA1 = 0;
+    //LATA1 = 0;
     timer0_init();
     pwm_init();
-    
+    can_setup();
     // Enable global interrupts
     INTCON0bits.GIE = 1;
     

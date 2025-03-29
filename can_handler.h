@@ -2,13 +2,11 @@
 #define	CAN_HANDLER_H
 
 #include <xc.h>
-
 #include <stdio.h>
 #include <stdlib.h>
-
 #include "canlib.h"
-
 #include "message_types.h"
+#include "pwm.h"
 
 #define _XTAL_FREQ 12000000
 

@@ -1,6 +1,12 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [t ~ __interrupt . k ]
-[t T1 __interrupt irq ( 31 ) ]
+[t T1 __interrupt ]
+"26245 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 26245: extern volatile unsigned char PIR5 __attribute__((address(0x39A5)));
+[v _PIR5 `Vuc ~T0 @X0 0 e@14757 ]
+"26 canlib/pic18f26k83/pic18f26k83_can.h
+[; ;canlib/pic18f26k83/pic18f26k83_can.h: 26: void can_handle_interrupt(void);
+[v _can_handle_interrupt `(v ~T0 @X0 0 ef ]
 "26111 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 26111:     struct {
 [s S1090 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -20,20 +26,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;rocketlib/include/timer.h: 11: void timer0_handle_interrupt(void);
 [v _timer0_handle_interrupt `(v ~T0 @X0 0 ef ]
 [p mainexit ]
-"15 ./setup.h
-[; ;./setup.h: 15: void pin_init(void);
+"16 ./setup.h
+[; ;./setup.h: 16: void pin_init(void);
 [v _pin_init `(v ~T0 @X0 0 ef ]
-"17
-[; ;./setup.h: 17: void osc_init(void);
+"18
+[; ;./setup.h: 18: void osc_init(void);
 [v _osc_init `(v ~T0 @X0 0 ef ]
-"12760 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h
-[v _LATA1 `Vb ~T0 @X0 0 e@130513 ]
 "7 rocketlib/include/timer.h
 [; ;rocketlib/include/timer.h: 7: void timer0_init(void);
 [v _timer0_init `(v ~T0 @X0 0 ef ]
 "12 ./pwm.h
 [; ;./pwm.h: 12: void pwm_init(void);
 [v _pwm_init `(v ~T0 @X0 0 ef ]
+"14 ./can_handler.h
+[; ;./can_handler.h: 14: void can_setup(void);
+[v _can_setup `(v ~T0 @X0 0 ef ]
 "5347 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h
 [s S3143 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S3143 . INT0EDG INT1EDG INT2EDG . IPEN GIEL GIE ]
@@ -3095,90 +3102,102 @@ Version 4.0 HI-TECH Software Intermediate Code
 "72326
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 72326: __asm("TOSU equ 03FFFh");
 [; <" TOSU equ 03FFFh ;# ">
+[v $root$_ISR `(v ~T0 @X0 0 e ]
 "13 main.c
-[; ;main.c: 13: static void __attribute__((picinterrupt(("irq(31)")))) ISR(void) {
-[v _ISR `(v ~T1 @X0 1 sf ]
+[; ;main.c: 13: void __attribute__((picinterrupt(("")))) ISR(void) {
+[v _ISR `(v ~T1 @X0 1 ef ]
 {
 [e :U _ISR ]
 [f ]
 "14
-[; ;main.c: 14:     if (PIR3bits.TMR0IF) {
-[e $ ! != -> . . _PIR3bits 0 7 `i -> 0 `i 3255  ]
+[; ;main.c: 14:     if (PIR5) {
+[e $ ! != -> _PIR5 `i -> 0 `i 3255  ]
 {
 "15
-[; ;main.c: 15:         timer0_handle_interrupt();
-[e ( _timer0_handle_interrupt ..  ]
+[; ;main.c: 15:         can_handle_interrupt();
+[e ( _can_handle_interrupt ..  ]
 "16
-[; ;main.c: 16:         PIR3bits.TMR0IF = 0;
-[e = . . _PIR3bits 0 7 -> -> 0 `i `uc ]
-"17
-[; ;main.c: 17:     }
+[; ;main.c: 16:     }
 }
 [e :U 3255 ]
 "18
-[; ;main.c: 18: }
+[; ;main.c: 18:     if (PIR3bits.TMR0IF) {
+[e $ ! != -> . . _PIR3bits 0 7 `i -> 0 `i 3256  ]
+{
+"19
+[; ;main.c: 19:         timer0_handle_interrupt();
+[e ( _timer0_handle_interrupt ..  ]
+"20
+[; ;main.c: 20:         PIR3bits.TMR0IF = 0;
+[e = . . _PIR3bits 0 7 -> -> 0 `i `uc ]
+"21
+[; ;main.c: 21:     }
+}
+[e :U 3256 ]
+"22
+[; ;main.c: 22: }
 [e :UE 3254 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"22
-[; ;main.c: 22: int main(void) {
+"25
+[; ;main.c: 25: int main(void) {
 [v _main `(i ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"23
-[; ;main.c: 23:     pin_init();
-[e ( _pin_init ..  ]
-"24
-[; ;main.c: 24:     osc_init();
-[e ( _osc_init ..  ]
-"25
-[; ;main.c: 25:     LATA1 = 0;
-[e = _LATA1 -> -> 0 `i `b ]
 "26
-[; ;main.c: 26:     timer0_init();
-[e ( _timer0_init ..  ]
+[; ;main.c: 26:     pin_init();
+[e ( _pin_init ..  ]
 "27
-[; ;main.c: 27:     pwm_init();
-[e ( _pwm_init ..  ]
+[; ;main.c: 27:     osc_init();
+[e ( _osc_init ..  ]
+"29
+[; ;main.c: 29:     timer0_init();
+[e ( _timer0_init ..  ]
 "30
-[; ;main.c: 30:     INTCON0bits.GIE = 1;
-[e = . . _INTCON0bits 0 6 -> -> 1 `i `uc ]
+[; ;main.c: 30:     pwm_init();
+[e ( _pwm_init ..  ]
+"31
+[; ;main.c: 31:     can_setup();
+[e ( _can_setup ..  ]
 "33
-[; ;main.c: 33:     uint32_t last_millis = 0;
+[; ;main.c: 33:     INTCON0bits.GIE = 1;
+[e = . . _INTCON0bits 0 6 -> -> 1 `i `uc ]
+"36
+[; ;main.c: 36:     uint32_t last_millis = 0;
 [v _last_millis `ul ~T0 @X0 1 a ]
 [e = _last_millis -> -> -> 0 `i `l `ul ]
-"35
-[; ;main.c: 35:     while(1) {
-[e :U 3258 ]
-{
-"36
-[; ;main.c: 36:         __asm(" clrwdt");
-[; <"  clrwdt ;# ">
 "38
-[; ;main.c: 38:         if ((millis() - last_millis) > 500) {
-[e $ ! > - ( _millis ..  _last_millis -> -> -> 500 `i `l `ul 3260  ]
+[; ;main.c: 38:     while(1) {
+[e :U 3259 ]
 {
 "39
-[; ;main.c: 39:             last_millis = millis();
-[e = _last_millis ( _millis ..  ]
-"40
-[; ;main.c: 40:             (LATA0 = !LATA0);
-[e = _LATA0 ! _LATA0 ]
+[; ;main.c: 39:         __asm(" clrwdt");
+[; <"  clrwdt ;# ">
 "41
-[; ;main.c: 41:         }
-}
-[e :U 3260 ]
+[; ;main.c: 41:         if ((millis() - last_millis) > 500) {
+[e $ ! > - ( _millis ..  _last_millis -> -> -> 500 `i `l `ul 3261  ]
+{
+"42
+[; ;main.c: 42:             last_millis = millis();
+[e = _last_millis ( _millis ..  ]
 "43
-[; ;main.c: 43:         updatePulseWidth(100);
-[e ( _updatePulseWidth (1 -> -> 100 `i `uc ]
+[; ;main.c: 43:             (LATA0 = !LATA0);
+[e = _LATA0 ! _LATA0 ]
 "44
-[; ;main.c: 44:     }
+[; ;main.c: 44:         }
 }
-[e :U 3257 ]
-[e $U 3258  ]
-[e :U 3259 ]
+[e :U 3261 ]
 "46
-[; ;main.c: 46: }
-[e :UE 3256 ]
+[; ;main.c: 46:         updatePulseWidth(100);
+[e ( _updatePulseWidth (1 -> -> 100 `i `uc ]
+"47
+[; ;main.c: 47:     }
+}
+[e :U 3258 ]
+[e $U 3259  ]
+[e :U 3260 ]
+"49
+[; ;main.c: 49: }
+[e :UE 3257 ]
 }

@@ -1,12 +1,9 @@
-build/default/debug/main.p1:  \
-main.c  \
-setup.h  \
-canlib/message_types.h  \
-rocketlib/include/timer.h  \
-pwm.h  \
+build/default/debug/can_handler.p1:  \
+can_handler.c  \
 can_handler.h  \
 canlib/canlib.h  \
 canlib/can.h  \
+canlib/message_types.h  \
 canlib/message/msg_actuator.h  \
 canlib/message/msg_common.h  \
 canlib/message/msg_general.h  \
@@ -19,4 +16,6 @@ canlib/util/../can.h  \
 canlib/util/can_tx_buffer.h  \
 canlib/util/timing_util.h  \
 canlib/pic18f26k83/pic18f26k83_can.h  \
-canlib/pic18f26k83/../can.h 
+canlib/pic18f26k83/../can.h  \
+pwm.h  \
+rocketlib/include/timer.h 
