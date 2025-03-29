@@ -18,7 +18,7 @@ void can_setup(void) {
     can_timing_t timing;
     can_generate_timing_params(_XTAL_FREQ, &timing);
     can_init(&timing, can_receive_callback);
-
+    
 }
 
 void can_receive_callback(const can_msg_t *msg) {
@@ -31,7 +31,16 @@ void can_receive_callback(const can_msg_t *msg) {
     int actuator_state;
     
     switch(msg_type) {
-#if (BOARD_INST_UNIQUE_ID == BOARD_INST_ID_CANARD_MOTOR_FAILSAFE)
+        
+#if (BOARD_INST_UNIQUE_ID == BOARD_INST_ID_CANARD_MOTOR_PRIMARY)
+        case MSG_ACTUATOR_ANALOG_CMD:
+            actuator_state = get_cmd_actuator_state_analog (msg);
+            if (actuator_state >= 0 && actuator_state <=200) {
+                updatePulseWidth(actuator_state);
+            }
+            break;
+            
+#elif (BOARD_INST_UNIQUE_ID == BOARD_INST_ID_CANARD_MOTOR_FAILSAFE)
         case MSG_ACTUATOR_CMD:
             actuator_id = get_actuator_id(msg);
             if (actuator_id == ACTUATOR_CANARD_ENABLE) {
@@ -43,16 +52,25 @@ void can_receive_callback(const can_msg_t *msg) {
                     TRISC5 = 1;
                 }
             }
-            
-#elif (BOARD_INST_UNIQUE_ID == BOARD_INST_ID_CANARD_MOTOR_PRIMARY)
-        case MSG_ACTUATOR_CMD_ANALOG:
-            actuator_state = get_cmd_actuator_state_analog (msg);
-            if (actuator_state >= 0 && actuator_state <=200) {
-                updatePulseWidth(actuator_state);
-            }
-            
+            break;
             
 #endif
+            
+        case MSG_LEDS_ON:
+            LATA0 = 0;
+            LATA1 = 0;
+            break;
+            
+        case MSG_LEDS_OFF:
+            LATA0 = 1;
+            LATA1 = 1;
+            break;
+            
+        case MSG_RESET_CMD:
+            if (check_board_need_reset(msg)) {
+                RESET();
+            }    
+            break;
             
         default:
             break;

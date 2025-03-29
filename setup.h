@@ -4,6 +4,7 @@
 
 #include <xc.h>
 #include "stdbool.h"
+#include "message_types.h"
 
 // Time between main loop code execution
 #define MAX_LOOP_TIME_DIFF_ms 500

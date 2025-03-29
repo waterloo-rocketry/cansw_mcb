@@ -1,12 +1,12 @@
 build/default/production/main.p1:  \
 main.c  \
 setup.h  \
+canlib/message_types.h  \
 rocketlib/include/timer.h  \
 pwm.h  \
 can_handler.h  \
 canlib/canlib.h  \
 canlib/can.h  \
-canlib/message_types.h  \
 canlib/message/msg_actuator.h  \
 canlib/message/msg_common.h  \
 canlib/message/msg_general.h  \
