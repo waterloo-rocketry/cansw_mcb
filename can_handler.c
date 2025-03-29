@@ -1,5 +1,8 @@
 #include "can_handler.h"
 
+// memory pool for the CAN tx buffer
+uint8_t tx_pool[100];
+
 void can_setup(void) {
     CANRXPPS = 0x11;    // CAN receive pin = RC1
     RC0PPS = 0x33;      // CAN transmit pin = RC0
@@ -18,7 +21,8 @@ void can_setup(void) {
     can_timing_t timing;
     can_generate_timing_params(_XTAL_FREQ, &timing);
     can_init(&timing, can_receive_callback);
-    
+    // set up CAN tx buffer
+    txb_init(tx_pool, sizeof(tx_pool), can_send, can_send_rdy);
 }
 
 void can_receive_callback(const can_msg_t *msg) {

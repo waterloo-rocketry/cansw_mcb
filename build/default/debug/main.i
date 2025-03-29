@@ -37499,7 +37499,7 @@ void can_send(const can_msg_t* message);
 _Bool can_send_rdy(void);
 
 
-void can_handle_interrupt(void);
+volatile void can_handle_interrupt(void);
 # 26 "canlib/canlib.h" 2
 # 8 "./can_handler.h" 2
 
@@ -37517,19 +37517,41 @@ void send_status_ok(void);
 void can_log(const can_msg_t *msg);
 # 10 "main.c" 2
 
+# 1 "./potentiometer.h" 1
 
 
-void __attribute__((picinterrupt(("")))) ISR(void) {
+
+
+
+
+void pot_init(void);
+
+void pot_read(uint8_t channel);
+# 12 "main.c" 2
+
+
+
+volatile uint16_t adc_value;
+
+static void __attribute__((picinterrupt(("")))) ISR(void) {
+
     if (PIR5) {
-        can_handle_interrupt();
+
     }
 
     if (PIR3bits.TMR0IF) {
         timer0_handle_interrupt();
         PIR3bits.TMR0IF = 0;
     }
-}
 
+
+    if (PIR1bits.ADIF) {
+        PIR1bits.ADIF = 0;
+
+
+        adc_value = ((uint16_t)ADRESH << 8) | ADRESL;
+    }
+}
 
 int main(void) {
     pin_init();

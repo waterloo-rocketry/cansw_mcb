@@ -3603,8 +3603,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 3263 ]
 }
 "122
-[; ;canlib/pic18f26k83/pic18f26k83_can.c: 122: void can_handle_interrupt() {
-[v _can_handle_interrupt `(v ~T0 @X0 1 ef ]
+[; ;canlib/pic18f26k83/pic18f26k83_can.c: 122: volatile void can_handle_interrupt(void) {
+[v _can_handle_interrupt `(Vv ~T0 @X0 1 ef ]
 {
 [e :U _can_handle_interrupt ]
 [f ]
