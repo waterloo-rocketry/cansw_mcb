@@ -8,19 +8,31 @@
 #include "pwm.h"
 #include "can_handler.h"
 
+#include "potentiometer.h"
+
 #define _XTAL_FREQ 12000000 //12MHz
 
-void __interrupt() ISR(void) {
+volatile uint16_t adc_value; //potentiometer reading directly from adc
+
+static void __interrupt() ISR(void) {
+    //Handle CAN interrupts
     if (PIR5) {
-        can_handle_interrupt();
+        //can_handle_interrupt();
     }
     // Handle Timer0 Overflow Interrupt
     if (PIR3bits.TMR0IF) {
         timer0_handle_interrupt();  // Update millis()
         PIR3bits.TMR0IF = 0;  // Clear Timer0 interrupt flag
     }
-}
+    
+    //Handle ADC interrupt
+    if (PIR1bits.ADIF) {
+        PIR1bits.ADIF = 0;  // Clear ADC interrupt flag
 
+        // Read ADC result
+        adc_value = ((uint16_t)ADRESH << 8) | ADRESL;
+    }
+}
 
 int main(void) {
     pin_init();

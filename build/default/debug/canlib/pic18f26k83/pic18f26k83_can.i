@@ -175,7 +175,7 @@ void can_send(const can_msg_t* message);
 _Bool can_send_rdy(void);
 
 
-void can_handle_interrupt(void);
+volatile void can_handle_interrupt(void);
 # 2 "canlib/pic18f26k83/pic18f26k83_can.c" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/xc.h" 3
@@ -36877,7 +36877,7 @@ _Bool can_send_rdy(void) {
 
 
 
-void can_handle_interrupt() {
+volatile void can_handle_interrupt(void) {
 
 
 
