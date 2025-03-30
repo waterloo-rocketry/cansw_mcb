@@ -320,18 +320,6 @@ typedef enum {
 } can_board_inst_id_thermocouple_t;
 
 typedef enum {
-    E_NOMINAL = 0x00,
-    E_5V_OVER_CURRENT = 0x01,
-    E_5V_OVER_VOLTAGE = 0x02,
-    E_5V_UNDER_VOLTAGE = 0x04,
-    E_12V_OVER_CURRENT = 0x08,
-    E_12V_OVER_VOLTAGE = 0x10,
-    E_12V_UNDER_VOLTAGE = 0x20,
-    E_IO_ERROR = 0x40,
-    E_FS_ERROR = 0x80,
-} can_general_board_status_t;
-
-typedef enum {
     ACTUATOR_OX_INJECTOR_VALVE = 0x00,
     ACTUATOR_FUEL_INJECTOR_VALVE = 0x01,
     ACTUATOR_CHARGE_ENABLE = 0x02,
@@ -425,6 +413,17 @@ typedef enum {
     STATE_ID_CANARD_ANGLE = 0x0C,
     STATE_ID_ENUM_MAX = 0x0D,
 } can_state_est_id_t;
+
+typedef enum {
+    E_5V_OVER_CURRENT_OFFSET = 0x00,
+    E_5V_OVER_VOLTAGE_OFFSET = 0x01,
+    E_5V_UNDER_VOLTAGE_OFFSET = 0x02,
+    E_12V_OVER_CURRENT_OFFSET = 0x03,
+    E_12V_OVER_VOLTAGE_OFFSET = 0x04,
+    E_12V_UNDER_VOLTAGE_OFFSET = 0x05,
+    E_IO_ERROR_OFFSET = 0x06,
+    E_FS_ERROR_OFFSET = 0x07,
+} can_general_board_status_offset_t;
 # 7 "canlib/message/msg_state_est.c" 2
 # 1 "canlib/message/msg_common.h" 1
 # 26 "canlib/message/msg_common.h"
@@ -455,7 +454,7 @@ _Bool build_state_est_data_msg(
     can_msg_prio_t prio, uint16_t timestamp, can_state_est_id_t state_id, const float *state_data,
     can_msg_t *output
 ) {
-    output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_STATE_EST_DATA << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | BOARD_INST_ID_CANARD_MOTOR_PRIMARY);
+    output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_STATE_EST_DATA << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x02);
     write_timestamp_2bytes(timestamp, output);
     const uint8_t *data = (const uint8_t *)state_data;
 

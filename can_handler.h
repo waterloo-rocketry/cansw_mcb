@@ -5,8 +5,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "canlib.h"
-#include "message_types.h"
 #include "pwm.h"
+#include "setup.h"
 
 #define _XTAL_FREQ 12000000
 

@@ -36945,18 +36945,6 @@ typedef enum {
 } can_board_inst_id_thermocouple_t;
 
 typedef enum {
-    E_NOMINAL = 0x00,
-    E_5V_OVER_CURRENT = 0x01,
-    E_5V_OVER_VOLTAGE = 0x02,
-    E_5V_UNDER_VOLTAGE = 0x04,
-    E_12V_OVER_CURRENT = 0x08,
-    E_12V_OVER_VOLTAGE = 0x10,
-    E_12V_UNDER_VOLTAGE = 0x20,
-    E_IO_ERROR = 0x40,
-    E_FS_ERROR = 0x80,
-} can_general_board_status_t;
-
-typedef enum {
     ACTUATOR_OX_INJECTOR_VALVE = 0x00,
     ACTUATOR_FUEL_INJECTOR_VALVE = 0x01,
     ACTUATOR_CHARGE_ENABLE = 0x02,
@@ -37050,6 +37038,17 @@ typedef enum {
     STATE_ID_CANARD_ANGLE = 0x0C,
     STATE_ID_ENUM_MAX = 0x0D,
 } can_state_est_id_t;
+
+typedef enum {
+    E_5V_OVER_CURRENT_OFFSET = 0x00,
+    E_5V_OVER_VOLTAGE_OFFSET = 0x01,
+    E_5V_UNDER_VOLTAGE_OFFSET = 0x02,
+    E_12V_OVER_CURRENT_OFFSET = 0x03,
+    E_12V_OVER_VOLTAGE_OFFSET = 0x04,
+    E_12V_UNDER_VOLTAGE_OFFSET = 0x05,
+    E_IO_ERROR_OFFSET = 0x06,
+    E_FS_ERROR_OFFSET = 0x07,
+} can_general_board_status_offset_t;
 # 6 "canlib/canlib.h" 2
 
 # 1 "canlib/message/msg_actuator.h" 1
@@ -37456,10 +37455,9 @@ void can_send(const can_msg_t* message);
 _Bool can_send_rdy(void);
 
 
-volatile void can_handle_interrupt(void);
+void can_handle_interrupt(void);
 # 26 "canlib/canlib.h" 2
 # 8 "./can_handler.h" 2
-
 # 1 "./pwm.h" 1
 
 
@@ -37483,14 +37481,21 @@ uint32_t millis(void);
 # 6 "./pwm.h" 2
 
 
+# 1 "./setup.h" 1
+# 18 "./setup.h"
+void pin_init(void);
+
+void osc_init(void);
+# 9 "./pwm.h" 2
 
 
 
 
 void pwm_init(void);
 
-void updatePulseWidth(uint8_t angle);
-# 10 "./can_handler.h" 2
+void updatePulseWidth(uint16_t angle);
+# 9 "./can_handler.h" 2
+
 
 
 
@@ -37506,6 +37511,7 @@ void can_log(const can_msg_t *msg);
 
 
 uint8_t tx_pool[100];
+extern uint16_t cmd_angle;
 
 void can_setup(void) {
     CANRXPPS = 0x11;
@@ -37531,9 +37537,11 @@ void can_setup(void) {
 
 void can_receive_callback(const can_msg_t *msg) {
 
+
     if (get_board_type_unique_id(msg) == BOARD_TYPE_ID_CANARD_MOTOR) {
         return;
     }
+
     uint16_t msg_type = get_message_type(msg);
     int actuator_id;
     int actuator_state;
@@ -37543,11 +37551,15 @@ void can_receive_callback(const can_msg_t *msg) {
 
         case MSG_ACTUATOR_ANALOG_CMD:
             actuator_state = get_cmd_actuator_state_analog (msg);
+            LATA1 = !LATA1;
             if (actuator_state >= 0 && actuator_state <=200) {
-                updatePulseWidth(actuator_state);
+
+                cmd_angle = actuator_state;
+
             }
+
             break;
-# 63 "can_handler.c"
+# 70 "can_handler.c"
         case MSG_LEDS_ON:
             LATA0 = 0;
             LATA1 = 0;

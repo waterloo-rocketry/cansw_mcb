@@ -8,24 +8,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 [s S2 `ul 1 `uc 1 `uc -> 8 `i ]
 [n S2 . sid data_len data ]
 "16 canlib/message/msg_sensor.c
-[; ;canlib/message/msg_sensor.c: 16:     output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_SENSOR_TEMP << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | BOARD_INST_ID_CANARD_MOTOR_PRIMARY);
+[; ;canlib/message/msg_sensor.c: 16:     output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_SENSOR_TEMP << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x02);
 [c E57 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 .. ]
 [n E57 . MSG_GENERAL_BOARD_STATUS MSG_RESET_CMD MSG_DEBUG_RAW MSG_CONFIG_SET MSG_CONFIG_STATUS MSG_ACTUATOR_CMD MSG_ACTUATOR_ANALOG_CMD MSG_ACTUATOR_STATUS MSG_ALT_ARM_CMD MSG_ALT_ARM_STATUS MSG_SENSOR_TEMP MSG_SENSOR_ALTITUDE MSG_SENSOR_IMU_X MSG_SENSOR_IMU_Y MSG_SENSOR_IMU_Z MSG_SENSOR_MAG_X MSG_SENSOR_MAG_Y MSG_SENSOR_MAG_Z MSG_SENSOR_ANALOG MSG_GPS_TIMESTAMP MSG_GPS_LATITUDE MSG_GPS_LONGITUDE MSG_GPS_ALTITUDE MSG_GPS_INFO MSG_STATE_EST_DATA MSG_LEDS_ON MSG_LEDS_OFF MSG_ID_ENUM_MAX  ]
 [c E87 0 1 2 3 4 5 6 7 8 9 10 11 64 65 128 129 130 131 132 133 134 192 .. ]
 [n E87 . BOARD_TYPE_ID_ANY BOARD_TYPE_ID_INJ_SENSOR BOARD_TYPE_ID_CANARD_MOTOR BOARD_TYPE_ID_CAMERA BOARD_TYPE_ID_POWER BOARD_TYPE_ID_LOGGER BOARD_TYPE_ID_PROCESSOR BOARD_TYPE_ID_TELEMETRY BOARD_TYPE_ID_GPS BOARD_TYPE_ID_SRAD_GNSS BOARD_TYPE_ID_ALTIMETER BOARD_TYPE_ID_ARMING BOARD_TYPE_ID_PAY_SENSOR BOARD_TYPE_ID_PAY_MOTOR BOARD_TYPE_ID_RLCS_GLS BOARD_TYPE_ID_RLCS_RELAY BOARD_TYPE_ID_RLCS_HEATING BOARD_TYPE_ID_DAQ BOARD_TYPE_ID_CHARGING BOARD_TYPE_ID_THERMOCOUPLE BOARD_TYPE_ID_USB BOARD_TYPE_ID_FYDP25_TVCA  ]
-[c E115 2 3 .. ]
-[n E115 . BOARD_INST_ID_CANARD_MOTOR_PRIMARY BOARD_INST_ID_CANARD_MOTOR_FAILSAFE  ]
 "26 canlib/message/msg_common.h
 [; ;canlib/message/msg_common.h: 26: void write_timestamp_2bytes(uint16_t timestamp, can_msg_t *output);
 [v _write_timestamp_2bytes `(v ~T0 @X0 0 ef2`us`*S2 ]
 "48 canlib/message/msg_sensor.c
 [; ;canlib/message/msg_sensor.c: 48: _Bool build_imu_data_msg(
-[c E186 0 1 2 3 4 .. ]
-[n E186 . IMU_PROC_ALTIMU10 IMU_PROC_MTI630 IMU_PROC_LSM6DSO32 IMU_SRAD_ALT_ALTIMU10 IMU_ENUM_MAX  ]
+[c E175 0 1 2 3 4 .. ]
+[n E175 . IMU_PROC_ALTIMU10 IMU_PROC_MTI630 IMU_PROC_LSM6DSO32 IMU_SRAD_ALT_ALTIMU10 IMU_ENUM_MAX  ]
 "100
 [; ;canlib/message/msg_sensor.c: 100: _Bool build_analog_data_msg(
-[c E193 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 .. ]
-[n E193 . SENSOR_5V_VOLT SENSOR_5V_CURR SENSOR_12V_VOLT SENSOR_12V_CURR SENSOR_CHARGE_VOLT SENSOR_CHARGE_CURR SENSOR_BATT_VOLT SENSOR_BATT_CURR SENSOR_MOTOR_CURR SENSOR_PRESSURE_OX SENSOR_PRESSURE_FUEL SENSOR_PRESSURE_CC SENSOR_BARO_PRESSURE SENSOR_BARO_TEMP SENSOR_RA_BATT_VOLT_1 SENSOR_RA_BATT_VOLT_2 SENSOR_RA_BATT_CURR_1 SENSOR_RA_BATT_CURR_2 SENSOR_RA_MAG_VOLT_1 SENSOR_RA_MAG_VOLT_2 SENSOR_FPS SENSOR_CANARD_ENCODER_1 SENSOR_CANARD_ENCODER_2 SENSOR_PROC_FLIGHT_PHASE_STATUS SENSOR_VELOCITY SENSOR_ENUM_MAX  ]
+[c E182 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 .. ]
+[n E182 . SENSOR_5V_VOLT SENSOR_5V_CURR SENSOR_12V_VOLT SENSOR_12V_CURR SENSOR_CHARGE_VOLT SENSOR_CHARGE_CURR SENSOR_BATT_VOLT SENSOR_BATT_CURR SENSOR_MOTOR_CURR SENSOR_PRESSURE_OX SENSOR_PRESSURE_FUEL SENSOR_PRESSURE_CC SENSOR_BARO_PRESSURE SENSOR_BARO_TEMP SENSOR_RA_BATT_VOLT_1 SENSOR_RA_BATT_VOLT_2 SENSOR_RA_BATT_CURR_1 SENSOR_RA_BATT_CURR_2 SENSOR_RA_MAG_VOLT_1 SENSOR_RA_MAG_VOLT_2 SENSOR_FPS SENSOR_CANARD_ENCODER_1 SENSOR_CANARD_ENCODER_2 SENSOR_PROC_FLIGHT_PHASE_STATUS SENSOR_VELOCITY SENSOR_ENUM_MAX  ]
 "28 canlib/message/msg_common.h
 [; ;canlib/message/msg_common.h: 28: uint16_t get_message_type(const can_msg_t *msg);
 [v _get_message_type `(us ~T0 @X0 0 ef1`*CS2 ]
@@ -59,8 +57,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 4 ]
 "16
-[; ;canlib/message/msg_sensor.c: 16:     output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_SENSOR_TEMP << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | BOARD_INST_ID_CANARD_MOTOR_PRIMARY);
-[e = . *U _output 0 | | | << -> _prio `ul -> 27 `i << -> . `E57 10 `ul -> 18 `i << -> . `E87 2 `ul -> 8 `i -> -> . `E115 0 `l `ul ]
+[; ;canlib/message/msg_sensor.c: 16:     output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_SENSOR_TEMP << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x02);
+[e = . *U _output 0 | | | << -> _prio `ul -> 27 `i << -> . `E57 10 `ul -> 18 `i << -> . `E87 2 `ul -> 8 `i -> -> -> 2 `i `l `ul ]
 "17
 [; ;canlib/message/msg_sensor.c: 17:     write_timestamp_2bytes(timestamp, output);
 [e ( _write_timestamp_2bytes (2 , _timestamp _output ]
@@ -119,8 +117,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 6 ]
 "36
-[; ;canlib/message/msg_sensor.c: 36:     output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_SENSOR_ALTITUDE << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | BOARD_INST_ID_CANARD_MOTOR_PRIMARY);
-[e = . *U _output 0 | | | << -> _prio `ul -> 27 `i << -> . `E57 11 `ul -> 18 `i << -> . `E87 2 `ul -> 8 `i -> -> . `E115 0 `l `ul ]
+[; ;canlib/message/msg_sensor.c: 36:     output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_SENSOR_ALTITUDE << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x02);
+[e = . *U _output 0 | | | << -> _prio `ul -> 27 `i << -> . `E57 11 `ul -> 18 `i << -> . `E87 2 `ul -> 8 `i -> -> -> 2 `i `l `ul ]
 "37
 [; ;canlib/message/msg_sensor.c: 37:     write_timestamp_2bytes(timestamp, output);
 [e ( _write_timestamp_2bytes (2 , _timestamp _output ]
@@ -149,7 +147,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "48
 [; ;canlib/message/msg_sensor.c: 48: _Bool build_imu_data_msg(
-[v _build_imu_data_msg `(a ~T0 @X0 1 ef7`E51`us`uc`E186`us`us`*S2 ]
+[v _build_imu_data_msg `(a ~T0 @X0 1 ef7`E51`us`uc`E175`us`us`*S2 ]
 "51
 [; ;canlib/message/msg_sensor.c: 51: ) {
 {
@@ -159,7 +157,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _prio `E51 ~T0 @X0 1 r1 ]
 [v _timestamp `us ~T0 @X0 1 r2 ]
 [v _axis `uc ~T0 @X0 1 r3 ]
-[v _imu_id `E186 ~T0 @X0 1 r4 ]
+[v _imu_id `E175 ~T0 @X0 1 r4 ]
 [v _linear_accel `us ~T0 @X0 1 r5 ]
 "50
 [; ;canlib/message/msg_sensor.c: 50:     uint16_t angular_velocity, can_msg_t *output
@@ -185,8 +183,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! == -> _axis `ui -> 88 `ui 9  ]
 {
 "56
-[; ;canlib/message/msg_sensor.c: 56:         output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_SENSOR_IMU_X << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | BOARD_INST_ID_CANARD_MOTOR_PRIMARY);
-[e = . *U _output 0 | | | << -> _prio `ul -> 27 `i << -> . `E57 12 `ul -> 18 `i << -> . `E87 2 `ul -> 8 `i -> -> . `E115 0 `l `ul ]
+[; ;canlib/message/msg_sensor.c: 56:         output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_SENSOR_IMU_X << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x02);
+[e = . *U _output 0 | | | << -> _prio `ul -> 27 `i << -> . `E57 12 `ul -> 18 `i << -> . `E87 2 `ul -> 8 `i -> -> -> 2 `i `l `ul ]
 "57
 [; ;canlib/message/msg_sensor.c: 57:     } else if (axis == 'Y') {
 }
@@ -195,8 +193,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! == -> _axis `ui -> 89 `ui 11  ]
 {
 "58
-[; ;canlib/message/msg_sensor.c: 58:         output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_SENSOR_IMU_Y << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | BOARD_INST_ID_CANARD_MOTOR_PRIMARY);
-[e = . *U _output 0 | | | << -> _prio `ul -> 27 `i << -> . `E57 13 `ul -> 18 `i << -> . `E87 2 `ul -> 8 `i -> -> . `E115 0 `l `ul ]
+[; ;canlib/message/msg_sensor.c: 58:         output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_SENSOR_IMU_Y << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x02);
+[e = . *U _output 0 | | | << -> _prio `ul -> 27 `i << -> . `E57 13 `ul -> 18 `i << -> . `E87 2 `ul -> 8 `i -> -> -> 2 `i `l `ul ]
 "59
 [; ;canlib/message/msg_sensor.c: 59:     } else {
 }
@@ -204,8 +202,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 11 ]
 {
 "60
-[; ;canlib/message/msg_sensor.c: 60:         output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_SENSOR_IMU_Z << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | BOARD_INST_ID_CANARD_MOTOR_PRIMARY);
-[e = . *U _output 0 | | | << -> _prio `ul -> 27 `i << -> . `E57 14 `ul -> 18 `i << -> . `E87 2 `ul -> 8 `i -> -> . `E115 0 `l `ul ]
+[; ;canlib/message/msg_sensor.c: 60:         output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_SENSOR_IMU_Z << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x02);
+[e = . *U _output 0 | | | << -> _prio `ul -> 27 `i << -> . `E57 14 `ul -> 18 `i << -> . `E87 2 `ul -> 8 `i -> -> -> 2 `i `l `ul ]
 "61
 [; ;canlib/message/msg_sensor.c: 61:     }
 }
@@ -242,7 +240,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "75
 [; ;canlib/message/msg_sensor.c: 75: _Bool build_mag_data_msg(
-[v _build_mag_data_msg `(a ~T0 @X0 1 ef6`E51`us`uc`E186`us`*S2 ]
+[v _build_mag_data_msg `(a ~T0 @X0 1 ef6`E51`us`uc`E175`us`*S2 ]
 "78
 [; ;canlib/message/msg_sensor.c: 78: ) {
 {
@@ -252,7 +250,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _prio `E51 ~T0 @X0 1 r1 ]
 [v _timestamp `us ~T0 @X0 1 r2 ]
 [v _axis `uc ~T0 @X0 1 r3 ]
-[v _imu_id `E186 ~T0 @X0 1 r4 ]
+[v _imu_id `E175 ~T0 @X0 1 r4 ]
 [v _mag_value `us ~T0 @X0 1 r5 ]
 "77
 [; ;canlib/message/msg_sensor.c: 77:     can_msg_t *output
@@ -277,8 +275,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! == -> _axis `ui -> 88 `ui 15  ]
 {
 "83
-[; ;canlib/message/msg_sensor.c: 83:         output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_SENSOR_MAG_X << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | BOARD_INST_ID_CANARD_MOTOR_PRIMARY);
-[e = . *U _output 0 | | | << -> _prio `ul -> 27 `i << -> . `E57 15 `ul -> 18 `i << -> . `E87 2 `ul -> 8 `i -> -> . `E115 0 `l `ul ]
+[; ;canlib/message/msg_sensor.c: 83:         output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_SENSOR_MAG_X << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x02);
+[e = . *U _output 0 | | | << -> _prio `ul -> 27 `i << -> . `E57 15 `ul -> 18 `i << -> . `E87 2 `ul -> 8 `i -> -> -> 2 `i `l `ul ]
 "84
 [; ;canlib/message/msg_sensor.c: 84:     } else if (axis == 'Y') {
 }
@@ -287,8 +285,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! == -> _axis `ui -> 89 `ui 17  ]
 {
 "85
-[; ;canlib/message/msg_sensor.c: 85:         output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_SENSOR_MAG_Y << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | BOARD_INST_ID_CANARD_MOTOR_PRIMARY);
-[e = . *U _output 0 | | | << -> _prio `ul -> 27 `i << -> . `E57 16 `ul -> 18 `i << -> . `E87 2 `ul -> 8 `i -> -> . `E115 0 `l `ul ]
+[; ;canlib/message/msg_sensor.c: 85:         output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_SENSOR_MAG_Y << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x02);
+[e = . *U _output 0 | | | << -> _prio `ul -> 27 `i << -> . `E57 16 `ul -> 18 `i << -> . `E87 2 `ul -> 8 `i -> -> -> 2 `i `l `ul ]
 "86
 [; ;canlib/message/msg_sensor.c: 86:     } else {
 }
@@ -296,8 +294,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 17 ]
 {
 "87
-[; ;canlib/message/msg_sensor.c: 87:         output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_SENSOR_MAG_Z << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | BOARD_INST_ID_CANARD_MOTOR_PRIMARY);
-[e = . *U _output 0 | | | << -> _prio `ul -> 27 `i << -> . `E57 17 `ul -> 18 `i << -> . `E87 2 `ul -> 8 `i -> -> . `E115 0 `l `ul ]
+[; ;canlib/message/msg_sensor.c: 87:         output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_SENSOR_MAG_Z << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x02);
+[e = . *U _output 0 | | | << -> _prio `ul -> 27 `i << -> . `E57 17 `ul -> 18 `i << -> . `E87 2 `ul -> 8 `i -> -> -> 2 `i `l `ul ]
 "88
 [; ;canlib/message/msg_sensor.c: 88:     }
 }
@@ -328,7 +326,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "100
 [; ;canlib/message/msg_sensor.c: 100: _Bool build_analog_data_msg(
-[v _build_analog_data_msg `(a ~T0 @X0 1 ef5`E51`us`E193`us`*S2 ]
+[v _build_analog_data_msg `(a ~T0 @X0 1 ef5`E51`us`E182`us`*S2 ]
 "103
 [; ;canlib/message/msg_sensor.c: 103: ) {
 {
@@ -337,7 +335,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;canlib/message/msg_sensor.c: 101:     can_msg_prio_t prio, uint16_t timestamp, can_analog_sensor_id_t sensor_id, uint16_t sensor_data,
 [v _prio `E51 ~T0 @X0 1 r1 ]
 [v _timestamp `us ~T0 @X0 1 r2 ]
-[v _sensor_id `E193 ~T0 @X0 1 r3 ]
+[v _sensor_id `E182 ~T0 @X0 1 r3 ]
 [v _sensor_data `us ~T0 @X0 1 r4 ]
 "102
 [; ;canlib/message/msg_sensor.c: 102:     can_msg_t *output
@@ -358,8 +356,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 20 ]
 "108
-[; ;canlib/message/msg_sensor.c: 108:     output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_SENSOR_ANALOG << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | BOARD_INST_ID_CANARD_MOTOR_PRIMARY);
-[e = . *U _output 0 | | | << -> _prio `ul -> 27 `i << -> . `E57 18 `ul -> 18 `i << -> . `E87 2 `ul -> 8 `i -> -> . `E115 0 `l `ul ]
+[; ;canlib/message/msg_sensor.c: 108:     output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_SENSOR_ANALOG << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x02);
+[e = . *U _output 0 | | | << -> _prio `ul -> 27 `i << -> . `E57 18 `ul -> 18 `i << -> . `E87 2 `ul -> 8 `i -> -> -> 2 `i `l `ul ]
 "109
 [; ;canlib/message/msg_sensor.c: 109:     write_timestamp_2bytes(timestamp, output);
 [e ( _write_timestamp_2bytes (2 , _timestamp _output ]
@@ -544,16 +542,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "168
 [; ;canlib/message/msg_sensor.c: 168: _Bool get_imu_mag_id_dimension(const can_msg_t *msg, can_imu_id_t *imu_id, char *dimension) {
-[v _get_imu_mag_id_dimension `(a ~T0 @X0 1 ef3`*CS2`*E186`*uc ]
+[v _get_imu_mag_id_dimension `(a ~T0 @X0 1 ef3`*CS2`*E175`*uc ]
 {
 [e :U _get_imu_mag_id_dimension ]
 [v _msg `*CS2 ~T0 @X0 1 r1 ]
-[v _imu_id `*E186 ~T0 @X0 1 r2 ]
+[v _imu_id `*E175 ~T0 @X0 1 r2 ]
 [v _dimension `*uc ~T0 @X0 1 r3 ]
 [f ]
 "169
 [; ;canlib/message/msg_sensor.c: 169:     if (!msg || !imu_id || !dimension) {
-[e $ ! || || ! != _msg -> -> 0 `i `*CS2 ! != _imu_id -> -> 0 `i `*E186 ! != _dimension -> -> 0 `i `*uc 32  ]
+[e $ ! || || ! != _msg -> -> 0 `i `*CS2 ! != _imu_id -> -> 0 `i `*E175 ! != _dimension -> -> 0 `i `*uc 32  ]
 {
 "170
 [; ;canlib/message/msg_sensor.c: 170:         return 0;
@@ -612,7 +610,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 34 ]
 "184
 [; ;canlib/message/msg_sensor.c: 184:     *imu_id = msg->data[2];
-[e = *U _imu_id -> *U + &U . *U _msg 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _msg 2 `ui `ux `E186 ]
+[e = *U _imu_id -> *U + &U . *U _msg 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _msg 2 `ui `ux `E175 ]
 "185
 [; ;canlib/message/msg_sensor.c: 185:     return 1;
 [e ) -> -> 1 `i `a ]
@@ -725,7 +723,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "218
 [; ;canlib/message/msg_sensor.c: 218: _Bool get_analog_data(
-[v _get_analog_data `(a ~T0 @X0 1 ef3`*CS2`*E193`*us ]
+[v _get_analog_data `(a ~T0 @X0 1 ef3`*CS2`*E182`*us ]
 "220
 [; ;canlib/message/msg_sensor.c: 220: ) {
 {
@@ -733,7 +731,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "219
 [; ;canlib/message/msg_sensor.c: 219:     const can_msg_t *msg, can_analog_sensor_id_t *sensor_id, uint16_t *output_data
 [v _msg `*CS2 ~T0 @X0 1 r1 ]
-[v _sensor_id `*E193 ~T0 @X0 1 r2 ]
+[v _sensor_id `*E182 ~T0 @X0 1 r2 ]
 [v _output_data `*us ~T0 @X0 1 r3 ]
 "220
 [; ;canlib/message/msg_sensor.c: 220: ) {
@@ -776,7 +774,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 49 ]
 "231
 [; ;canlib/message/msg_sensor.c: 231:     *sensor_id = msg->data[2];
-[e = *U _sensor_id -> *U + &U . *U _msg 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _msg 2 `ui `ux `E193 ]
+[e = *U _sensor_id -> *U + &U . *U _msg 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _msg 2 `ui `ux `E182 ]
 "232
 [; ;canlib/message/msg_sensor.c: 232:     *output_data = (uint16_t)msg->data[3] << 8 | msg->data[4];
 [e = *U _output_data -> | << -> -> *U + &U . *U _msg 2 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U _msg 2 `ui `ux `us `ui -> 8 `i -> *U + &U . *U _msg 2 * -> -> -> 4 `i `ui `ux -> -> # *U &U . *U _msg 2 `ui `ux `ui `us ]

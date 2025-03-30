@@ -10,8 +10,15 @@ void pwm_init(void){
     
     //1. Use the desired output pin RxyPPS control to select CCPx as the source and 
     //   disable the CCPx pin output driver by setting the associated TRIS bit.
+    
+#if (BOARD_INST_UNIQUE_ID == PRIMARY)
     RB3PPS = 0b001011;
     TRISB3 = 1;
+    
+#elif (BOARD_INST_UNIQUE_ID == FAILSAFE)
+    RB4PPS = 0b001011;
+    TRISB4 = 1;
+#endif
     
     //2. Load the T2PR register with the PWM period value.
     T2PR = 233;
@@ -42,10 +49,16 @@ void pwm_init(void){
     {}
     
     //- Enable the CCPx pin output driver by clearing the associated TRIS bit.
+    
+#if (BOARD_INST_UNIQUE_ID == PRIMARY)
     TRISB3 = 0;
+    
+#elif (BOARD_INST_UNIQUE_ID == FAILSAFE)
+    TRISB4 = 0;
+#endif
 }
  
-void updatePulseWidth(uint8_t angle)
+void updatePulseWidth(uint16_t angle)
 {
     uint32_t pulse_width_us = (uint32_t) (MOTOR_MIN_PULSE_WIDTH_US + (float) angle * (MOTOR_MAX_PULSE_WIDTH_US - MOTOR_MIN_PULSE_WIDTH_US) / (MAX_CANARD_ANGLE * 20)); //maps +-10 degree canard angle with 0.1 degree resolution to 500-2500us
     uint8_t tmr2_prescale = 1 << T2CONbits.CKPS;

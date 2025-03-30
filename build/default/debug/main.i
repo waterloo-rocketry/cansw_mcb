@@ -36753,18 +36753,6 @@ typedef enum {
 } can_board_inst_id_thermocouple_t;
 
 typedef enum {
-    E_NOMINAL = 0x00,
-    E_5V_OVER_CURRENT = 0x01,
-    E_5V_OVER_VOLTAGE = 0x02,
-    E_5V_UNDER_VOLTAGE = 0x04,
-    E_12V_OVER_CURRENT = 0x08,
-    E_12V_OVER_VOLTAGE = 0x10,
-    E_12V_UNDER_VOLTAGE = 0x20,
-    E_IO_ERROR = 0x40,
-    E_FS_ERROR = 0x80,
-} can_general_board_status_t;
-
-typedef enum {
     ACTUATOR_OX_INJECTOR_VALVE = 0x00,
     ACTUATOR_FUEL_INJECTOR_VALVE = 0x01,
     ACTUATOR_CHARGE_ENABLE = 0x02,
@@ -36858,15 +36846,19 @@ typedef enum {
     STATE_ID_CANARD_ANGLE = 0x0C,
     STATE_ID_ENUM_MAX = 0x0D,
 } can_state_est_id_t;
+
+typedef enum {
+    E_5V_OVER_CURRENT_OFFSET = 0x00,
+    E_5V_OVER_VOLTAGE_OFFSET = 0x01,
+    E_5V_UNDER_VOLTAGE_OFFSET = 0x02,
+    E_12V_OVER_CURRENT_OFFSET = 0x03,
+    E_12V_OVER_VOLTAGE_OFFSET = 0x04,
+    E_12V_UNDER_VOLTAGE_OFFSET = 0x05,
+    E_IO_ERROR_OFFSET = 0x06,
+    E_FS_ERROR_OFFSET = 0x07,
+} can_general_board_status_offset_t;
 # 8 "./setup.h" 2
-
-
-
-
-
-
-
-
+# 18 "./setup.h"
 void pin_init(void);
 
 void osc_init(void);
@@ -37042,10 +37034,10 @@ char *tempnam(const char *, const char *);
 # 7 "main.c" 2
 
 # 1 "./pwm.h" 1
-# 12 "./pwm.h"
+# 13 "./pwm.h"
 void pwm_init(void);
 
-void updatePulseWidth(uint8_t angle);
+void updatePulseWidth(uint16_t angle);
 # 9 "main.c" 2
 # 1 "./can_handler.h" 1
 
@@ -37499,7 +37491,7 @@ void can_send(const can_msg_t* message);
 _Bool can_send_rdy(void);
 
 
-volatile void can_handle_interrupt(void);
+void can_handle_interrupt(void);
 # 26 "canlib/canlib.h" 2
 # 8 "./can_handler.h" 2
 
@@ -37517,40 +37509,28 @@ void send_status_ok(void);
 void can_log(const can_msg_t *msg);
 # 10 "main.c" 2
 
-# 1 "./potentiometer.h" 1
+
+
+
+volatile uint16_t cmd_angle;
 
 
 
 
 
 
-void pot_init(void);
-
-void pot_read(uint8_t channel);
-# 12 "main.c" 2
-
-
-
-volatile uint16_t adc_value;
 
 static void __attribute__((picinterrupt(("")))) ISR(void) {
 
     if (PIR5) {
-
+        can_handle_interrupt();
     }
 
     if (PIR3bits.TMR0IF) {
         timer0_handle_interrupt();
         PIR3bits.TMR0IF = 0;
     }
-
-
-    if (PIR1bits.ADIF) {
-        PIR1bits.ADIF = 0;
-
-
-        adc_value = ((uint16_t)ADRESH << 8) | ADRESL;
-    }
+# 42 "main.c"
 }
 
 int main(void) {
@@ -37572,9 +37552,10 @@ int main(void) {
         if ((millis() - last_millis) > 500) {
             last_millis = millis();
             (LATA0 = !LATA0);
-        }
 
-        updatePulseWidth(100);
+        }
+        updatePulseWidth(cmd_angle);
+
     }
 
 }
