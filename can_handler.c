@@ -2,6 +2,7 @@
 
 // memory pool for the CAN tx buffer
 uint8_t tx_pool[100];
+extern uint16_t cmd_angle;
 
 void can_setup(void) {
     CANRXPPS = 0x11;    // CAN receive pin = RC1
@@ -26,25 +27,31 @@ void can_setup(void) {
 }
 
 void can_receive_callback(const can_msg_t *msg) {
+    
     // ignore messages that were sent from this board (Primary and Failsafe)
     if (get_board_type_unique_id(msg) == BOARD_TYPE_UNIQUE_ID) {
         return;
     }
+    
     uint16_t msg_type = get_message_type(msg);
     int actuator_id;
     int actuator_state;
     
     switch(msg_type) {
-        
-#if (BOARD_INST_UNIQUE_ID == BOARD_INST_ID_CANARD_MOTOR_PRIMARY)
+
+#if (BOARD_INST_UNIQUE_ID == PRIMARY) 
         case MSG_ACTUATOR_ANALOG_CMD:
             actuator_state = get_cmd_actuator_state_analog (msg);
+            LATA1 = !LATA1;
             if (actuator_state >= 0 && actuator_state <=200) {
-                updatePulseWidth(actuator_state);
+                //updatePulseWidth(actuator_state);
+                cmd_angle = actuator_state;
+                
             }
-            break;
             
-#elif (BOARD_INST_UNIQUE_ID == BOARD_INST_ID_CANARD_MOTOR_FAILSAFE)
+            break;
+       
+#elif (BOARD_INST_UNIQUE_ID == FAILSAFE)
         case MSG_ACTUATOR_CMD:
             actuator_id = get_actuator_id(msg);
             if (actuator_id == ACTUATOR_CANARD_ENABLE) {
@@ -83,3 +90,5 @@ void can_receive_callback(const can_msg_t *msg) {
     }
    
 }
+
+

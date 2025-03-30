@@ -3132,94 +3132,94 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _pwm_init ]
 [f ]
-"13
-[; ;pwm.c: 13:     RB3PPS = 0b001011;
+"15
+[; ;pwm.c: 15:     RB3PPS = 0b001011;
 [e = _RB3PPS -> -> 11 `i `uc ]
-"14
-[; ;pwm.c: 14:     TRISB3 = 1;
+"16
+[; ;pwm.c: 16:     TRISB3 = 1;
 [e = _TRISB3 -> -> 1 `i `b ]
-"17
-[; ;pwm.c: 17:     T2PR = 233;
+"24
+[; ;pwm.c: 24:     T2PR = 233;
 [e = _T2PR -> -> 233 `i `uc ]
-"20
-[; ;pwm.c: 20:     CCP3CONbits.EN = 0b1;
-[e = . . _CCP3CONbits 0 4 -> -> 1 `i `uc ]
-"21
-[; ;pwm.c: 21:     CCP3CONbits.FMT = 0b0;
-[e = . . _CCP3CONbits 0 1 -> -> 0 `i `uc ]
-"22
-[; ;pwm.c: 22:     CCP3CONbits.MODE = 0b1100;
-[e = . . _CCP3CONbits 0 0 -> -> 12 `i `uc ]
-"26
-[; ;pwm.c: 26:     CCPR3H = (562 >> 8) & 0xFF;
-[e = _CCPR3H -> & >> -> 562 `i -> 8 `i -> 255 `i `uc ]
 "27
-[; ;pwm.c: 27:     CCPR3L = 562 & 0xFF;
-[e = _CCPR3L -> & -> 562 `i -> 255 `i `uc ]
-"31
-[; ;pwm.c: 31:     PIR4bits.TMR2IF = 0;
-[e = . . _PIR4bits 0 2 -> -> 0 `i `uc ]
+[; ;pwm.c: 27:     CCP3CONbits.EN = 0b1;
+[e = . . _CCP3CONbits 0 4 -> -> 1 `i `uc ]
+"28
+[; ;pwm.c: 28:     CCP3CONbits.FMT = 0b0;
+[e = . . _CCP3CONbits 0 1 -> -> 0 `i `uc ]
+"29
+[; ;pwm.c: 29:     CCP3CONbits.MODE = 0b1100;
+[e = . . _CCP3CONbits 0 0 -> -> 12 `i `uc ]
 "33
-[; ;pwm.c: 33:     T2CLK = 0b0001;
+[; ;pwm.c: 33:     CCPR3H = (562 >> 8) & 0xFF;
+[e = _CCPR3H -> & >> -> 562 `i -> 8 `i -> 255 `i `uc ]
+"34
+[; ;pwm.c: 34:     CCPR3L = 562 & 0xFF;
+[e = _CCPR3L -> & -> 562 `i -> 255 `i `uc ]
+"38
+[; ;pwm.c: 38:     PIR4bits.TMR2IF = 0;
+[e = . . _PIR4bits 0 2 -> -> 0 `i `uc ]
+"40
+[; ;pwm.c: 40:     T2CLK = 0b0001;
 [e = _T2CLK -> -> 1 `i `uc ]
-"35
-[; ;pwm.c: 35:     T2CONbits.CKPS = 0b101;
+"42
+[; ;pwm.c: 42:     T2CONbits.CKPS = 0b101;
 [e = . . _T2CONbits 0 1 -> -> 5 `i `uc ]
-"37
-[; ;pwm.c: 37:     T2CONbits.ON = 1;
+"44
+[; ;pwm.c: 44:     T2CONbits.ON = 1;
 [e = . . _T2CONbits 0 2 -> -> 1 `i `uc ]
-"41
-[; ;pwm.c: 41:     while (PIR4bits.TMR2IF == 0)
+"48
+[; ;pwm.c: 48:     while (PIR4bits.TMR2IF == 0)
 [e $U 3251  ]
 [e :U 3252 ]
-"42
-[; ;pwm.c: 42:     {}
+"49
+[; ;pwm.c: 49:     {}
 {
 }
 [e :U 3251 ]
-"41
-[; ;pwm.c: 41:     while (PIR4bits.TMR2IF == 0)
+"48
+[; ;pwm.c: 48:     while (PIR4bits.TMR2IF == 0)
 [e $ == -> . . _PIR4bits 0 2 `i -> 0 `i 3252  ]
 [e :U 3253 ]
-"45
-[; ;pwm.c: 45:     TRISB3 = 0;
+"54
+[; ;pwm.c: 54:     TRISB3 = 0;
 [e = _TRISB3 -> -> 0 `i `b ]
-"46
-[; ;pwm.c: 46: }
+"59
+[; ;pwm.c: 59: }
 [e :UE 3250 ]
 }
-"48
-[; ;pwm.c: 48: void updatePulseWidth(uint8_t angle)
-[v _updatePulseWidth `(v ~T0 @X0 1 ef1`uc ]
-"49
-[; ;pwm.c: 49: {
+"61
+[; ;pwm.c: 61: void updatePulseWidth(uint16_t angle)
+[v _updatePulseWidth `(v ~T0 @X0 1 ef1`us ]
+"62
+[; ;pwm.c: 62: {
 {
 [e :U _updatePulseWidth ]
-"48
-[; ;pwm.c: 48: void updatePulseWidth(uint8_t angle)
-[v _angle `uc ~T0 @X0 1 r1 ]
-"49
-[; ;pwm.c: 49: {
+"61
+[; ;pwm.c: 61: void updatePulseWidth(uint16_t angle)
+[v _angle `us ~T0 @X0 1 r1 ]
+"62
+[; ;pwm.c: 62: {
 [f ]
-"50
-[; ;pwm.c: 50:     uint32_t pulse_width_us = (uint32_t) (MOTOR_MIN_PULSE_WIDTH_US + (float) angle * (MOTOR_MAX_PULSE_WIDTH_US - MOTOR_MIN_PULSE_WIDTH_US) / (10 * 20));
+"63
+[; ;pwm.c: 63:     uint32_t pulse_width_us = (uint32_t) (MOTOR_MIN_PULSE_WIDTH_US + (float) angle * (MOTOR_MAX_PULSE_WIDTH_US - MOTOR_MIN_PULSE_WIDTH_US) / (10 * 20));
 [v _pulse_width_us `ul ~T0 @X0 1 a ]
 [e = _pulse_width_us -> + -> -> _MOTOR_MIN_PULSE_WIDTH_US `ui `f / * -> _angle `f -> - -> _MOTOR_MAX_PULSE_WIDTH_US `ui -> _MOTOR_MIN_PULSE_WIDTH_US `ui `f -> * -> 10 `i -> 20 `i `f `ul ]
-"51
-[; ;pwm.c: 51:     uint8_t tmr2_prescale = 1 << T2CONbits.CKPS;
+"64
+[; ;pwm.c: 64:     uint8_t tmr2_prescale = 1 << T2CONbits.CKPS;
 [v _tmr2_prescale `uc ~T0 @X0 1 a ]
 [e = _tmr2_prescale -> << -> 1 `i -> . . _T2CONbits 0 1 `i `uc ]
-"52
-[; ;pwm.c: 52:     uint32_t bitWrite = (uint32_t) ((float) pulse_width_us / 1000000 * (float) 12000000 / tmr2_prescale);
+"65
+[; ;pwm.c: 65:     uint32_t bitWrite = (uint32_t) ((float) pulse_width_us / 1000000 * (float) 12000000 / tmr2_prescale);
 [v _bitWrite `ul ~T0 @X0 1 a ]
 [e = _bitWrite -> / * / -> _pulse_width_us `f -> -> 1000000 `l `f -> -> 12000000 `l `f -> -> _tmr2_prescale `i `f `ul ]
-"53
-[; ;pwm.c: 53:     CCPR3H = (bitWrite >> 8) & 0xFF;
+"66
+[; ;pwm.c: 66:     CCPR3H = (bitWrite >> 8) & 0xFF;
 [e = _CCPR3H -> & >> _bitWrite -> 8 `i -> -> -> 255 `i `l `ul `uc ]
-"54
-[; ;pwm.c: 54:     CCPR3L = bitWrite & 0xFF;
+"67
+[; ;pwm.c: 67:     CCPR3L = bitWrite & 0xFF;
 [e = _CCPR3L -> & _bitWrite -> -> -> 255 `i `l `ul `uc ]
-"55
-[; ;pwm.c: 55: }
+"68
+[; ;pwm.c: 68: }
 [e :UE 3254 ]
 }

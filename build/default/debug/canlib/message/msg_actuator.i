@@ -257,18 +257,6 @@ typedef enum {
 } can_board_inst_id_thermocouple_t;
 
 typedef enum {
-    E_NOMINAL = 0x00,
-    E_5V_OVER_CURRENT = 0x01,
-    E_5V_OVER_VOLTAGE = 0x02,
-    E_5V_UNDER_VOLTAGE = 0x04,
-    E_12V_OVER_CURRENT = 0x08,
-    E_12V_OVER_VOLTAGE = 0x10,
-    E_12V_UNDER_VOLTAGE = 0x20,
-    E_IO_ERROR = 0x40,
-    E_FS_ERROR = 0x80,
-} can_general_board_status_t;
-
-typedef enum {
     ACTUATOR_OX_INJECTOR_VALVE = 0x00,
     ACTUATOR_FUEL_INJECTOR_VALVE = 0x01,
     ACTUATOR_CHARGE_ENABLE = 0x02,
@@ -362,6 +350,17 @@ typedef enum {
     STATE_ID_CANARD_ANGLE = 0x0C,
     STATE_ID_ENUM_MAX = 0x0D,
 } can_state_est_id_t;
+
+typedef enum {
+    E_5V_OVER_CURRENT_OFFSET = 0x00,
+    E_5V_OVER_VOLTAGE_OFFSET = 0x01,
+    E_5V_UNDER_VOLTAGE_OFFSET = 0x02,
+    E_12V_OVER_CURRENT_OFFSET = 0x03,
+    E_12V_OVER_VOLTAGE_OFFSET = 0x04,
+    E_12V_UNDER_VOLTAGE_OFFSET = 0x05,
+    E_IO_ERROR_OFFSET = 0x06,
+    E_FS_ERROR_OFFSET = 0x07,
+} can_general_board_status_offset_t;
 # 6 "canlib/message/msg_actuator.c" 2
 # 1 "canlib/message/msg_actuator.h" 1
 # 10 "canlib/message/msg_actuator.h"
@@ -427,7 +426,7 @@ _Bool build_actuator_cmd_msg(
         return 0;
     }
 
-    output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_ACTUATOR_CMD << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | BOARD_INST_ID_CANARD_MOTOR_PRIMARY);
+    output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_ACTUATOR_CMD << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x02);
     write_timestamp_2bytes(timestamp, output);
 
     output->data[2] = (uint8_t)actuator_id;
@@ -445,7 +444,7 @@ _Bool build_actuator_analog_cmd_msg(
         return 0;
     }
 
-    output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_ACTUATOR_ANALOG_CMD << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | BOARD_INST_ID_CANARD_MOTOR_PRIMARY);
+    output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_ACTUATOR_ANALOG_CMD << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x02);
     write_timestamp_2bytes(timestamp, output);
 
     output->data[2] = actuator_id;
@@ -465,7 +464,7 @@ _Bool build_actuator_status_msg(
         return 0;
     }
 
-    output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_ACTUATOR_STATUS << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | BOARD_INST_ID_CANARD_MOTOR_PRIMARY);
+    output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_ACTUATOR_STATUS << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x02);
     write_timestamp_2bytes(timestamp, output);
 
     output->data[2] = (uint8_t)actuator_id;

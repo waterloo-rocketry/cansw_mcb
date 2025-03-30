@@ -175,7 +175,7 @@ void can_send(const can_msg_t* message);
 _Bool can_send_rdy(void);
 
 
-volatile void can_handle_interrupt(void);
+void can_handle_interrupt(void);
 # 2 "canlib/pic18f26k83/pic18f26k83_can.c" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/xc.h" 3
@@ -36877,7 +36877,7 @@ _Bool can_send_rdy(void) {
 
 
 
-volatile void can_handle_interrupt(void) {
+void can_handle_interrupt() {
 
 
 
@@ -36913,7 +36913,8 @@ volatile void can_handle_interrupt(void) {
         PIR5bits.RXB0IF = 0;
         RXB0CONbits.RXFUL = 0;
         return;
-    } else if (PIR5bits.RXB1IF) {
+    }
+    else if (PIR5bits.RXB1IF) {
 
         can_msg_t rcvd_msg;
         rcvd_msg.sid = (uint32_t)RXB1SIDH << 21;
@@ -36926,9 +36927,9 @@ volatile void can_handle_interrupt(void) {
         memcpy(rcvd_msg.data, (const void *) &RXB1D0, rcvd_msg.data_len);
 
 
-        if (((void*)0) != can_rcv_cb) {
-            can_rcv_cb(&rcvd_msg);
-        }
+
+
+
 
         PIR5bits.RXB1IF = 0;
         RXB1CONbits.RXFUL = 0;

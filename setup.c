@@ -11,11 +11,11 @@ void pin_init(void){
     ANSELA1 = 0; // Enable digital input buffer
     LATA1 = 1; // turn the green/blue LED off
     
-#if (BOARD_INST_UNIQUE_ID == BOARD_INST_ID_CANARD_MOTOR_PRIMARY)
+#if (BOARD_INST_UNIQUE_ID == PRIMARY)
     TRISB4 = 1; //Overcurrent alert input
     TRISB5 = 1; //FS active input
     
-#elif (BOARD_INST_UNIQUE_ID == BOARD_INST_ID_CANARD_MOTOR_FAILSAFE)
+#elif (BOARD_INST_UNIQUE_ID == FAILSAFE)
     TRISC5 = 0; // set C5 as output for servo MOSFET
     TRISC5 = 0; //turn servo on (inverted signal)
     

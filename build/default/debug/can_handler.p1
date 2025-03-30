@@ -30,18 +30,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;canlib/can.h: 38: typedef struct {
 [s S3253 `ul 1 `uc 1 `uc -> 8 `i ]
 [n S3253 . sid data_len data ]
-[v F23565 `(v ~T0 @X0 0 tf1`*CS3253 ]
+[v F23564 `(v ~T0 @X0 0 tf1`*CS3253 ]
 "16 canlib/pic18f26k83/pic18f26k83_can.h
 [; ;canlib/pic18f26k83/pic18f26k83_can.h: 16: void can_init(const can_timing_t *timing,
-[v _can_init `(v ~T0 @X0 0 ef2`*CS3252`*F23565 ]
+[v _can_init `(v ~T0 @X0 0 ef2`*CS3252`*F23564 ]
 "16 ./can_handler.h
 [; ;./can_handler.h: 16: void can_receive_callback(const can_msg_t *msg);
 [v _can_receive_callback `(v ~T0 @X0 0 ef1`*CS3253 ]
-[v F23548 `(v ~T0 @X0 0 tf1`*CS3253 ]
-[v F23550 `(a ~T0 @X0 0 tf ]
+[v F23547 `(v ~T0 @X0 0 tf1`*CS3253 ]
+[v F23549 `(a ~T0 @X0 0 tf ]
 "12 canlib/util/can_tx_buffer.h
 [; ;canlib/util/can_tx_buffer.h: 12: void txb_init(void *pool, size_t pool_size,
-[v _txb_init `(v ~T0 @X0 0 ef4`*v`ui`*F23548`*F23550 ]
+[v _txb_init `(v ~T0 @X0 0 ef4`*v`ui`*F23547`*F23549 ]
 "20 canlib/pic18f26k83/pic18f26k83_can.h
 [; ;canlib/pic18f26k83/pic18f26k83_can.h: 20: void can_send(const can_msg_t* message);
 [v _can_send `(v ~T0 @X0 0 ef1`*CS3253 ]
@@ -51,8 +51,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "30 canlib/message/msg_common.h
 [; ;canlib/message/msg_common.h: 30: uint8_t get_board_type_unique_id(const can_msg_t *msg);
 [v _get_board_type_unique_id `(uc ~T0 @X0 0 ef1`*CS3253 ]
-"30 can_handler.c
-[; ;can_handler.c: 30:     if (get_board_type_unique_id(msg) == BOARD_TYPE_ID_CANARD_MOTOR) {
+"32 can_handler.c
+[; ;can_handler.c: 32:     if (get_board_type_unique_id(msg) == BOARD_TYPE_ID_CANARD_MOTOR) {
 [c E23141 0 1 2 3 4 5 6 7 8 9 10 11 64 65 128 129 130 131 132 133 134 192 .. ]
 [n E23141 . BOARD_TYPE_ID_ANY BOARD_TYPE_ID_INJ_SENSOR BOARD_TYPE_ID_CANARD_MOTOR BOARD_TYPE_ID_CAMERA BOARD_TYPE_ID_POWER BOARD_TYPE_ID_LOGGER BOARD_TYPE_ID_PROCESSOR BOARD_TYPE_ID_TELEMETRY BOARD_TYPE_ID_GPS BOARD_TYPE_ID_SRAD_GNSS BOARD_TYPE_ID_ALTIMETER BOARD_TYPE_ID_ARMING BOARD_TYPE_ID_PAY_SENSOR BOARD_TYPE_ID_PAY_MOTOR BOARD_TYPE_ID_RLCS_GLS BOARD_TYPE_ID_RLCS_RELAY BOARD_TYPE_ID_RLCS_HEATING BOARD_TYPE_ID_DAQ BOARD_TYPE_ID_CHARGING BOARD_TYPE_ID_THERMOCOUPLE BOARD_TYPE_ID_USB BOARD_TYPE_ID_FYDP25_TVCA  ]
 "28 canlib/message/msg_common.h
@@ -61,18 +61,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 "50 canlib/message/msg_actuator.h
 [; ;canlib/message/msg_actuator.h: 50: uint16_t get_cmd_actuator_state_analog(const can_msg_t *msg);
 [v _get_cmd_actuator_state_analog `(us ~T0 @X0 0 ef1`*CS3253 ]
-"14 ./pwm.h
-[; ;./pwm.h: 14: void updatePulseWidth(uint8_t angle);
-[v _updatePulseWidth `(v ~T0 @X0 0 ef1`uc ]
+"12760 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h
+[v _LATA1 `Vb ~T0 @X0 0 e@130513 ]
+"5 can_handler.c
+[; ;can_handler.c: 5: extern uint16_t cmd_angle;
+[v _cmd_angle `us ~T0 @X0 0 e ]
 "12757 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h
 [v _LATA0 `Vb ~T0 @X0 0 e@130512 ]
-"12760
-[v _LATA1 `Vb ~T0 @X0 0 e@130513 ]
 "55 canlib/message/msg_general.h
 [; ;canlib/message/msg_general.h: 55: _Bool check_board_need_reset(const can_msg_t *msg);
 [v _check_board_need_reset `(a ~T0 @X0 0 ef1`*CS3253 ]
-"83 can_handler.c
-[; ;can_handler.c: 83:     }
+"90 can_handler.c
+[; ;can_handler.c: 90:     }
 [c E23111 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 .. ]
 [n E23111 . MSG_GENERAL_BOARD_STATUS MSG_RESET_CMD MSG_DEBUG_RAW MSG_CONFIG_SET MSG_CONFIG_STATUS MSG_ACTUATOR_CMD MSG_ACTUATOR_ANALOG_CMD MSG_ACTUATOR_STATUS MSG_ALT_ARM_CMD MSG_ALT_ARM_STATUS MSG_SENSOR_TEMP MSG_SENSOR_ALTITUDE MSG_SENSOR_IMU_X MSG_SENSOR_IMU_Y MSG_SENSOR_IMU_Z MSG_SENSOR_MAG_X MSG_SENSOR_MAG_Y MSG_SENSOR_MAG_Z MSG_SENSOR_ANALOG MSG_GPS_TIMESTAMP MSG_GPS_LATITUDE MSG_GPS_LONGITUDE MSG_GPS_ALTITUDE MSG_GPS_INFO MSG_STATE_EST_DATA MSG_LEDS_ON MSG_LEDS_OFF MSG_ID_ENUM_MAX  ]
 "272 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h
@@ -3120,153 +3120,156 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4 can_handler.c
 [; ;can_handler.c: 4: uint8_t tx_pool[100];
 [v _tx_pool `uc ~T0 @X0 -> 100 `i e ]
-"6
-[; ;can_handler.c: 6: void can_setup(void) {
+"7
+[; ;can_handler.c: 7: void can_setup(void) {
 [v _can_setup `(v ~T0 @X0 1 ef ]
 {
 [e :U _can_setup ]
 [f ]
-"7
-[; ;can_handler.c: 7:     CANRXPPS = 0x11;
-[e = _CANRXPPS -> -> 17 `i `uc ]
 "8
-[; ;can_handler.c: 8:     RC0PPS = 0x33;
+[; ;can_handler.c: 8:     CANRXPPS = 0x11;
+[e = _CANRXPPS -> -> 17 `i `uc ]
+"9
+[; ;can_handler.c: 9:     RC0PPS = 0x33;
 [e = _RC0PPS -> -> 51 `i `uc ]
-"12
-[; ;can_handler.c: 12:     TRISC0 = 0;
-[e = _TRISC0 -> -> 0 `i `b ]
 "13
-[; ;can_handler.c: 13:     LATC0 = 1;
-[e = _LATC0 -> -> 1 `i `b ]
+[; ;can_handler.c: 13:     TRISC0 = 0;
+[e = _TRISC0 -> -> 0 `i `b ]
 "14
-[; ;can_handler.c: 14:     ODCC0 = 1;
-[e = _ODCC0 -> -> 1 `i `b ]
+[; ;can_handler.c: 14:     LATC0 = 1;
+[e = _LATC0 -> -> 1 `i `b ]
 "15
-[; ;can_handler.c: 15:     ANSELC0 = 0;
+[; ;can_handler.c: 15:     ODCC0 = 1;
+[e = _ODCC0 -> -> 1 `i `b ]
+"16
+[; ;can_handler.c: 16:     ANSELC0 = 0;
 [e = _ANSELC0 -> -> 0 `i `b ]
-"18
-[; ;can_handler.c: 18:     TRISC1 = 1;
-[e = _TRISC1 -> -> 1 `i `b ]
 "19
-[; ;can_handler.c: 19:     ANSELC1 = 0;
+[; ;can_handler.c: 19:     TRISC1 = 1;
+[e = _TRISC1 -> -> 1 `i `b ]
+"20
+[; ;can_handler.c: 20:     ANSELC1 = 0;
 [e = _ANSELC1 -> -> 0 `i `b ]
-"21
-[; ;can_handler.c: 21:     can_timing_t timing;
-[v _timing `S3252 ~T0 @X0 1 a ]
 "22
-[; ;can_handler.c: 22:     can_generate_timing_params(12000000, &timing);
-[e ( _can_generate_timing_params (2 , -> -> 12000000 `l `ul &U _timing ]
+[; ;can_handler.c: 22:     can_timing_t timing;
+[v _timing `S3252 ~T0 @X0 1 a ]
 "23
-[; ;can_handler.c: 23:     can_init(&timing, can_receive_callback);
+[; ;can_handler.c: 23:     can_generate_timing_params(12000000, &timing);
+[e ( _can_generate_timing_params (2 , -> -> 12000000 `l `ul &U _timing ]
+"24
+[; ;can_handler.c: 24:     can_init(&timing, can_receive_callback);
 [e ( _can_init (2 , -> &U _timing `*CS3252 &U _can_receive_callback ]
-"25
-[; ;can_handler.c: 25:     txb_init(tx_pool, sizeof(tx_pool), can_send, can_send_rdy);
-[e ( _txb_init (4 , , , -> &U _tx_pool `*v -> # _tx_pool `ui &U _can_send &U _can_send_rdy ]
 "26
-[; ;can_handler.c: 26: }
+[; ;can_handler.c: 26:     txb_init(tx_pool, sizeof(tx_pool), can_send, can_send_rdy);
+[e ( _txb_init (4 , , , -> &U _tx_pool `*v -> # _tx_pool `ui &U _can_send &U _can_send_rdy ]
+"27
+[; ;can_handler.c: 27: }
 [e :UE 3254 ]
 }
-"28
-[; ;can_handler.c: 28: void can_receive_callback(const can_msg_t *msg) {
+"29
+[; ;can_handler.c: 29: void can_receive_callback(const can_msg_t *msg) {
 [v _can_receive_callback `(v ~T0 @X0 1 ef1`*CS3253 ]
 {
 [e :U _can_receive_callback ]
 [v _msg `*CS3253 ~T0 @X0 1 r1 ]
 [f ]
-"30
-[; ;can_handler.c: 30:     if (get_board_type_unique_id(msg) == BOARD_TYPE_ID_CANARD_MOTOR) {
+"32
+[; ;can_handler.c: 32:     if (get_board_type_unique_id(msg) == BOARD_TYPE_ID_CANARD_MOTOR) {
 [e $ ! == -> ( _get_board_type_unique_id (1 _msg `i -> . `E23141 2 `i 3256  ]
 {
-"31
-[; ;can_handler.c: 31:         return;
+"33
+[; ;can_handler.c: 33:         return;
 [e $UE 3255  ]
-"32
-[; ;can_handler.c: 32:     }
+"34
+[; ;can_handler.c: 34:     }
 }
 [e :U 3256 ]
-"33
-[; ;can_handler.c: 33:     uint16_t msg_type = get_message_type(msg);
+"36
+[; ;can_handler.c: 36:     uint16_t msg_type = get_message_type(msg);
 [v _msg_type `us ~T0 @X0 1 a ]
 [e = _msg_type ( _get_message_type (1 _msg ]
-"34
-[; ;can_handler.c: 34:     int actuator_id;
-[v _actuator_id `i ~T0 @X0 1 a ]
-"35
-[; ;can_handler.c: 35:     int actuator_state;
-[v _actuator_state `i ~T0 @X0 1 a ]
 "37
-[; ;can_handler.c: 37:     switch(msg_type) {
+[; ;can_handler.c: 37:     int actuator_id;
+[v _actuator_id `i ~T0 @X0 1 a ]
+"38
+[; ;can_handler.c: 38:     int actuator_state;
+[v _actuator_state `i ~T0 @X0 1 a ]
+"40
+[; ;can_handler.c: 40:     switch(msg_type) {
 [e $U 3258  ]
 {
-"40
-[; ;can_handler.c: 40:         case MSG_ACTUATOR_ANALOG_CMD:
+"43
+[; ;can_handler.c: 43:         case MSG_ACTUATOR_ANALOG_CMD:
 [e :U 3259 ]
-"41
-[; ;can_handler.c: 41:             actuator_state = get_cmd_actuator_state_analog (msg);
+"44
+[; ;can_handler.c: 44:             actuator_state = get_cmd_actuator_state_analog (msg);
 [e = _actuator_state -> ( _get_cmd_actuator_state_analog (1 _msg `i ]
-"42
-[; ;can_handler.c: 42:             if (actuator_state >= 0 && actuator_state <=200) {
+"45
+[; ;can_handler.c: 45:             LATA1 = !LATA1;
+[e = _LATA1 ! _LATA1 ]
+"46
+[; ;can_handler.c: 46:             if (actuator_state >= 0 && actuator_state <=200) {
 [e $ ! && >= _actuator_state -> 0 `i <= _actuator_state -> 200 `i 3260  ]
 {
-"43
-[; ;can_handler.c: 43:                 updatePulseWidth(actuator_state);
-[e ( _updatePulseWidth (1 -> _actuator_state `uc ]
-"44
-[; ;can_handler.c: 44:             }
+"48
+[; ;can_handler.c: 48:                 cmd_angle = actuator_state;
+[e = _cmd_angle -> _actuator_state `us ]
+"50
+[; ;can_handler.c: 50:             }
 }
 [e :U 3260 ]
-"45
-[; ;can_handler.c: 45:             break;
+"52
+[; ;can_handler.c: 52:             break;
 [e $U 3257  ]
-"63
-[; ;can_handler.c: 63:         case MSG_LEDS_ON:
-[e :U 3261 ]
-"64
-[; ;can_handler.c: 64:             LATA0 = 0;
-[e = _LATA0 -> -> 0 `i `b ]
-"65
-[; ;can_handler.c: 65:             LATA1 = 0;
-[e = _LATA1 -> -> 0 `i `b ]
-"66
-[; ;can_handler.c: 66:             break;
-[e $U 3257  ]
-"68
-[; ;can_handler.c: 68:         case MSG_LEDS_OFF:
-[e :U 3262 ]
-"69
-[; ;can_handler.c: 69:             LATA0 = 1;
-[e = _LATA0 -> -> 1 `i `b ]
 "70
-[; ;can_handler.c: 70:             LATA1 = 1;
-[e = _LATA1 -> -> 1 `i `b ]
+[; ;can_handler.c: 70:         case MSG_LEDS_ON:
+[e :U 3261 ]
 "71
-[; ;can_handler.c: 71:             break;
-[e $U 3257  ]
+[; ;can_handler.c: 71:             LATA0 = 0;
+[e = _LATA0 -> -> 0 `i `b ]
+"72
+[; ;can_handler.c: 72:             LATA1 = 0;
+[e = _LATA1 -> -> 0 `i `b ]
 "73
-[; ;can_handler.c: 73:         case MSG_RESET_CMD:
+[; ;can_handler.c: 73:             break;
+[e $U 3257  ]
+"75
+[; ;can_handler.c: 75:         case MSG_LEDS_OFF:
+[e :U 3262 ]
+"76
+[; ;can_handler.c: 76:             LATA0 = 1;
+[e = _LATA0 -> -> 1 `i `b ]
+"77
+[; ;can_handler.c: 77:             LATA1 = 1;
+[e = _LATA1 -> -> 1 `i `b ]
+"78
+[; ;can_handler.c: 78:             break;
+[e $U 3257  ]
+"80
+[; ;can_handler.c: 80:         case MSG_RESET_CMD:
 [e :U 3263 ]
-"74
-[; ;can_handler.c: 74:             if (check_board_need_reset(msg)) {
+"81
+[; ;can_handler.c: 81:             if (check_board_need_reset(msg)) {
 [e $ ! != -> ( _check_board_need_reset (1 _msg `i -> 0 `i 3264  ]
 {
-"75
-[; ;can_handler.c: 75:                 __asm("reset");
+"82
+[; ;can_handler.c: 82:                 __asm("reset");
 [; <" reset ;# ">
-"76
-[; ;can_handler.c: 76:             }
+"83
+[; ;can_handler.c: 83:             }
 }
 [e :U 3264 ]
-"77
-[; ;can_handler.c: 77:             break;
+"84
+[; ;can_handler.c: 84:             break;
 [e $U 3257  ]
-"79
-[; ;can_handler.c: 79:         default:
+"86
+[; ;can_handler.c: 86:         default:
 [e :U 3265 ]
-"80
-[; ;can_handler.c: 80:             break;
+"87
+[; ;can_handler.c: 87:             break;
 [e $U 3257  ]
-"83
-[; ;can_handler.c: 83:     }
+"90
+[; ;can_handler.c: 90:     }
 }
 [e $U 3257  ]
 [e :U 3258 ]
@@ -3276,7 +3279,7 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> . `E23111 1 `ui 3263
  3265 ]
 [e :U 3257 ]
-"85
-[; ;can_handler.c: 85: }
+"92
+[; ;can_handler.c: 92: }
 [e :UE 3255 ]
 }
