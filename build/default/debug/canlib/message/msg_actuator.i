@@ -426,7 +426,7 @@ _Bool build_actuator_cmd_msg(
         return 0;
     }
 
-    output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_ACTUATOR_CMD << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x02);
+    output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_ACTUATOR_CMD << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x03);
     write_timestamp_2bytes(timestamp, output);
 
     output->data[2] = (uint8_t)actuator_id;
@@ -444,7 +444,7 @@ _Bool build_actuator_analog_cmd_msg(
         return 0;
     }
 
-    output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_ACTUATOR_ANALOG_CMD << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x02);
+    output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_ACTUATOR_ANALOG_CMD << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x03);
     write_timestamp_2bytes(timestamp, output);
 
     output->data[2] = actuator_id;
@@ -464,7 +464,7 @@ _Bool build_actuator_status_msg(
         return 0;
     }
 
-    output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_ACTUATOR_STATUS << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x02);
+    output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_ACTUATOR_STATUS << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x03);
     write_timestamp_2bytes(timestamp, output);
 
     output->data[2] = (uint8_t)actuator_id;

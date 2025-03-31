@@ -4,6 +4,7 @@
 #include <xc.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include "canlib.h"
 #include "pwm.h"
 #include "setup.h"

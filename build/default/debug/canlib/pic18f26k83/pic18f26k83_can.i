@@ -36913,8 +36913,7 @@ void can_handle_interrupt() {
         PIR5bits.RXB0IF = 0;
         RXB0CONbits.RXFUL = 0;
         return;
-    }
-    else if (PIR5bits.RXB1IF) {
+    } else if (PIR5bits.RXB1IF) {
 
         can_msg_t rcvd_msg;
         rcvd_msg.sid = (uint32_t)RXB1SIDH << 21;
@@ -36927,9 +36926,9 @@ void can_handle_interrupt() {
         memcpy(rcvd_msg.data, (const void *) &RXB1D0, rcvd_msg.data_len);
 
 
-
-
-
+        if (((void*)0) != can_rcv_cb) {
+            can_rcv_cb(&rcvd_msg);
+        }
 
         PIR5bits.RXB1IF = 0;
         RXB1CONbits.RXFUL = 0;

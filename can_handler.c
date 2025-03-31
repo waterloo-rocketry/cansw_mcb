@@ -3,6 +3,7 @@
 // memory pool for the CAN tx buffer
 uint8_t tx_pool[100];
 extern uint16_t cmd_angle;
+extern bool new_cmd;
 
 void can_setup(void) {
     CANRXPPS = 0x11;    // CAN receive pin = RC1
@@ -42,13 +43,11 @@ void can_receive_callback(const can_msg_t *msg) {
 #if (BOARD_INST_UNIQUE_ID == PRIMARY) 
         case MSG_ACTUATOR_ANALOG_CMD:
             actuator_state = get_cmd_actuator_state_analog (msg);
-            LATA1 = !LATA1;
             if (actuator_state >= 0 && actuator_state <=200) {
-                //updatePulseWidth(actuator_state);
                 cmd_angle = actuator_state;
+                new_cmd = 1;
                 
-            }
-            
+            }            
             break;
        
 #elif (BOARD_INST_UNIQUE_ID == FAILSAFE)

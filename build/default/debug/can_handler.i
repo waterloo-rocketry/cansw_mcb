@@ -36795,17 +36795,14 @@ char *ctermid(char *);
 char *tempnam(const char *, const char *);
 # 6 "./can_handler.h" 2
 
+# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdbool.h" 1 3
+# 8 "./can_handler.h" 2
 # 1 "canlib/canlib.h" 1
 
 
 
 # 1 "canlib/can.h" 1
-# 10 "canlib/can.h"
-# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdbool.h" 1 3
-# 11 "canlib/can.h" 2
-
-
-
+# 14 "canlib/can.h"
 typedef uint32_t can_sid_t;
 
 
@@ -37457,7 +37454,7 @@ _Bool can_send_rdy(void);
 
 void can_handle_interrupt(void);
 # 26 "canlib/canlib.h" 2
-# 8 "./can_handler.h" 2
+# 9 "./can_handler.h" 2
 # 1 "./pwm.h" 1
 
 
@@ -37482,7 +37479,7 @@ uint32_t millis(void);
 
 
 # 1 "./setup.h" 1
-# 18 "./setup.h"
+# 20 "./setup.h"
 void pin_init(void);
 
 void osc_init(void);
@@ -37494,7 +37491,7 @@ void osc_init(void);
 void pwm_init(void);
 
 void updatePulseWidth(uint16_t angle);
-# 9 "./can_handler.h" 2
+# 10 "./can_handler.h" 2
 
 
 
@@ -37512,6 +37509,7 @@ void can_log(const can_msg_t *msg);
 
 uint8_t tx_pool[100];
 extern uint16_t cmd_angle;
+extern _Bool new_cmd;
 
 void can_setup(void) {
     CANRXPPS = 0x11;
@@ -37547,19 +37545,22 @@ void can_receive_callback(const can_msg_t *msg) {
     int actuator_state;
 
     switch(msg_type) {
-
-
-        case MSG_ACTUATOR_ANALOG_CMD:
-            actuator_state = get_cmd_actuator_state_analog (msg);
-            LATA1 = !LATA1;
-            if (actuator_state >= 0 && actuator_state <=200) {
-
-                cmd_angle = actuator_state;
-
+# 54 "can_handler.c"
+        case MSG_ACTUATOR_CMD:
+            actuator_id = get_actuator_id(msg);
+            if (actuator_id == ACTUATOR_CANARD_ENABLE) {
+                actuator_state = get_cmd_actuator_state(msg);
+                if (actuator_state == ACT_STATE_ON) {
+                    TRISC5 = 0;
+                }
+                else if (actuator_state == ACT_STATE_OFF) {
+                    TRISC5 = 1;
+                }
             }
-
             break;
-# 70 "can_handler.c"
+
+
+
         case MSG_LEDS_ON:
             LATA0 = 0;
             LATA1 = 0;

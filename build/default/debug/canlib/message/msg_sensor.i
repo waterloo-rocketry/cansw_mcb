@@ -453,7 +453,7 @@ _Bool build_temp_data_msg(
         return 0;
     }
 
-    output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_SENSOR_TEMP << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x02);
+    output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_SENSOR_TEMP << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x03);
     write_timestamp_2bytes(timestamp, output);
 
     output->data[2] = sensor_num;
@@ -473,7 +473,7 @@ _Bool build_altitude_data_msg(
         return 0;
     }
 
-    output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_SENSOR_ALTITUDE << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x02);
+    output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_SENSOR_ALTITUDE << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x03);
     write_timestamp_2bytes(timestamp, output);
 
     output->data[2] = (altitude >> 24) & 0xFF;
@@ -493,11 +493,11 @@ _Bool build_imu_data_msg(
         return 0;
     }
     if (axis == 'X') {
-        output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_SENSOR_IMU_X << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x02);
+        output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_SENSOR_IMU_X << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x03);
     } else if (axis == 'Y') {
-        output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_SENSOR_IMU_Y << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x02);
+        output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_SENSOR_IMU_Y << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x03);
     } else {
-        output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_SENSOR_IMU_Z << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x02);
+        output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_SENSOR_IMU_Z << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x03);
     }
 
     write_timestamp_2bytes(timestamp, output);
@@ -520,11 +520,11 @@ _Bool build_mag_data_msg(
         return 0;
     }
     if (axis == 'X') {
-        output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_SENSOR_MAG_X << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x02);
+        output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_SENSOR_MAG_X << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x03);
     } else if (axis == 'Y') {
-        output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_SENSOR_MAG_Y << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x02);
+        output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_SENSOR_MAG_Y << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x03);
     } else {
-        output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_SENSOR_MAG_Z << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x02);
+        output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_SENSOR_MAG_Z << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x03);
     }
 
     write_timestamp_2bytes(timestamp, output);
@@ -545,7 +545,7 @@ _Bool build_analog_data_msg(
         return 0;
     }
 
-    output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_SENSOR_ANALOG << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x02);
+    output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_SENSOR_ANALOG << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x03);
     write_timestamp_2bytes(timestamp, output);
 
     output->data[2] = (uint8_t)sensor_id;

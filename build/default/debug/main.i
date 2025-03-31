@@ -36858,7 +36858,7 @@ typedef enum {
     E_FS_ERROR_OFFSET = 0x07,
 } can_general_board_status_offset_t;
 # 8 "./setup.h" 2
-# 18 "./setup.h"
+# 20 "./setup.h"
 void pin_init(void);
 
 void osc_init(void);
@@ -37040,6 +37040,7 @@ void pwm_init(void);
 void updatePulseWidth(uint16_t angle);
 # 9 "main.c" 2
 # 1 "./can_handler.h" 1
+
 
 
 
@@ -37493,7 +37494,7 @@ _Bool can_send_rdy(void);
 
 void can_handle_interrupt(void);
 # 26 "canlib/canlib.h" 2
-# 8 "./can_handler.h" 2
+# 9 "./can_handler.h" 2
 
 
 
@@ -37512,11 +37513,22 @@ void can_log(const can_msg_t *msg);
 
 
 
-volatile uint16_t cmd_angle;
 
 
 
 
+# 1 "./potentiometer.h" 1
+# 10 "./potentiometer.h"
+void pot_init(void);
+
+void pot_read(uint8_t channel);
+
+uint16_t get_current_angle(uint16_t adc_value);
+
+uint16_t get_filtered_angle(uint16_t current_angle, uint16_t prev_angle);
+# 19 "main.c" 2
+volatile uint16_t adc_value;
+volatile _Bool new_adc = 0;
 
 
 
@@ -37530,7 +37542,18 @@ static void __attribute__((picinterrupt(("")))) ISR(void) {
         timer0_handle_interrupt();
         PIR3bits.TMR0IF = 0;
     }
-# 42 "main.c"
+
+
+
+    if (PIR1bits.ADIF) {
+        PIR1bits.ADIF = 0;
+
+
+        adc_value = ((uint16_t)ADRESH << 8) | ADRESL;
+        new_adc = 1;
+
+    }
+
 }
 
 int main(void) {
@@ -37541,6 +37564,11 @@ int main(void) {
     pwm_init();
     can_setup();
 
+    pot_init();
+    uint16_t current_angle;
+
+
+
     INTCON0bits.GIE = 1;
 
 
@@ -37549,13 +37577,35 @@ int main(void) {
     while(1) {
         __asm(" clrwdt");
 
+
+        if (OSCCON2 != 0x70) {
+
+        }
+
         if ((millis() - last_millis) > 500) {
             last_millis = millis();
             (LATA0 = !LATA0);
+            LATA1 = 1;
 
         }
-        updatePulseWidth(cmd_angle);
+# 88 "main.c"
+        if (new_adc) {
+            new_adc = 0;
+            current_angle = adc_value;
 
+        }
+
+        if ((millis() - last_millis) > 1) {
+            pot_read(0x03);
+        }
+
+        if ((millis() - last_millis) > 5) {
+            can_msg_t angle_msg;
+
+            build_analog_data_msg(PRIO_HIGHEST, millis(), SENSOR_CANARD_ENCODER_1, current_angle, &angle_msg);
+            txb_enqueue(&angle_msg);
+        }
+
+        txb_heartbeat();
     }
-
 }

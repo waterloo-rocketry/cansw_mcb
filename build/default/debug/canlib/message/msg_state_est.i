@@ -454,7 +454,7 @@ _Bool build_state_est_data_msg(
     can_msg_prio_t prio, uint16_t timestamp, can_state_est_id_t state_id, const float *state_data,
     can_msg_t *output
 ) {
-    output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_STATE_EST_DATA << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x02);
+    output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_STATE_EST_DATA << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x03);
     write_timestamp_2bytes(timestamp, output);
     const uint8_t *data = (const uint8_t *)state_data;
 

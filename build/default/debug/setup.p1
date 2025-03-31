@@ -11,12 +11,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _ANSELA1 `Vb ~T0 @X0 0 e@119297 ]
 "12760
 [v _LATA1 `Vb ~T0 @X0 0 e@130513 ]
-"18379
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 18379:         unsigned EID3 :1;
-[v _TRISB4 `Vb ~T0 @X0 0 e@130588 ]
-"18382
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 18382:         unsigned EID6 :1;
-[v _TRISB5 `Vb ~T0 @X0 0 e@130589 ]
+"18406
+[v _TRISC5 `Vb ~T0 @X0 0 e@130597 ]
 "27112
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 27112: extern volatile unsigned char OSCCON1 __attribute__((address(0x39D9)));
 [v _OSCCON1 `Vuc ~T0 @X0 0 e@14809 ]
@@ -3100,12 +3096,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "12
 [; ;setup.c: 12:     LATA1 = 1;
 [e = _LATA1 -> -> 1 `i `b ]
-"15
-[; ;setup.c: 15:     TRISB4 = 1;
-[e = _TRISB4 -> -> 1 `i `b ]
-"16
-[; ;setup.c: 16:     TRISB5 = 1;
-[e = _TRISB5 -> -> 1 `i `b ]
+"19
+[; ;setup.c: 19:     TRISC5 = 0;
+[e = _TRISC5 -> -> 0 `i `b ]
+"20
+[; ;setup.c: 20:     TRISC5 = 0;
+[e = _TRISC5 -> -> 0 `i `b ]
 "23
 [; ;setup.c: 23: }
 [e :UE 3250 ]

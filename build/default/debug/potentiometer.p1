@@ -33,6 +33,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 "52605
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 52605: extern volatile unsigned char ADCLK __attribute__((address(0x3EFF)));
 [v _ADCLK `Vuc ~T0 @X0 0 e@16127 ]
+"48388
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 48388:     struct {
+[s S2126 :2 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S2126 . ADFVR CDAFVR TSRNG TSEN RDY EN ]
+"48396
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 48396:     struct {
+[s S2127 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S2127 . ADFVR0 ADFVR1 CDAFVR0 CDAFVR1 . FVRRDY FVREN ]
+"48387
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 48387: typedef union {
+[u S2125 `S2126 1 `S2127 1 ]
+[n S2125 . . . ]
+"48406
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 48406: extern volatile FVRCONbits_t FVRCONbits __attribute__((address(0x3EC1)));
+[v _FVRCONbits `VS2125 ~T0 @X0 0 e@16065 ]
 "25216
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 25216:     struct {
 [s S1056 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -3128,42 +3143,75 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6
 [; ;potentiometer.c: 6:     ANSELA2 = 1;
 [e = _ANSELA2 -> -> 1 `i `b ]
+"9
+[; ;potentiometer.c: 9:     ADCON0bits.ON = 1;
+[e = . . _ADCON0bits 0 6 -> -> 1 `i `uc ]
 "10
-[; ;potentiometer.c: 10:     ADCON0bits.ADON = 1;
-[e = . . _ADCON0bits 1 6 -> -> 1 `i `uc ]
-"11
-[; ;potentiometer.c: 11:     ADCLK = 0b000111;
+[; ;potentiometer.c: 10:     ADCLK = 0b000111;
 [e = _ADCLK -> -> 7 `i `uc ]
-"12
-[; ;potentiometer.c: 12:     ADCON0bits.ADCS = 0;
-[e = . . _ADCON0bits 1 3 -> -> 0 `i `uc ]
+"11
+[; ;potentiometer.c: 11:     ADCON0bits.CS = 0;
+[e = . . _ADCON0bits 0 3 -> -> 0 `i `uc ]
 "13
-[; ;potentiometer.c: 13:     ADCON0bits.ADFM = 1;
-[e = . . _ADCON0bits 1 2 -> -> 1 `i `uc ]
+[; ;potentiometer.c: 13:     ADCON0bits.FM = 1;
+[e = . . _ADCON0bits 0 2 -> -> 1 `i `uc ]
+"15
+[; ;potentiometer.c: 15:     FVRCONbits.FVREN = 1;
+[e = . . _FVRCONbits 1 6 -> -> 1 `i `uc ]
 "16
-[; ;potentiometer.c: 16:     PIE1bits.ADIE = 1;
+[; ;potentiometer.c: 16:     FVRCONbits.ADFVR = 0b11;
+[e = . . _FVRCONbits 0 0 -> -> 3 `i `uc ]
+"19
+[; ;potentiometer.c: 19:     PIE1bits.ADIE = 1;
 [e = . . _PIE1bits 0 2 -> -> 1 `i `uc ]
-"17
-[; ;potentiometer.c: 17:     PIR1bits.ADIF = 0;
+"20
+[; ;potentiometer.c: 20:     PIR1bits.ADIF = 0;
 [e = . . _PIR1bits 0 2 -> -> 0 `i `uc ]
-"18
-[; ;potentiometer.c: 18: }
+"21
+[; ;potentiometer.c: 21: }
 [e :UE 3250 ]
 }
-"20
-[; ;potentiometer.c: 20: void pot_read(uint8_t channel) {
+"23
+[; ;potentiometer.c: 23: void pot_read(uint8_t channel) {
 [v _pot_read `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _pot_read ]
 [v _channel `uc ~T0 @X0 1 r1 ]
 [f ]
-"22
-[; ;potentiometer.c: 22:     ADPCH = channel;
-[e = _ADPCH _channel ]
 "25
-[; ;potentiometer.c: 25:     ADCON0bits.ADGO = 1;
-[e = . . _ADCON0bits 1 0 -> -> 1 `i `uc ]
-"26
-[; ;potentiometer.c: 26: }
+[; ;potentiometer.c: 25:     ADPCH = channel;
+[e = _ADPCH _channel ]
+"28
+[; ;potentiometer.c: 28:     ADCON0bits.GO = 1;
+[e = . . _ADCON0bits 0 0 -> -> 1 `i `uc ]
+"29
+[; ;potentiometer.c: 29: }
 [e :UE 3251 ]
+}
+"31
+[; ;potentiometer.c: 31: uint16_t get_current_angle(uint16_t adc_value) {
+[v _get_current_angle `(us ~T0 @X0 1 ef1`us ]
+{
+[e :U _get_current_angle ]
+[v _adc_value `us ~T0 @X0 1 r1 ]
+[f ]
+"33
+[; ;potentiometer.c: 33: }
+[e :UE 3252 ]
+}
+"35
+[; ;potentiometer.c: 35: uint16_t get_filtered_angle(uint16_t current_angle, uint16_t prev_angle) {
+[v _get_filtered_angle `(us ~T0 @X0 1 ef2`us`us ]
+{
+[e :U _get_filtered_angle ]
+[v _current_angle `us ~T0 @X0 1 r1 ]
+[v _prev_angle `us ~T0 @X0 1 r2 ]
+[f ]
+"36
+[; ;potentiometer.c: 36:     return 0.2 * current_angle + (1-0.2) * prev_angle;
+[e ) -> + * .0.2 -> -> _current_angle `ui `d * - -> -> 1 `i `d .0.2 -> -> _prev_angle `ui `d `us ]
+[e $UE 3253  ]
+"37
+[; ;potentiometer.c: 37: }
+[e :UE 3253 ]
 }
