@@ -36855,7 +36855,7 @@ typedef enum {
     E_FS_ERROR_OFFSET = 0x07,
 } can_general_board_status_offset_t;
 # 8 "./setup.h" 2
-# 18 "./setup.h"
+# 20 "./setup.h"
 void pin_init(void);
 
 void osc_init(void);
@@ -36873,12 +36873,12 @@ void pin_init(void){
     LATA1 = 1;
 
 
-    TRISB4 = 1;
-    TRISB5 = 1;
 
 
 
 
+    TRISC5 = 0;
+    TRISC5 = 0;
 
 
 }

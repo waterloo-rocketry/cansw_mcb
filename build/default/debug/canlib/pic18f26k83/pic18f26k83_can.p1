@@ -344,6 +344,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "21090
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 21090: extern volatile unsigned char RXB1D0 __attribute__((address(0x37F6)));
 [v _RXB1D0 `Vuc ~T0 @X0 0 e@14326 ]
+[v F22982 `(v ~T0 @X0 0 tf1`*CS2 ]
 "20579
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 20579:     struct {
 [s S851 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -3684,122 +3685,131 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;canlib/pic18f26k83/pic18f26k83_can.c: 157:         return;
 [e $UE 3264  ]
 "158
-[; ;canlib/pic18f26k83/pic18f26k83_can.c: 158:     }
+[; ;canlib/pic18f26k83/pic18f26k83_can.c: 158:     } else if (PIR5bits.RXB1IF) {
 }
 [e $U 3269  ]
-"159
-[; ;canlib/pic18f26k83/pic18f26k83_can.c: 159:     else if (PIR5bits.RXB1IF) {
 [e :U 3267 ]
 [e $ ! != -> . . _PIR5bits 0 1 `i -> 0 `i 3270  ]
 {
-"161
-[; ;canlib/pic18f26k83/pic18f26k83_can.c: 161:         can_msg_t rcvd_msg;
+"160
+[; ;canlib/pic18f26k83/pic18f26k83_can.c: 160:         can_msg_t rcvd_msg;
 [v _rcvd_msg `S2 ~T0 @X0 1 a ]
-"162
-[; ;canlib/pic18f26k83/pic18f26k83_can.c: 162:         rcvd_msg.sid = (uint32_t)RXB1SIDH << 21;
+"161
+[; ;canlib/pic18f26k83/pic18f26k83_can.c: 161:         rcvd_msg.sid = (uint32_t)RXB1SIDH << 21;
 [e = . _rcvd_msg 0 << -> _RXB1SIDH `ul -> 21 `i ]
-"163
-[; ;canlib/pic18f26k83/pic18f26k83_can.c: 163:         rcvd_msg.sid |= (((uint32_t)RXB1SIDL >> 5) & 0x7) << 18;
+"162
+[; ;canlib/pic18f26k83/pic18f26k83_can.c: 162:         rcvd_msg.sid |= (((uint32_t)RXB1SIDL >> 5) & 0x7) << 18;
 [e =| . _rcvd_msg 0 << & >> -> _RXB1SIDL `ul -> 5 `i -> -> -> 7 `i `l `ul -> 18 `i ]
-"164
-[; ;canlib/pic18f26k83/pic18f26k83_can.c: 164:         rcvd_msg.sid |= ((uint32_t)RXB1SIDL & 0x3) << 16;
+"163
+[; ;canlib/pic18f26k83/pic18f26k83_can.c: 163:         rcvd_msg.sid |= ((uint32_t)RXB1SIDL & 0x3) << 16;
 [e =| . _rcvd_msg 0 << & -> _RXB1SIDL `ul -> -> -> 3 `i `l `ul -> 16 `i ]
-"165
-[; ;canlib/pic18f26k83/pic18f26k83_can.c: 165:         rcvd_msg.sid |= (uint32_t)RXB1EIDH << 8;
+"164
+[; ;canlib/pic18f26k83/pic18f26k83_can.c: 164:         rcvd_msg.sid |= (uint32_t)RXB1EIDH << 8;
 [e =| . _rcvd_msg 0 << -> _RXB1EIDH `ul -> 8 `i ]
-"166
-[; ;canlib/pic18f26k83/pic18f26k83_can.c: 166:         rcvd_msg.sid |= RXB1EIDL;
+"165
+[; ;canlib/pic18f26k83/pic18f26k83_can.c: 165:         rcvd_msg.sid |= RXB1EIDL;
 [e =| . _rcvd_msg 0 -> _RXB1EIDL `ul ]
-"168
-[; ;canlib/pic18f26k83/pic18f26k83_can.c: 168:         rcvd_msg.data_len = RXB1DLCbits.DLC;
+"167
+[; ;canlib/pic18f26k83/pic18f26k83_can.c: 167:         rcvd_msg.data_len = RXB1DLCbits.DLC;
 [e = . _rcvd_msg 1 . . _RXB1DLCbits 0 0 ]
-"169
-[; ;canlib/pic18f26k83/pic18f26k83_can.c: 169:         memcpy(rcvd_msg.data, (const void *) &RXB1D0, rcvd_msg.data_len);
+"168
+[; ;canlib/pic18f26k83/pic18f26k83_can.c: 168:         memcpy(rcvd_msg.data, (const void *) &RXB1D0, rcvd_msg.data_len);
 [e ( _memcpy (3 , , -> &U . _rcvd_msg 2 `*v -> &U _RXB1D0 `*Cv -> . _rcvd_msg 1 `ui ]
-"176
-[; ;canlib/pic18f26k83/pic18f26k83_can.c: 176:         PIR5bits.RXB1IF = 0;
-[e = . . _PIR5bits 0 1 -> -> 0 `i `uc ]
-"177
-[; ;canlib/pic18f26k83/pic18f26k83_can.c: 177:         RXB1CONbits.RXFUL = 0;
-[e = . . _RXB1CONbits 0 7 -> -> 0 `i `uc ]
-"178
-[; ;canlib/pic18f26k83/pic18f26k83_can.c: 178:     }
-}
-[e $U 3271  ]
-"182
-[; ;canlib/pic18f26k83/pic18f26k83_can.c: 182:     else if (PIR5bits.TXB0IF) {
-[e :U 3270 ]
-[e $ ! != -> . . _PIR5bits 0 2 `i -> 0 `i 3272  ]
+"171
+[; ;canlib/pic18f26k83/pic18f26k83_can.c: 171:         if (((void*)0) != can_rcv_cb) {
+[e $ ! != -> -> -> 0 `i `*v `*F22982 _can_rcv_cb 3271  ]
 {
-"183
-[; ;canlib/pic18f26k83/pic18f26k83_can.c: 183:         PIR5bits.TXB0IF = 0;
-[e = . . _PIR5bits 0 2 -> -> 0 `i `uc ]
-"184
-[; ;canlib/pic18f26k83/pic18f26k83_can.c: 184:         return;
-[e $UE 3264  ]
-"185
-[; ;canlib/pic18f26k83/pic18f26k83_can.c: 185:     } else if (PIR5bits.TXB1IF) {
+"172
+[; ;canlib/pic18f26k83/pic18f26k83_can.c: 172:             can_rcv_cb(&rcvd_msg);
+[e ( *U _can_rcv_cb (1 -> &U _rcvd_msg `*CS2 ]
+"173
+[; ;canlib/pic18f26k83/pic18f26k83_can.c: 173:         }
 }
-[e $U 3273  ]
-[e :U 3272 ]
-[e $ ! != -> . . _PIR5bits 0 3 `i -> 0 `i 3274  ]
-{
-"186
-[; ;canlib/pic18f26k83/pic18f26k83_can.c: 186:         PIR5bits.TXB1IF = 0;
-[e = . . _PIR5bits 0 3 -> -> 0 `i `uc ]
-"187
-[; ;canlib/pic18f26k83/pic18f26k83_can.c: 187:         return;
-[e $UE 3264  ]
-"188
-[; ;canlib/pic18f26k83/pic18f26k83_can.c: 188:     } else if (PIR5bits.TXB2IF) {
-}
-[e $U 3275  ]
-[e :U 3274 ]
-[e $ ! != -> . . _PIR5bits 0 4 `i -> 0 `i 3276  ]
-{
-"189
-[; ;canlib/pic18f26k83/pic18f26k83_can.c: 189:         PIR5bits.TXB2IF = 0;
-[e = . . _PIR5bits 0 4 -> -> 0 `i `uc ]
-"190
-[; ;canlib/pic18f26k83/pic18f26k83_can.c: 190:         return;
-[e $UE 3264  ]
-"191
-[; ;canlib/pic18f26k83/pic18f26k83_can.c: 191:     } else if (PIR5bits.IRXIF) {
-}
-[e $U 3277  ]
-[e :U 3276 ]
-[e $ ! != -> . . _PIR5bits 0 7 `i -> 0 `i 3278  ]
-{
-"194
-[; ;canlib/pic18f26k83/pic18f26k83_can.c: 194:         PIR5bits.IRXIF = 0;
-[e = . . _PIR5bits 0 7 -> -> 0 `i `uc ]
-"195
-[; ;canlib/pic18f26k83/pic18f26k83_can.c: 195:         return;
-[e $UE 3264  ]
-"196
-[; ;canlib/pic18f26k83/pic18f26k83_can.c: 196:     } else if (PIR5bits.ERRIF) {
-}
-[e $U 3279  ]
-[e :U 3278 ]
-[e $ ! != -> . . _PIR5bits 0 5 `i -> 0 `i 3280  ]
-{
-"199
-[; ;canlib/pic18f26k83/pic18f26k83_can.c: 199:         PIR5bits.ERRIF = 0;
-[e = . . _PIR5bits 0 5 -> -> 0 `i `uc ]
-"200
-[; ;canlib/pic18f26k83/pic18f26k83_can.c: 200:         return;
-[e $UE 3264  ]
-"201
-[; ;canlib/pic18f26k83/pic18f26k83_can.c: 201:     }
-}
-[e :U 3280 ]
-[e :U 3279 ]
-[e :U 3277 ]
-[e :U 3275 ]
-[e :U 3273 ]
 [e :U 3271 ]
+"175
+[; ;canlib/pic18f26k83/pic18f26k83_can.c: 175:         PIR5bits.RXB1IF = 0;
+[e = . . _PIR5bits 0 1 -> -> 0 `i `uc ]
+"176
+[; ;canlib/pic18f26k83/pic18f26k83_can.c: 176:         RXB1CONbits.RXFUL = 0;
+[e = . . _RXB1CONbits 0 7 -> -> 0 `i `uc ]
+"177
+[; ;canlib/pic18f26k83/pic18f26k83_can.c: 177:     }
+}
+[e $U 3272  ]
+"181
+[; ;canlib/pic18f26k83/pic18f26k83_can.c: 181:     else if (PIR5bits.TXB0IF) {
+[e :U 3270 ]
+[e $ ! != -> . . _PIR5bits 0 2 `i -> 0 `i 3273  ]
+{
+"182
+[; ;canlib/pic18f26k83/pic18f26k83_can.c: 182:         PIR5bits.TXB0IF = 0;
+[e = . . _PIR5bits 0 2 -> -> 0 `i `uc ]
+"183
+[; ;canlib/pic18f26k83/pic18f26k83_can.c: 183:         return;
+[e $UE 3264  ]
+"184
+[; ;canlib/pic18f26k83/pic18f26k83_can.c: 184:     } else if (PIR5bits.TXB1IF) {
+}
+[e $U 3274  ]
+[e :U 3273 ]
+[e $ ! != -> . . _PIR5bits 0 3 `i -> 0 `i 3275  ]
+{
+"185
+[; ;canlib/pic18f26k83/pic18f26k83_can.c: 185:         PIR5bits.TXB1IF = 0;
+[e = . . _PIR5bits 0 3 -> -> 0 `i `uc ]
+"186
+[; ;canlib/pic18f26k83/pic18f26k83_can.c: 186:         return;
+[e $UE 3264  ]
+"187
+[; ;canlib/pic18f26k83/pic18f26k83_can.c: 187:     } else if (PIR5bits.TXB2IF) {
+}
+[e $U 3276  ]
+[e :U 3275 ]
+[e $ ! != -> . . _PIR5bits 0 4 `i -> 0 `i 3277  ]
+{
+"188
+[; ;canlib/pic18f26k83/pic18f26k83_can.c: 188:         PIR5bits.TXB2IF = 0;
+[e = . . _PIR5bits 0 4 -> -> 0 `i `uc ]
+"189
+[; ;canlib/pic18f26k83/pic18f26k83_can.c: 189:         return;
+[e $UE 3264  ]
+"190
+[; ;canlib/pic18f26k83/pic18f26k83_can.c: 190:     } else if (PIR5bits.IRXIF) {
+}
+[e $U 3278  ]
+[e :U 3277 ]
+[e $ ! != -> . . _PIR5bits 0 7 `i -> 0 `i 3279  ]
+{
+"193
+[; ;canlib/pic18f26k83/pic18f26k83_can.c: 193:         PIR5bits.IRXIF = 0;
+[e = . . _PIR5bits 0 7 -> -> 0 `i `uc ]
+"194
+[; ;canlib/pic18f26k83/pic18f26k83_can.c: 194:         return;
+[e $UE 3264  ]
+"195
+[; ;canlib/pic18f26k83/pic18f26k83_can.c: 195:     } else if (PIR5bits.ERRIF) {
+}
+[e $U 3280  ]
+[e :U 3279 ]
+[e $ ! != -> . . _PIR5bits 0 5 `i -> 0 `i 3281  ]
+{
+"198
+[; ;canlib/pic18f26k83/pic18f26k83_can.c: 198:         PIR5bits.ERRIF = 0;
+[e = . . _PIR5bits 0 5 -> -> 0 `i `uc ]
+"199
+[; ;canlib/pic18f26k83/pic18f26k83_can.c: 199:         return;
+[e $UE 3264  ]
+"200
+[; ;canlib/pic18f26k83/pic18f26k83_can.c: 200:     }
+}
+[e :U 3281 ]
+[e :U 3280 ]
+[e :U 3278 ]
+[e :U 3276 ]
+[e :U 3274 ]
+[e :U 3272 ]
 [e :U 3269 ]
-"202
-[; ;canlib/pic18f26k83/pic18f26k83_can.c: 202: }
+"201
+[; ;canlib/pic18f26k83/pic18f26k83_can.c: 201: }
 [e :UE 3264 ]
 }

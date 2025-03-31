@@ -411,7 +411,7 @@ _Bool build_alt_arm_cmd_msg(
         return 0;
     }
 
-    output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_ALT_ARM_CMD << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x02);
+    output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_ALT_ARM_CMD << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x03);
     write_timestamp_2bytes(timestamp, output);
 
     output->data[3] = alt_id;
@@ -429,7 +429,7 @@ _Bool build_alt_arm_status_msg(
         return 0;
     }
 
-    output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_ALT_ARM_STATUS << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x02);
+    output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_ALT_ARM_STATUS << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x03);
     write_timestamp_2bytes(timestamp, output);
 
     output->data[2] = alt_id;

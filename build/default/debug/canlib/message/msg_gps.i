@@ -466,7 +466,7 @@ _Bool build_gps_time_msg(
         return 0;
     }
 
-    output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_GPS_TIMESTAMP << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x02);
+    output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_GPS_TIMESTAMP << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x03);
     write_timestamp_2bytes(timestamp, output);
 
     output->data[2] = utc_hours;
@@ -487,7 +487,7 @@ _Bool build_gps_lat_msg(
         return 0;
     }
 
-    output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_GPS_LATITUDE << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x02);
+    output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_GPS_LATITUDE << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x03);
     write_timestamp_2bytes(timestamp, output);
 
     output->data[2] = degrees;
@@ -509,7 +509,7 @@ _Bool build_gps_lon_msg(
         return 0;
     }
 
-    output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_GPS_LONGITUDE << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x02);
+    output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_GPS_LONGITUDE << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x03);
     write_timestamp_2bytes(timestamp, output);
 
     output->data[2] = degrees;
@@ -531,7 +531,7 @@ _Bool build_gps_alt_msg(
         return 0;
     }
 
-    output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_GPS_ALTITUDE << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x02);
+    output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_GPS_ALTITUDE << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x03);
     write_timestamp_2bytes(timestamp, output);
 
     output->data[2] = (altitude >> 8) & 0xff;
@@ -551,7 +551,7 @@ _Bool build_gps_info_msg(
         return 0;
     }
 
-    output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_GPS_INFO << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x02);
+    output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_GPS_INFO << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x03);
     write_timestamp_2bytes(timestamp, output);
 
     output->data[2] = num_sat;

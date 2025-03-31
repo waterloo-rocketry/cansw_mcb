@@ -36643,9 +36643,16 @@ unsigned char __t3rd16on(void);
 # 5 "./potentiometer.h" 2
 
 
+
+
+
 void pot_init(void);
 
 void pot_read(uint8_t channel);
+
+uint16_t get_current_angle(uint16_t adc_value);
+
+uint16_t get_filtered_angle(uint16_t current_angle, uint16_t prev_angle);
 # 2 "potentiometer.c" 2
 
 void pot_init(void) {
@@ -36654,11 +36661,14 @@ void pot_init(void) {
     ANSELA2 = 1;
 
 
-
-    ADCON0bits.ADON = 1;
+    ADCON0bits.ON = 1;
     ADCLK = 0b000111;
-    ADCON0bits.ADCS = 0;
-    ADCON0bits.ADFM = 1;
+    ADCON0bits.CS = 0;
+
+    ADCON0bits.FM = 1;
+
+    FVRCONbits.FVREN = 1;
+    FVRCONbits.ADFVR = 0b11;
 
 
     PIE1bits.ADIE = 1;
@@ -36670,5 +36680,13 @@ void pot_read(uint8_t channel) {
     ADPCH = channel;
 
 
-    ADCON0bits.ADGO = 1;
+    ADCON0bits.GO = 1;
+}
+
+uint16_t get_current_angle(uint16_t adc_value) {
+
+}
+
+uint16_t get_filtered_angle(uint16_t current_angle, uint16_t prev_angle) {
+    return 0.2 * current_angle + (1-0.2) * prev_angle;
 }

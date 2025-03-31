@@ -36886,7 +36886,7 @@ typedef enum {
     E_FS_ERROR_OFFSET = 0x07,
 } can_general_board_status_offset_t;
 # 8 "./setup.h" 2
-# 18 "./setup.h"
+# 20 "./setup.h"
 void pin_init(void);
 
 void osc_init(void);
@@ -36906,18 +36906,9 @@ const uint16_t MOTOR_CENTER_PULSE_WIDTH_US = 1500;
 
 
 void pwm_init(void){
-
-
-
-
-
-
-    RB3PPS = 0b001011;
-    TRISB3 = 1;
-
-
-
-
+# 19 "pwm.c"
+    RB4PPS = 0b001011;
+    TRISB4 = 1;
 
 
 
@@ -36951,10 +36942,10 @@ void pwm_init(void){
 
 
 
-    TRISB3 = 0;
 
 
 
+    TRISB4 = 0;
 
 }
 

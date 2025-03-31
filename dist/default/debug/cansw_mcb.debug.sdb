@@ -470,7 +470,42 @@ BOARD_TYPE_ID_THERMOCOUPLE 133
 BOARD_TYPE_ID_USB 134
 BOARD_TYPE_ID_FYDP25_TVCA 192
 ]
-"32 C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\can_handler.c
+"101 C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\main.c
+[e E22769 . `uc
+PRIO_HIGHEST 0
+PRIO_HIGH 1
+PRIO_MEDIUM 2
+PRIO_LOW 3
+]
+[e E22900 . `uc
+SENSOR_5V_VOLT 0
+SENSOR_5V_CURR 1
+SENSOR_12V_VOLT 2
+SENSOR_12V_CURR 3
+SENSOR_CHARGE_VOLT 4
+SENSOR_CHARGE_CURR 5
+SENSOR_BATT_VOLT 6
+SENSOR_BATT_CURR 7
+SENSOR_MOTOR_CURR 8
+SENSOR_PRESSURE_OX 9
+SENSOR_PRESSURE_FUEL 10
+SENSOR_PRESSURE_CC 11
+SENSOR_BARO_PRESSURE 12
+SENSOR_BARO_TEMP 13
+SENSOR_RA_BATT_VOLT_1 14
+SENSOR_RA_BATT_VOLT_2 15
+SENSOR_RA_BATT_CURR_1 16
+SENSOR_RA_BATT_CURR_2 17
+SENSOR_RA_MAG_VOLT_1 18
+SENSOR_RA_MAG_VOLT_2 19
+SENSOR_FPS 20
+SENSOR_CANARD_ENCODER_1 21
+SENSOR_CANARD_ENCODER_2 22
+SENSOR_PROC_FLIGHT_PHASE_STATUS 23
+SENSOR_VELOCITY 24
+SENSOR_ENUM_MAX 25
+]
+"33 C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\can_handler.c
 [e E23141 . `uc
 BOARD_TYPE_ID_ANY 0
 BOARD_TYPE_ID_INJ_SENSOR 1
@@ -495,7 +530,35 @@ BOARD_TYPE_ID_THERMOCOUPLE 133
 BOARD_TYPE_ID_USB 134
 BOARD_TYPE_ID_FYDP25_TVCA 192
 ]
-"90
+"56
+[e E23192 . `uc
+ACTUATOR_OX_INJECTOR_VALVE 0
+ACTUATOR_FUEL_INJECTOR_VALVE 1
+ACTUATOR_CHARGE_ENABLE 2
+ACTUATOR_5V_RAIL_ROCKET 3
+ACTUATOR_5V_RAIL_PAYLOAD 4
+ACTUATOR_TELEMETRY 5
+ACTUATOR_CAMERA_INJ_A 6
+ACTUATOR_CAMERA_INJ_B 7
+ACTUATOR_CAMERA_VENT_A 8
+ACTUATOR_CAMERA_VENT_B 9
+ACTUATOR_CAMERA_VENT_C 10
+ACTUATOR_CAMERA_VENT_D 11
+ACTUATOR_CAMERA_RECOVERY 12
+ACTUATOR_PROC_ESTIMATOR_INIT 13
+ACTUATOR_CANARD_ENABLE 14
+ACTUATOR_CANARD_ANGLE 15
+ACTUATOR_ENUM_MAX 16
+]
+"58
+[e E23211 . `uc
+ACT_STATE_ON 0
+ACT_STATE_OFF 1
+ACT_STATE_UNK 2
+ACT_STATE_ILLEGAL 3
+ACT_STATE_ENUM_MAX 4
+]
+"89
 [e E23111 . `uc
 MSG_GENERAL_BOARD_STATUS 1
 MSG_RESET_CMD 2
@@ -544,6 +607,7 @@ MSG_ID_ENUM_MAX 28
 [v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
 "4 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\memcpy.c
 [v _memcpy memcpy `(*.39v  1 e 2 0 ]
+[v i2_memcpy memcpy `(*.39v  1 e 2 0 ]
 "10 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
 "245
@@ -558,12 +622,14 @@ MSG_ID_ENUM_MAX 28
 [v ___omul __omul `(uo  1 e 8 0 ]
 "10 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\xxtofl.c
 [v ___xxtofl __xxtofl `(d  1 e 4 0 ]
-"7 C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\can_handler.c
+"8 C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\can_handler.c
 [v _can_setup can_setup `(v  1 e 1 0 ]
-"29
+"30
 [v _can_receive_callback can_receive_callback `(v  1 e 1 0 ]
-"118 C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\canlib/message/msg_actuator.c
-[v _get_cmd_actuator_state_analog get_cmd_actuator_state_analog `(us  1 e 2 0 ]
+"66 C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\canlib/message/msg_actuator.c
+[v _get_actuator_id get_actuator_id `(i  1 e 2 0 ]
+"99
+[v _get_cmd_actuator_state get_cmd_actuator_state `(i  1 e 2 0 ]
 "9 C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\canlib/message/msg_common.c
 [v _write_timestamp_2bytes write_timestamp_2bytes `(v  1 e 1 0 ]
 "14
@@ -574,6 +640,8 @@ MSG_ID_ENUM_MAX 28
 [v _get_reset_board_id get_reset_board_id `(a  1 e 1 0 ]
 "140
 [v _check_board_need_reset check_board_need_reset `(a  1 e 1 0 ]
+"100 C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\canlib/message/msg_sensor.c
+[v _build_analog_data_msg build_analog_data_msg `(a  1 e 1 0 ]
 "16 C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\canlib/pic18f26k83/pic18f26k83_can.c
 [v _can_init can_init `(v  1 e 1 0 ]
 "85
@@ -584,6 +652,10 @@ MSG_ID_ENUM_MAX 28
 [v _can_handle_interrupt can_handle_interrupt `(v  1 e 1 0 ]
 "15 C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\canlib/util/can_tx_buffer.c
 [v _txb_init txb_init `(v  1 e 1 0 ]
+"23
+[v _txb_enqueue txb_enqueue `(a  1 e 1 0 ]
+"31
+[v _txb_heartbeat txb_heartbeat `(v  1 e 1 0 ]
 "5 C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\canlib/util/safe_ring_buffer.c
 [v _get_offset_bytes get_offset_bytes `(ui  1 s 2 get_offset_bytes ]
 "14
@@ -600,14 +672,16 @@ MSG_ID_ENUM_MAX 28
 [v _srb_peek srb_peek `(a  1 e 1 0 ]
 "7 C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\canlib/util/timing_util.c
 [v _can_generate_timing_params can_generate_timing_params `(a  1 e 1 0 ]
-"22 C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\main.c
+"24 C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\main.c
 [v _ISR ISR `IIH(v  1 s 1 ISR ]
-"44
+"48
 [v _main main `(i  1 e 2 0 ]
+"3 C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\potentiometer.c
+[v _pot_init pot_init `(v  1 e 1 0 ]
+"23
+[v _pot_read pot_read `(v  1 e 1 0 ]
 "8 C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\pwm.c
 [v _pwm_init pwm_init `(v  1 e 1 0 ]
-"61
-[v _updatePulseWidth updatePulseWidth `(v  1 e 1 0 ]
 "23 C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\rocketlib/pic18f26k83/timer.c
 [v _millis millis `(ul  1 e 4 0 ]
 "30
@@ -669,16 +743,16 @@ MSG_ID_ENUM_MAX 28
 [v _BRGCON3bits BRGCON3bits `VES1151  1 e 1 @14085 ]
 "2152
 [v _T2PR T2PR `VEuc  1 e 1 @16299 ]
-[s S2277 . 1 `uc 1 OUTPS 1 0 :4:0 
+[s S2382 . 1 `uc 1 OUTPS 1 0 :4:0 
 `uc 1 CKPS 1 0 :3:4 
 `uc 1 ON 1 0 :1:7 
 ]
 "2226
-[s S2281 . 1 `uc 1 T2OUTPS 1 0 :4:0 
+[s S2386 . 1 `uc 1 T2OUTPS 1 0 :4:0 
 `uc 1 T2CKPS 1 0 :3:4 
 `uc 1 T2ON 1 0 :1:7 
 ]
-[s S2285 . 1 `uc 1 T2OUTPS0 1 0 :1:0 
+[s S2390 . 1 `uc 1 T2OUTPS0 1 0 :1:0 
 `uc 1 T2OUTPS1 1 0 :1:1 
 `uc 1 T2OUTPS2 1 0 :1:2 
 `uc 1 T2OUTPS3 1 0 :1:3 
@@ -686,7 +760,7 @@ MSG_ID_ENUM_MAX 28
 `uc 1 T2CKPS1 1 0 :1:5 
 `uc 1 T2CKPS2 1 0 :1:6 
 ]
-[s S2293 . 1 `uc 1 OUTPS0 1 0 :1:0 
+[s S2398 . 1 `uc 1 OUTPS0 1 0 :1:0 
 `uc 1 OUTPS1 1 0 :1:1 
 `uc 1 OUTPS2 1 0 :1:2 
 `uc 1 OUTPS3 1 0 :1:3 
@@ -695,42 +769,42 @@ MSG_ID_ENUM_MAX 28
 `uc 1 CKPS2 1 0 :1:6 
 `uc 1 TMR2ON 1 0 :1:7 
 ]
-[u S2302 . 1 `S2277 1 . 1 0 `S2281 1 . 1 0 `S2285 1 . 1 0 `S2293 1 . 1 0 ]
-[v _T2CONbits T2CONbits `VES2302  1 e 1 @16300 ]
+[u S2407 . 1 `S2382 1 . 1 0 `S2386 1 . 1 0 `S2390 1 . 1 0 `S2398 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES2407  1 e 1 @16300 ]
 "2469
 [v _T2CLK T2CLK `VEuc  1 e 1 @16302 ]
-[s S1931 . 1 `uc 1 OUTPS 1 0 :4:0 
+[s S1932 . 1 `uc 1 OUTPS 1 0 :4:0 
 `uc 1 MD16 1 0 :1:4 
 `uc 1 OUT 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 `uc 1 EN 1 0 :1:7 
 ]
 "4307
-[s S1937 . 1 `uc 1 T0OUTPS 1 0 :4:0 
+[s S1938 . 1 `uc 1 T0OUTPS 1 0 :4:0 
 `uc 1 T0MD16 1 0 :1:4 
 `uc 1 T0OUT 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 `uc 1 T0EN 1 0 :1:7 
 ]
-[s S1943 . 1 `uc 1 OUTPS0 1 0 :1:0 
+[s S1944 . 1 `uc 1 OUTPS0 1 0 :1:0 
 `uc 1 OUTPS1 1 0 :1:1 
 `uc 1 OUTPS2 1 0 :1:2 
 `uc 1 OUTPS3 1 0 :1:3 
 `uc 1 T016BIT 1 0 :1:4 
 ]
-[s S1949 . 1 `uc 1 T0OUTPS0 1 0 :1:0 
+[s S1950 . 1 `uc 1 T0OUTPS0 1 0 :1:0 
 `uc 1 T0OUTPS1 1 0 :1:1 
 `uc 1 T0OUTPS2 1 0 :1:2 
 `uc 1 T0OUTPS3 1 0 :1:3 
 ]
-[u S1954 . 1 `S1931 1 . 1 0 `S1937 1 . 1 0 `S1943 1 . 1 0 `S1949 1 . 1 0 ]
-[v _T0CON0bits T0CON0bits `VES1954  1 e 1 @16312 ]
-[s S1983 . 1 `uc 1 CKPS 1 0 :4:0 
+[u S1955 . 1 `S1932 1 . 1 0 `S1938 1 . 1 0 `S1944 1 . 1 0 `S1950 1 . 1 0 ]
+[v _T0CON0bits T0CON0bits `VES1955  1 e 1 @16312 ]
+[s S1984 . 1 `uc 1 CKPS 1 0 :4:0 
 `uc 1 ASYNC 1 0 :1:4 
 `uc 1 CS 1 0 :3:5 
 ]
 "4434
-[s S1987 . 1 `uc 1 CKPS0 1 0 :1:0 
+[s S1988 . 1 `uc 1 CKPS0 1 0 :1:0 
 `uc 1 CKPS1 1 0 :1:1 
 `uc 1 CKPS2 1 0 :1:2 
 `uc 1 CKPS3 1 0 :1:3 
@@ -739,11 +813,11 @@ MSG_ID_ENUM_MAX 28
 `uc 1 CS1 1 0 :1:6 
 `uc 1 CS2 1 0 :1:7 
 ]
-[s S1996 . 1 `uc 1 T0CKPS 1 0 :4:0 
+[s S1997 . 1 `uc 1 T0CKPS 1 0 :4:0 
 `uc 1 . 1 0 :1:4 
 `uc 1 T0CS 1 0 :3:5 
 ]
-[s S2000 . 1 `uc 1 T0CKPS0 1 0 :1:0 
+[s S2001 . 1 `uc 1 T0CKPS0 1 0 :1:0 
 `uc 1 T0CKPS1 1 0 :1:1 
 `uc 1 T0CKPS2 1 0 :1:2 
 `uc 1 T0CKPS3 1 0 :1:3 
@@ -752,9 +826,9 @@ MSG_ID_ENUM_MAX 28
 `uc 1 T0CS1 1 0 :1:6 
 `uc 1 T0CS2 1 0 :1:7 
 ]
-[u S2009 . 1 `S1983 1 . 1 0 `S1987 1 . 1 0 `S1996 1 . 1 0 `S2000 1 . 1 0 ]
-[v _T0CON1bits T0CON1bits `VES2009  1 e 1 @16313 ]
-[s S1860 . 1 `uc 1 INT0EDG 1 0 :1:0 
+[u S2010 . 1 `S1984 1 . 1 0 `S1988 1 . 1 0 `S1997 1 . 1 0 `S2001 1 . 1 0 ]
+[v _T0CON1bits T0CON1bits `VES2010  1 e 1 @16313 ]
+[s S1861 . 1 `uc 1 INT0EDG 1 0 :1:0 
 `uc 1 INT1EDG 1 0 :1:1 
 `uc 1 INT2EDG 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
@@ -763,11 +837,11 @@ MSG_ID_ENUM_MAX 28
 `uc 1 GIE 1 0 :1:7 
 ]
 "5361
-[s S1868 . 1 `uc 1 . 1 0 :7:0 
+[s S1869 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S1871 . 1 `S1860 1 . 1 0 `S1868 1 . 1 0 ]
-[v _INTCON0bits INTCON0bits `VES1871  1 e 1 @16338 ]
+[u S1872 . 1 `S1861 1 . 1 0 `S1869 1 . 1 0 ]
+[v _INTCON0bits INTCON0bits `VES1872  1 e 1 @16338 ]
 "7876
 [v _ANSELA0 ANSELA0 `VEb  1 e 0 @119296 ]
 "7879
@@ -800,16 +874,14 @@ MSG_ID_ENUM_MAX 28
 [v _TRISA1 TRISA1 `VEb  1 e 0 @130577 ]
 "18349
 [v _TRISA2 TRISA2 `VEb  1 e 0 @130578 ]
-"18376
-[v _TRISB3 TRISB3 `VEb  1 e 0 @130587 ]
 "18379
 [v _TRISB4 TRISB4 `VEb  1 e 0 @130588 ]
-"18382
-[v _TRISB5 TRISB5 `VEb  1 e 0 @130589 ]
 "18391
 [v _TRISC0 TRISC0 `VEb  1 e 0 @130592 ]
 "18394
 [v _TRISC1 TRISC1 `VEb  1 e 0 @130593 ]
+"18406
+[v _TRISC5 TRISC5 `VEb  1 e 0 @130597 ]
 [s S1259 . 1 `uc 1 TXPRI 1 0 :2:0 
 `uc 1 . 1 0 :1:2 
 `uc 1 TXREQ 1 0 :1:3 
@@ -846,7 +918,7 @@ MSG_ID_ENUM_MAX 28
 [v _TXB0DLCbits TXB0DLCbits `VES1298  1 e 1 @14309 ]
 "19757
 [v _TXB0D0 TXB0D0 `VEuc  1 e 1 @14310 ]
-[s S1474 . 1 `uc 1 FILHIT0 1 0 :1:0 
+[s S1475 . 1 `uc 1 FILHIT0 1 0 :1:0 
 `uc 1 FILHIT1 1 0 :1:1 
 `uc 1 FILHIT2 1 0 :1:2 
 `uc 1 RXRTRRO_FILHIT3 1 0 :1:3 
@@ -856,18 +928,18 @@ MSG_ID_ENUM_MAX 28
 `uc 1 RXFUL 1 0 :1:7 
 ]
 "20602
-[s S1483 . 1 `uc 1 . 1 0 :3:0 
+[s S1484 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 RXRTRRO 1 0 :1:3 
 `uc 1 . 1 0 :1:4 
 `uc 1 RXM0 1 0 :1:5 
 ]
-[s S1488 . 1 `uc 1 . 1 0 :3:0 
+[s S1489 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 FILHIT3 1 0 :1:3 
 `uc 1 . 1 0 :1:4 
 `uc 1 RTRRO 1 0 :1:5 
 ]
-[u S1493 . 1 `S1474 1 . 1 0 `S1483 1 . 1 0 `S1488 1 . 1 0 ]
-[v _RXB1CONbits RXB1CONbits `VES1493  1 e 1 @14320 ]
+[u S1494 . 1 `S1475 1 . 1 0 `S1484 1 . 1 0 `S1489 1 . 1 0 ]
+[v _RXB1CONbits RXB1CONbits `VES1494  1 e 1 @14320 ]
 "20667
 [v _RXB1SIDH RXB1SIDH `VEuc  1 e 1 @14321 ]
 "20787
@@ -892,7 +964,7 @@ MSG_ID_ENUM_MAX 28
 [v _RXB1DLCbits RXB1DLCbits `VES1458  1 e 1 @14325 ]
 "21090
 [v _RXB1D0 RXB1D0 `VEuc  1 e 1 @14326 ]
-[s S2533 . 1 `uc 1 INT0IE 1 0 :1:0 
+[s S2698 . 1 `uc 1 INT0IE 1 0 :1:0 
 `uc 1 ZCDIE 1 0 :1:1 
 `uc 1 ADIE 1 0 :1:2 
 `uc 1 ADTIE 1 0 :1:3 
@@ -902,18 +974,18 @@ MSG_ID_ENUM_MAX 28
 `uc 1 SMT1PWAIE 1 0 :1:7 
 ]
 "25238
-[s S2542 . 1 `uc 1 . 1 0 :4:0 
+[s S2707 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TX1IE 1 0 :1:4 
 `uc 1 RC1IE 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 `uc 1 PSPIE 1 0 :1:7 
 ]
-[s S2548 . 1 `uc 1 . 1 0 :4:0 
+[s S2713 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TXIE 1 0 :1:4 
 ]
-[u S2551 . 1 `S2533 1 . 1 0 `S2542 1 . 1 0 `S2548 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES2551  1 e 1 @14737 ]
-[s S1886 . 1 `uc 1 I2C1TXIE 1 0 :1:0 
+[u S2716 . 1 `S2698 1 . 1 0 `S2707 1 . 1 0 `S2713 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES2716  1 e 1 @14737 ]
+[s S1887 . 1 `uc 1 I2C1TXIE 1 0 :1:0 
 `uc 1 I2C1IE 1 0 :1:1 
 `uc 1 I2C1EIE 1 0 :1:2 
 `uc 1 U1RXIE 1 0 :1:3 
@@ -923,19 +995,19 @@ MSG_ID_ENUM_MAX 28
 `uc 1 TMR0IE 1 0 :1:7 
 ]
 "25404
-[s S1895 . 1 `uc 1 RXB0IE 1 0 :1:0 
+[s S1896 . 1 `uc 1 RXB0IE 1 0 :1:0 
 `uc 1 RXB1IE 1 0 :1:1 
 `uc 1 TXB0IE 1 0 :1:2 
 `uc 1 TXB1IE 1 0 :1:3 
 `uc 1 TXB2IE 1 0 :1:4 
 ]
-[s S1901 . 1 `uc 1 . 1 0 :1:0 
+[s S1902 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 RXBNIE 1 0 :1:1 
 `uc 1 . 1 0 :2:2 
 `uc 1 TXBNIE 1 0 :1:4 
 ]
-[u S1906 . 1 `S1886 1 . 1 0 `S1895 1 . 1 0 `S1901 1 . 1 0 ]
-[v _PIE3bits PIE3bits `VES1906  1 e 1 @14739 ]
+[u S1907 . 1 `S1887 1 . 1 0 `S1896 1 . 1 0 `S1902 1 . 1 0 ]
+[v _PIE3bits PIE3bits `VES1907  1 e 1 @14739 ]
 [s S1222 . 1 `uc 1 RXB0IE 1 0 :1:0 
 `uc 1 RXB1IE 1 0 :1:1 
 `uc 1 TXB0IE 1 0 :1:2 
@@ -955,7 +1027,7 @@ MSG_ID_ENUM_MAX 28
 ]
 [u S1238 . 1 `S1222 1 . 1 0 `S1231 1 . 1 0 `S1236 1 . 1 0 ]
 [v _PIE5bits PIE5bits `VES1238  1 e 1 @14741 ]
-[s S2574 . 1 `uc 1 INT0IF 1 0 :1:0 
+[s S2106 . 1 `uc 1 INT0IF 1 0 :1:0 
 `uc 1 ZCDIF 1 0 :1:1 
 `uc 1 ADIF 1 0 :1:2 
 `uc 1 ADTIF 1 0 :1:3 
@@ -965,18 +1037,18 @@ MSG_ID_ENUM_MAX 28
 `uc 1 SMT1PWAIF 1 0 :1:7 
 ]
 "25969
-[s S2583 . 1 `uc 1 . 1 0 :4:0 
+[s S2115 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TX1IF 1 0 :1:4 
 `uc 1 RC1IF 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 `uc 1 PSPIF 1 0 :1:7 
 ]
-[s S2589 . 1 `uc 1 . 1 0 :4:0 
+[s S2121 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TXIF 1 0 :1:4 
 ]
-[u S2592 . 1 `S2574 1 . 1 0 `S2583 1 . 1 0 `S2589 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES2592  1 e 1 @14753 ]
-[s S2072 . 1 `uc 1 I2C1TXIF 1 0 :1:0 
+[u S2124 . 1 `S2106 1 . 1 0 `S2115 1 . 1 0 `S2121 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES2124  1 e 1 @14753 ]
+[s S2073 . 1 `uc 1 I2C1TXIF 1 0 :1:0 
 `uc 1 I2C1IF 1 0 :1:1 
 `uc 1 I2C1EIF 1 0 :1:2 
 `uc 1 U1RXIF 1 0 :1:3 
@@ -986,14 +1058,14 @@ MSG_ID_ENUM_MAX 28
 `uc 1 TMR0IF 1 0 :1:7 
 ]
 "26128
-[s S2081 . 1 `uc 1 . 1 0 :1:0 
+[s S2082 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 RXBNIF 1 0 :1:1 
 `uc 1 . 1 0 :2:2 
 `uc 1 TXBNIF 1 0 :1:4 
 ]
-[u S2086 . 1 `S2072 1 . 1 0 `S2081 1 . 1 0 ]
-[v _PIR3bits PIR3bits `VES2086  1 e 1 @14755 ]
-[s S2255 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[u S2087 . 1 `S2073 1 . 1 0 `S2082 1 . 1 0 ]
+[v _PIR3bits PIR3bits `VES2087  1 e 1 @14755 ]
+[s S2360 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR1GIF 1 0 :1:1 
 `uc 1 TMR2IF 1 0 :1:2 
 `uc 1 CCP1IF 1 0 :1:3 
@@ -1003,8 +1075,8 @@ MSG_ID_ENUM_MAX 28
 `uc 1 INT1IF 1 0 :1:7 
 ]
 "26200
-[u S2264 . 1 `S2255 1 . 1 0 ]
-[v _PIR4bits PIR4bits `VES2264  1 e 1 @14756 ]
+[u S2369 . 1 `S2360 1 . 1 0 ]
+[v _PIR4bits PIR4bits `VES2369  1 e 1 @14756 ]
 "26245
 [v _PIR5 PIR5 `VEuc  1 e 1 @14757 ]
 [s S1357 . 1 `uc 1 RXB0IF 1 0 :1:0 
@@ -1030,7 +1102,7 @@ MSG_ID_ENUM_MAX 28
 [v _OSCCON1 OSCCON1 `VEuc  1 e 1 @14809 ]
 "27182
 [v _OSCCON2 OSCCON2 `VEuc  1 e 1 @14810 ]
-[s S2173 . 1 `uc 1 . 1 0 :3:0 
+[s S2278 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 NOSCR 1 0 :1:3 
 `uc 1 ORDY 1 0 :1:4 
 `uc 1 . 1 0 :1:5 
@@ -1038,17 +1110,42 @@ MSG_ID_ENUM_MAX 28
 `uc 1 CSWHOLD 1 0 :1:7 
 ]
 "27267
-[u S2180 . 1 `S2173 1 . 1 0 ]
-[v _OSCCON3bits OSCCON3bits `VES2180  1 e 1 @14811 ]
-"28971
-[v _RB3PPS RB3PPS `VEuc  1 e 1 @14859 ]
+[u S2285 . 1 `S2278 1 . 1 0 ]
+[v _OSCCON3bits OSCCON3bits `VES2285  1 e 1 @14811 ]
+"29021
+[v _RB4PPS RB4PPS `VEuc  1 e 1 @14860 ]
 "29221
 [v _RC0PPS RC0PPS `VEuc  1 e 1 @14864 ]
 "32526
 [v _CANRXPPS CANRXPPS `VEuc  1 e 1 @15085 ]
+[s S2664 . 1 `uc 1 ADFVR 1 0 :2:0 
+`uc 1 CDAFVR 1 0 :2:2 
+`uc 1 TSRNG 1 0 :1:4 
+`uc 1 TSEN 1 0 :1:5 
+`uc 1 RDY 1 0 :1:6 
+`uc 1 EN 1 0 :1:7 
+]
+"48406
+[s S2671 . 1 `uc 1 ADFVR0 1 0 :1:0 
+`uc 1 ADFVR1 1 0 :1:1 
+`uc 1 CDAFVR0 1 0 :1:2 
+`uc 1 CDAFVR1 1 0 :1:3 
+`uc 1 . 1 0 :2:4 
+`uc 1 FVRRDY 1 0 :1:6 
+`uc 1 FVREN 1 0 :1:7 
+]
+"48406
+[u S2679 . 1 `S2664 1 . 1 0 `S2671 1 . 1 0 ]
+"48406
+"48406
+[v _FVRCONbits FVRCONbits `VES2679  1 e 1 @16065 ]
+"50916
+[v _ADRESL ADRESL `VEuc  1 e 1 @16111 ]
+"51044
+[v _ADRESH ADRESH `VEuc  1 e 1 @16112 ]
 "51164
 [v _ADPCH ADPCH `VEuc  1 e 1 @16113 ]
-[s S2473 . 1 `uc 1 GO 1 0 :1:0 
+[s S2604 . 1 `uc 1 GO 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 FM 1 0 :2:2 
 `uc 1 CS 1 0 :1:4 
@@ -1057,7 +1154,7 @@ MSG_ID_ENUM_MAX 28
 `uc 1 ON 1 0 :1:7 
 ]
 "51852
-[s S2481 . 1 `uc 1 ADGO 1 0 :1:0 
+[s S2612 . 1 `uc 1 ADGO 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 ADFM 1 0 :2:2 
 `uc 1 ADCS 1 0 :1:4 
@@ -1066,59 +1163,59 @@ MSG_ID_ENUM_MAX 28
 `uc 1 ADON 1 0 :1:7 
 ]
 "51852
-[s S2489 . 1 `uc 1 DONE 1 0 :1:0 
+[s S2620 . 1 `uc 1 DONE 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 FM0 1 0 :1:2 
 ]
 "51852
-[s S2493 . 1 `uc 1 GO_NOT_DONE 1 0 :1:0 
+[s S2624 . 1 `uc 1 GO_NOT_DONE 1 0 :1:0 
 ]
 "51852
-[s S2495 . 1 `uc 1 GO_nDONE 1 0 :1:0 
+[s S2626 . 1 `uc 1 GO_nDONE 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 ADFM0 1 0 :1:2 
 ]
 "51852
-[u S2499 . 1 `S2473 1 . 1 0 `S2481 1 . 1 0 `S2489 1 . 1 0 `S2493 1 . 1 0 `S2495 1 . 1 0 ]
+[u S2630 . 1 `S2604 1 . 1 0 `S2612 1 . 1 0 `S2620 1 . 1 0 `S2624 1 . 1 0 `S2626 1 . 1 0 ]
 "51852
 "51852
-[v _ADCON0bits ADCON0bits `VES2499  1 e 1 @16120 ]
+[v _ADCON0bits ADCON0bits `VES2630  1 e 1 @16120 ]
 "52605
 [v _ADCLK ADCLK `VEuc  1 e 1 @16127 ]
 "61808
 [v _CCPR3L CCPR3L `VEuc  1 e 1 @16244 ]
 "61828
 [v _CCPR3H CCPR3H `VEuc  1 e 1 @16245 ]
-[s S2203 . 1 `uc 1 MODE 1 0 :4:0 
+[s S2308 . 1 `uc 1 MODE 1 0 :4:0 
 `uc 1 FMT 1 0 :1:4 
 `uc 1 OUT 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 `uc 1 EN 1 0 :1:7 
 ]
 "61881
-[s S2209 . 1 `uc 1 MODE0 1 0 :1:0 
+[s S2314 . 1 `uc 1 MODE0 1 0 :1:0 
 `uc 1 MODE1 1 0 :1:1 
 `uc 1 MODE2 1 0 :1:2 
 `uc 1 MODE3 1 0 :1:3 
 ]
 "61881
-[s S2214 . 1 `uc 1 CCP3MODE 1 0 :4:0 
+[s S2319 . 1 `uc 1 CCP3MODE 1 0 :4:0 
 `uc 1 CCP3FMT 1 0 :1:4 
 `uc 1 CCP3OUT 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 `uc 1 CCP3EN 1 0 :1:7 
 ]
 "61881
-[s S2220 . 1 `uc 1 CCP3MODE0 1 0 :1:0 
+[s S2325 . 1 `uc 1 CCP3MODE0 1 0 :1:0 
 `uc 1 CCP3MODE1 1 0 :1:1 
 `uc 1 CCP3MODE2 1 0 :1:2 
 `uc 1 CCP3MODE3 1 0 :1:3 
 ]
 "61881
-[u S2225 . 1 `S2203 1 . 1 0 `S2209 1 . 1 0 `S2214 1 . 1 0 `S2220 1 . 1 0 ]
+[u S2330 . 1 `S2308 1 . 1 0 `S2314 1 . 1 0 `S2319 1 . 1 0 `S2325 1 . 1 0 ]
 "61881
 "61881
-[v _CCP3CONbits CCP3CONbits `VES2225  1 e 1 @16246 ]
+[v _CCP3CONbits CCP3CONbits `VES2330  1 e 1 @16246 ]
 [s S1168 . 1 `uc 1 FILHIT0 1 0 :1:0 
 `uc 1 JTOFF_FILHIT1 1 0 :1:1 
 `uc 1 RB0DBEN_FILHIT2 1 0 :1:2 
@@ -1296,125 +1393,122 @@ MSG_ID_ENUM_MAX 28
 [v _tx_pool tx_pool `[100]uc  1 e 100 0 ]
 "5 C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\canlib/pic18f26k83/pic18f26k83_can.c
 [v _can_rcv_cb can_rcv_cb `*.37(v  1 s 2 can_rcv_cb ]
-[s S1654 . 10 `*.39v 1 memory_pool 2 0 `ui 1 element_size 2 2 `ui 1 max_elements 2 4 `ui 1 rd_idx 2 6 `ui 1 wr_idx 2 8 ]
+[s S1655 . 10 `*.39v 1 memory_pool 2 0 `ui 1 element_size 2 2 `ui 1 max_elements 2 4 `ui 1 rd_idx 2 6 `ui 1 wr_idx 2 8 ]
 "4 C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\canlib/util/can_rcv_buffer.c
-[v _buf buf `S1654  1 s 10 buf ]
+[v _buf buf `S1655  1 s 10 buf ]
 "5
 [v _overflow_flag overflow_flag `a  1 s 1 overflow_flag ]
 "10 C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\canlib/util/can_tx_buffer.c
-[v _buf@can_tx_buffer$F1748 buf `S1654  1 s 10 buf ]
-[s S1732 . 4 `*.37(v 1 can_send_fp 2 0 `*.37(a 1 can_tx_ready 2 2 ]
+[v _buf@can_tx_buffer$F1749 buf `S1655  1 s 10 buf ]
+[s S1733 . 4 `*.37(v 1 can_send_fp 2 0 `*.37(a 1 can_tx_ready 2 2 ]
 "13
-[v _ctx ctx `S1732  1 s 4 ctx ]
-"14 C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\main.c
-[v _cmd_angle cmd_angle `VEus  1 e 2 0 ]
+[v _ctx ctx `S1733  1 s 4 ctx ]
+"19 C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\main.c
+[v _adc_value adc_value `VEus  1 e 2 0 ]
+"20
+[v _new_adc new_adc `VEa  1 e 1 0 ]
 "21 C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\rocketlib/pic18f26k83/timer.c
 [v _millis_counter millis_counter `VEul  1 s 4 millis_counter ]
-"44 C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\main.c
+"48 C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\main.c
 [v _main main `(i  1 e 2 0 ]
 {
-"55
-[v main@last_millis last_millis `ul  1 a 4 111 ]
-"69
-} 0
-"61 C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\pwm.c
-[v _updatePulseWidth updatePulseWidth `(v  1 e 1 0 ]
-{
-"65
-[v updatePulseWidth@bitWrite bitWrite `ul  1 a 4 103 ]
-"63
-[v updatePulseWidth@pulse_width_us pulse_width_us `ul  1 a 4 94 ]
+[s S53 . 13 `ul 1 sid 4 0 `uc 1 data_len 1 4 `[8]uc 1 data 8 5 ]
+"99
+[v main@angle_msg angle_msg `S53  1 a 13 44 ]
 "64
-[v updatePulseWidth@tmr2_prescale tmr2_prescale `uc  1 a 1 102 ]
-"61
-[v updatePulseWidth@angle angle `us  1 p 2 90 ]
-"68
+[v main@last_millis last_millis `ul  1 a 4 40 ]
+"57
+[v main@current_angle current_angle `us  1 a 2 38 ]
+"107
 } 0
-"10 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\xxtofl.c
-[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
+"31 C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\canlib/util/can_tx_buffer.c
+[v _txb_heartbeat txb_heartbeat `(v  1 e 1 0 ]
 {
-[v ___xxtofl@sign sign `uc  1 p 1 wreg ]
-"13
-[v ___xxtofl@arg arg `ul  1 a 4 10 ]
-"12
-[v ___xxtofl@exp exp `uc  1 a 1 9 ]
-"10
-[v ___xxtofl@sign sign `uc  1 p 1 wreg ]
-[v ___xxtofl@val val `l  1 p 4 0 ]
-"15
-[v ___xxtofl@sign sign `uc  1 p 1 8 ]
-"44
+[s S53 . 13 `ul 1 sid 4 0 `uc 1 data_len 1 4 `[8]uc 1 data 8 5 ]
+"34
+[v txb_heartbeat@msg_sent msg_sent `S53  1 a 13 21 ]
+"39
 } 0
-"43 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\fltol.c
-[v ___fltol __fltol `(l  1 e 4 0 ]
+"58 C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\canlib/util/safe_ring_buffer.c
+[v _srb_pop srb_pop `(a  1 e 1 0 ]
 {
-"45
-[v ___fltol@exp1 exp1 `uc  1 a 1 89 ]
-[v ___fltol@sign1 sign1 `uc  1 a 1 88 ]
-"43
-[v ___fltol@f1 f1 `d  1 p 4 80 ]
+"64
+[v srb_pop@offset offset `ui  1 a 2 17 ]
+[s S1655 . 10 `*.39v 1 memory_pool 2 0 `ui 1 element_size 2 2 `ui 1 max_elements 2 4 `ui 1 rd_idx 2 6 `ui 1 wr_idx 2 8 ]
+"58
+[v srb_pop@ctx ctx `*.30S1655  1 p 1 11 ]
+"59
+[v srb_pop@element element `*.30v  1 p 1 12 ]
 "70
 } 0
-"8 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\sprcmul.c
-[v ___flmul __flmul `(d  1 e 4 0 ]
+"49
+[v _srb_is_empty srb_is_empty `(a  1 e 1 0 ]
 {
-[s S2944 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
-"13
-[s S2949 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
-[u S2952 . 4 `l 1 i 4 0 `d 1 f 4 0 `S2944 1 fAsBytes 4 0 `S2949 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S2952  1 a 4 33 ]
-"12
-[v ___flmul@grs grs `ul  1 a 4 27 ]
-[s S3020 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
-"14
-[u S3023 . 2 `s 1 i 2 0 `us 1 n 2 0 `S3020 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S3023  1 a 2 37 ]
-"10
-[v ___flmul@bexp bexp `uc  1 a 1 32 ]
-"11
-[v ___flmul@aexp aexp `uc  1 a 1 31 ]
-"9
-[v ___flmul@sign sign `uc  1 a 1 26 ]
+[s S1655 . 10 `*.39v 1 memory_pool 2 0 `ui 1 element_size 2 2 `ui 1 max_elements 2 4 `ui 1 rd_idx 2 6 `ui 1 wr_idx 2 8 ]
+[v srb_is_empty@ctx ctx `*.30CS1655  1 p 1 0 ]
+"56
+} 0
+"116 C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\canlib/pic18f26k83/pic18f26k83_can.c
+[v _can_send_rdy can_send_rdy `(a  1 e 1 0 ]
+{
+"118
+} 0
+"85
+[v _can_send can_send `(v  1 e 1 0 ]
+{
+[s S53 . 13 `ul 1 sid 4 0 `uc 1 data_len 1 4 `[8]uc 1 data 8 5 ]
+[v can_send@message message `*.30CS53  1 p 1 11 ]
+"114
+} 0
+"23 C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\canlib/util/can_tx_buffer.c
+[v _txb_enqueue txb_enqueue `(a  1 e 1 0 ]
+{
+[s S53 . 13 `ul 1 sid 4 0 `uc 1 data_len 1 4 `[8]uc 1 data 8 5 ]
+[v txb_enqueue@msg msg `*.30CS53  1 p 1 19 ]
+"29
+} 0
+"26 C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\canlib/util/safe_ring_buffer.c
+[v _srb_push srb_push `(a  1 e 1 0 ]
+{
+"32
+[v srb_push@offset offset `ui  1 a 2 17 ]
+[s S1655 . 10 `*.39v 1 memory_pool 2 0 `ui 1 element_size 2 2 `ui 1 max_elements 2 4 `ui 1 rd_idx 2 6 `ui 1 wr_idx 2 8 ]
+"26
+[v srb_push@ctx ctx `*.30S1655  1 p 1 11 ]
+"27
+[v srb_push@element element `*.30Cv  1 p 1 12 ]
+"38
+} 0
+"40
+[v _srb_is_full srb_is_full `(a  1 e 1 0 ]
+{
+[s S1655 . 10 `*.39v 1 memory_pool 2 0 `ui 1 element_size 2 2 `ui 1 max_elements 2 4 `ui 1 rd_idx 2 6 `ui 1 wr_idx 2 8 ]
+[v srb_is_full@ctx ctx `*.30CS1655  1 p 1 0 ]
+"47
+} 0
+"4 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\memcpy.c
+[v _memcpy memcpy `(*.39v  1 e 2 0 ]
+{
 "8
-[v ___flmul@b b `d  1 p 4 14 ]
-[v ___flmul@a a `d  1 p 4 18 ]
-"205
-} 0
-"11 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\sprcdiv.c
-[v ___fldiv __fldiv `(d  1 e 4 0 ]
-{
-"21
-[v ___fldiv@grs grs `ul  1 a 4 58 ]
-"22
-[v ___fldiv@rem rem `ul  1 a 4 51 ]
-"20
-[v ___fldiv@new_exp new_exp `s  1 a 2 56 ]
-"19
-[v ___fldiv@aexp aexp `uc  1 a 1 63 ]
+[v memcpy@s s `*.39Cuc  1 a 2 8 ]
+"7
+[v memcpy@d d `*.39uc  1 a 2 6 ]
+"9
+[v memcpy@tmp tmp `uc  1 a 1 10 ]
+"4
+[v memcpy@d1 d1 `*.39v  1 p 2 0 ]
+[v memcpy@s1 s1 `*.39Cv  1 p 2 2 ]
+[v memcpy@n n `ui  1 p 2 4 ]
 "18
-[v ___fldiv@bexp bexp `uc  1 a 1 62 ]
-"16
-[v ___fldiv@sign sign `uc  1 a 1 55 ]
-"11
-[v ___fldiv@b b `d  1 p 4 39 ]
-[v ___fldiv@a a `d  1 p 4 43 ]
-"185
 } 0
-"10 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\sprcadd.c
-[v ___fladd __fladd `(d  1 e 4 0 ]
+"5 C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\canlib/util/safe_ring_buffer.c
+[v _get_offset_bytes get_offset_bytes `(ui  1 s 2 get_offset_bytes ]
 {
-"17
-[v ___fladd@grs grs `uc  1 a 1 79 ]
-"15
-[v ___fladd@bexp bexp `uc  1 a 1 78 ]
-"16
-[v ___fladd@aexp aexp `uc  1 a 1 77 ]
-"13
-[v ___fladd@signs signs `uc  1 a 1 76 ]
-"10
-[v ___fladd@b b `d  1 p 4 64 ]
-[v ___fladd@a a `d  1 p 4 68 ]
-"237
+[s S1655 . 10 `*.39v 1 memory_pool 2 0 `ui 1 element_size 2 2 `ui 1 max_elements 2 4 `ui 1 rd_idx 2 6 `ui 1 wr_idx 2 8 ]
+[v get_offset_bytes@ctx ctx `*.30CS1655  1 p 1 0 ]
+"6
+[v get_offset_bytes@index index `ui  1 p 2 1 ]
+"12
 } 0
 "30 C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\rocketlib/pic18f26k83/timer.c
 [v _timer0_init timer0_init `(v  1 e 1 0 ]
@@ -1425,6 +1519,20 @@ MSG_ID_ENUM_MAX 28
 [v _pwm_init pwm_init `(v  1 e 1 0 ]
 {
 "59
+} 0
+"23 C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\potentiometer.c
+[v _pot_read pot_read `(v  1 e 1 0 ]
+{
+[v pot_read@channel channel `uc  1 p 1 wreg ]
+[v pot_read@channel channel `uc  1 p 1 wreg ]
+"25
+[v pot_read@channel channel `uc  1 p 1 0 ]
+"29
+} 0
+"3
+[v _pot_init pot_init `(v  1 e 1 0 ]
+{
+"21
 } 0
 "4 C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\setup.c
 [v _pin_init pin_init `(v  1 e 1 0 ]
@@ -1445,13 +1553,13 @@ MSG_ID_ENUM_MAX 28
 [v millis@res res `ul  1 a 4 4 ]
 "28
 } 0
-"7 C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\can_handler.c
+"8 C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\can_handler.c
 [v _can_setup can_setup `(v  1 e 1 0 ]
 {
 [s S917 . 7 `uc 1 brp 1 0 `uc 1 sjw 1 1 `uc 1 sam 1 2 `uc 1 seg1ph 1 3 `uc 1 seg2ph 1 4 `uc 1 prseg 1 5 `a 1 btlmode 1 6 ]
-"22
+"23
 [v can_setup@timing timing `S917  1 a 7 22 ]
-"27
+"28
 } 0
 "15 C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\canlib/util/can_tx_buffer.c
 [v _txb_init txb_init `(v  1 e 1 0 ]
@@ -1467,8 +1575,8 @@ MSG_ID_ENUM_MAX 28
 "14 C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\canlib/util/safe_ring_buffer.c
 [v _srb_init srb_init `(v  1 e 1 0 ]
 {
-[s S1654 . 10 `*.39v 1 memory_pool 2 0 `ui 1 element_size 2 2 `ui 1 max_elements 2 4 `ui 1 rd_idx 2 6 `ui 1 wr_idx 2 8 ]
-[v srb_init@ctx ctx `*.30S1654  1 p 1 7 ]
+[s S1655 . 10 `*.39v 1 memory_pool 2 0 `ui 1 element_size 2 2 `ui 1 max_elements 2 4 `ui 1 rd_idx 2 6 `ui 1 wr_idx 2 8 ]
+[v srb_init@ctx ctx `*.30S1655  1 p 1 7 ]
 "15
 [v srb_init@pool pool `*.39v  1 p 2 8 ]
 "16
@@ -1506,10 +1614,34 @@ MSG_ID_ENUM_MAX 28
 [v can_generate_timing_params@timing timing `*.30S917  1 p 1 4 ]
 "42
 } 0
-"22 C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\main.c
+"100 C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\canlib/message/msg_sensor.c
+[v _build_analog_data_msg build_analog_data_msg `(a  1 e 1 0 ]
+{
+"101
+[v build_analog_data_msg@prio prio `E51  1 p 1 wreg ]
+[v build_analog_data_msg@prio prio `E51  1 p 1 wreg ]
+[v build_analog_data_msg@timestamp timestamp `us  1 p 2 8 ]
+[v build_analog_data_msg@sensor_id sensor_id `E182  1 p 1 10 ]
+[v build_analog_data_msg@sensor_data sensor_data `us  1 p 2 11 ]
+[s S53 . 13 `ul 1 sid 4 0 `uc 1 data_len 1 4 `[8]uc 1 data 8 5 ]
+"102
+[v build_analog_data_msg@output output `*.30S53  1 p 1 13 ]
+"104
+[v build_analog_data_msg@prio prio `E51  1 p 1 22 ]
+"118
+} 0
+"9 C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\canlib/message/msg_common.c
+[v _write_timestamp_2bytes write_timestamp_2bytes `(v  1 e 1 0 ]
+{
+[v write_timestamp_2bytes@timestamp timestamp `us  1 p 2 0 ]
+[s S53 . 13 `ul 1 sid 4 0 `uc 1 data_len 1 4 `[8]uc 1 data 8 5 ]
+[v write_timestamp_2bytes@output output `*.30S53  1 p 1 2 ]
+"12
+} 0
+"24 C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\main.c
 [v _ISR ISR `IIH(v  1 s 1 ISR ]
 {
-"42
+"46
 } 0
 "49 C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\rocketlib/pic18f26k83/timer.c
 [v _timer0_handle_interrupt timer0_handle_interrupt `(v  1 e 1 0 ]
@@ -1522,48 +1654,50 @@ MSG_ID_ENUM_MAX 28
 [v _can_handle_interrupt can_handle_interrupt `(v  1 e 1 0 ]
 {
 [s S53 . 13 `ul 1 sid 4 0 `uc 1 data_len 1 4 `[8]uc 1 data 8 5 ]
-"161
-[v can_handle_interrupt@rcvd_msg_1639 rcvd_msg `S53  1 a 13 27 ]
+"160
+[v can_handle_interrupt@rcvd_msg_1640 rcvd_msg `S53  1 a 13 42 ]
 "140
-[v can_handle_interrupt@rcvd_msg rcvd_msg `S53  1 a 13 40 ]
-"202
+[v can_handle_interrupt@rcvd_msg rcvd_msg `S53  1 a 13 29 ]
+"201
 } 0
 "4 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\memcpy.c
-[v _memcpy memcpy `(*.39v  1 e 2 0 ]
+[v i2_memcpy memcpy `(*.39v  1 e 2 0 ]
 {
 "8
-[v memcpy@s s `*.39Cuc  1 a 2 8 ]
+[v i2memcpy@s s `*.39Cuc  1 a 2 8 ]
 "7
-[v memcpy@d d `*.39uc  1 a 2 6 ]
+[v i2memcpy@d d `*.39uc  1 a 2 6 ]
 "9
-[v memcpy@tmp tmp `uc  1 a 1 10 ]
+[v i2memcpy@tmp tmp `uc  1 a 1 10 ]
 "4
-[v memcpy@d1 d1 `*.39v  1 p 2 0 ]
-[v memcpy@s1 s1 `*.39Cv  1 p 2 2 ]
-[v memcpy@n n `ui  1 p 2 4 ]
+[v i2memcpy@d1 d1 `*.39v  1 p 2 0 ]
+[v i2memcpy@s1 s1 `*.39Cv  1 p 2 2 ]
+[v i2memcpy@n n `ui  1 p 2 4 ]
 "18
 } 0
-"29 C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\can_handler.c
+"30 C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\can_handler.c
 [v _can_receive_callback can_receive_callback `(v  1 e 1 0 ]
 {
+"39
+[v can_receive_callback@actuator_state actuator_state `i  1 a 2 21 ]
 "38
-[v can_receive_callback@actuator_state actuator_state `i  1 a 2 19 ]
-"36
+[v can_receive_callback@actuator_id actuator_id `i  1 a 2 19 ]
+"37
 [v can_receive_callback@msg_type msg_type `us  1 a 2 17 ]
 [s S53 . 13 `ul 1 sid 4 0 `uc 1 data_len 1 4 `[8]uc 1 data 8 5 ]
-"29
+"30
 [v can_receive_callback@msg msg `*.30CS53  1 p 1 14 ]
-"92
+"91
 } 0
-"118 C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\canlib/message/msg_actuator.c
-[v _get_cmd_actuator_state_analog get_cmd_actuator_state_analog `(us  1 e 2 0 ]
+"99 C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\canlib/message/msg_actuator.c
+[v _get_cmd_actuator_state get_cmd_actuator_state `(i  1 e 2 0 ]
 {
-"123
-[v get_cmd_actuator_state_analog@msg_type msg_type `us  1 a 2 12 ]
+"104
+[v get_cmd_actuator_state@msg_type msg_type `us  1 a 2 10 ]
 [s S53 . 13 `ul 1 sid 4 0 `uc 1 data_len 1 4 `[8]uc 1 data 8 5 ]
-"118
-[v get_cmd_actuator_state_analog@msg msg `*.30CS53  1 p 1 6 ]
-"132
+"99
+[v get_cmd_actuator_state@msg msg `*.30CS53  1 p 1 6 ]
+"116
 } 0
 "22 C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\canlib/message/msg_common.c
 [v _get_board_type_unique_id get_board_type_unique_id `(uc  1 e 1 0 ]
@@ -1571,6 +1705,16 @@ MSG_ID_ENUM_MAX 28
 [s S53 . 13 `ul 1 sid 4 0 `uc 1 data_len 1 4 `[8]uc 1 data 8 5 ]
 [v get_board_type_unique_id@msg msg `*.30CS53  1 p 1 0 ]
 "28
+} 0
+"66 C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\canlib/message/msg_actuator.c
+[v _get_actuator_id get_actuator_id `(i  1 e 2 0 ]
+{
+"71
+[v get_actuator_id@msg_type msg_type `us  1 a 2 10 ]
+[s S53 . 13 `ul 1 sid 4 0 `uc 1 data_len 1 4 `[8]uc 1 data 8 5 ]
+"66
+[v get_actuator_id@msg msg `*.30CS53  1 p 1 6 ]
+"83
 } 0
 "140 C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\canlib/message/msg_general.c
 [v _check_board_need_reset check_board_need_reset `(a  1 e 1 0 ]

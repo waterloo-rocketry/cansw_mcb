@@ -1,5 +1,5 @@
-#ifndef MCB_H
-#define	MCB_H
+#ifndef SETUP_H
+#define	SETUP_H
 
 
 #include <xc.h>
@@ -10,8 +10,10 @@
 
 // Time between main loop code execution
 #define MAX_LOOP_TIME_DIFF_ms 500
-// Time between "high speed" sensor checks
-#define MAX_SENSOR_LOOP_TIME_DIFF_ms 5
+// Time between sending updated angle measurements
+#define MAX_POT_SEND_TIME_DIFF_ms 5
+//Time between potentiometer measurements
+#define MAX_POT_MEASURE_TIME_DIFF_ms 1 
 
 #define HEARTBEAT() (LATA0 = !LATA0)
 
@@ -19,4 +21,4 @@ void pin_init(void);
 
 void osc_init(void);
 
-#endif	/* MCB_H */
+#endif	/* SETUP_H */

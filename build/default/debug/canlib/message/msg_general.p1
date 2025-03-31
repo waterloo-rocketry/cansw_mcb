@@ -8,7 +8,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [s S3 `ul 1 `uc 1 `uc -> 8 `i ]
 [n S3 . sid data_len data ]
 "18 canlib/message/msg_general.c
-[; ;canlib/message/msg_general.c: 18:     output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_GENERAL_BOARD_STATUS << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x02);
+[; ;canlib/message/msg_general.c: 18:     output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_GENERAL_BOARD_STATUS << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x03);
 [c E225 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 .. ]
 [n E225 . MSG_GENERAL_BOARD_STATUS MSG_RESET_CMD MSG_DEBUG_RAW MSG_CONFIG_SET MSG_CONFIG_STATUS MSG_ACTUATOR_CMD MSG_ACTUATOR_ANALOG_CMD MSG_ACTUATOR_STATUS MSG_ALT_ARM_CMD MSG_ALT_ARM_STATUS MSG_SENSOR_TEMP MSG_SENSOR_ALTITUDE MSG_SENSOR_IMU_X MSG_SENSOR_IMU_Y MSG_SENSOR_IMU_Z MSG_SENSOR_MAG_X MSG_SENSOR_MAG_Y MSG_SENSOR_MAG_Z MSG_SENSOR_ANALOG MSG_GPS_TIMESTAMP MSG_GPS_LATITUDE MSG_GPS_LONGITUDE MSG_GPS_ALTITUDE MSG_GPS_INFO MSG_STATE_EST_DATA MSG_LEDS_ON MSG_LEDS_OFF MSG_ID_ENUM_MAX  ]
 [c E255 0 1 2 3 4 5 6 7 8 9 10 11 64 65 128 129 130 131 132 133 134 192 .. ]
@@ -58,8 +58,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 5 ]
 "18
-[; ;canlib/message/msg_general.c: 18:     output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_GENERAL_BOARD_STATUS << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x02);
-[e = . *U _output 0 | | | << -> _prio `ul -> 27 `i << -> . `E225 0 `ul -> 18 `i << -> . `E255 2 `ul -> 8 `i -> -> -> 2 `i `l `ul ]
+[; ;canlib/message/msg_general.c: 18:     output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_GENERAL_BOARD_STATUS << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x03);
+[e = . *U _output 0 | | | << -> _prio `ul -> 27 `i << -> . `E225 0 `ul -> 18 `i << -> . `E255 2 `ul -> 8 `i -> -> -> 3 `i `l `ul ]
 "19
 [; ;canlib/message/msg_general.c: 19:     write_timestamp_2bytes(timestamp, output);
 [e ( _write_timestamp_2bytes (2 , _timestamp _output ]
@@ -124,8 +124,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 7 ]
 "39
-[; ;canlib/message/msg_general.c: 39:     output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_RESET_CMD << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x02);
-[e = . *U _output 0 | | | << -> _prio `ul -> 27 `i << -> . `E225 1 `ul -> 18 `i << -> . `E255 2 `ul -> 8 `i -> -> -> 2 `i `l `ul ]
+[; ;canlib/message/msg_general.c: 39:     output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_RESET_CMD << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x03);
+[e = . *U _output 0 | | | << -> _prio `ul -> 27 `i << -> . `E225 1 `ul -> 18 `i << -> . `E255 2 `ul -> 8 `i -> -> -> 3 `i `l `ul ]
 "40
 [; ;canlib/message/msg_general.c: 40:     write_timestamp_2bytes(timestamp, output);
 [e ( _write_timestamp_2bytes (2 , _timestamp _output ]
@@ -175,8 +175,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 9 ]
 "55
-[; ;canlib/message/msg_general.c: 55:     output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_DEBUG_RAW << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x02);
-[e = . *U _output 0 | | | << -> _prio `ul -> 27 `i << -> . `E225 2 `ul -> 18 `i << -> . `E255 2 `ul -> 8 `i -> -> -> 2 `i `l `ul ]
+[; ;canlib/message/msg_general.c: 55:     output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_DEBUG_RAW << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x03);
+[e = . *U _output 0 | | | << -> _prio `ul -> 27 `i << -> . `E225 2 `ul -> 18 `i << -> . `E255 2 `ul -> 8 `i -> -> -> 3 `i `l `ul ]
 "56
 [; ;canlib/message/msg_general.c: 56:     write_timestamp_2bytes(timestamp, output);
 [e ( _write_timestamp_2bytes (2 , _timestamp _output ]
@@ -228,8 +228,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 11 ]
 "72
-[; ;canlib/message/msg_general.c: 72:     output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_CONFIG_SET << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x02);
-[e = . *U _output 0 | | | << -> _prio `ul -> 27 `i << -> . `E225 3 `ul -> 18 `i << -> . `E255 2 `ul -> 8 `i -> -> -> 2 `i `l `ul ]
+[; ;canlib/message/msg_general.c: 72:     output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_CONFIG_SET << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x03);
+[e = . *U _output 0 | | | << -> _prio `ul -> 27 `i << -> . `E225 3 `ul -> 18 `i << -> . `E255 2 `ul -> 8 `i -> -> -> 3 `i `l `ul ]
 "73
 [; ;canlib/message/msg_general.c: 73:     write_timestamp_2bytes(timestamp, output);
 [e ( _write_timestamp_2bytes (2 , _timestamp _output ]
@@ -294,8 +294,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 13 ]
 "94
-[; ;canlib/message/msg_general.c: 94:     output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_CONFIG_STATUS << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x02);
-[e = . *U _output 0 | | | << -> _prio `ul -> 27 `i << -> . `E225 4 `ul -> 18 `i << -> . `E255 2 `ul -> 8 `i -> -> -> 2 `i `l `ul ]
+[; ;canlib/message/msg_general.c: 94:     output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_CONFIG_STATUS << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x03);
+[e = . *U _output 0 | | | << -> _prio `ul -> 27 `i << -> . `E225 4 `ul -> 18 `i << -> . `E255 2 `ul -> 8 `i -> -> -> 3 `i `l `ul ]
 "95
 [; ;canlib/message/msg_general.c: 95:     write_timestamp_2bytes(timestamp, output);
 [e ( _write_timestamp_2bytes (2 , _timestamp _output ]
@@ -489,11 +489,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ) -> -> 1 `i `a ]
 [e $UE 22  ]
 "152
-[; ;canlib/message/msg_general.c: 152:         } else if (board_inst_id == 0x02) {
+[; ;canlib/message/msg_general.c: 152:         } else if (board_inst_id == 0x03) {
 }
 [e $U 28  ]
 [e :U 27 ]
-[e $ ! == -> _board_inst_id `i -> 2 `i 29  ]
+[e $ ! == -> _board_inst_id `i -> 3 `i 29  ]
 {
 "153
 [; ;canlib/message/msg_general.c: 153:             return 1;

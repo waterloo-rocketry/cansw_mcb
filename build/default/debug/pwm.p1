@@ -1,10 +1,10 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"28971 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 28971: extern volatile unsigned char RB3PPS __attribute__((address(0x3A0B)));
-[v _RB3PPS `Vuc ~T0 @X0 0 e@14859 ]
-"18376
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 18376:         unsigned EID0 :1;
-[v _TRISB3 `Vb ~T0 @X0 0 e@130587 ]
+"29021 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 29021: extern volatile unsigned char RB4PPS __attribute__((address(0x3A0C)));
+[v _RB4PPS `Vuc ~T0 @X0 0 e@14860 ]
+"18379
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 18379:         unsigned EID3 :1;
+[v _TRISB4 `Vb ~T0 @X0 0 e@130588 ]
 "2152
 [v _T2PR `Vuc ~T0 @X0 0 e@16299 ]
 "61854
@@ -3132,12 +3132,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _pwm_init ]
 [f ]
-"15
-[; ;pwm.c: 15:     RB3PPS = 0b001011;
-[e = _RB3PPS -> -> 11 `i `uc ]
-"16
-[; ;pwm.c: 16:     TRISB3 = 1;
-[e = _TRISB3 -> -> 1 `i `b ]
+"19
+[; ;pwm.c: 19:     RB4PPS = 0b001011;
+[e = _RB4PPS -> -> 11 `i `uc ]
+"20
+[; ;pwm.c: 20:     TRISB4 = 1;
+[e = _TRISB4 -> -> 1 `i `b ]
 "24
 [; ;pwm.c: 24:     T2PR = 233;
 [e = _T2PR -> -> 233 `i `uc ]
@@ -3181,9 +3181,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;pwm.c: 48:     while (PIR4bits.TMR2IF == 0)
 [e $ == -> . . _PIR4bits 0 2 `i -> 0 `i 3252  ]
 [e :U 3253 ]
-"54
-[; ;pwm.c: 54:     TRISB3 = 0;
-[e = _TRISB3 -> -> 0 `i `b ]
+"57
+[; ;pwm.c: 57:     TRISB4 = 0;
+[e = _TRISB4 -> -> 0 `i `b ]
 "59
 [; ;pwm.c: 59: }
 [e :UE 3250 ]
