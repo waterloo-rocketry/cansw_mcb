@@ -55,6 +55,8 @@ int main(void) {
 #if (BOARD_INST_UNIQUE_ID == FAILSAFE)
     pot_init();
     uint16_t current_angle;
+    uint32_t last_pot_measure_millis = 0;
+    uint32_t last_pot_send_millis = 0;
 #endif
     
     // Enable global interrupts
@@ -68,7 +70,7 @@ int main(void) {
  
         
         if (OSCCON2 != 0x70) { // If the fail-safe clock monitor has triggered
-            //osc_init();
+            osc_init();
         }
         
         if ((millis() - last_millis) > MAX_LOOP_TIME_DIFF_ms) {
@@ -91,15 +93,17 @@ int main(void) {
             
         }
         
-        if ((millis() - last_millis) > MAX_POT_MEASURE_TIME_DIFF_ms) {
+        if ((millis() - last_pot_measure_millis) > MAX_POT_MEASURE_TIME_DIFF_ms) {
             pot_read(0x03);
+            last_pot_measure_millis = millis();
         }
         
-        if ((millis() - last_millis) > MAX_POT_SEND_TIME_DIFF_ms) {
+        if ((millis() - last_pot_send_millis) > MAX_POT_SEND_TIME_DIFF_ms) {
             can_msg_t angle_msg;
             
             build_analog_data_msg(PRIO_HIGHEST, millis(), SENSOR_CANARD_ENCODER_1, current_angle, &angle_msg);
             txb_enqueue(&angle_msg);
+            last_pot_send_millis = millis();
         }
 #endif
         txb_heartbeat();

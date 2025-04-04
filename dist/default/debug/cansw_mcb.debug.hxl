@@ -1,7 +1,7 @@
 ### HEXMate logfile and output summary ###
 
 ### Command-line arguments ###
- C:\Users\zkhua\AppData\Local\Temp\xcAscfc.\driver_tmp_3.o
+ C:\Users\zkhua\AppData\Local\Temp\xcBsugg.1\driver_tmp_3.o
  -Odist/default/debug\cansw_mcb.debug.hex
  -logfile=dist/default/debug\cansw_mcb.debug.hxl
  -addressing=1
@@ -14,21 +14,21 @@
 
 ### Memory Usage ###
  Input file ranges:
-  0h - 5h		(C:\Users\zkhua\AppData\Local\Temp\xcAscfc.\driver_tmp_3.o)
-  8h - Bh		(C:\Users\zkhua\AppData\Local\Temp\xcAscfc.\driver_tmp_3.o)
-  18h - 1Dh		(C:\Users\zkhua\AppData\Local\Temp\xcAscfc.\driver_tmp_3.o)
-  1000h - 258Dh		(C:\Users\zkhua\AppData\Local\Temp\xcAscfc.\driver_tmp_3.o)
-  300000h - 300009h		(C:\Users\zkhua\AppData\Local\Temp\xcAscfc.\driver_tmp_3.o)
+  0h - 5h		(C:\Users\zkhua\AppData\Local\Temp\xcBsugg.1\driver_tmp_3.o)
+  8h - Bh		(C:\Users\zkhua\AppData\Local\Temp\xcBsugg.1\driver_tmp_3.o)
+  18h - 1Dh		(C:\Users\zkhua\AppData\Local\Temp\xcBsugg.1\driver_tmp_3.o)
+  1000h - 25E9h		(C:\Users\zkhua\AppData\Local\Temp\xcBsugg.1\driver_tmp_3.o)
+  300000h - 300009h		(C:\Users\zkhua\AppData\Local\Temp\xcBsugg.1\driver_tmp_3.o)
  Unused ranges:
   6h - 7h
   Ch - 17h
   1Eh - FFFh
-  258Eh - 2FFFFFh
+  25EAh - 2FFFFFh
 
 ### Hex Memory Map ###
  Legend:
   -- = Unused memory
-  H1 = Input file             (C:\Users\zkhua\AppData\Local\Temp\xcAscfc.\driver_tmp_3.o)
+  H1 = Input file             (C:\Users\zkhua\AppData\Local\Temp\xcBsugg.1\driver_tmp_3.o)
 ----------------------------------------------------------
          | 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
 ----------------------------------------------------------
@@ -379,7 +379,13 @@
 00002550 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00002560 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00002570 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00002580 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- --
+00002580 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00002590 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000025A0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000025B0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000025C0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000025D0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000025E0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- -- -- --
 ----------------------------------------------------------
 00300000 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- -- -- --
 00300010 | --
