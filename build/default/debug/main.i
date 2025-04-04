@@ -37566,6 +37566,8 @@ int main(void) {
 
     pot_init();
     uint16_t current_angle;
+    uint32_t last_pot_measure_millis = 0;
+    uint32_t last_pot_send_millis = 0;
 
 
 
@@ -37579,7 +37581,7 @@ int main(void) {
 
 
         if (OSCCON2 != 0x70) {
-
+            osc_init();
         }
 
         if ((millis() - last_millis) > 500) {
@@ -37588,22 +37590,24 @@ int main(void) {
             LATA1 = 1;
 
         }
-# 88 "main.c"
+# 90 "main.c"
         if (new_adc) {
             new_adc = 0;
             current_angle = adc_value;
 
         }
 
-        if ((millis() - last_millis) > 1) {
+        if ((millis() - last_pot_measure_millis) > 1) {
             pot_read(0x03);
+            last_pot_measure_millis = millis();
         }
 
-        if ((millis() - last_millis) > 5) {
+        if ((millis() - last_pot_send_millis) > 5) {
             can_msg_t angle_msg;
 
             build_analog_data_msg(PRIO_HIGHEST, millis(), SENSOR_CANARD_ENCODER_1, current_angle, &angle_msg);
             txb_enqueue(&angle_msg);
+            last_pot_send_millis = millis();
         }
 
         txb_heartbeat();
