@@ -20,4 +20,6 @@ canlib/util/can_tx_buffer.h  \
 canlib/util/timing_util.h  \
 canlib/pic18f26k83/pic18f26k83_can.h  \
 canlib/pic18f26k83/../can.h  \
-potentiometer.h 
+potentiometer.h  \
+current_sensor.h  \
+rocketlib/include/i2c.h 

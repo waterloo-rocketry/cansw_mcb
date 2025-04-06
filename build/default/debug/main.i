@@ -37527,9 +37527,36 @@ uint16_t get_current_angle(uint16_t adc_value);
 
 uint16_t get_filtered_angle(uint16_t current_angle, uint16_t prev_angle);
 # 19 "main.c" 2
+# 1 "./current_sensor.h" 1
+
+
+
+
+
+
+# 1 "rocketlib/include/i2c.h" 1
+# 12 "rocketlib/include/i2c.h"
+void i2c_init(uint8_t clkdiv);
+
+_Bool i2c_write_data(uint8_t address, const uint8_t *data, uint8_t len);
+_Bool i2c_read_data(uint8_t address, uint8_t *data, uint8_t len);
+_Bool i2c_write_reg8(uint8_t address, uint8_t reg, uint8_t val);
+_Bool i2c_write_reg16(uint8_t address, uint8_t reg, uint16_t val);
+_Bool i2c_read_reg8(uint8_t address, uint8_t reg, uint8_t *value);
+_Bool i2c_read_reg16(uint8_t address, uint8_t reg, uint16_t *value);
+# 8 "./current_sensor.h" 2
+# 31 "./current_sensor.h"
+uint16_t build_config_reg(void);
+_Bool current_sense_init(void);
+float current_read(void);
+float voltage_read(void);
+float filter_current(float new_reading);
+float filter_voltage(float new_reading);
+# 20 "main.c" 2
 volatile uint16_t adc_value;
 volatile _Bool new_adc = 0;
-
+float current;
+float voltage;
 
 
 static void __attribute__((picinterrupt(("")))) ISR(void) {
@@ -37565,8 +37592,10 @@ int main(void) {
     can_setup();
 
     pot_init();
+    i2c_init(0);
+    current_sense_init();
     uint16_t current_angle;
-    uint32_t last_pot_measure_millis = 0;
+    uint32_t last_sensor_measure_millis = 0;
     uint32_t last_pot_send_millis = 0;
 
 
@@ -37579,7 +37608,6 @@ int main(void) {
     while(1) {
         __asm(" clrwdt");
 
-
         if (OSCCON2 != 0x70) {
             osc_init();
         }
@@ -37590,16 +37618,17 @@ int main(void) {
             LATA1 = 1;
 
         }
-# 90 "main.c"
+# 93 "main.c"
         if (new_adc) {
             new_adc = 0;
             current_angle = adc_value;
-
         }
 
-        if ((millis() - last_pot_measure_millis) > 1) {
+        if ((millis() - last_sensor_measure_millis) > 1) {
             pot_read(0x03);
-            last_pot_measure_millis = millis();
+            current = filter_current(current_read());
+            voltage = filter_voltage(voltage_read());
+            last_sensor_measure_millis = millis();
         }
 
         if ((millis() - last_pot_send_millis) > 5) {
