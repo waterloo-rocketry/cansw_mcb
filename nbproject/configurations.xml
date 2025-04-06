@@ -22,6 +22,7 @@
       <itemPath>pwm.h</itemPath>
       <itemPath>can_handler.h</itemPath>
       <itemPath>potentiometer.h</itemPath>
+      <itemPath>current_sensor.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -57,12 +58,14 @@
       </logicalFolder>
       <logicalFolder name="pic18f26k83" displayName="pic18f26k83" projectFiles="true">
         <itemPath>rocketlib/pic18f26k83/timer.c</itemPath>
+        <itemPath>rocketlib/pic18f26k83/i2c.c</itemPath>
       </logicalFolder>
       <itemPath>main.c</itemPath>
       <itemPath>setup.c</itemPath>
       <itemPath>pwm.c</itemPath>
       <itemPath>can_handler.c</itemPath>
       <itemPath>potentiometer.c</itemPath>
+      <itemPath>current_sensor.c</itemPath>
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>

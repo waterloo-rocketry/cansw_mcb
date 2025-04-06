@@ -16,9 +16,11 @@ volatile bool new_cmd = 0;
 
 #elif (BOARD_INST_UNIQUE_ID == FAILSAFE)
 #include "potentiometer.h"
+#include "current_sensor.h"
 volatile uint16_t adc_value; //potentiometer reading directly from adc
 volatile bool new_adc = 0;
-
+float current;
+float voltage;
 #endif
 
 static void __interrupt() ISR(void) {
@@ -54,8 +56,10 @@ int main(void) {
     can_setup();
 #if (BOARD_INST_UNIQUE_ID == FAILSAFE)
     pot_init();
+    i2c_init(0);
+    current_sense_init();
     uint16_t current_angle;
-    uint32_t last_pot_measure_millis = 0;
+    uint32_t last_sensor_measure_millis = 0;
     uint32_t last_pot_send_millis = 0;
 #endif
     
@@ -67,8 +71,7 @@ int main(void) {
     
     while(1) {
         CLRWDT();
- 
-        
+         
         if (OSCCON2 != 0x70) { // If the fail-safe clock monitor has triggered
             osc_init();
         }
@@ -89,13 +92,14 @@ int main(void) {
 #elif (BOARD_INST_UNIQUE_ID == FAILSAFE)
         if (new_adc) {
             new_adc = 0;
-            current_angle = adc_value;
-            
+            current_angle = adc_value;            
         }
         
-        if ((millis() - last_pot_measure_millis) > MAX_POT_MEASURE_TIME_DIFF_ms) {
+        if ((millis() - last_sensor_measure_millis) > SENSOR_MEASURE_TIME_DIFF_ms) {
             pot_read(0x03);
-            last_pot_measure_millis = millis();
+            current = filter_current(current_read());
+            voltage = filter_voltage(voltage_read());
+            last_sensor_measure_millis = millis();
         }
         
         if ((millis() - last_pot_send_millis) > MAX_POT_SEND_TIME_DIFF_ms) {
