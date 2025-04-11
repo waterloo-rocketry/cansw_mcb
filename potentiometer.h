@@ -4,16 +4,16 @@
 #include <xc.h>
 #include <stdint.h>
 
-#define CENTER_ADC_VALUE 0x800
-#define SMOOTHING_FACTOR 0.2
+#define POT_ELECTRICAL_ANGLE_mdeg 140
+#define ADC_ANGLE_CONVERSION_FACTOR_mdeg 34.188 // 1/4095 * POT_ELECTRICAL_ANGLE_mdeg
 
 void pot_init(void);
 
 void pot_read(uint8_t channel);
 
-uint16_t get_current_angle(uint16_t adc_value);
+uint16_t get_angle(int adc_value);
 
-uint16_t get_filtered_angle(uint16_t current_angle, uint16_t prev_angle);
+uint16_t filter_potentiometer(uint16_t new_reading);
 
 #endif	/* POTENTIOMETER_H */
 

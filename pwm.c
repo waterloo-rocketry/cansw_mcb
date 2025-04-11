@@ -6,7 +6,7 @@ const uint16_t MOTOR_CENTER_PULSE_WIDTH_US = 1500; // corresponds to 0 degrees
 
 //Motor control functions
 void pwm_init(void){
-    //400.64 Hz PWM
+    //366 Hz PWM
     
     //1. Use the desired output pin RxyPPS control to select CCPx as the source and 
     //   disable the CCPx pin output driver by setting the associated TRIS bit.
@@ -21,7 +21,7 @@ void pwm_init(void){
 #endif
     
     //2. Load the T2PR register with the PWM period value.
-    T2PR = 233;
+    T2PR = 255;
 
     //3. Configure the CCP module for the PWM mode by loading the CCPxCON register with the appropriate values.
     CCP3CONbits.EN = 0b1; // enable CCP3
@@ -30,9 +30,10 @@ void pwm_init(void){
 
     //4. Load the CCPRxL register, and the CCPRxH register with the PWM duty cycle value and configure the FMT bit of the CCPxCON register
     //to set the proper register alignment.
-    CCPR3H = (562 >> 8) & 0xFF; //upper 8 bits corresponding to 1500uS
-    CCPR3L = 562 & 0xFF; //lower 8 bits corresponding to 1500uS
-
+#if (BOARD_INST_UNIQUE_ID == PRIMARY)
+    //CCPR3H = (562 >> 8) & 0xFF; //upper 8 bits corresponding to 1500uS
+    //CCPR3L = 562 & 0xFF; //lower 8 bits corresponding to 1500uS
+#endif
     //5. Configure and start Timer2:
     //- Clear the TMR2IF interrupt flag bit of the respective PIR register. See Note below.
     PIR4bits.TMR2IF = 0;
@@ -49,20 +50,20 @@ void pwm_init(void){
     {}
     
     //- Enable the CCPx pin output driver by clearing the associated TRIS bit.
-    
 #if (BOARD_INST_UNIQUE_ID == PRIMARY)
-    TRISB3 = 0;
+    //TRISB3 = 0;
     
+    // Disable the CCPx pin output driver for failsafe to not interfere with PWM signal. Will be enabled when failsafe overrides
 #elif (BOARD_INST_UNIQUE_ID == FAILSAFE)
-    TRISB4 = 0;
+    TRISB4 = 1;
 #endif
 }
  
 void updatePulseWidth(uint16_t angle)
 {
-    uint32_t pulse_width_us = (uint32_t) (MOTOR_MIN_PULSE_WIDTH_US + (float) angle * (MOTOR_MAX_PULSE_WIDTH_US - MOTOR_MIN_PULSE_WIDTH_US) / (MAX_CANARD_ANGLE * 20)); //maps +-10 degree canard angle with 0.1 degree resolution to 500-2500us
+    float pulse_width_us = (MOTOR_MIN_PULSE_WIDTH_US + (float) angle * (MOTOR_MAX_PULSE_WIDTH_US - MOTOR_MIN_PULSE_WIDTH_US) / (MAX_CANARD_ANGLE_MDEG * 2)); //maps +-10 degree canard angle to 500-2500us
     uint8_t tmr2_prescale = 1 << T2CONbits.CKPS;
-    uint32_t bitWrite = (uint32_t) ((float) pulse_width_us / 1000000 * (float) _XTAL_FREQ / tmr2_prescale);
+    uint16_t bitWrite = (uint16_t) (pulse_width_us / 1000000 * _XTAL_FREQ / tmr2_prescale);
     CCPR3H = (bitWrite >> 8) & 0xFF;
     CCPR3L = bitWrite & 0xFF;
 }

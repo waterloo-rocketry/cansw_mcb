@@ -35,15 +35,19 @@ void can_receive_callback(const can_msg_t *msg) {
     }
     
     uint16_t msg_type = get_message_type(msg);
-    int actuator_id;
-    int actuator_state;
+    uint16_t actuator_id;
+    uint16_t actuator_state;
     
     switch(msg_type) {
 
 #if (BOARD_INST_UNIQUE_ID == PRIMARY) 
         case MSG_ACTUATOR_ANALOG_CMD:
+            actuator_id = get_actuator_id(msg);
+            if (actuator_id != ACTUATOR_CANARD_ANGLE) {
+                break;
+            }
             actuator_state = get_cmd_actuator_state_analog (msg);
-            if (actuator_state >= 0 && actuator_state <=200) {
+            if (actuator_state >= 0 && actuator_state <=20000) {
                 cmd_angle = actuator_state;
                 new_cmd = 1;
                 

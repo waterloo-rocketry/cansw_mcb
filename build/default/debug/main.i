@@ -37523,9 +37523,9 @@ void pot_init(void);
 
 void pot_read(uint8_t channel);
 
-uint16_t get_current_angle(uint16_t adc_value);
+uint16_t get_angle(int adc_value);
 
-uint16_t get_filtered_angle(uint16_t current_angle, uint16_t prev_angle);
+uint16_t filter_potentiometer(uint16_t new_reading);
 # 19 "main.c" 2
 # 1 "./current_sensor.h" 1
 
@@ -37576,9 +37576,8 @@ static void __attribute__((picinterrupt(("")))) ISR(void) {
         PIR1bits.ADIF = 0;
 
 
-        adc_value = ((uint16_t)ADRESH << 8) | ADRESL;
+        adc_value = (uint16_t) ((ADRESH << 8) + ADRESL);
         new_adc = 1;
-
     }
 
 }
@@ -37592,9 +37591,8 @@ int main(void) {
     can_setup();
 
     pot_init();
-    i2c_init(0);
-    current_sense_init();
-    uint16_t current_angle;
+    i2c_init(1);
+    uint16_t angle;
     uint32_t last_sensor_measure_millis = 0;
     uint32_t last_pot_send_millis = 0;
 
@@ -37612,29 +37610,29 @@ int main(void) {
             osc_init();
         }
 
-        if ((millis() - last_millis) > 500) {
+        if ((millis() - last_millis) >= 500) {
             last_millis = millis();
             (LATA0 = !LATA0);
             LATA1 = 1;
 
         }
-# 93 "main.c"
+# 91 "main.c"
         if (new_adc) {
             new_adc = 0;
-            current_angle = adc_value;
+            angle = get_angle(filter_potentiometer(adc_value));
         }
 
-        if ((millis() - last_sensor_measure_millis) > 1) {
-            pot_read(0x03);
+        if ((millis() - last_sensor_measure_millis) >= 1) {
+            pot_read(0x02);
             current = filter_current(current_read());
             voltage = filter_voltage(voltage_read());
             last_sensor_measure_millis = millis();
         }
 
-        if ((millis() - last_pot_send_millis) > 5) {
+        if ((millis() - last_pot_send_millis) >= 5) {
             can_msg_t angle_msg;
 
-            build_analog_data_msg(PRIO_HIGHEST, millis(), SENSOR_CANARD_ENCODER_1, current_angle, &angle_msg);
+            build_analog_data_msg(PRIO_HIGHEST, millis(), SENSOR_CANARD_ENCODER_1, angle, &angle_msg);
             txb_enqueue(&angle_msg);
             last_pot_send_millis = millis();
         }
