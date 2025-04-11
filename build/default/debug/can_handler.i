@@ -37541,11 +37541,11 @@ void can_receive_callback(const can_msg_t *msg) {
     }
 
     uint16_t msg_type = get_message_type(msg);
-    int actuator_id;
-    int actuator_state;
+    uint16_t actuator_id;
+    uint16_t actuator_state;
 
     switch(msg_type) {
-# 54 "can_handler.c"
+# 58 "can_handler.c"
         case MSG_ACTUATOR_CMD:
             actuator_id = get_actuator_id(msg);
             if (actuator_id == ACTUATOR_CANARD_ENABLE) {

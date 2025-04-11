@@ -13,6 +13,8 @@ uint16_t build_config_reg(void) {
 }
 
 bool current_sense_init(void) {
+    TRISC3 = 0;
+    TRISC4 = 0;
     const uint16_t shunt_cal = 0.00512 / (CURRENT_LSB * R_SHUNT);
     bool config_success = 0;
     bool cal_success = 0;

@@ -40,9 +40,8 @@ static void __interrupt() ISR(void) {
         PIR1bits.ADIF = 0;  // Clear ADC interrupt flag
 
         // Read ADC result
-        adc_value = ((uint16_t)ADRESH << 8) | ADRESL;
-        new_adc = 1;
-        
+        adc_value = (uint16_t) ((ADRESH << 8) + ADRESL);
+        new_adc = 1;      
     }
 #endif
 }
@@ -56,9 +55,8 @@ int main(void) {
     can_setup();
 #if (BOARD_INST_UNIQUE_ID == FAILSAFE)
     pot_init();
-    i2c_init(0);
-    current_sense_init();
-    uint16_t current_angle;
+    i2c_init(1);
+    uint16_t angle;
     uint32_t last_sensor_measure_millis = 0;
     uint32_t last_pot_send_millis = 0;
 #endif
@@ -76,7 +74,7 @@ int main(void) {
             osc_init();
         }
         
-        if ((millis() - last_millis) > MAX_LOOP_TIME_DIFF_ms) {
+        if ((millis() - last_millis) >= MAX_LOOP_TIME_DIFF_ms) {
             last_millis = millis();
             HEARTBEAT();
             LATA1 = 1;
@@ -92,20 +90,20 @@ int main(void) {
 #elif (BOARD_INST_UNIQUE_ID == FAILSAFE)
         if (new_adc) {
             new_adc = 0;
-            current_angle = adc_value;            
+            angle = get_angle(filter_potentiometer(adc_value));
         }
         
-        if ((millis() - last_sensor_measure_millis) > SENSOR_MEASURE_TIME_DIFF_ms) {
-            pot_read(0x03);
+        if ((millis() - last_sensor_measure_millis) >= SENSOR_MEASURE_TIME_DIFF_ms) {
+            pot_read(0x02);
             current = filter_current(current_read());
             voltage = filter_voltage(voltage_read());
             last_sensor_measure_millis = millis();
         }
         
-        if ((millis() - last_pot_send_millis) > MAX_POT_SEND_TIME_DIFF_ms) {
+        if ((millis() - last_pot_send_millis) >= MAX_POT_SEND_TIME_DIFF_ms) {
             can_msg_t angle_msg;
             
-            build_analog_data_msg(PRIO_HIGHEST, millis(), SENSOR_CANARD_ENCODER_1, current_angle, &angle_msg);
+            build_analog_data_msg(PRIO_HIGHEST, millis(), SENSOR_CANARD_ENCODER_1, angle, &angle_msg);
             txb_enqueue(&angle_msg);
             last_pot_send_millis = millis();
         }

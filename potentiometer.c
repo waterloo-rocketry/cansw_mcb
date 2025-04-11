@@ -1,7 +1,9 @@
 #include "potentiometer.h"
 
+const int zero_reading = 2048;
+
 void pot_init(void) {
-    // Set AN3 as analog input
+    // Set AN2 as analog input
     TRISA2 = 1;  // Set RA2 as input
     ANSELA2 = 1; // Enable analog function on RA2
     
@@ -14,7 +16,14 @@ void pot_init(void) {
     
     FVRCONbits.FVREN = 1; //enable FVR
     FVRCONbits.ADFVR = 0b11; // FVR Buffer 2 Gain is 4x (4.096V)
-            
+    
+    while(!FVRCONbits.FVRRDY) {
+
+    }
+    
+    ADREFbits.NREF = 0; //Vref- connected to Vss
+    ADREFbits.PREF = 0b11; //Vref+ connected to FVR
+    
     //Enable ADC Interrupts
     PIE1bits.ADIE = 1;   // Enable ADC interrupt
     PIR1bits.ADIF = 0;   // Clear ADC interrupt flag
@@ -28,10 +37,18 @@ void pot_read(uint8_t channel) {
     ADCON0bits.GO = 1;
 }
 
-uint16_t get_current_angle(uint16_t adc_value) {
-    
+uint16_t get_angle(int adc_value) {
+    return (adc_value - zero_reading) * ADC_ANGLE_CONVERSION_FACTOR_mdeg + 10000;
 }
 
-uint16_t get_filtered_angle(uint16_t current_angle, uint16_t prev_angle) {
-    return SMOOTHING_FACTOR * current_angle + (1-SMOOTHING_FACTOR) * prev_angle; //exponential low pass filter
+uint16_t filter_potentiometer(uint16_t new_reading) {
+    const float alpha = 0.2;
+    static uint16_t filtered_value = 0;
+    
+    if (filtered_value == 0) {
+        filtered_value = new_reading;
+    }
+    
+    filtered_value = alpha * new_reading + (1 - alpha) * filtered_value;
+    return filtered_value;
 }

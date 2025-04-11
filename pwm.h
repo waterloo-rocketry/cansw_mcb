@@ -8,7 +8,7 @@
 #include "setup.h"
 
 #define _XTAL_FREQ 12000000 //12MHz
-#define MAX_CANARD_ANGLE 10 //+- 10 degrees
+#define MAX_CANARD_ANGLE_MDEG 10000 //+- 10 degrees
 
 void pwm_init(void);
 

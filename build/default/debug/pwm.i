@@ -36912,20 +36912,13 @@ void pwm_init(void){
 
 
 
-    T2PR = 233;
+    T2PR = 255;
 
 
     CCP3CONbits.EN = 0b1;
     CCP3CONbits.FMT = 0b0;
     CCP3CONbits.MODE = 0b1100;
-
-
-
-    CCPR3H = (562 >> 8) & 0xFF;
-    CCPR3L = 562 & 0xFF;
-
-
-
+# 39 "pwm.c"
     PIR4bits.TMR2IF = 0;
 
     T2CLK = 0b0001;
@@ -36945,15 +36938,15 @@ void pwm_init(void){
 
 
 
-    TRISB4 = 0;
+    TRISB4 = 1;
 
 }
 
 void updatePulseWidth(uint16_t angle)
 {
-    uint32_t pulse_width_us = (uint32_t) (MOTOR_MIN_PULSE_WIDTH_US + (float) angle * (MOTOR_MAX_PULSE_WIDTH_US - MOTOR_MIN_PULSE_WIDTH_US) / (10 * 20));
+    float pulse_width_us = (MOTOR_MIN_PULSE_WIDTH_US + (float) angle * (MOTOR_MAX_PULSE_WIDTH_US - MOTOR_MIN_PULSE_WIDTH_US) / (10000 * 2));
     uint8_t tmr2_prescale = 1 << T2CONbits.CKPS;
-    uint32_t bitWrite = (uint32_t) ((float) pulse_width_us / 1000000 * (float) 12000000 / tmr2_prescale);
+    uint16_t bitWrite = (uint16_t) (pulse_width_us / 1000000 * 12000000 / tmr2_prescale);
     CCPR3H = (bitWrite >> 8) & 0xFF;
     CCPR3L = bitWrite & 0xFF;
 }

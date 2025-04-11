@@ -36650,10 +36650,12 @@ void pot_init(void);
 
 void pot_read(uint8_t channel);
 
-uint16_t get_current_angle(uint16_t adc_value);
+uint16_t get_angle(int adc_value);
 
-uint16_t get_filtered_angle(uint16_t current_angle, uint16_t prev_angle);
+uint16_t filter_potentiometer(uint16_t new_reading);
 # 2 "potentiometer.c" 2
+
+const int zero_reading = 2048;
 
 void pot_init(void) {
 
@@ -36670,6 +36672,13 @@ void pot_init(void) {
     FVRCONbits.FVREN = 1;
     FVRCONbits.ADFVR = 0b11;
 
+    while(!FVRCONbits.FVRRDY) {
+
+    }
+
+    ADREFbits.NREF = 0;
+    ADREFbits.PREF = 0b11;
+
 
     PIE1bits.ADIE = 1;
     PIR1bits.ADIF = 0;
@@ -36683,10 +36692,18 @@ void pot_read(uint8_t channel) {
     ADCON0bits.GO = 1;
 }
 
-uint16_t get_current_angle(uint16_t adc_value) {
-
+uint16_t get_angle(int adc_value) {
+    return (adc_value - zero_reading) * 34.188 + 10000;
 }
 
-uint16_t get_filtered_angle(uint16_t current_angle, uint16_t prev_angle) {
-    return 0.2 * current_angle + (1-0.2) * prev_angle;
+uint16_t filter_potentiometer(uint16_t new_reading) {
+    const float alpha = 0.2;
+    static uint16_t filtered_value = 0;
+
+    if (filtered_value == 0) {
+        filtered_value = new_reading;
+    }
+
+    filtered_value = alpha * new_reading + (1 - alpha) * filtered_value;
+    return filtered_value;
 }
