@@ -3244,8 +3244,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _adc_value `i ~T0 @X0 1 r1 ]
 [f ]
 "41
-[; ;potentiometer.c: 41:     return (adc_value - zero_reading) * 34.188 + 10000;
-[e ) -> + * -> - _adc_value _zero_reading `d .34.188 -> -> 10000 `i `d `us ]
+[; ;potentiometer.c: 41:     return (adc_value - zero_reading) * 73.26 + 32768;
+[e ) -> + * -> - _adc_value _zero_reading `d .73.26 -> -> 32768 `l `d `us ]
 [e $UE 3255  ]
 "42
 [; ;potentiometer.c: 42: }

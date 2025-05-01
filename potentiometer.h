@@ -4,8 +4,8 @@
 #include <xc.h>
 #include <stdint.h>
 
-#define POT_ELECTRICAL_ANGLE_mdeg 140
-#define ADC_ANGLE_CONVERSION_FACTOR_mdeg 34.188 // 1/4095 * POT_ELECTRICAL_ANGLE_mdeg
+#define POT_ELECTRICAL_ANGLE_mdeg 300
+#define ADC_ANGLE_CONVERSION_FACTOR_mdeg 73.26 // 1/4095 * POT_ELECTRICAL_ANGLE_mdeg
 
 void pot_init(void);
 

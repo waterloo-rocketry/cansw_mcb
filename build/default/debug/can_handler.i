@@ -37497,13 +37497,14 @@ void updatePulseWidth(uint16_t angle);
 
 
 
+
 void can_setup(void);
 
 void can_receive_callback(const can_msg_t *msg);
 
-void send_status_ok(void);
-
 void can_log(const can_msg_t *msg);
+
+void send_status_ok(void);
 # 2 "can_handler.c" 2
 
 
@@ -37580,7 +37581,11 @@ void can_receive_callback(const can_msg_t *msg) {
         default:
             break;
 
-
     }
+}
 
+void send_status_ok(void) {
+    can_msg_t board_stat_msg;
+    build_general_board_status_msg(PRIO_MEDIUM, millis(), 0x00, 0, &board_stat_msg);
+    txb_enqueue(&board_stat_msg);
 }

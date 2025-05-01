@@ -3183,22 +3183,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 3250 ]
 }
 "62
-[; ;pwm.c: 62: void updatePulseWidth(uint16_t angle)
+[; ;pwm.c: 62: void updatePulseWidth(uint16_t angle) {
 [v _updatePulseWidth `(v ~T0 @X0 1 ef1`us ]
-"63
-[; ;pwm.c: 63: {
 {
 [e :U _updatePulseWidth ]
-"62
-[; ;pwm.c: 62: void updatePulseWidth(uint16_t angle)
 [v _angle `us ~T0 @X0 1 r1 ]
-"63
-[; ;pwm.c: 63: {
 [f ]
+"63
+[; ;pwm.c: 63:     float normalized_angle = (float) angle - (32768 - 10000);
+[v _normalized_angle `f ~T0 @X0 1 a ]
+[e = _normalized_angle - -> _angle `f -> - -> 32768 `l -> -> 10000 `i `l `f ]
 "64
-[; ;pwm.c: 64:     float pulse_width_us = (MOTOR_MIN_PULSE_WIDTH_US + (float) angle * (MOTOR_MAX_PULSE_WIDTH_US - MOTOR_MIN_PULSE_WIDTH_US) / (10000 * 2));
+[; ;pwm.c: 64:     float pulse_width_us = MOTOR_MIN_PULSE_WIDTH_US + (normalized_angle * (MOTOR_MAX_PULSE_WIDTH_US - MOTOR_MIN_PULSE_WIDTH_US)) / (10000 * 2);
 [v _pulse_width_us `f ~T0 @X0 1 a ]
-[e = _pulse_width_us + -> -> _MOTOR_MIN_PULSE_WIDTH_US `ui `f / * -> _angle `f -> - -> _MOTOR_MAX_PULSE_WIDTH_US `ui -> _MOTOR_MIN_PULSE_WIDTH_US `ui `f -> * -> 10000 `i -> 2 `i `f ]
+[e = _pulse_width_us + -> -> _MOTOR_MIN_PULSE_WIDTH_US `ui `f / * _normalized_angle -> - -> _MOTOR_MAX_PULSE_WIDTH_US `ui -> _MOTOR_MIN_PULSE_WIDTH_US `ui `f -> * -> 10000 `i -> 2 `i `f ]
 "65
 [; ;pwm.c: 65:     uint8_t tmr2_prescale = 1 << T2CONbits.CKPS;
 [v _tmr2_prescale `uc ~T0 @X0 1 a ]

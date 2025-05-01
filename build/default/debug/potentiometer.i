@@ -36693,7 +36693,7 @@ void pot_read(uint8_t channel) {
 }
 
 uint16_t get_angle(int adc_value) {
-    return (adc_value - zero_reading) * 34.188 + 10000;
+    return (adc_value - zero_reading) * 73.26 + 32768;
 }
 
 uint16_t filter_potentiometer(uint16_t new_reading) {

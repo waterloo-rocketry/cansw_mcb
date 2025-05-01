@@ -37501,13 +37501,14 @@ void can_handle_interrupt(void);
 
 
 
+
 void can_setup(void);
 
 void can_receive_callback(const can_msg_t *msg);
 
-void send_status_ok(void);
-
 void can_log(const can_msg_t *msg);
+
+void send_status_ok(void);
 # 10 "main.c" 2
 
 
@@ -37517,6 +37518,29 @@ void can_log(const can_msg_t *msg);
 
 
 
+# 1 "rocketlib/include/i2c.h" 1
+# 13 "rocketlib/include/i2c.h"
+typedef enum {
+    W_SUCCESS = 0,
+    W_FAILURE,
+    W_INVALID_PARAM,
+    W_IO_ERROR,
+    W_IO_TIMEOUT,
+    W_MATH_ERROR,
+    W_OVERFLOW
+} w_status_t;
+
+void w_assert_fail(const char *file, int line, const char *statement);
+# 55 "rocketlib/include/i2c.h"
+w_status_t i2c_init(uint8_t clkdiv);
+
+w_status_t i2c_write_data(uint8_t address, const uint8_t *data, uint8_t len);
+w_status_t i2c_read_data(uint8_t address, uint8_t *data, uint8_t len);
+w_status_t i2c_write_reg8(uint8_t address, uint8_t reg, uint8_t val);
+w_status_t i2c_write_reg16(uint8_t address, uint8_t reg, uint16_t val);
+w_status_t i2c_read_reg8(uint8_t address, uint8_t reg, uint8_t *value);
+w_status_t i2c_read_reg16(uint8_t address, uint8_t reg, uint16_t *value);
+# 19 "main.c" 2
 # 1 "./potentiometer.h" 1
 # 10 "./potentiometer.h"
 void pot_init(void);
@@ -37526,37 +37550,16 @@ void pot_read(uint8_t channel);
 uint16_t get_angle(int adc_value);
 
 uint16_t filter_potentiometer(uint16_t new_reading);
-# 19 "main.c" 2
-# 1 "./current_sensor.h" 1
-
-
-
-
-
-
-# 1 "rocketlib/include/i2c.h" 1
-# 12 "rocketlib/include/i2c.h"
-void i2c_init(uint8_t clkdiv);
-
-_Bool i2c_write_data(uint8_t address, const uint8_t *data, uint8_t len);
-_Bool i2c_read_data(uint8_t address, uint8_t *data, uint8_t len);
-_Bool i2c_write_reg8(uint8_t address, uint8_t reg, uint8_t val);
-_Bool i2c_write_reg16(uint8_t address, uint8_t reg, uint16_t val);
-_Bool i2c_read_reg8(uint8_t address, uint8_t reg, uint8_t *value);
-_Bool i2c_read_reg16(uint8_t address, uint8_t reg, uint16_t *value);
-# 8 "./current_sensor.h" 2
-# 31 "./current_sensor.h"
-uint16_t build_config_reg(void);
-_Bool current_sense_init(void);
-float current_read(void);
-float voltage_read(void);
-float filter_current(float new_reading);
-float filter_voltage(float new_reading);
 # 20 "main.c" 2
+
 volatile uint16_t adc_value;
 volatile _Bool new_adc = 0;
 float current;
 float voltage;
+uint16_t temp;
+w_status_t test;
+uint16_t angle;
+_Bool success;
 
 
 static void __attribute__((picinterrupt(("")))) ISR(void) {
@@ -37585,16 +37588,19 @@ static void __attribute__((picinterrupt(("")))) ISR(void) {
 int main(void) {
     pin_init();
     osc_init();
-
     timer0_init();
     pwm_init();
     can_setup();
 
     pot_init();
-    i2c_init(1);
-    uint16_t angle;
+    i2c_init(0b000);
+
     uint32_t last_sensor_measure_millis = 0;
     uint32_t last_pot_send_millis = 0;
+    TRISC3 = 1;
+    TRISC4 = 1;
+    ANSELC3 = 0;
+    ANSELC4 = 0;
 
 
 
@@ -37610,31 +37616,34 @@ int main(void) {
             osc_init();
         }
 
-        if ((millis() - last_millis) >= 500) {
+        if ((millis() - last_millis) >= 1000) {
             last_millis = millis();
             (LATA0 = !LATA0);
             LATA1 = 1;
 
+            send_status_ok();
+
         }
-# 91 "main.c"
+# 101 "main.c"
         if (new_adc) {
             new_adc = 0;
             angle = get_angle(filter_potentiometer(adc_value));
         }
 
         if ((millis() - last_sensor_measure_millis) >= 1) {
-            pot_read(0x02);
-            current = filter_current(current_read());
-            voltage = filter_voltage(voltage_read());
             last_sensor_measure_millis = millis();
+            pot_read(0x02);
+
+
+            test = i2c_read_reg16(0b1000000, 0x00, &temp);
         }
 
         if ((millis() - last_pot_send_millis) >= 5) {
+            last_pot_send_millis = millis();
             can_msg_t angle_msg;
 
             build_analog_data_msg(PRIO_HIGHEST, millis(), SENSOR_CANARD_ENCODER_1, angle, &angle_msg);
             txb_enqueue(&angle_msg);
-            last_pot_send_millis = millis();
         }
 
         txb_heartbeat();

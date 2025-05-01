@@ -1,7 +1,7 @@
 #include "can_handler.h"
 
 // memory pool for the CAN tx buffer
-uint8_t tx_pool[100];
+uint8_t tx_pool[500];
 extern uint16_t cmd_angle;
 extern bool new_cmd;
 
@@ -47,7 +47,7 @@ void can_receive_callback(const can_msg_t *msg) {
                 break;
             }
             actuator_state = get_cmd_actuator_state_analog (msg);
-            if (actuator_state >= 0 && actuator_state <=20000) {
+            if (actuator_state >= 22768 && actuator_state <= 42768) {
                 cmd_angle = actuator_state;
                 new_cmd = 1;
                 
@@ -60,10 +60,10 @@ void can_receive_callback(const can_msg_t *msg) {
             if (actuator_id == ACTUATOR_CANARD_ENABLE) {
                 actuator_state = get_cmd_actuator_state(msg);
                 if (actuator_state == ACT_STATE_ON) {
-                    TRISC5 = 0;
+                    LATC5 = 0;
                 }
                 else if (actuator_state == ACT_STATE_OFF) {
-                    TRISC5 = 1;
+                    LATC5 = 1;
                 }
             }
             break;
@@ -87,11 +87,15 @@ void can_receive_callback(const can_msg_t *msg) {
             break;
             
         default:
-            break;
-            
+            break;     
             
     }
-   
+}
+
+void send_status_ok(void) {
+    can_msg_t board_stat_msg;
+    build_general_board_status_msg(PRIO_MEDIUM, millis(), E_NOMINAL, 0, &board_stat_msg);
+    txb_enqueue(&board_stat_msg);
 }
 
 

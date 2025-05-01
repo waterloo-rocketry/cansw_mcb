@@ -9,7 +9,7 @@
 #define FAILSAFE 0x03
 
 // Time between main loop code execution
-#define MAX_LOOP_TIME_DIFF_ms 500
+#define MAX_LOOP_TIME_DIFF_ms 1000
 // Time between sending updated angle measurements
 #define MAX_POT_SEND_TIME_DIFF_ms 5
 //Time between potentiometer measurements

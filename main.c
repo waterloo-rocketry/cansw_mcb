@@ -15,12 +15,14 @@ volatile uint16_t cmd_angle;
 volatile bool new_cmd = 0;
 
 #elif (BOARD_INST_UNIQUE_ID == FAILSAFE)
+//#include "i2c.h"
 #include "potentiometer.h"
-#include "current_sensor.h"
+//#include "current_sensor.h"
 volatile uint16_t adc_value; //potentiometer reading directly from adc
 volatile bool new_adc = 0;
 float current;
 float voltage;
+uint16_t angle;
 #endif
 
 static void __interrupt() ISR(void) {
@@ -49,14 +51,13 @@ static void __interrupt() ISR(void) {
 int main(void) {
     pin_init();
     osc_init();
-    //LATA1 = 0;
     timer0_init();
     pwm_init();
     can_setup();
 #if (BOARD_INST_UNIQUE_ID == FAILSAFE)
     pot_init();
-    i2c_init(1);
-    uint16_t angle;
+    //i2c_init(0b000);
+    //current_sense_init();
     uint32_t last_sensor_measure_millis = 0;
     uint32_t last_pot_send_millis = 0;
 #endif
@@ -79,6 +80,8 @@ int main(void) {
             HEARTBEAT();
             LATA1 = 1;
             
+            send_status_ok();
+            
         }
                 
 #if (BOARD_INST_UNIQUE_ID == PRIMARY)
@@ -94,18 +97,18 @@ int main(void) {
         }
         
         if ((millis() - last_sensor_measure_millis) >= SENSOR_MEASURE_TIME_DIFF_ms) {
-            pot_read(0x02);
-            current = filter_current(current_read());
-            voltage = filter_voltage(voltage_read());
             last_sensor_measure_millis = millis();
+            pot_read(0x02);
+            //current = filter_current(current_read());
+            //voltage = filter_voltage(voltage_read());
         }
         
         if ((millis() - last_pot_send_millis) >= MAX_POT_SEND_TIME_DIFF_ms) {
+            last_pot_send_millis = millis();
             can_msg_t angle_msg;
             
             build_analog_data_msg(PRIO_HIGHEST, millis(), SENSOR_CANARD_ENCODER_1, angle, &angle_msg);
             txb_enqueue(&angle_msg);
-            last_pot_send_millis = millis();
         }
 #endif
         txb_heartbeat();

@@ -34,8 +34,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "16 canlib/pic18f26k83/pic18f26k83_can.h
 [; ;canlib/pic18f26k83/pic18f26k83_can.h: 16: void can_init(const can_timing_t *timing,
 [v _can_init `(v ~T0 @X0 0 ef2`*CS3252`*F23564 ]
-"17 ./can_handler.h
-[; ;./can_handler.h: 17: void can_receive_callback(const can_msg_t *msg);
+"18 ./can_handler.h
+[; ;./can_handler.h: 18: void can_receive_callback(const can_msg_t *msg);
 [v _can_receive_callback `(v ~T0 @X0 0 ef1`*CS3253 ]
 [v F23547 `(v ~T0 @X0 0 tf1`*CS3253 ]
 [v F23549 `(a ~T0 @X0 0 tf ]
@@ -81,10 +81,23 @@ Version 4.0 HI-TECH Software Intermediate Code
 "55 canlib/message/msg_general.h
 [; ;canlib/message/msg_general.h: 55: _Bool check_board_need_reset(const can_msg_t *msg);
 [v _check_board_need_reset `(a ~T0 @X0 0 ef1`*CS3253 ]
-"93 can_handler.c
-[; ;can_handler.c: 93:     }
+"92 can_handler.c
+[; ;can_handler.c: 92:     }
 [c E23111 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 .. ]
 [n E23111 . MSG_GENERAL_BOARD_STATUS MSG_RESET_CMD MSG_DEBUG_RAW MSG_CONFIG_SET MSG_CONFIG_STATUS MSG_ACTUATOR_CMD MSG_ACTUATOR_ANALOG_CMD MSG_ACTUATOR_STATUS MSG_ALT_ARM_CMD MSG_ALT_ARM_STATUS MSG_SENSOR_TEMP MSG_SENSOR_ALTITUDE MSG_SENSOR_IMU_X MSG_SENSOR_IMU_Y MSG_SENSOR_IMU_Z MSG_SENSOR_MAG_X MSG_SENSOR_MAG_Y MSG_SENSOR_MAG_Z MSG_SENSOR_ANALOG MSG_GPS_TIMESTAMP MSG_GPS_LATITUDE MSG_GPS_LONGITUDE MSG_GPS_ALTITUDE MSG_GPS_INFO MSG_STATE_EST_DATA MSG_LEDS_ON MSG_LEDS_OFF MSG_ID_ENUM_MAX  ]
+"97
+[; ;can_handler.c: 97:     build_general_board_status_msg(PRIO_MEDIUM, millis(), 0x00, 0, &board_stat_msg);
+[c E23105 0 1 2 3 .. ]
+[n E23105 . PRIO_HIGHEST PRIO_HIGH PRIO_MEDIUM PRIO_LOW  ]
+"15 canlib/message/msg_general.h
+[; ;canlib/message/msg_general.h: 15: _Bool build_general_board_status_msg(
+[v _build_general_board_status_msg `(a ~T0 @X0 0 ef5`E23105`us`ul`us`*S3253 ]
+"14 rocketlib/include/timer.h
+[; ;rocketlib/include/timer.h: 14: uint32_t millis(void);
+[v _millis `(ul ~T0 @X0 0 ef ]
+"21 canlib/util/can_tx_buffer.h
+[; ;canlib/util/can_tx_buffer.h: 21: _Bool txb_enqueue(const can_msg_t *msg);
+[v _txb_enqueue `(a ~T0 @X0 0 ef1`*CS3253 ]
 "272 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 272: __asm("CIOCON equ 03700h");
 [; <" CIOCON equ 03700h ;# ">
@@ -3299,8 +3312,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "90
 [; ;can_handler.c: 90:             break;
 [e $U 3257  ]
-"93
-[; ;can_handler.c: 93:     }
+"92
+[; ;can_handler.c: 92:     }
 }
 [e $U 3257  ]
 [e :U 3258 ]
@@ -3310,7 +3323,26 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> . `E23111 1 `ui 3266
  3268 ]
 [e :U 3257 ]
-"95
-[; ;can_handler.c: 95: }
+"93
+[; ;can_handler.c: 93: }
 [e :UE 3255 ]
+}
+"95
+[; ;can_handler.c: 95: void send_status_ok(void) {
+[v _send_status_ok `(v ~T0 @X0 1 ef ]
+{
+[e :U _send_status_ok ]
+[f ]
+"96
+[; ;can_handler.c: 96:     can_msg_t board_stat_msg;
+[v _board_stat_msg `S3253 ~T0 @X0 1 a ]
+"97
+[; ;can_handler.c: 97:     build_general_board_status_msg(PRIO_MEDIUM, millis(), 0x00, 0, &board_stat_msg);
+[e ( _build_general_board_status_msg (4 , , , , . `E23105 2 -> ( _millis ..  `us -> -> -> 0 `i `l `ul -> -> 0 `i `us &U _board_stat_msg ]
+"98
+[; ;can_handler.c: 98:     txb_enqueue(&board_stat_msg);
+[e ( _txb_enqueue (1 -> &U _board_stat_msg `*CS3253 ]
+"99
+[; ;can_handler.c: 99: }
+[e :UE 3269 ]
 }
