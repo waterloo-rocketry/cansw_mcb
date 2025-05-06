@@ -1,18 +1,18 @@
 
 #ifndef PWM_H
-#define	PWM_H
+#define PWM_H
 
+#include "setup.h"
+#include "stdint.h"
 #include "timer.h"
 #include <xc.h>
-#include "stdint.h"
-#include "setup.h"
 
-#define _XTAL_FREQ 12000000 //12MHz
+#define _XTAL_FREQ 12000000 // 12MHz
 #define MAX_CANARD_ANGLE_MDEG 10000 //+- 10 degrees
 
 void pwm_init(void);
 
 void updatePulseWidth(uint16_t angle);
 
-#endif	/* PWM_H */
+#endif /* PWM_H */
 

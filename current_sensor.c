@@ -36,11 +36,11 @@ float voltage_read(void) {
 float filter_current(float new_reading) {
     const float alpha = 0.2;
     static float filtered_value = 0;
-    
+
     if (filtered_value == 0) {
         filtered_value = new_reading;
     }
-    
+
     filtered_value = alpha * new_reading + (1 - alpha) * filtered_value;
     return filtered_value;
 }
@@ -48,11 +48,11 @@ float filter_current(float new_reading) {
 float filter_voltage(float new_reading) {
     const float alpha = 0.2;
     static float filtered_value = 0;
-    
+
     if (filtered_value == 0) {
         filtered_value = new_reading;
     }
-    
+
     filtered_value = alpha * new_reading + (1 - alpha) * filtered_value;
     return filtered_value;
 }
