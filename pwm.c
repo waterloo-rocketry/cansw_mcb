@@ -47,7 +47,7 @@ void pwm_init(void) {
 
     // 6. Enable PWM output pin:
     //- Wait until the Timer overflows and the TMR2IF bit of the PIR4 register is set. See Note
-    //below.
+    //below
     while (PIR4bits.TMR2IF == 0) {}
 
     //- Enable the CCPx pin output driver by clearing the associated TRIS bit.
