@@ -1,12 +1,9 @@
 build/default/debug/main.p1:  \
 main.c  \
-setup.h  \
-canlib/message_types.h  \
-rocketlib/include/timer.h  \
-pwm.h  \
 can_handler.h  \
 canlib/canlib.h  \
 canlib/can.h  \
+canlib/message_types.h  \
 canlib/message/msg_actuator.h  \
 canlib/message/msg_common.h  \
 canlib/message/msg_general.h  \
@@ -20,5 +17,9 @@ canlib/util/can_tx_buffer.h  \
 canlib/util/timing_util.h  \
 canlib/pic18f26k83/pic18f26k83_can.h  \
 canlib/pic18f26k83/../can.h  \
+pwm.h  \
+setup.h  \
+rocketlib/include/timer.h  \
 rocketlib/include/i2c.h  \
-potentiometer.h 
+potentiometer.h  \
+current_sensor.h 

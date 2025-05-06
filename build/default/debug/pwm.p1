@@ -3127,7 +3127,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 1500 `i `us
 ]
 "8
-[; ;pwm.c: 8: void pwm_init(void){
+[; ;pwm.c: 8: void pwm_init(void) {
 [v _pwm_init `(v ~T0 @X0 1 ef ]
 {
 [e :U _pwm_init ]
@@ -3141,77 +3141,73 @@ Version 4.0 HI-TECH Software Intermediate Code
 "24
 [; ;pwm.c: 24:     T2PR = 255;
 [e = _T2PR -> -> 255 `i `uc ]
-"27
-[; ;pwm.c: 27:     CCP3CONbits.EN = 0b1;
-[e = . . _CCP3CONbits 0 4 -> -> 1 `i `uc ]
 "28
-[; ;pwm.c: 28:     CCP3CONbits.FMT = 0b0;
-[e = . . _CCP3CONbits 0 1 -> -> 0 `i `uc ]
+[; ;pwm.c: 28:     CCP3CONbits.EN = 0b1;
+[e = . . _CCP3CONbits 0 4 -> -> 1 `i `uc ]
 "29
-[; ;pwm.c: 29:     CCP3CONbits.MODE = 0b1100;
+[; ;pwm.c: 29:     CCP3CONbits.FMT = 0b0;
+[e = . . _CCP3CONbits 0 1 -> -> 0 `i `uc ]
+"30
+[; ;pwm.c: 30:     CCP3CONbits.MODE = 0b1100;
 [e = . . _CCP3CONbits 0 0 -> -> 12 `i `uc ]
-"39
-[; ;pwm.c: 39:     PIR4bits.TMR2IF = 0;
+"40
+[; ;pwm.c: 40:     PIR4bits.TMR2IF = 0;
 [e = . . _PIR4bits 0 2 -> -> 0 `i `uc ]
-"41
-[; ;pwm.c: 41:     T2CLK = 0b0001;
+"42
+[; ;pwm.c: 42:     T2CLK = 0b0001;
 [e = _T2CLK -> -> 1 `i `uc ]
-"43
-[; ;pwm.c: 43:     T2CONbits.CKPS = 0b101;
+"44
+[; ;pwm.c: 44:     T2CONbits.CKPS = 0b101;
 [e = . . _T2CONbits 0 1 -> -> 5 `i `uc ]
-"45
-[; ;pwm.c: 45:     T2CONbits.ON = 1;
+"46
+[; ;pwm.c: 46:     T2CONbits.ON = 1;
 [e = . . _T2CONbits 0 2 -> -> 1 `i `uc ]
-"49
-[; ;pwm.c: 49:     while (PIR4bits.TMR2IF == 0)
+"50
+[; ;pwm.c: 50:     while (PIR4bits.TMR2IF == 0) {}
 [e $U 3251  ]
 [e :U 3252 ]
-"50
-[; ;pwm.c: 50:     {}
 {
 }
 [e :U 3251 ]
-"49
-[; ;pwm.c: 49:     while (PIR4bits.TMR2IF == 0)
 [e $ == -> . . _PIR4bits 0 2 `i -> 0 `i 3252  ]
 [e :U 3253 ]
-"58
-[; ;pwm.c: 58:     TRISB4 = 1;
+"59
+[; ;pwm.c: 59:     TRISB4 = 1;
 [e = _TRISB4 -> -> 1 `i `b ]
-"60
-[; ;pwm.c: 60: }
+"61
+[; ;pwm.c: 61: }
 [e :UE 3250 ]
 }
-"62
-[; ;pwm.c: 62: void updatePulseWidth(uint16_t angle) {
+"63
+[; ;pwm.c: 63: void updatePulseWidth(uint16_t angle) {
 [v _updatePulseWidth `(v ~T0 @X0 1 ef1`us ]
 {
 [e :U _updatePulseWidth ]
 [v _angle `us ~T0 @X0 1 r1 ]
 [f ]
-"63
-[; ;pwm.c: 63:     float normalized_angle = (float) angle - (32768 - 10000);
+"64
+[; ;pwm.c: 64:     float normalized_angle =
 [v _normalized_angle `f ~T0 @X0 1 a ]
 [e = _normalized_angle - -> _angle `f -> - -> 32768 `l -> -> 10000 `i `l `f ]
-"64
-[; ;pwm.c: 64:     float pulse_width_us = MOTOR_MIN_PULSE_WIDTH_US + (normalized_angle * (MOTOR_MAX_PULSE_WIDTH_US - MOTOR_MIN_PULSE_WIDTH_US)) / (10000 * 2);
+"66
+[; ;pwm.c: 66:     float pulse_width_us = MOTOR_MIN_PULSE_WIDTH_US +
 [v _pulse_width_us `f ~T0 @X0 1 a ]
 [e = _pulse_width_us + -> -> _MOTOR_MIN_PULSE_WIDTH_US `ui `f / * _normalized_angle -> - -> _MOTOR_MAX_PULSE_WIDTH_US `ui -> _MOTOR_MIN_PULSE_WIDTH_US `ui `f -> * -> 10000 `i -> 2 `i `f ]
-"65
-[; ;pwm.c: 65:     uint8_t tmr2_prescale = 1 << T2CONbits.CKPS;
+"69
+[; ;pwm.c: 69:     uint8_t tmr2_prescale = 1 << T2CONbits.CKPS;
 [v _tmr2_prescale `uc ~T0 @X0 1 a ]
 [e = _tmr2_prescale -> << -> 1 `i -> . . _T2CONbits 0 1 `i `uc ]
-"66
-[; ;pwm.c: 66:     uint16_t bitWrite = (uint16_t) (pulse_width_us / 1000000 * 12000000 / tmr2_prescale);
+"70
+[; ;pwm.c: 70:     uint16_t bitWrite = (uint16_t)(pulse_width_us / 1000000 * 12000000 / tmr2_prescale);
 [v _bitWrite `us ~T0 @X0 1 a ]
 [e = _bitWrite -> / * / _pulse_width_us -> -> 1000000 `l `f -> -> 12000000 `l `f -> -> _tmr2_prescale `i `f `us ]
-"67
-[; ;pwm.c: 67:     CCPR3H = (bitWrite >> 8) & 0xFF;
+"71
+[; ;pwm.c: 71:     CCPR3H = (bitWrite >> 8) & 0xFF;
 [e = _CCPR3H -> & >> -> _bitWrite `ui -> 8 `i -> -> 255 `i `ui `uc ]
-"68
-[; ;pwm.c: 68:     CCPR3L = bitWrite & 0xFF;
+"72
+[; ;pwm.c: 72:     CCPR3L = bitWrite & 0xFF;
 [e = _CCPR3L -> & -> _bitWrite `ui -> -> 255 `i `ui `uc ]
-"69
-[; ;pwm.c: 69: }
+"73
+[; ;pwm.c: 73: }
 [e :UE 3254 ]
 }

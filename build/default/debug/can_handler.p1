@@ -21,83 +21,83 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _ANSELC1 `Vb ~T0 @X0 0 e@119553 ]
 "17 canlib/can.h
 [; ;canlib/can.h: 17: typedef struct {
-[s S3252 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `a 1 ]
-[n S3252 . brp sjw sam seg1ph seg2ph prseg btlmode ]
+[s S1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `a 1 ]
+[n S1 . brp sjw sam seg1ph seg2ph prseg btlmode ]
 "8 canlib/util/timing_util.h
 [; ;canlib/util/timing_util.h: 8: _Bool can_generate_timing_params(uint32_t can_frequency, can_timing_t *timing);
-[v _can_generate_timing_params `(a ~T0 @X0 0 ef2`ul`*S3252 ]
+[v _can_generate_timing_params `(a ~T0 @X0 0 ef2`ul`*S1 ]
 "38 canlib/can.h
 [; ;canlib/can.h: 38: typedef struct {
-[s S3253 `ul 1 `uc 1 `uc -> 8 `i ]
-[n S3253 . sid data_len data ]
-[v F23564 `(v ~T0 @X0 0 tf1`*CS3253 ]
+[s S2 `ul 1 `uc 1 `uc -> 8 `i ]
+[n S2 . sid data_len data ]
+[v F512 `(v ~T0 @X0 0 tf1`*CS2 ]
 "16 canlib/pic18f26k83/pic18f26k83_can.h
 [; ;canlib/pic18f26k83/pic18f26k83_can.h: 16: void can_init(const can_timing_t *timing,
-[v _can_init `(v ~T0 @X0 0 ef2`*CS3252`*F23564 ]
+[v _can_init `(v ~T0 @X0 0 ef2`*CS1`*F512 ]
 "18 ./can_handler.h
 [; ;./can_handler.h: 18: void can_receive_callback(const can_msg_t *msg);
-[v _can_receive_callback `(v ~T0 @X0 0 ef1`*CS3253 ]
-[v F23547 `(v ~T0 @X0 0 tf1`*CS3253 ]
-[v F23549 `(a ~T0 @X0 0 tf ]
+[v _can_receive_callback `(v ~T0 @X0 0 ef1`*CS2 ]
+[v F495 `(v ~T0 @X0 0 tf1`*CS2 ]
+[v F497 `(a ~T0 @X0 0 tf ]
 "12 canlib/util/can_tx_buffer.h
 [; ;canlib/util/can_tx_buffer.h: 12: void txb_init(void *pool, size_t pool_size,
-[v _txb_init `(v ~T0 @X0 0 ef4`*v`ui`*F23547`*F23549 ]
+[v _txb_init `(v ~T0 @X0 0 ef4`*v`ui`*F495`*F497 ]
 "20 canlib/pic18f26k83/pic18f26k83_can.h
 [; ;canlib/pic18f26k83/pic18f26k83_can.h: 20: void can_send(const can_msg_t* message);
-[v _can_send `(v ~T0 @X0 0 ef1`*CS3253 ]
+[v _can_send `(v ~T0 @X0 0 ef1`*CS2 ]
 "23
 [; ;canlib/pic18f26k83/pic18f26k83_can.h: 23: _Bool can_send_rdy(void);
 [v _can_send_rdy `(a ~T0 @X0 0 ef ]
 "30 canlib/message/msg_common.h
 [; ;canlib/message/msg_common.h: 30: uint8_t get_board_type_unique_id(const can_msg_t *msg);
-[v _get_board_type_unique_id `(uc ~T0 @X0 0 ef1`*CS3253 ]
-"33 can_handler.c
-[; ;can_handler.c: 33:     if (get_board_type_unique_id(msg) == BOARD_TYPE_ID_CANARD_MOTOR) {
-[c E23141 0 1 2 3 4 5 6 7 8 9 10 11 64 65 128 129 130 131 132 133 134 192 .. ]
-[n E23141 . BOARD_TYPE_ID_ANY BOARD_TYPE_ID_INJ_SENSOR BOARD_TYPE_ID_CANARD_MOTOR BOARD_TYPE_ID_CAMERA BOARD_TYPE_ID_POWER BOARD_TYPE_ID_LOGGER BOARD_TYPE_ID_PROCESSOR BOARD_TYPE_ID_TELEMETRY BOARD_TYPE_ID_GPS BOARD_TYPE_ID_SRAD_GNSS BOARD_TYPE_ID_ALTIMETER BOARD_TYPE_ID_ARMING BOARD_TYPE_ID_PAY_SENSOR BOARD_TYPE_ID_PAY_MOTOR BOARD_TYPE_ID_RLCS_GLS BOARD_TYPE_ID_RLCS_RELAY BOARD_TYPE_ID_RLCS_HEATING BOARD_TYPE_ID_DAQ BOARD_TYPE_ID_CHARGING BOARD_TYPE_ID_THERMOCOUPLE BOARD_TYPE_ID_USB BOARD_TYPE_ID_FYDP25_TVCA  ]
+[v _get_board_type_unique_id `(uc ~T0 @X0 0 ef1`*CS2 ]
+"32 can_handler.c
+[; ;can_handler.c: 32:     if (get_board_type_unique_id(msg) == BOARD_TYPE_ID_CANARD_MOTOR) {
+[c E87 0 1 2 3 4 5 6 7 8 9 10 11 64 65 128 129 130 131 132 133 134 192 .. ]
+[n E87 . BOARD_TYPE_ID_ANY BOARD_TYPE_ID_INJ_SENSOR BOARD_TYPE_ID_CANARD_MOTOR BOARD_TYPE_ID_CAMERA BOARD_TYPE_ID_POWER BOARD_TYPE_ID_LOGGER BOARD_TYPE_ID_PROCESSOR BOARD_TYPE_ID_TELEMETRY BOARD_TYPE_ID_GPS BOARD_TYPE_ID_SRAD_GNSS BOARD_TYPE_ID_ALTIMETER BOARD_TYPE_ID_ARMING BOARD_TYPE_ID_PAY_SENSOR BOARD_TYPE_ID_PAY_MOTOR BOARD_TYPE_ID_RLCS_GLS BOARD_TYPE_ID_RLCS_RELAY BOARD_TYPE_ID_RLCS_HEATING BOARD_TYPE_ID_DAQ BOARD_TYPE_ID_CHARGING BOARD_TYPE_ID_THERMOCOUPLE BOARD_TYPE_ID_USB BOARD_TYPE_ID_FYDP25_TVCA  ]
 "28 canlib/message/msg_common.h
 [; ;canlib/message/msg_common.h: 28: uint16_t get_message_type(const can_msg_t *msg);
-[v _get_message_type `(us ~T0 @X0 0 ef1`*CS3253 ]
+[v _get_message_type `(us ~T0 @X0 0 ef1`*CS2 ]
 "30 canlib/message/msg_actuator.h
 [; ;canlib/message/msg_actuator.h: 30: int get_actuator_id(const can_msg_t *msg);
-[v _get_actuator_id `(i ~T0 @X0 0 ef1`*CS3253 ]
-"60 can_handler.c
-[; ;can_handler.c: 60:             if (actuator_id == ACTUATOR_CANARD_ENABLE) {
-[c E23192 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 .. ]
-[n E23192 . ACTUATOR_OX_INJECTOR_VALVE ACTUATOR_FUEL_INJECTOR_VALVE ACTUATOR_CHARGE_ENABLE ACTUATOR_5V_RAIL_ROCKET ACTUATOR_5V_RAIL_PAYLOAD ACTUATOR_TELEMETRY ACTUATOR_CAMERA_INJ_A ACTUATOR_CAMERA_INJ_B ACTUATOR_CAMERA_VENT_A ACTUATOR_CAMERA_VENT_B ACTUATOR_CAMERA_VENT_C ACTUATOR_CAMERA_VENT_D ACTUATOR_CAMERA_RECOVERY ACTUATOR_PROC_ESTIMATOR_INIT ACTUATOR_CANARD_ENABLE ACTUATOR_CANARD_ANGLE ACTUATOR_ENUM_MAX  ]
+[v _get_actuator_id `(i ~T0 @X0 0 ef1`*CS2 ]
+"57 can_handler.c
+[; ;can_handler.c: 57:             if (actuator_id == ACTUATOR_CANARD_ENABLE) {
+[c E138 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 .. ]
+[n E138 . ACTUATOR_OX_INJECTOR_VALVE ACTUATOR_FUEL_INJECTOR_VALVE ACTUATOR_CHARGE_ENABLE ACTUATOR_5V_RAIL_ROCKET ACTUATOR_5V_RAIL_PAYLOAD ACTUATOR_TELEMETRY ACTUATOR_CAMERA_INJ_A ACTUATOR_CAMERA_INJ_B ACTUATOR_CAMERA_VENT_A ACTUATOR_CAMERA_VENT_B ACTUATOR_CAMERA_VENT_C ACTUATOR_CAMERA_VENT_D ACTUATOR_CAMERA_RECOVERY ACTUATOR_PROC_ESTIMATOR_INIT ACTUATOR_CANARD_ENABLE ACTUATOR_CANARD_ANGLE ACTUATOR_ENUM_MAX  ]
 "43 canlib/message/msg_actuator.h
 [; ;canlib/message/msg_actuator.h: 43: int get_cmd_actuator_state(const can_msg_t *msg);
-[v _get_cmd_actuator_state `(i ~T0 @X0 0 ef1`*CS3253 ]
-"62 can_handler.c
-[; ;can_handler.c: 62:                 if (actuator_state == ACT_STATE_ON) {
-[c E23211 0 1 2 3 4 .. ]
-[n E23211 . ACT_STATE_ON ACT_STATE_OFF ACT_STATE_UNK ACT_STATE_ILLEGAL ACT_STATE_ENUM_MAX  ]
-"18406 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h
-[v _TRISC5 `Vb ~T0 @X0 0 e@130597 ]
+[v _get_cmd_actuator_state `(i ~T0 @X0 0 ef1`*CS2 ]
+"59 can_handler.c
+[; ;can_handler.c: 59:                 if (actuator_state == ACT_STATE_ON) {
+[c E157 0 1 2 3 4 .. ]
+[n E157 . ACT_STATE_ON ACT_STATE_OFF ACT_STATE_UNK ACT_STATE_ILLEGAL ACT_STATE_ENUM_MAX  ]
+"12820 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h
+[v _LATC5 `Vb ~T0 @X0 0 e@130533 ]
 "12757
 [v _LATA0 `Vb ~T0 @X0 0 e@130512 ]
 "12760
 [v _LATA1 `Vb ~T0 @X0 0 e@130513 ]
 "55 canlib/message/msg_general.h
 [; ;canlib/message/msg_general.h: 55: _Bool check_board_need_reset(const can_msg_t *msg);
-[v _check_board_need_reset `(a ~T0 @X0 0 ef1`*CS3253 ]
-"92 can_handler.c
-[; ;can_handler.c: 92:     }
-[c E23111 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 .. ]
-[n E23111 . MSG_GENERAL_BOARD_STATUS MSG_RESET_CMD MSG_DEBUG_RAW MSG_CONFIG_SET MSG_CONFIG_STATUS MSG_ACTUATOR_CMD MSG_ACTUATOR_ANALOG_CMD MSG_ACTUATOR_STATUS MSG_ALT_ARM_CMD MSG_ALT_ARM_STATUS MSG_SENSOR_TEMP MSG_SENSOR_ALTITUDE MSG_SENSOR_IMU_X MSG_SENSOR_IMU_Y MSG_SENSOR_IMU_Z MSG_SENSOR_MAG_X MSG_SENSOR_MAG_Y MSG_SENSOR_MAG_Z MSG_SENSOR_ANALOG MSG_GPS_TIMESTAMP MSG_GPS_LATITUDE MSG_GPS_LONGITUDE MSG_GPS_ALTITUDE MSG_GPS_INFO MSG_STATE_EST_DATA MSG_LEDS_ON MSG_LEDS_OFF MSG_ID_ENUM_MAX  ]
-"97
-[; ;can_handler.c: 97:     build_general_board_status_msg(PRIO_MEDIUM, millis(), 0x00, 0, &board_stat_msg);
-[c E23105 0 1 2 3 .. ]
-[n E23105 . PRIO_HIGHEST PRIO_HIGH PRIO_MEDIUM PRIO_LOW  ]
+[v _check_board_need_reset `(a ~T0 @X0 0 ef1`*CS2 ]
+"87 can_handler.c
+[; ;can_handler.c: 87:     }
+[c E57 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 .. ]
+[n E57 . MSG_GENERAL_BOARD_STATUS MSG_RESET_CMD MSG_DEBUG_RAW MSG_CONFIG_SET MSG_CONFIG_STATUS MSG_ACTUATOR_CMD MSG_ACTUATOR_ANALOG_CMD MSG_ACTUATOR_STATUS MSG_ALT_ARM_CMD MSG_ALT_ARM_STATUS MSG_SENSOR_TEMP MSG_SENSOR_ALTITUDE MSG_SENSOR_IMU_X MSG_SENSOR_IMU_Y MSG_SENSOR_IMU_Z MSG_SENSOR_MAG_X MSG_SENSOR_MAG_Y MSG_SENSOR_MAG_Z MSG_SENSOR_ANALOG MSG_GPS_TIMESTAMP MSG_GPS_LATITUDE MSG_GPS_LONGITUDE MSG_GPS_ALTITUDE MSG_GPS_INFO MSG_STATE_EST_DATA MSG_LEDS_ON MSG_LEDS_OFF MSG_ID_ENUM_MAX  ]
+"92
+[; ;can_handler.c: 92:     build_general_board_status_msg(PRIO_MEDIUM, millis(), 0x00, 0, &board_stat_msg);
+[c E51 0 1 2 3 .. ]
+[n E51 . PRIO_HIGHEST PRIO_HIGH PRIO_MEDIUM PRIO_LOW  ]
 "15 canlib/message/msg_general.h
 [; ;canlib/message/msg_general.h: 15: _Bool build_general_board_status_msg(
-[v _build_general_board_status_msg `(a ~T0 @X0 0 ef5`E23105`us`ul`us`*S3253 ]
+[v _build_general_board_status_msg `(a ~T0 @X0 0 ef5`E51`us`ul`us`*S2 ]
 "14 rocketlib/include/timer.h
 [; ;rocketlib/include/timer.h: 14: uint32_t millis(void);
 [v _millis `(ul ~T0 @X0 0 ef ]
 "21 canlib/util/can_tx_buffer.h
 [; ;canlib/util/can_tx_buffer.h: 21: _Bool txb_enqueue(const can_msg_t *msg);
-[v _txb_enqueue `(a ~T0 @X0 0 ef1`*CS3253 ]
+[v _txb_enqueue `(a ~T0 @X0 0 ef1`*CS2 ]
 "272 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 272: __asm("CIOCON equ 03700h");
 [; <" CIOCON equ 03700h ;# ">
@@ -3141,8 +3141,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 72326: __asm("TOSU equ 03FFFh");
 [; <" TOSU equ 03FFFh ;# ">
 "4 can_handler.c
-[; ;can_handler.c: 4: uint8_t tx_pool[100];
-[v _tx_pool `uc ~T0 @X0 -> 100 `i e ]
+[; ;can_handler.c: 4: uint8_t tx_pool[500];
+[v _tx_pool `uc ~T0 @X0 -> 500 `i e ]
 "8
 [; ;can_handler.c: 8: void can_setup(void) {
 [v _can_setup `(v ~T0 @X0 1 ef ]
@@ -3175,13 +3175,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _ANSELC1 -> -> 0 `i `b ]
 "23
 [; ;can_handler.c: 23:     can_timing_t timing;
-[v _timing `S3252 ~T0 @X0 1 a ]
+[v _timing `S1 ~T0 @X0 1 a ]
 "24
 [; ;can_handler.c: 24:     can_generate_timing_params(12000000, &timing);
 [e ( _can_generate_timing_params (2 , -> -> 12000000 `l `ul &U _timing ]
 "25
 [; ;can_handler.c: 25:     can_init(&timing, can_receive_callback);
-[e ( _can_init (2 , -> &U _timing `*CS3252 &U _can_receive_callback ]
+[e ( _can_init (2 , -> &U _timing `*CS1 &U _can_receive_callback ]
 "27
 [; ;can_handler.c: 27:     txb_init(tx_pool, sizeof(tx_pool), can_send, can_send_rdy);
 [e ( _txb_init (4 , , , -> &U _tx_pool `*v -> # _tx_pool `ui &U _can_send &U _can_send_rdy ]
@@ -3191,158 +3191,156 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "30
 [; ;can_handler.c: 30: void can_receive_callback(const can_msg_t *msg) {
-[v _can_receive_callback `(v ~T0 @X0 1 ef1`*CS3253 ]
+[v _can_receive_callback `(v ~T0 @X0 1 ef1`*CS2 ]
 {
 [e :U _can_receive_callback ]
-[v _msg `*CS3253 ~T0 @X0 1 r1 ]
+[v _msg `*CS2 ~T0 @X0 1 r1 ]
 [f ]
-"33
-[; ;can_handler.c: 33:     if (get_board_type_unique_id(msg) == BOARD_TYPE_ID_CANARD_MOTOR) {
-[e $ ! == -> ( _get_board_type_unique_id (1 _msg `i -> . `E23141 2 `i 3256  ]
+"32
+[; ;can_handler.c: 32:     if (get_board_type_unique_id(msg) == BOARD_TYPE_ID_CANARD_MOTOR) {
+[e $ ! == -> ( _get_board_type_unique_id (1 _msg `i -> . `E87 2 `i 3256  ]
 {
-"34
-[; ;can_handler.c: 34:         return;
+"33
+[; ;can_handler.c: 33:         return;
 [e $UE 3255  ]
-"35
-[; ;can_handler.c: 35:     }
+"34
+[; ;can_handler.c: 34:     }
 }
 [e :U 3256 ]
-"37
-[; ;can_handler.c: 37:     uint16_t msg_type = get_message_type(msg);
+"36
+[; ;can_handler.c: 36:     uint16_t msg_type = get_message_type(msg);
 [v _msg_type `us ~T0 @X0 1 a ]
 [e = _msg_type ( _get_message_type (1 _msg ]
-"38
-[; ;can_handler.c: 38:     uint16_t actuator_id;
+"37
+[; ;can_handler.c: 37:     uint16_t actuator_id;
 [v _actuator_id `us ~T0 @X0 1 a ]
-"39
-[; ;can_handler.c: 39:     uint16_t actuator_state;
+"38
+[; ;can_handler.c: 38:     uint16_t actuator_state;
 [v _actuator_state `us ~T0 @X0 1 a ]
-"41
-[; ;can_handler.c: 41:     switch(msg_type) {
+"40
+[; ;can_handler.c: 40:     switch (msg_type) {
 [e $U 3258  ]
 {
-"58
-[; ;can_handler.c: 58:         case MSG_ACTUATOR_CMD:
+"55
+[; ;can_handler.c: 55:         case MSG_ACTUATOR_CMD:
 [e :U 3259 ]
-"59
-[; ;can_handler.c: 59:             actuator_id = get_actuator_id(msg);
+"56
+[; ;can_handler.c: 56:             actuator_id = get_actuator_id(msg);
 [e = _actuator_id -> ( _get_actuator_id (1 _msg `us ]
-"60
-[; ;can_handler.c: 60:             if (actuator_id == ACTUATOR_CANARD_ENABLE) {
-[e $ ! == -> _actuator_id `ui -> . `E23192 14 `ui 3260  ]
+"57
+[; ;can_handler.c: 57:             if (actuator_id == ACTUATOR_CANARD_ENABLE) {
+[e $ ! == -> _actuator_id `ui -> . `E138 14 `ui 3260  ]
 {
-"61
-[; ;can_handler.c: 61:                 actuator_state = get_cmd_actuator_state(msg);
+"58
+[; ;can_handler.c: 58:                 actuator_state = get_cmd_actuator_state(msg);
 [e = _actuator_state -> ( _get_cmd_actuator_state (1 _msg `us ]
-"62
-[; ;can_handler.c: 62:                 if (actuator_state == ACT_STATE_ON) {
-[e $ ! == -> _actuator_state `ui -> . `E23211 0 `ui 3261  ]
+"59
+[; ;can_handler.c: 59:                 if (actuator_state == ACT_STATE_ON) {
+[e $ ! == -> _actuator_state `ui -> . `E157 0 `ui 3261  ]
 {
-"63
-[; ;can_handler.c: 63:                     TRISC5 = 0;
-[e = _TRISC5 -> -> 0 `i `b ]
-"64
-[; ;can_handler.c: 64:                 }
+"60
+[; ;can_handler.c: 60:                     LATC5 = 0;
+[e = _LATC5 -> -> 0 `i `b ]
+"61
+[; ;can_handler.c: 61:                 } else if (actuator_state == ACT_STATE_OFF) {
 }
 [e $U 3262  ]
-"65
-[; ;can_handler.c: 65:                 else if (actuator_state == ACT_STATE_OFF) {
 [e :U 3261 ]
-[e $ ! == -> _actuator_state `ui -> . `E23211 1 `ui 3263  ]
+[e $ ! == -> _actuator_state `ui -> . `E157 1 `ui 3263  ]
 {
-"66
-[; ;can_handler.c: 66:                     TRISC5 = 1;
-[e = _TRISC5 -> -> 1 `i `b ]
-"67
-[; ;can_handler.c: 67:                 }
+"62
+[; ;can_handler.c: 62:                     LATC5 = 1;
+[e = _LATC5 -> -> 1 `i `b ]
+"63
+[; ;can_handler.c: 63:                 }
 }
 [e :U 3263 ]
 [e :U 3262 ]
-"68
-[; ;can_handler.c: 68:             }
+"64
+[; ;can_handler.c: 64:             }
 }
 [e :U 3260 ]
+"65
+[; ;can_handler.c: 65:             break;
+[e $U 3257  ]
 "69
-[; ;can_handler.c: 69:             break;
-[e $U 3257  ]
-"73
-[; ;can_handler.c: 73:         case MSG_LEDS_ON:
+[; ;can_handler.c: 69:         case MSG_LEDS_ON:
 [e :U 3264 ]
-"74
-[; ;can_handler.c: 74:             LATA0 = 0;
+"70
+[; ;can_handler.c: 70:             LATA0 = 0;
 [e = _LATA0 -> -> 0 `i `b ]
-"75
-[; ;can_handler.c: 75:             LATA1 = 0;
+"71
+[; ;can_handler.c: 71:             LATA1 = 0;
 [e = _LATA1 -> -> 0 `i `b ]
-"76
-[; ;can_handler.c: 76:             break;
+"72
+[; ;can_handler.c: 72:             break;
 [e $U 3257  ]
-"78
-[; ;can_handler.c: 78:         case MSG_LEDS_OFF:
+"74
+[; ;can_handler.c: 74:         case MSG_LEDS_OFF:
 [e :U 3265 ]
-"79
-[; ;can_handler.c: 79:             LATA0 = 1;
+"75
+[; ;can_handler.c: 75:             LATA0 = 1;
 [e = _LATA0 -> -> 1 `i `b ]
-"80
-[; ;can_handler.c: 80:             LATA1 = 1;
+"76
+[; ;can_handler.c: 76:             LATA1 = 1;
 [e = _LATA1 -> -> 1 `i `b ]
-"81
-[; ;can_handler.c: 81:             break;
+"77
+[; ;can_handler.c: 77:             break;
 [e $U 3257  ]
-"83
-[; ;can_handler.c: 83:         case MSG_RESET_CMD:
+"79
+[; ;can_handler.c: 79:         case MSG_RESET_CMD:
 [e :U 3266 ]
-"84
-[; ;can_handler.c: 84:             if (check_board_need_reset(msg)) {
+"80
+[; ;can_handler.c: 80:             if (check_board_need_reset(msg)) {
 [e $ ! != -> ( _check_board_need_reset (1 _msg `i -> 0 `i 3267  ]
 {
-"85
-[; ;can_handler.c: 85:                 __asm("reset");
+"81
+[; ;can_handler.c: 81:                 __asm("reset");
 [; <" reset ;# ">
-"86
-[; ;can_handler.c: 86:             }
+"82
+[; ;can_handler.c: 82:             }
 }
 [e :U 3267 ]
-"87
-[; ;can_handler.c: 87:             break;
+"83
+[; ;can_handler.c: 83:             break;
 [e $U 3257  ]
-"89
-[; ;can_handler.c: 89:         default:
+"85
+[; ;can_handler.c: 85:         default:
 [e :U 3268 ]
-"90
-[; ;can_handler.c: 90:             break;
+"86
+[; ;can_handler.c: 86:             break;
 [e $U 3257  ]
-"92
-[; ;can_handler.c: 92:     }
+"87
+[; ;can_handler.c: 87:     }
 }
 [e $U 3257  ]
 [e :U 3258 ]
-[e [\ -> _msg_type `ui , $ -> . `E23111 5 `ui 3259
- , $ -> . `E23111 25 `ui 3264
- , $ -> . `E23111 26 `ui 3265
- , $ -> . `E23111 1 `ui 3266
+[e [\ -> _msg_type `ui , $ -> . `E57 5 `ui 3259
+ , $ -> . `E57 25 `ui 3264
+ , $ -> . `E57 26 `ui 3265
+ , $ -> . `E57 1 `ui 3266
  3268 ]
 [e :U 3257 ]
-"93
-[; ;can_handler.c: 93: }
+"88
+[; ;can_handler.c: 88: }
 [e :UE 3255 ]
 }
-"95
-[; ;can_handler.c: 95: void send_status_ok(void) {
+"90
+[; ;can_handler.c: 90: void send_status_ok(void) {
 [v _send_status_ok `(v ~T0 @X0 1 ef ]
 {
 [e :U _send_status_ok ]
 [f ]
-"96
-[; ;can_handler.c: 96:     can_msg_t board_stat_msg;
-[v _board_stat_msg `S3253 ~T0 @X0 1 a ]
-"97
-[; ;can_handler.c: 97:     build_general_board_status_msg(PRIO_MEDIUM, millis(), 0x00, 0, &board_stat_msg);
-[e ( _build_general_board_status_msg (4 , , , , . `E23105 2 -> ( _millis ..  `us -> -> -> 0 `i `l `ul -> -> 0 `i `us &U _board_stat_msg ]
-"98
-[; ;can_handler.c: 98:     txb_enqueue(&board_stat_msg);
-[e ( _txb_enqueue (1 -> &U _board_stat_msg `*CS3253 ]
-"99
-[; ;can_handler.c: 99: }
+"91
+[; ;can_handler.c: 91:     can_msg_t board_stat_msg;
+[v _board_stat_msg `S2 ~T0 @X0 1 a ]
+"92
+[; ;can_handler.c: 92:     build_general_board_status_msg(PRIO_MEDIUM, millis(), 0x00, 0, &board_stat_msg);
+[e ( _build_general_board_status_msg (4 , , , , . `E51 2 -> ( _millis ..  `us -> -> -> 0 `i `l `ul -> -> 0 `i `us &U _board_stat_msg ]
+"93
+[; ;can_handler.c: 93:     txb_enqueue(&board_stat_msg);
+[e ( _txb_enqueue (1 -> &U _board_stat_msg `*CS2 ]
+"94
+[; ;can_handler.c: 94: }
 [e :UE 3269 ]
 }

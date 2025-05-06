@@ -3191,102 +3191,98 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;potentiometer.c: 18:     FVRCONbits.ADFVR = 0b11;
 [e = . . _FVRCONbits 0 0 -> -> 3 `i `uc ]
 "20
-[; ;potentiometer.c: 20:     while(!FVRCONbits.FVRRDY) {
+[; ;potentiometer.c: 20:     while (!FVRCONbits.FVRRDY) {}
 [e $U 3251  ]
 [e :U 3252 ]
 {
-"22
-[; ;potentiometer.c: 22:     }
 }
 [e :U 3251 ]
-"20
-[; ;potentiometer.c: 20:     while(!FVRCONbits.FVRRDY) {
 [e $ ! != -> . . _FVRCONbits 1 5 `i -> 0 `i 3252  ]
 [e :U 3253 ]
-"24
-[; ;potentiometer.c: 24:     ADREFbits.NREF = 0;
+"22
+[; ;potentiometer.c: 22:     ADREFbits.NREF = 0;
 [e = . . _ADREFbits 0 1 -> -> 0 `i `uc ]
-"25
-[; ;potentiometer.c: 25:     ADREFbits.PREF = 0b11;
+"23
+[; ;potentiometer.c: 23:     ADREFbits.PREF = 0b11;
 [e = . . _ADREFbits 0 0 -> -> 3 `i `uc ]
-"28
-[; ;potentiometer.c: 28:     PIE1bits.ADIE = 1;
+"26
+[; ;potentiometer.c: 26:     PIE1bits.ADIE = 1;
 [e = . . _PIE1bits 0 2 -> -> 1 `i `uc ]
-"29
-[; ;potentiometer.c: 29:     PIR1bits.ADIF = 0;
+"27
+[; ;potentiometer.c: 27:     PIR1bits.ADIF = 0;
 [e = . . _PIR1bits 0 2 -> -> 0 `i `uc ]
-"30
-[; ;potentiometer.c: 30: }
+"28
+[; ;potentiometer.c: 28: }
 [e :UE 3250 ]
 }
-"32
-[; ;potentiometer.c: 32: void pot_read(uint8_t channel) {
+"30
+[; ;potentiometer.c: 30: void pot_read(uint8_t channel) {
 [v _pot_read `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _pot_read ]
 [v _channel `uc ~T0 @X0 1 r1 ]
 [f ]
-"34
-[; ;potentiometer.c: 34:     ADPCH = channel;
+"32
+[; ;potentiometer.c: 32:     ADPCH = channel;
 [e = _ADPCH _channel ]
-"37
-[; ;potentiometer.c: 37:     ADCON0bits.GO = 1;
+"35
+[; ;potentiometer.c: 35:     ADCON0bits.GO = 1;
 [e = . . _ADCON0bits 0 0 -> -> 1 `i `uc ]
-"38
-[; ;potentiometer.c: 38: }
+"36
+[; ;potentiometer.c: 36: }
 [e :UE 3254 ]
 }
-"40
-[; ;potentiometer.c: 40: uint16_t get_angle(int adc_value) {
+"38
+[; ;potentiometer.c: 38: uint16_t get_angle(int adc_value) {
 [v _get_angle `(us ~T0 @X0 1 ef1`i ]
 {
 [e :U _get_angle ]
 [v _adc_value `i ~T0 @X0 1 r1 ]
 [f ]
-"41
-[; ;potentiometer.c: 41:     return (adc_value - zero_reading) * 73.26 + 32768;
+"39
+[; ;potentiometer.c: 39:     return (adc_value - zero_reading) * 73.26 + 32768;
 [e ) -> + * -> - _adc_value _zero_reading `d .73.26 -> -> 32768 `l `d `us ]
 [e $UE 3255  ]
-"42
-[; ;potentiometer.c: 42: }
+"40
+[; ;potentiometer.c: 40: }
 [e :UE 3255 ]
 }
-"44
-[; ;potentiometer.c: 44: uint16_t filter_potentiometer(uint16_t new_reading) {
+"42
+[; ;potentiometer.c: 42: uint16_t filter_potentiometer(uint16_t new_reading) {
 [v _filter_potentiometer `(us ~T0 @X0 1 ef1`us ]
 {
 [e :U _filter_potentiometer ]
 [v _new_reading `us ~T0 @X0 1 r1 ]
 [f ]
-"45
-[; ;potentiometer.c: 45:     const float alpha = 0.2;
+"43
+[; ;potentiometer.c: 43:     const float alpha = 0.2;
 [v _alpha `Cf ~T0 @X0 1 a ]
 [e = _alpha -> .0.2 `f ]
-"46
-[; ;potentiometer.c: 46:     static uint16_t filtered_value = 0;
+"44
+[; ;potentiometer.c: 44:     static uint16_t filtered_value = 0;
 [v F22785 `us ~T0 @X0 1 s filtered_value ]
 [i F22785
 -> -> 0 `i `us
 ]
-"48
-[; ;potentiometer.c: 48:     if (filtered_value == 0) {
+"46
+[; ;potentiometer.c: 46:     if (filtered_value == 0) {
 [e $ ! == -> F22785 `ui -> -> 0 `i `ui 3257  ]
 {
-"49
-[; ;potentiometer.c: 49:         filtered_value = new_reading;
+"47
+[; ;potentiometer.c: 47:         filtered_value = new_reading;
 [e = F22785 _new_reading ]
-"50
-[; ;potentiometer.c: 50:     }
+"48
+[; ;potentiometer.c: 48:     }
 }
 [e :U 3257 ]
-"52
-[; ;potentiometer.c: 52:     filtered_value = alpha * new_reading + (1 - alpha) * filtered_value;
+"50
+[; ;potentiometer.c: 50:     filtered_value = alpha * new_reading + (1 - alpha) * filtered_value;
 [e = F22785 -> + * _alpha -> -> _new_reading `ui `f * - -> -> 1 `i `f _alpha -> -> F22785 `ui `f `us ]
-"53
-[; ;potentiometer.c: 53:     return filtered_value;
+"51
+[; ;potentiometer.c: 51:     return filtered_value;
 [e ) F22785 ]
 [e $UE 3256  ]
-"54
-[; ;potentiometer.c: 54: }
+"52
+[; ;potentiometer.c: 52: }
 [e :UE 3256 ]
 }

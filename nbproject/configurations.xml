@@ -80,7 +80,7 @@
         <targetDevice>PIC18F26K83</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>noID</platformTool>
+        <platformTool>PK5Tool</platformTool>
         <languageToolchain>XC8</languageToolchain>
         <languageToolchainVersion>3.00</languageToolchainVersion>
         <platform>3</platform>
@@ -122,7 +122,7 @@
         <property key="default-bitfield-type" value="true"/>
         <property key="default-char-type" value="true"/>
         <property key="define-macros"
-                  value="BOARD_TYPE_UNIQUE_ID=BOARD_TYPE_ID_CANARD_MOTOR;BOARD_INST_UNIQUE_ID=0x02"/>
+                  value="BOARD_TYPE_UNIQUE_ID=BOARD_TYPE_ID_CANARD_MOTOR;BOARD_INST_UNIQUE_ID=0x03"/>
         <property key="disable-optimizations" value="true"/>
         <property key="extra-include-directories"
                   value="canlib;rocketlib\include;canlib\pic18f26k83;canlib\message;canlib\util"/>
@@ -417,7 +417,7 @@
         <XC8-config-global>
         </XC8-config-global>
       </item>
-      <item path="rocketlib/pic18f26k83/i2c.c" ex="true" overriding="false">
+      <item path="rocketlib/pic18f26k83/i2c.c" ex="false" overriding="false">
         <HI-TECH-COMP>
         </HI-TECH-COMP>
         <HI-TECH-LINK>

@@ -18,5 +18,5 @@ canlib/util/timing_util.h  \
 canlib/pic18f26k83/pic18f26k83_can.h  \
 canlib/pic18f26k83/../can.h  \
 pwm.h  \
-rocketlib/include/timer.h  \
-setup.h 
+setup.h  \
+rocketlib/include/timer.h 

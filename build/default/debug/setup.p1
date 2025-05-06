@@ -3072,51 +3072,51 @@ Version 4.0 HI-TECH Software Intermediate Code
 "72326
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h: 72326: __asm("TOSU equ 03FFFh");
 [; <" TOSU equ 03FFFh ;# ">
-"4 setup.c
-[; ;setup.c: 4: void pin_init(void){
+"3 setup.c
+[; ;setup.c: 3: void pin_init(void) {
 [v _pin_init `(v ~T0 @X0 1 ef ]
 {
 [e :U _pin_init ]
 [f ]
-"6
-[; ;setup.c: 6:     TRISA0 = 0;
+"5
+[; ;setup.c: 5:     TRISA0 = 0;
 [e = _TRISA0 -> -> 0 `i `b ]
-"7
-[; ;setup.c: 7:     ANSELA0 = 0;
+"6
+[; ;setup.c: 6:     ANSELA0 = 0;
 [e = _ANSELA0 -> -> 0 `i `b ]
-"8
-[; ;setup.c: 8:     LATA0 = 1;
+"7
+[; ;setup.c: 7:     LATA0 = 1;
 [e = _LATA0 -> -> 1 `i `b ]
-"10
-[; ;setup.c: 10:     TRISA1 = 0;
+"9
+[; ;setup.c: 9:     TRISA1 = 0;
 [e = _TRISA1 -> -> 0 `i `b ]
-"11
-[; ;setup.c: 11:     ANSELA1 = 0;
+"10
+[; ;setup.c: 10:     ANSELA1 = 0;
 [e = _ANSELA1 -> -> 0 `i `b ]
-"12
-[; ;setup.c: 12:     LATA1 = 1;
+"11
+[; ;setup.c: 11:     LATA1 = 1;
 [e = _LATA1 -> -> 1 `i `b ]
+"18
+[; ;setup.c: 18:     TRISC5 = 0;
+[e = _TRISC5 -> -> 0 `i `b ]
 "19
 [; ;setup.c: 19:     TRISC5 = 0;
 [e = _TRISC5 -> -> 0 `i `b ]
-"20
-[; ;setup.c: 20:     TRISC5 = 0;
-[e = _TRISC5 -> -> 0 `i `b ]
-"23
-[; ;setup.c: 23: }
+"22
+[; ;setup.c: 22: }
 [e :UE 3250 ]
 }
-"25
-[; ;setup.c: 25: void osc_init(void){
+"24
+[; ;setup.c: 24: void osc_init(void) {
 [v _osc_init `(v ~T0 @X0 1 ef ]
 {
 [e :U _osc_init ]
 [f ]
-"27
-[; ;setup.c: 27:     OSCCON1 = 0b01110000;
+"26
+[; ;setup.c: 26:     OSCCON1 = 0b01110000;
 [e = _OSCCON1 -> -> 112 `i `uc ]
-"29
-[; ;setup.c: 29:     while (OSCCON3bits.ORDY == 0) {}
+"28
+[; ;setup.c: 28:     while (OSCCON3bits.ORDY == 0) {}
 [e $U 3252  ]
 [e :U 3253 ]
 {
@@ -3124,12 +3124,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 3252 ]
 [e $ == -> . . _OSCCON3bits 0 2 `i -> 0 `i 3253  ]
 [e :U 3254 ]
-"31
-[; ;setup.c: 31:     if (OSCCON2 != 0b01110000) {
+"30
+[; ;setup.c: 30:     if (OSCCON2 != 0b01110000) {
 [e $ ! != -> _OSCCON2 `i -> 112 `i 3255  ]
 {
-"33
-[; ;setup.c: 33:         for (uint16_t i = 0; i < 60000; i++) {}
+"32
+[; ;setup.c: 32:         for (uint16_t i = 0; i < 60000; i++) {}
 {
 [v _i `us ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `us ]
@@ -3142,75 +3142,75 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ < -> _i `l -> 60000 `l 3256  ]
 [e :U 3257 ]
 }
-"34
-[; ;setup.c: 34:     }
+"33
+[; ;setup.c: 33:     }
 }
 [e :U 3255 ]
-"35
-[; ;setup.c: 35: }
+"34
+[; ;setup.c: 34: }
 [e :UE 3251 ]
 }
+"37
+[p x FEXTOSC  =  HS  ]
 "38
-[p x FEXTOSC  =  HS     ]
-"39
-[p x RSTOSC  =  HFINTOSC_1MHZ ]
+[p x RSTOSC  =                                                                                HFINTOSC_1MHZ  ]
 "42
-[p x CLKOUTEN  =  OFF    ]
+[p x CLKOUTEN  =  OFF  ]
 "43
-[p x PR1WAY  =  ON       ]
-"44
-[p x CSWEN  =  ON        ]
+[p x PR1WAY  =                                                                                ON  ]
 "45
-[p x FCMEN  =  ON        ]
-"48
-[p x MCLRE  =  EXTMCLR   ]
+[p x CSWEN  =  ON  ]
+"46
+[p x FCMEN  =  ON  ]
 "49
-[p x PWRTS  =  PWRT_OFF  ]
-"50
-[p x MVECEN  =  OFF      ]
+[p x MCLRE  =  EXTMCLR  ]
 "51
-[p x IVT1WAY  =  ON      ]
+[p x PWRTS  =  PWRT_OFF  ]
 "52
-[p x LPBOREN  =  OFF     ]
-"53
-[p x BOREN  =  SBORDIS   ]
+[p x MVECEN  =                                                                                OFF  ]
+"54
+[p x IVT1WAY  =                                                                               ON  ]
 "56
-[p x BORV  =  VBOR_2P45  ]
+[p x LPBOREN  =  OFF  ]
 "57
-[p x ZCD  =  OFF         ]
-"58
-[p x PPS1WAY  =  ON      ]
-"59
-[p x STVREN  =  ON       ]
-"60
-[p x DEBUG  =  OFF       ]
+[p x BOREN  =                                                                                 SBORDIS  ]
 "61
-[p x XINST  =  OFF       ]
-"64
-[p x WDTCPS  =  WDTCPS_31 ]
+[p x BORV  =  VBOR_2P45  ]
+"63
+[p x ZCD  =                                                                                   OFF  ]
 "65
-[p x WDTE  =  ON        ]
+[p x PPS1WAY  =                                                                               ON  ]
 "68
-[p x WDTCWS  =  WDTCWS_7 ]
-"69
-[p x WDTCCS  =  SC       ]
-"72
-[p x BBSIZE  =  BBSIZE_512 ]
-"73
-[p x BBEN  =  OFF        ]
-"74
-[p x SAFEN  =  OFF       ]
+[p x STVREN  =                                                                                ON  ]
+"70
+[p x DEBUG  =  OFF  ]
+"71
+[p x XINST  =  OFF  ]
 "75
-[p x WRTAPP  =  OFF      ]
-"78
-[p x WRTB  =  OFF        ]
-"79
-[p x WRTC  =  OFF        ]
+[p x WDTCPS  =                                                                                WDTCPS_31  ]
+"77
+[p x WDTE  =  ON  ]
 "80
-[p x WRTD  =  OFF        ]
-"81
-[p x WRTSAF  =  OFF      ]
+[p x WDTCWS  =  WDTCWS_7  ]
 "82
-[p x LVP  =  ON          ]
+[p x WDTCCS  =  SC  ]
 "85
-[p x CP  =  OFF          ]
+[p x BBSIZE  =  BBSIZE_512  ]
+"86
+[p x BBEN  =  OFF  ]
+"87
+[p x SAFEN  =  OFF  ]
+"88
+[p x WRTAPP  =                                                                                OFF  ]
+"92
+[p x WRTB  =  OFF  ]
+"94
+[p x WRTC  =                                                                                  OFF  ]
+"96
+[p x WRTD  =  OFF  ]
+"97
+[p x WRTSAF  =  OFF  ]
+"98
+[p x LVP  =  ON  ]
+"102
+[p x CP  =                                                                                    OFF  ]
