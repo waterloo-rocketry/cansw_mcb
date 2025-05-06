@@ -185,16 +185,17 @@ typedef enum {
     MSG_SENSOR_MAG_X = 0x010,
     MSG_SENSOR_MAG_Y = 0x011,
     MSG_SENSOR_MAG_Z = 0x012,
-    MSG_SENSOR_ANALOG = 0x013,
-    MSG_GPS_TIMESTAMP = 0x014,
-    MSG_GPS_LATITUDE = 0x015,
-    MSG_GPS_LONGITUDE = 0x016,
-    MSG_GPS_ALTITUDE = 0x017,
-    MSG_GPS_INFO = 0x018,
-    MSG_STATE_EST_DATA = 0x019,
-    MSG_LEDS_ON = 0x01A,
-    MSG_LEDS_OFF = 0x01B,
-    MSG_ID_ENUM_MAX = 0x01C,
+    MSG_SENSOR_BARO = 0x013,
+    MSG_SENSOR_ANALOG = 0x014,
+    MSG_GPS_TIMESTAMP = 0x015,
+    MSG_GPS_LATITUDE = 0x016,
+    MSG_GPS_LONGITUDE = 0x017,
+    MSG_GPS_ALTITUDE = 0x018,
+    MSG_GPS_INFO = 0x019,
+    MSG_STATE_EST_DATA = 0x01A,
+    MSG_LEDS_ON = 0x01B,
+    MSG_LEDS_OFF = 0x01C,
+    MSG_ID_ENUM_MAX = 0x01D,
 } can_msg_type_t;
 
 
@@ -406,6 +407,15 @@ _Bool build_mag_data_msg(
 
 
 
+_Bool build_baro_data_msg(
+    can_msg_prio_t prio, uint16_t timestamp, can_imu_id_t imu_id, uint32_t pressure, uint16_t temp,
+    can_msg_t *output
+);
+
+
+
+
+
 
 _Bool build_analog_data_msg(
     can_msg_prio_t prio, uint16_t timestamp, can_analog_sensor_id_t sensor_id, uint16_t sensor_data,
@@ -435,6 +445,11 @@ _Bool get_imu_mag_id_dimension(const can_msg_t *msg, can_imu_id_t *imu_id, char 
 _Bool get_imu_data(const can_msg_t *msg, uint16_t *linear_accel, uint16_t *angular_velocity);
 
 _Bool get_mag_data(const can_msg_t *msg, uint16_t *mag_value);
+
+
+
+
+_Bool get_baro_data(const can_msg_t *msg, can_imu_id_t *imu_id, uint32_t *pressure, uint16_t *temp);
 
 
 
@@ -537,6 +552,29 @@ _Bool build_mag_data_msg(
     return 1;
 }
 
+_Bool build_baro_data_msg(
+    can_msg_prio_t prio, uint16_t timestamp, can_imu_id_t imu_id, uint32_t pressure, uint16_t temp,
+    can_msg_t *output
+) {
+    if (!output) {
+        return 0;
+    }
+
+    output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_SENSOR_BARO << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x03);
+    write_timestamp_2bytes(timestamp, output);
+
+    output->data[2] = imu_id;
+    output->data[3] = (pressure >> 16) & 0xFF;
+    output->data[4] = (pressure >> 8) & 0xFF;
+    output->data[5] = pressure & 0xFF;
+    output->data[6] = (temp >> 8) & 0xFF;
+    output->data[7] = temp & 0xFF;
+
+    output->data_len = 8;
+
+    return 1;
+}
+
 _Bool build_analog_data_msg(
     can_msg_prio_t prio, uint16_t timestamp, can_analog_sensor_id_t sensor_id, uint16_t sensor_data,
     can_msg_t *output
@@ -565,7 +603,8 @@ _Bool is_sensor_data(const can_msg_t *msg) {
     uint16_t type = get_message_type(msg);
     if (type == MSG_SENSOR_TEMP || type == MSG_SENSOR_ALTITUDE || type == MSG_SENSOR_IMU_X ||
         type == MSG_SENSOR_IMU_Y || type == MSG_SENSOR_IMU_Z || type == MSG_SENSOR_MAG_Z ||
-        type == MSG_SENSOR_MAG_Y || type == MSG_SENSOR_MAG_Z || type == MSG_SENSOR_ANALOG) {
+        type == MSG_SENSOR_MAG_Y || type == MSG_SENSOR_MAG_Z || type == MSG_SENSOR_BARO ||
+        type == MSG_SENSOR_ANALOG) {
         return 1;
     } else {
         return 0;
@@ -651,6 +690,26 @@ _Bool get_mag_data(const can_msg_t *msg, uint16_t *mag_value) {
     }
 
     *mag_value = (uint16_t)msg->data[3] << 8 | msg->data[4];
+
+    return 1;
+}
+
+_Bool get_baro_data(const can_msg_t *msg, can_imu_id_t *imu_id, uint32_t *pressure, uint16_t *temp) {
+    if (!msg) {
+        return 0;
+    }
+    if (!pressure) {
+        return 0;
+    }
+    if (!temp) {
+        return 0;
+    }
+
+    *imu_id = msg->data[2];
+    *pressure = ((uint32_t)msg->data[3] << 16);
+    *pressure |= ((uint32_t)msg->data[4] << 8);
+    *pressure |= msg->data[5];
+    *temp = (uint16_t)msg->data[6] << 8 | msg->data[7];
 
     return 1;
 }

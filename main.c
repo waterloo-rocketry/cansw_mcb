@@ -1,4 +1,5 @@
 #include "can_handler.h"
+#include "config.h"
 #include "pwm.h"
 #include "setup.h"
 #include "stdbool.h"
@@ -15,14 +16,13 @@ volatile uint16_t cmd_angle;
 volatile bool new_cmd = 0;
 
 #elif (BOARD_INST_UNIQUE_ID == FAILSAFE)
-#include "i2c.h"
+// #include "i2c.h"
 #include "potentiometer.h"
-#include "current_sensor.h"
+// #include "current_sensor.h"
 volatile uint16_t adc_value; // potentiometer reading directly from adc
 volatile bool new_adc = 0;
-float current;
-float voltage;
-uint16_t test;
+// float current;
+// float voltage;
 uint16_t angle;
 #endif
 
@@ -57,8 +57,8 @@ int main(void) {
     can_setup();
 #if (BOARD_INST_UNIQUE_ID == FAILSAFE)
     pot_init();
-    i2c_init(0b000);
-    // current_sense_init();
+    // i2c_init(0b000);
+    //  current_sense_init();
     uint32_t last_sensor_measure_millis = 0;
     uint32_t last_pot_send_millis = 0;
 #endif
@@ -101,7 +101,6 @@ int main(void) {
             pot_read(0x02);
             // current = filter_current(current_read());
             // voltage = filter_voltage(voltage_read());
-            //i2c_read_reg16(I2C_ADDR, CONFIG_REG, &test);
         }
 
         if ((millis() - last_pot_send_millis) >= MAX_POT_SEND_TIME_DIFF_ms) {

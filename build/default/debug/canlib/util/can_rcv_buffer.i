@@ -9,7 +9,30 @@
 # 1 "canlib/util/can_rcv_buffer.c" 2
 # 1 "canlib/util/can_rcv_buffer.h" 1
 # 24 "canlib/util/can_rcv_buffer.h"
-# 1 "canlib/util/../can.h" 1
+# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdbool.h" 1 3
+# 25 "canlib/util/can_rcv_buffer.h" 2
+# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stddef.h" 1 3
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/musl_xc8.h" 1 3
+# 5 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stddef.h" 2 3
+# 19 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stddef.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 1 3
+# 24 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
+typedef long int wchar_t;
+# 128 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
+typedef unsigned size_t;
+# 138 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
+typedef int ptrdiff_t;
+# 174 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
+typedef __int24 int24_t;
+# 210 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
+typedef __uint24 uint24_t;
+# 20 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stddef.h" 2 3
+# 26 "canlib/util/can_rcv_buffer.h" 2
+
+# 1 "canlib/can.h" 1
 
 
 
@@ -19,11 +42,6 @@
 
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdint.h" 1 3
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/musl_xc8.h" 1 3
-# 5 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdint.h" 2 3
 # 26 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdint.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 1 3
 # 133 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
@@ -37,15 +55,7 @@ typedef signed char int8_t;
 
 
 typedef short int16_t;
-
-
-
-
-typedef __int24 int24_t;
-
-
-
-
+# 179 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
 typedef long int32_t;
 
 
@@ -66,15 +76,7 @@ typedef unsigned char uint8_t;
 
 
 typedef unsigned short uint16_t;
-
-
-
-
-typedef __uint24 uint24_t;
-
-
-
-
+# 215 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
 typedef unsigned long uint32_t;
 
 
@@ -123,9 +125,8 @@ typedef int32_t int_fast32_t;
 typedef uint16_t uint_fast16_t;
 typedef uint32_t uint_fast32_t;
 # 149 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdint.h" 2 3
-# 10 "canlib/util/../can.h" 2
-# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdbool.h" 1 3
-# 11 "canlib/util/../can.h" 2
+# 10 "canlib/can.h" 2
+
 
 
 
@@ -161,19 +162,7 @@ typedef struct {
 
     uint8_t data[8];
 } can_msg_t;
-# 25 "canlib/util/can_rcv_buffer.h" 2
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stddef.h" 1 3
-# 19 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stddef.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 1 3
-# 24 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
-typedef long int wchar_t;
-# 128 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
-typedef unsigned size_t;
-# 138 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
-typedef int ptrdiff_t;
-# 20 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stddef.h" 2 3
-# 27 "canlib/util/can_rcv_buffer.h" 2
+# 28 "canlib/util/can_rcv_buffer.h" 2
 
 
 
@@ -181,9 +170,9 @@ typedef int ptrdiff_t;
 
 
 void rcvb_init(void *pool, size_t pool_size);
-# 42 "canlib/util/can_rcv_buffer.h"
+# 43 "canlib/util/can_rcv_buffer.h"
 void rcvb_push_message(const can_msg_t *msg);
-# 53 "canlib/util/can_rcv_buffer.h"
+# 54 "canlib/util/can_rcv_buffer.h"
 _Bool rcvb_has_overflowed(void);
 
 
@@ -193,7 +182,7 @@ _Bool rcvb_has_overflowed(void);
 
 
 void rcvb_clear_overflow_flag(void);
-# 70 "canlib/util/can_rcv_buffer.h"
+# 71 "canlib/util/can_rcv_buffer.h"
 _Bool rcvb_is_full(void);
 
 
@@ -215,7 +204,7 @@ _Bool rcvb_pop_message(can_msg_t *msg);
 _Bool rcvb_peek_message(can_msg_t *msg);
 # 2 "canlib/util/can_rcv_buffer.c" 2
 # 1 "canlib/util/safe_ring_buffer.h" 1
-# 16 "canlib/util/safe_ring_buffer.h"
+# 12 "canlib/util/safe_ring_buffer.h"
 typedef struct {
     void *memory_pool;
     size_t element_size;
@@ -223,19 +212,15 @@ typedef struct {
     size_t rd_idx;
     size_t wr_idx;
 } srb_ctx_t;
-# 34 "canlib/util/safe_ring_buffer.h"
-void srb_init(srb_ctx_t *ctx,
-              void *pool,
-              size_t pool_size,
-              size_t element_size);
+# 30 "canlib/util/safe_ring_buffer.h"
+void srb_init(srb_ctx_t *ctx, void *pool, size_t pool_size, size_t element_size);
 
 
 
 
 
 
-_Bool srb_push(srb_ctx_t *ctx,
-              const void *element);
+_Bool srb_push(srb_ctx_t *ctx, const void *element);
 
 
 
@@ -252,60 +237,50 @@ _Bool srb_is_empty(const srb_ctx_t *ctx);
 
 
 
-_Bool srb_pop(srb_ctx_t *ctx,
-             void *element);
+_Bool srb_pop(srb_ctx_t *ctx, void *element);
 
 
 
 
 
 
-_Bool srb_peek(const srb_ctx_t *ctx,
-              void *element);
+_Bool srb_peek(const srb_ctx_t *ctx, void *element);
 # 3 "canlib/util/can_rcv_buffer.c" 2
 
 static srb_ctx_t buf;
 static _Bool overflow_flag;
 
-void rcvb_init(void *pool, size_t pool_size)
-{
+void rcvb_init(void *pool, size_t pool_size) {
     srb_init(&buf, pool, pool_size, sizeof(can_msg_t));
     overflow_flag = 0;
 }
 
-void rcvb_push_message(const can_msg_t *msg)
-{
-    if (!srb_push(&buf, (void *) msg)) {
+void rcvb_push_message(const can_msg_t *msg) {
+    if (!srb_push(&buf, (void *)msg)) {
         overflow_flag = 1;
     }
 }
 
-_Bool rcvb_has_overflowed(void)
-{
+_Bool rcvb_has_overflowed(void) {
     return overflow_flag;
 }
 
-void rcvb_clear_overflow_flag(void)
-{
+void rcvb_clear_overflow_flag(void) {
     overflow_flag = 0;
 }
 
-_Bool rcvb_is_full(void)
-{
+_Bool rcvb_is_full(void) {
     return srb_is_full(&buf);
 }
 
-_Bool rcvb_is_empty(void)
-{
+_Bool rcvb_is_empty(void) {
     return srb_is_empty(&buf);
 }
 
-_Bool rcvb_pop_message(can_msg_t *msg)
-{
-    return srb_pop(&buf, (void *) msg);
+_Bool rcvb_pop_message(can_msg_t *msg) {
+    return srb_pop(&buf, (void *)msg);
 }
 
-_Bool rcvb_peek_message(can_msg_t *msg)
-{
-    return srb_peek(&buf, (void *) msg);
+_Bool rcvb_peek_message(can_msg_t *msg) {
+    return srb_peek(&buf, (void *)msg);
 }

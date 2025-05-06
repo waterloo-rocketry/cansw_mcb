@@ -202,16 +202,17 @@ typedef enum {
     MSG_SENSOR_MAG_X = 0x010,
     MSG_SENSOR_MAG_Y = 0x011,
     MSG_SENSOR_MAG_Z = 0x012,
-    MSG_SENSOR_ANALOG = 0x013,
-    MSG_GPS_TIMESTAMP = 0x014,
-    MSG_GPS_LATITUDE = 0x015,
-    MSG_GPS_LONGITUDE = 0x016,
-    MSG_GPS_ALTITUDE = 0x017,
-    MSG_GPS_INFO = 0x018,
-    MSG_STATE_EST_DATA = 0x019,
-    MSG_LEDS_ON = 0x01A,
-    MSG_LEDS_OFF = 0x01B,
-    MSG_ID_ENUM_MAX = 0x01C,
+    MSG_SENSOR_BARO = 0x013,
+    MSG_SENSOR_ANALOG = 0x014,
+    MSG_GPS_TIMESTAMP = 0x015,
+    MSG_GPS_LATITUDE = 0x016,
+    MSG_GPS_LONGITUDE = 0x017,
+    MSG_GPS_ALTITUDE = 0x018,
+    MSG_GPS_INFO = 0x019,
+    MSG_STATE_EST_DATA = 0x01A,
+    MSG_LEDS_ON = 0x01B,
+    MSG_LEDS_OFF = 0x01C,
+    MSG_ID_ENUM_MAX = 0x01D,
 } can_msg_type_t;
 
 
@@ -633,6 +634,15 @@ _Bool build_mag_data_msg(
 
 
 
+_Bool build_baro_data_msg(
+    can_msg_prio_t prio, uint16_t timestamp, can_imu_id_t imu_id, uint32_t pressure, uint16_t temp,
+    can_msg_t *output
+);
+
+
+
+
+
 
 _Bool build_analog_data_msg(
     can_msg_prio_t prio, uint16_t timestamp, can_analog_sensor_id_t sensor_id, uint16_t sensor_data,
@@ -666,6 +676,11 @@ _Bool get_mag_data(const can_msg_t *msg, uint16_t *mag_value);
 
 
 
+_Bool get_baro_data(const can_msg_t *msg, can_imu_id_t *imu_id, uint32_t *pressure, uint16_t *temp);
+
+
+
+
 
 
 _Bool get_analog_data(
@@ -687,7 +702,7 @@ _Bool get_state_est_data(const can_msg_t *msg, can_state_est_id_t *state_id, flo
 # 14 "canlib/canlib.h" 2
 
 # 1 "canlib/util/can_rcv_buffer.h" 1
-# 26 "canlib/util/can_rcv_buffer.h"
+# 25 "canlib/util/can_rcv_buffer.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stddef.h" 1 3
 # 19 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stddef.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 1 3
@@ -698,7 +713,9 @@ typedef unsigned size_t;
 # 138 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
 typedef int ptrdiff_t;
 # 20 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stddef.h" 2 3
-# 27 "canlib/util/can_rcv_buffer.h" 2
+# 26 "canlib/util/can_rcv_buffer.h" 2
+
+
 
 
 
@@ -706,9 +723,9 @@ typedef int ptrdiff_t;
 
 
 void rcvb_init(void *pool, size_t pool_size);
-# 42 "canlib/util/can_rcv_buffer.h"
+# 43 "canlib/util/can_rcv_buffer.h"
 void rcvb_push_message(const can_msg_t *msg);
-# 53 "canlib/util/can_rcv_buffer.h"
+# 54 "canlib/util/can_rcv_buffer.h"
 _Bool rcvb_has_overflowed(void);
 
 
@@ -718,7 +735,7 @@ _Bool rcvb_has_overflowed(void);
 
 
 void rcvb_clear_overflow_flag(void);
-# 70 "canlib/util/can_rcv_buffer.h"
+# 71 "canlib/util/can_rcv_buffer.h"
 _Bool rcvb_is_full(void);
 
 
@@ -740,10 +757,10 @@ _Bool rcvb_pop_message(can_msg_t *msg);
 _Bool rcvb_peek_message(can_msg_t *msg);
 # 16 "canlib/canlib.h" 2
 # 1 "canlib/util/can_tx_buffer.h" 1
-# 12 "canlib/util/can_tx_buffer.h"
-void txb_init(void *pool, size_t pool_size,
-              void (*can_send_fp)(const can_msg_t *),
-              _Bool (*can_tx_ready)(void));
+# 13 "canlib/util/can_tx_buffer.h"
+void txb_init(
+    void *pool, size_t pool_size, void (*can_send_fp)(const can_msg_t *), _Bool (*can_tx_ready)(void)
+);
 
 
 
@@ -767,6 +784,7 @@ void txb_heartbeat(void);
 
 
 
+
 _Bool can_generate_timing_params(uint32_t can_frequency, can_timing_t *timing);
 # 18 "canlib/canlib.h" 2
 
@@ -777,12 +795,11 @@ _Bool can_generate_timing_params(uint32_t can_frequency, can_timing_t *timing);
 
 
 # 1 "canlib/pic18f26k83/pic18f26k83_can.h" 1
-# 16 "canlib/pic18f26k83/pic18f26k83_can.h"
-void can_init(const can_timing_t *timing,
-              void (*receive_callback)(const can_msg_t *message));
+# 17 "canlib/pic18f26k83/pic18f26k83_can.h"
+void can_init(const can_timing_t *timing, void (*receive_callback)(const can_msg_t *message));
 
 
-void can_send(const can_msg_t* message);
+void can_send(const can_msg_t *message);
 
 
 _Bool can_send_rdy(void);
@@ -37532,18 +37549,87 @@ void can_log(const can_msg_t *msg);
 
 void send_status_ok(void);
 # 2 "main.c" 2
-# 18 "main.c"
-# 1 "rocketlib/include/i2c.h" 1
-# 12 "rocketlib/include/i2c.h"
-void i2c_init(uint8_t clkdiv);
 
-_Bool i2c_write_data(uint8_t address, const uint8_t *data, uint8_t len);
-_Bool i2c_read_data(uint8_t address, uint8_t *data, uint8_t len);
-_Bool i2c_write_reg8(uint8_t address, uint8_t reg, uint8_t val);
-_Bool i2c_write_reg16(uint8_t address, uint8_t reg, uint16_t val);
-_Bool i2c_read_reg8(uint8_t address, uint8_t reg, uint8_t *value);
-_Bool i2c_read_reg16(uint8_t address, uint8_t reg, uint16_t *value);
-# 19 "main.c" 2
+
+
+
+
+
+
+
+# 1 "./config.h" 1
+
+
+
+
+#pragma config FEXTOSC = HS
+#pragma config RSTOSC = HFINTOSC_1MHZ
+
+
+
+#pragma config CLKOUTEN = OFF
+#pragma config PR1WAY = ON
+
+#pragma config CSWEN = ON
+#pragma config FCMEN = ON
+
+
+#pragma config MCLRE = EXTMCLR
+
+#pragma config PWRTS = PWRT_OFF
+#pragma config MVECEN = OFF
+
+#pragma config IVT1WAY = ON
+
+#pragma config LPBOREN = OFF
+#pragma config BOREN = SBORDIS
+
+
+
+#pragma config BORV = VBOR_2P45
+
+#pragma config ZCD = OFF
+
+#pragma config PPS1WAY = ON
+
+
+#pragma config STVREN = ON
+
+#pragma config DEBUG = OFF
+#pragma config XINST = OFF
+
+
+
+#pragma config WDTCPS = WDTCPS_31
+
+#pragma config WDTE = ON
+
+
+#pragma config WDTCWS = WDTCWS_7
+
+#pragma config WDTCCS = SC
+
+
+#pragma config BBSIZE = BBSIZE_512
+#pragma config BBEN = OFF
+#pragma config SAFEN = OFF
+#pragma config WRTAPP = OFF
+
+
+
+#pragma config WRTB = OFF
+
+#pragma config WRTC = OFF
+
+#pragma config WRTD = OFF
+#pragma config WRTSAF = OFF
+#pragma config LVP = ON
+
+
+
+#pragma config CP = OFF
+# 11 "main.c" 2
+# 20 "main.c"
 # 1 "./potentiometer.h" 1
 # 10 "./potentiometer.h"
 void pot_init(void);
@@ -37553,21 +37639,12 @@ void pot_read(uint8_t channel);
 uint16_t get_angle(int adc_value);
 
 uint16_t filter_potentiometer(uint16_t new_reading);
-# 20 "main.c" 2
-# 1 "./current_sensor.h" 1
-# 32 "./current_sensor.h"
-uint16_t build_config_reg(void);
-_Bool current_sense_init(void);
-float current_read(void);
-float voltage_read(void);
-float filter_current(float new_reading);
-float filter_voltage(float new_reading);
 # 21 "main.c" 2
+
 volatile uint16_t adc_value;
 volatile _Bool new_adc = 0;
-float current;
-float voltage;
-uint16_t test;
+
+
 uint16_t angle;
 
 
@@ -37601,15 +37678,8 @@ int main(void) {
     pwm_init();
     can_setup();
 
-
-    I2C1SDAPPS = 0x14;
-    I2C1SCLPPS = 0x13;
-
-
-    RC3PPS = 0x22;
-    RC4PPS = 0x21;
     pot_init();
-    i2c_init(0b000);
+
 
     uint32_t last_sensor_measure_millis = 0;
     uint32_t last_pot_send_millis = 0;
@@ -37635,7 +37705,7 @@ int main(void) {
 
             send_status_ok();
         }
-# 101 "main.c"
+# 94 "main.c"
         if (new_adc) {
             new_adc = 0;
             angle = get_angle(filter_potentiometer(adc_value));
@@ -37646,7 +37716,6 @@ int main(void) {
             pot_read(0x02);
 
 
-            i2c_read_reg16(0b1000000, 0x00, &test);
         }
 
         if ((millis() - last_pot_send_millis) >= 5) {

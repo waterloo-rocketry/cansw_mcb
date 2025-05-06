@@ -185,16 +185,17 @@ typedef enum {
     MSG_SENSOR_MAG_X = 0x010,
     MSG_SENSOR_MAG_Y = 0x011,
     MSG_SENSOR_MAG_Z = 0x012,
-    MSG_SENSOR_ANALOG = 0x013,
-    MSG_GPS_TIMESTAMP = 0x014,
-    MSG_GPS_LATITUDE = 0x015,
-    MSG_GPS_LONGITUDE = 0x016,
-    MSG_GPS_ALTITUDE = 0x017,
-    MSG_GPS_INFO = 0x018,
-    MSG_STATE_EST_DATA = 0x019,
-    MSG_LEDS_ON = 0x01A,
-    MSG_LEDS_OFF = 0x01B,
-    MSG_ID_ENUM_MAX = 0x01C,
+    MSG_SENSOR_BARO = 0x013,
+    MSG_SENSOR_ANALOG = 0x014,
+    MSG_GPS_TIMESTAMP = 0x015,
+    MSG_GPS_LATITUDE = 0x016,
+    MSG_GPS_LONGITUDE = 0x017,
+    MSG_GPS_ALTITUDE = 0x018,
+    MSG_GPS_INFO = 0x019,
+    MSG_STATE_EST_DATA = 0x01A,
+    MSG_LEDS_ON = 0x01B,
+    MSG_LEDS_OFF = 0x01C,
+    MSG_ID_ENUM_MAX = 0x01D,
 } can_msg_type_t;
 
 
@@ -414,9 +415,9 @@ _Bool build_alt_arm_cmd_msg(
     output->sid = (((uint32_t)prio << 27) | ((uint32_t)MSG_ALT_ARM_CMD << 18) | ((uint32_t)BOARD_TYPE_ID_CANARD_MOTOR << 8) | 0x03);
     write_timestamp_2bytes(timestamp, output);
 
-    output->data[3] = alt_id;
-    output->data[4] = arm_cmd;
-    output->data_len = 5;
+    output->data[2] = alt_id;
+    output->data[3] = arm_cmd;
+    output->data_len = 4;
 
     return 1;
 }
@@ -456,8 +457,8 @@ _Bool get_alt_arm_state(
         (get_message_type(msg) != MSG_ALT_ARM_STATUS)) {
         return 0;
     }
-    *alt_id = msg->data[3];
-    *arm_state = msg->data[4];
+    *alt_id = msg->data[2];
+    *arm_state = msg->data[3];
 
     return 1;
 }

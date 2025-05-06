@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=canlib/message/msg_actuator.c canlib/message/msg_common.c canlib/message/msg_general.c canlib/message/msg_gps.c canlib/message/msg_recovery.c canlib/message/msg_sensor.c canlib/message/msg_state_est.c canlib/pic18f26k83/pic18f26k83_can.c canlib/util/can_rcv_buffer.c canlib/util/can_tx_buffer.c canlib/util/safe_ring_buffer.c canlib/util/timing_util.c rocketlib/pic18f26k83/timer.c rocketlib/pic18f26k83/i2c.c main.c setup.c pwm.c can_handler.c potentiometer.c current_sensor.c
+SOURCEFILES_QUOTED_IF_SPACED=canlib/message/msg_actuator.c canlib/message/msg_common.c canlib/message/msg_general.c canlib/message/msg_gps.c canlib/message/msg_recovery.c canlib/message/msg_sensor.c canlib/message/msg_state_est.c canlib/pic18f26k83/pic18f26k83_can.c canlib/util/can_rcv_buffer.c canlib/util/can_tx_buffer.c canlib/util/safe_ring_buffer.c canlib/util/timing_util.c rocketlib/pic18f26k83/timer.c main.c setup.c pwm.c can_handler.c potentiometer.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/canlib/message/msg_actuator.p1 ${OBJECTDIR}/canlib/message/msg_common.p1 ${OBJECTDIR}/canlib/message/msg_general.p1 ${OBJECTDIR}/canlib/message/msg_gps.p1 ${OBJECTDIR}/canlib/message/msg_recovery.p1 ${OBJECTDIR}/canlib/message/msg_sensor.p1 ${OBJECTDIR}/canlib/message/msg_state_est.p1 ${OBJECTDIR}/canlib/pic18f26k83/pic18f26k83_can.p1 ${OBJECTDIR}/canlib/util/can_rcv_buffer.p1 ${OBJECTDIR}/canlib/util/can_tx_buffer.p1 ${OBJECTDIR}/canlib/util/safe_ring_buffer.p1 ${OBJECTDIR}/canlib/util/timing_util.p1 ${OBJECTDIR}/rocketlib/pic18f26k83/timer.p1 ${OBJECTDIR}/rocketlib/pic18f26k83/i2c.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/setup.p1 ${OBJECTDIR}/pwm.p1 ${OBJECTDIR}/can_handler.p1 ${OBJECTDIR}/potentiometer.p1 ${OBJECTDIR}/current_sensor.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/canlib/message/msg_actuator.p1.d ${OBJECTDIR}/canlib/message/msg_common.p1.d ${OBJECTDIR}/canlib/message/msg_general.p1.d ${OBJECTDIR}/canlib/message/msg_gps.p1.d ${OBJECTDIR}/canlib/message/msg_recovery.p1.d ${OBJECTDIR}/canlib/message/msg_sensor.p1.d ${OBJECTDIR}/canlib/message/msg_state_est.p1.d ${OBJECTDIR}/canlib/pic18f26k83/pic18f26k83_can.p1.d ${OBJECTDIR}/canlib/util/can_rcv_buffer.p1.d ${OBJECTDIR}/canlib/util/can_tx_buffer.p1.d ${OBJECTDIR}/canlib/util/safe_ring_buffer.p1.d ${OBJECTDIR}/canlib/util/timing_util.p1.d ${OBJECTDIR}/rocketlib/pic18f26k83/timer.p1.d ${OBJECTDIR}/rocketlib/pic18f26k83/i2c.p1.d ${OBJECTDIR}/main.p1.d ${OBJECTDIR}/setup.p1.d ${OBJECTDIR}/pwm.p1.d ${OBJECTDIR}/can_handler.p1.d ${OBJECTDIR}/potentiometer.p1.d ${OBJECTDIR}/current_sensor.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/canlib/message/msg_actuator.p1 ${OBJECTDIR}/canlib/message/msg_common.p1 ${OBJECTDIR}/canlib/message/msg_general.p1 ${OBJECTDIR}/canlib/message/msg_gps.p1 ${OBJECTDIR}/canlib/message/msg_recovery.p1 ${OBJECTDIR}/canlib/message/msg_sensor.p1 ${OBJECTDIR}/canlib/message/msg_state_est.p1 ${OBJECTDIR}/canlib/pic18f26k83/pic18f26k83_can.p1 ${OBJECTDIR}/canlib/util/can_rcv_buffer.p1 ${OBJECTDIR}/canlib/util/can_tx_buffer.p1 ${OBJECTDIR}/canlib/util/safe_ring_buffer.p1 ${OBJECTDIR}/canlib/util/timing_util.p1 ${OBJECTDIR}/rocketlib/pic18f26k83/timer.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/setup.p1 ${OBJECTDIR}/pwm.p1 ${OBJECTDIR}/can_handler.p1 ${OBJECTDIR}/potentiometer.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/canlib/message/msg_actuator.p1.d ${OBJECTDIR}/canlib/message/msg_common.p1.d ${OBJECTDIR}/canlib/message/msg_general.p1.d ${OBJECTDIR}/canlib/message/msg_gps.p1.d ${OBJECTDIR}/canlib/message/msg_recovery.p1.d ${OBJECTDIR}/canlib/message/msg_sensor.p1.d ${OBJECTDIR}/canlib/message/msg_state_est.p1.d ${OBJECTDIR}/canlib/pic18f26k83/pic18f26k83_can.p1.d ${OBJECTDIR}/canlib/util/can_rcv_buffer.p1.d ${OBJECTDIR}/canlib/util/can_tx_buffer.p1.d ${OBJECTDIR}/canlib/util/safe_ring_buffer.p1.d ${OBJECTDIR}/canlib/util/timing_util.p1.d ${OBJECTDIR}/rocketlib/pic18f26k83/timer.p1.d ${OBJECTDIR}/main.p1.d ${OBJECTDIR}/setup.p1.d ${OBJECTDIR}/pwm.p1.d ${OBJECTDIR}/can_handler.p1.d ${OBJECTDIR}/potentiometer.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/canlib/message/msg_actuator.p1 ${OBJECTDIR}/canlib/message/msg_common.p1 ${OBJECTDIR}/canlib/message/msg_general.p1 ${OBJECTDIR}/canlib/message/msg_gps.p1 ${OBJECTDIR}/canlib/message/msg_recovery.p1 ${OBJECTDIR}/canlib/message/msg_sensor.p1 ${OBJECTDIR}/canlib/message/msg_state_est.p1 ${OBJECTDIR}/canlib/pic18f26k83/pic18f26k83_can.p1 ${OBJECTDIR}/canlib/util/can_rcv_buffer.p1 ${OBJECTDIR}/canlib/util/can_tx_buffer.p1 ${OBJECTDIR}/canlib/util/safe_ring_buffer.p1 ${OBJECTDIR}/canlib/util/timing_util.p1 ${OBJECTDIR}/rocketlib/pic18f26k83/timer.p1 ${OBJECTDIR}/rocketlib/pic18f26k83/i2c.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/setup.p1 ${OBJECTDIR}/pwm.p1 ${OBJECTDIR}/can_handler.p1 ${OBJECTDIR}/potentiometer.p1 ${OBJECTDIR}/current_sensor.p1
+OBJECTFILES=${OBJECTDIR}/canlib/message/msg_actuator.p1 ${OBJECTDIR}/canlib/message/msg_common.p1 ${OBJECTDIR}/canlib/message/msg_general.p1 ${OBJECTDIR}/canlib/message/msg_gps.p1 ${OBJECTDIR}/canlib/message/msg_recovery.p1 ${OBJECTDIR}/canlib/message/msg_sensor.p1 ${OBJECTDIR}/canlib/message/msg_state_est.p1 ${OBJECTDIR}/canlib/pic18f26k83/pic18f26k83_can.p1 ${OBJECTDIR}/canlib/util/can_rcv_buffer.p1 ${OBJECTDIR}/canlib/util/can_tx_buffer.p1 ${OBJECTDIR}/canlib/util/safe_ring_buffer.p1 ${OBJECTDIR}/canlib/util/timing_util.p1 ${OBJECTDIR}/rocketlib/pic18f26k83/timer.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/setup.p1 ${OBJECTDIR}/pwm.p1 ${OBJECTDIR}/can_handler.p1 ${OBJECTDIR}/potentiometer.p1
 
 # Source Files
-SOURCEFILES=canlib/message/msg_actuator.c canlib/message/msg_common.c canlib/message/msg_general.c canlib/message/msg_gps.c canlib/message/msg_recovery.c canlib/message/msg_sensor.c canlib/message/msg_state_est.c canlib/pic18f26k83/pic18f26k83_can.c canlib/util/can_rcv_buffer.c canlib/util/can_tx_buffer.c canlib/util/safe_ring_buffer.c canlib/util/timing_util.c rocketlib/pic18f26k83/timer.c rocketlib/pic18f26k83/i2c.c main.c setup.c pwm.c can_handler.c potentiometer.c current_sensor.c
+SOURCEFILES=canlib/message/msg_actuator.c canlib/message/msg_common.c canlib/message/msg_general.c canlib/message/msg_gps.c canlib/message/msg_recovery.c canlib/message/msg_sensor.c canlib/message/msg_state_est.c canlib/pic18f26k83/pic18f26k83_can.c canlib/util/can_rcv_buffer.c canlib/util/can_tx_buffer.c canlib/util/safe_ring_buffer.c canlib/util/timing_util.c rocketlib/pic18f26k83/timer.c main.c setup.c pwm.c can_handler.c potentiometer.c
 
 
 
@@ -192,14 +192,6 @@ ${OBJECTDIR}/rocketlib/pic18f26k83/timer.p1: rocketlib/pic18f26k83/timer.c  nbpr
 	@-${MV} ${OBJECTDIR}/rocketlib/pic18f26k83/timer.d ${OBJECTDIR}/rocketlib/pic18f26k83/timer.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/rocketlib/pic18f26k83/timer.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/rocketlib/pic18f26k83/i2c.p1: rocketlib/pic18f26k83/i2c.c  nbproject/Makefile-${CND_CONF}.mk 
-	@${MKDIR} "${OBJECTDIR}/rocketlib/pic18f26k83" 
-	@${RM} ${OBJECTDIR}/rocketlib/pic18f26k83/i2c.p1.d 
-	@${RM} ${OBJECTDIR}/rocketlib/pic18f26k83/i2c.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=pickit5   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -DBOARD_TYPE_UNIQUE_ID=BOARD_TYPE_ID_CANARD_MOTOR -DBOARD_INST_UNIQUE_ID=0x03 -xassembler-with-cpp -I"canlib" -I"rocketlib/include" -I"canlib/pic18f26k83" -I"canlib/message" -I"canlib/util" -v -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/rocketlib/pic18f26k83/i2c.p1 rocketlib/pic18f26k83/i2c.c 
-	@-${MV} ${OBJECTDIR}/rocketlib/pic18f26k83/i2c.d ${OBJECTDIR}/rocketlib/pic18f26k83/i2c.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/rocketlib/pic18f26k83/i2c.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
 ${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/main.p1.d 
@@ -239,14 +231,6 @@ ${OBJECTDIR}/potentiometer.p1: potentiometer.c  nbproject/Makefile-${CND_CONF}.m
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=pickit5   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -DBOARD_TYPE_UNIQUE_ID=BOARD_TYPE_ID_CANARD_MOTOR -DBOARD_INST_UNIQUE_ID=0x03 -xassembler-with-cpp -I"canlib" -I"rocketlib/include" -I"canlib/pic18f26k83" -I"canlib/message" -I"canlib/util" -v -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/potentiometer.p1 potentiometer.c 
 	@-${MV} ${OBJECTDIR}/potentiometer.d ${OBJECTDIR}/potentiometer.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/potentiometer.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/current_sensor.p1: current_sensor.c  nbproject/Makefile-${CND_CONF}.mk 
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/current_sensor.p1.d 
-	@${RM} ${OBJECTDIR}/current_sensor.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=pickit5   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -DBOARD_TYPE_UNIQUE_ID=BOARD_TYPE_ID_CANARD_MOTOR -DBOARD_INST_UNIQUE_ID=0x03 -xassembler-with-cpp -I"canlib" -I"rocketlib/include" -I"canlib/pic18f26k83" -I"canlib/message" -I"canlib/util" -v -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/current_sensor.p1 current_sensor.c 
-	@-${MV} ${OBJECTDIR}/current_sensor.d ${OBJECTDIR}/current_sensor.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/current_sensor.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 else
 ${OBJECTDIR}/canlib/message/msg_actuator.p1: canlib/message/msg_actuator.c  nbproject/Makefile-${CND_CONF}.mk 
@@ -353,14 +337,6 @@ ${OBJECTDIR}/rocketlib/pic18f26k83/timer.p1: rocketlib/pic18f26k83/timer.c  nbpr
 	@-${MV} ${OBJECTDIR}/rocketlib/pic18f26k83/timer.d ${OBJECTDIR}/rocketlib/pic18f26k83/timer.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/rocketlib/pic18f26k83/timer.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/rocketlib/pic18f26k83/i2c.p1: rocketlib/pic18f26k83/i2c.c  nbproject/Makefile-${CND_CONF}.mk 
-	@${MKDIR} "${OBJECTDIR}/rocketlib/pic18f26k83" 
-	@${RM} ${OBJECTDIR}/rocketlib/pic18f26k83/i2c.p1.d 
-	@${RM} ${OBJECTDIR}/rocketlib/pic18f26k83/i2c.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -DBOARD_TYPE_UNIQUE_ID=BOARD_TYPE_ID_CANARD_MOTOR -DBOARD_INST_UNIQUE_ID=0x03 -xassembler-with-cpp -I"canlib" -I"rocketlib/include" -I"canlib/pic18f26k83" -I"canlib/message" -I"canlib/util" -v -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/rocketlib/pic18f26k83/i2c.p1 rocketlib/pic18f26k83/i2c.c 
-	@-${MV} ${OBJECTDIR}/rocketlib/pic18f26k83/i2c.d ${OBJECTDIR}/rocketlib/pic18f26k83/i2c.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/rocketlib/pic18f26k83/i2c.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
 ${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/main.p1.d 
@@ -400,14 +376,6 @@ ${OBJECTDIR}/potentiometer.p1: potentiometer.c  nbproject/Makefile-${CND_CONF}.m
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -DBOARD_TYPE_UNIQUE_ID=BOARD_TYPE_ID_CANARD_MOTOR -DBOARD_INST_UNIQUE_ID=0x03 -xassembler-with-cpp -I"canlib" -I"rocketlib/include" -I"canlib/pic18f26k83" -I"canlib/message" -I"canlib/util" -v -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/potentiometer.p1 potentiometer.c 
 	@-${MV} ${OBJECTDIR}/potentiometer.d ${OBJECTDIR}/potentiometer.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/potentiometer.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/current_sensor.p1: current_sensor.c  nbproject/Makefile-${CND_CONF}.mk 
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/current_sensor.p1.d 
-	@${RM} ${OBJECTDIR}/current_sensor.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -DBOARD_TYPE_UNIQUE_ID=BOARD_TYPE_ID_CANARD_MOTOR -DBOARD_INST_UNIQUE_ID=0x03 -xassembler-with-cpp -I"canlib" -I"rocketlib/include" -I"canlib/pic18f26k83" -I"canlib/message" -I"canlib/util" -v -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/current_sensor.p1 current_sensor.c 
-	@-${MV} ${OBJECTDIR}/current_sensor.d ${OBJECTDIR}/current_sensor.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/current_sensor.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 

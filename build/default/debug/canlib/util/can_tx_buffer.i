@@ -30,7 +30,8 @@ typedef __int24 int24_t;
 typedef __uint24 uint24_t;
 # 20 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stddef.h" 2 3
 # 3 "canlib/util/can_tx_buffer.h" 2
-# 1 "canlib/util/../can.h" 1
+
+# 1 "canlib/can.h" 1
 
 
 
@@ -123,7 +124,7 @@ typedef int32_t int_fast32_t;
 typedef uint16_t uint_fast16_t;
 typedef uint32_t uint_fast32_t;
 # 149 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdint.h" 2 3
-# 10 "canlib/util/../can.h" 2
+# 10 "canlib/can.h" 2
 
 
 
@@ -160,7 +161,7 @@ typedef struct {
 
     uint8_t data[8];
 } can_msg_t;
-# 4 "canlib/util/can_tx_buffer.h" 2
+# 5 "canlib/util/can_tx_buffer.h" 2
 
 
 
@@ -169,9 +170,9 @@ typedef struct {
 
 
 
-void txb_init(void *pool, size_t pool_size,
-              void (*can_send_fp)(const can_msg_t *),
-              _Bool (*can_tx_ready)(void));
+void txb_init(
+    void *pool, size_t pool_size, void (*can_send_fp)(const can_msg_t *), _Bool (*can_tx_ready)(void)
+);
 
 
 
@@ -188,7 +189,7 @@ _Bool txb_enqueue(const can_msg_t *msg);
 void txb_heartbeat(void);
 # 2 "canlib/util/can_tx_buffer.c" 2
 # 1 "canlib/util/safe_ring_buffer.h" 1
-# 16 "canlib/util/safe_ring_buffer.h"
+# 12 "canlib/util/safe_ring_buffer.h"
 typedef struct {
     void *memory_pool;
     size_t element_size;
@@ -196,19 +197,15 @@ typedef struct {
     size_t rd_idx;
     size_t wr_idx;
 } srb_ctx_t;
-# 34 "canlib/util/safe_ring_buffer.h"
-void srb_init(srb_ctx_t *ctx,
-              void *pool,
-              size_t pool_size,
-              size_t element_size);
+# 30 "canlib/util/safe_ring_buffer.h"
+void srb_init(srb_ctx_t *ctx, void *pool, size_t pool_size, size_t element_size);
 
 
 
 
 
 
-_Bool srb_push(srb_ctx_t *ctx,
-              const void *element);
+_Bool srb_push(srb_ctx_t *ctx, const void *element);
 
 
 
@@ -225,16 +222,14 @@ _Bool srb_is_empty(const srb_ctx_t *ctx);
 
 
 
-_Bool srb_pop(srb_ctx_t *ctx,
-             void *element);
+_Bool srb_pop(srb_ctx_t *ctx, void *element);
 
 
 
 
 
 
-_Bool srb_peek(const srb_ctx_t *ctx,
-              void *element);
+_Bool srb_peek(const srb_ctx_t *ctx, void *element);
 # 3 "canlib/util/can_tx_buffer.c" 2
 
 typedef struct {
@@ -248,9 +243,9 @@ static srb_ctx_t buf;
 
 static cbl_ctx_t ctx;
 
-void txb_init(void *pool, size_t pool_size,
-              void (*can_send_fp)(const can_msg_t *),
-              _Bool (*can_tx_ready)(void)) {
+void txb_init(
+    void *pool, size_t pool_size, void (*can_send_fp)(const can_msg_t *), _Bool (*can_tx_ready)(void)
+) {
     ctx.can_send_fp = can_send_fp;
     ctx.can_tx_ready = can_tx_ready;
     srb_init(&buf, pool, pool_size, sizeof(can_msg_t));

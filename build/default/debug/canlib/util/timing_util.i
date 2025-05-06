@@ -11,15 +11,8 @@
 
 
 
-# 1 "canlib/util/../can.h" 1
-
-
-
-
-
-
-
-
+# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdbool.h" 1 3
+# 5 "canlib/util/timing_util.h" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdint.h" 1 3
 
 
@@ -125,12 +118,10 @@ typedef int32_t int_fast32_t;
 typedef uint16_t uint_fast16_t;
 typedef uint32_t uint_fast32_t;
 # 149 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdint.h" 2 3
-# 10 "canlib/util/../can.h" 2
-# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdbool.h" 1 3
-# 11 "canlib/util/../can.h" 2
+# 6 "canlib/util/timing_util.h" 2
 
-
-
+# 1 "canlib/can.h" 1
+# 14 "canlib/can.h"
 typedef uint32_t can_sid_t;
 
 
@@ -163,9 +154,7 @@ typedef struct {
 
     uint8_t data[8];
 } can_msg_t;
-# 5 "canlib/util/timing_util.h" 2
-
-
+# 8 "canlib/util/timing_util.h" 2
 
 _Bool can_generate_timing_params(uint32_t can_frequency, can_timing_t *timing);
 # 2 "canlib/util/timing_util.c" 2
@@ -174,8 +163,7 @@ _Bool can_generate_timing_params(uint32_t can_frequency, can_timing_t *timing);
 
 
 
-_Bool can_generate_timing_params(uint32_t can_frequency, can_timing_t *timing)
-{
+_Bool can_generate_timing_params(uint32_t can_frequency, can_timing_t *timing) {
 
     switch (can_frequency) {
         case 48000000:

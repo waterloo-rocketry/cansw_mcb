@@ -1,10 +1,10 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"16 canlib/util/safe_ring_buffer.h
-[; ;canlib/util/safe_ring_buffer.h: 16: typedef struct {
+"12 canlib/util/safe_ring_buffer.h
+[; ;canlib/util/safe_ring_buffer.h: 12: typedef struct {
 [s S3 `*v 1 `ui 1 `ui 1 `ui 1 `ui 1 ]
 [n S3 . memory_pool element_size max_elements rd_idx wr_idx ]
-"38 canlib/util/../can.h
-[; ;canlib/util/../can.h: 38: typedef struct {
+"38 canlib/can.h
+[; ;canlib/can.h: 38: typedef struct {
 [s S2 `ul 1 `uc 1 `uc -> 8 `i ]
 [n S2 . sid data_len data ]
 [v F95 `(v ~T0 @X0 0 tf1`*CS2 ]
@@ -17,20 +17,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v F105 `(a ~T0 @X0 0 tf ]
 [v F109 `(v ~T0 @X0 0 tf1`*CS2 ]
 [v F112 `(a ~T0 @X0 0 tf ]
-"34 canlib/util/safe_ring_buffer.h
-[; ;canlib/util/safe_ring_buffer.h: 34: void srb_init(srb_ctx_t *ctx,
+"30 canlib/util/safe_ring_buffer.h
+[; ;canlib/util/safe_ring_buffer.h: 30: void srb_init(srb_ctx_t *ctx, void *pool, size_t pool_size, size_t element_size);
 [v _srb_init `(v ~T0 @X0 0 ef4`*S3`*v`ui`ui ]
-"50
-[; ;canlib/util/safe_ring_buffer.h: 50: _Bool srb_is_full(const srb_ctx_t *ctx);
+"42
+[; ;canlib/util/safe_ring_buffer.h: 42: _Bool srb_is_full(const srb_ctx_t *ctx);
 [v _srb_is_full `(a ~T0 @X0 0 ef1`*CS3 ]
-"44
-[; ;canlib/util/safe_ring_buffer.h: 44: _Bool srb_push(srb_ctx_t *ctx,
+"37
+[; ;canlib/util/safe_ring_buffer.h: 37: _Bool srb_push(srb_ctx_t *ctx, const void *element);
 [v _srb_push `(a ~T0 @X0 0 ef2`*S3`*Cv ]
-"55
-[; ;canlib/util/safe_ring_buffer.h: 55: _Bool srb_is_empty(const srb_ctx_t *ctx);
+"47
+[; ;canlib/util/safe_ring_buffer.h: 47: _Bool srb_is_empty(const srb_ctx_t *ctx);
 [v _srb_is_empty `(a ~T0 @X0 0 ef1`*CS3 ]
-"62
-[; ;canlib/util/safe_ring_buffer.h: 62: _Bool srb_pop(srb_ctx_t *ctx,
+"54
+[; ;canlib/util/safe_ring_buffer.h: 54: _Bool srb_pop(srb_ctx_t *ctx, void *element);
 [v _srb_pop `(a ~T0 @X0 0 ef2`*S3`*v ]
 "10 canlib/util/can_tx_buffer.c
 [; ;canlib/util/can_tx_buffer.c: 10: static srb_ctx_t buf;
@@ -39,22 +39,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;canlib/util/can_tx_buffer.c: 13: static cbl_ctx_t ctx;
 [v _ctx `S4 ~T0 @X0 1 s ]
 "15
-[; ;canlib/util/can_tx_buffer.c: 15: void txb_init(void *pool, size_t pool_size,
+[; ;canlib/util/can_tx_buffer.c: 15: void txb_init(
 [v _txb_init `(v ~T0 @X0 1 ef4`*v`ui`*F103`*F105 ]
 "17
-[; ;canlib/util/can_tx_buffer.c: 17:               _Bool (*can_tx_ready)(void)) {
+[; ;canlib/util/can_tx_buffer.c: 17: ) {
 {
 [e :U _txb_init ]
-"15
-[; ;canlib/util/can_tx_buffer.c: 15: void txb_init(void *pool, size_t pool_size,
+"16
+[; ;canlib/util/can_tx_buffer.c: 16:     void *pool, size_t pool_size, void (*can_send_fp)(const can_msg_t *), _Bool (*can_tx_ready)(void)
 [v _pool `*v ~T0 @X0 1 r1 ]
 [v _pool_size `ui ~T0 @X0 1 r2 ]
-"16
-[; ;canlib/util/can_tx_buffer.c: 16:               void (*can_send_fp)(const can_msg_t *),
 [v _can_send_fp `*F109 ~T0 @X0 1 r3 ]
-"17
-[; ;canlib/util/can_tx_buffer.c: 17:               _Bool (*can_tx_ready)(void)) {
 [v _can_tx_ready `*F112 ~T0 @X0 1 r4 ]
+"17
+[; ;canlib/util/can_tx_buffer.c: 17: ) {
 [f ]
 "18
 [; ;canlib/util/can_tx_buffer.c: 18:     ctx.can_send_fp = can_send_fp;

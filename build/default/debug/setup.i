@@ -45,16 +45,17 @@ typedef enum {
     MSG_SENSOR_MAG_X = 0x010,
     MSG_SENSOR_MAG_Y = 0x011,
     MSG_SENSOR_MAG_Z = 0x012,
-    MSG_SENSOR_ANALOG = 0x013,
-    MSG_GPS_TIMESTAMP = 0x014,
-    MSG_GPS_LATITUDE = 0x015,
-    MSG_GPS_LONGITUDE = 0x016,
-    MSG_GPS_ALTITUDE = 0x017,
-    MSG_GPS_INFO = 0x018,
-    MSG_STATE_EST_DATA = 0x019,
-    MSG_LEDS_ON = 0x01A,
-    MSG_LEDS_OFF = 0x01B,
-    MSG_ID_ENUM_MAX = 0x01C,
+    MSG_SENSOR_BARO = 0x013,
+    MSG_SENSOR_ANALOG = 0x014,
+    MSG_GPS_TIMESTAMP = 0x015,
+    MSG_GPS_LATITUDE = 0x016,
+    MSG_GPS_LONGITUDE = 0x017,
+    MSG_GPS_ALTITUDE = 0x018,
+    MSG_GPS_INFO = 0x019,
+    MSG_STATE_EST_DATA = 0x01A,
+    MSG_LEDS_ON = 0x01B,
+    MSG_LEDS_OFF = 0x01C,
+    MSG_ID_ENUM_MAX = 0x01D,
 } can_msg_type_t;
 
 
@@ -36892,71 +36893,3 @@ void osc_init(void) {
         for (uint16_t i = 0; i < 60000; i++) {}
     }
 }
-
-
-#pragma config FEXTOSC = HS
-#pragma config RSTOSC = HFINTOSC_1MHZ
-
-
-
-#pragma config CLKOUTEN = OFF
-#pragma config PR1WAY = ON
-
-#pragma config CSWEN = ON
-#pragma config FCMEN = ON
-
-
-#pragma config MCLRE = EXTMCLR
-
-#pragma config PWRTS = PWRT_OFF
-#pragma config MVECEN = OFF
-
-#pragma config IVT1WAY = ON
-
-#pragma config LPBOREN = OFF
-#pragma config BOREN = SBORDIS
-
-
-
-#pragma config BORV = VBOR_2P45
-
-#pragma config ZCD = OFF
-
-#pragma config PPS1WAY = ON
-
-
-#pragma config STVREN = ON
-
-#pragma config DEBUG = OFF
-#pragma config XINST = OFF
-
-
-
-#pragma config WDTCPS = WDTCPS_31
-
-#pragma config WDTE = ON
-
-
-#pragma config WDTCWS = WDTCWS_7
-
-#pragma config WDTCCS = SC
-
-
-#pragma config BBSIZE = BBSIZE_512
-#pragma config BBEN = OFF
-#pragma config SAFEN = OFF
-#pragma config WRTAPP = OFF
-
-
-
-#pragma config WRTB = OFF
-
-#pragma config WRTC = OFF
-
-#pragma config WRTD = OFF
-#pragma config WRTSAF = OFF
-#pragma config LVP = ON
-
-
-
-#pragma config CP = OFF
