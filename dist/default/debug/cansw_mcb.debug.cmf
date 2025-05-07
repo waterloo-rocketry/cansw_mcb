@@ -11,10 +11,6 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_9.o
-init CODE 0 1A 1A 4 1 2
-reset_vec CODE 0 0 0 6 1 2
-config CONFIG 4 300000 300000 A 1 1
 $dist/default/debug\cansw_mcb.debug.o
 ivt0x8 CODE 0 8 8 12 1 2
 cinit CODE 0 332A 332A 3A 1 2
@@ -70,6 +66,10 @@ bssBANK0 BANK0 1 D4 D4 23 1 1
 smallconst SMALLCONST 0 1000 1000 A 1 2
 bssBIGRAM BIGRAM 1 F7 F7 1F4 1 1
 bssCOMRAM COMRAM 1 3C 3C 4 1 1
+config CONFIG 4 300000 300000 A 1 1
+$C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_9.o
+init CODE 0 1A 1A 4 1 2
+reset_vec CODE 0 0 0 6 1 2
 config CONFIG 4 300000 300000 A 1 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
@@ -855,37 +855,37 @@ $dist/default/debug\cansw_mcb.debug.o
 1DD2 text0 CODE >110:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\main.c
 1DF6 text0 CODE >113:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\main.c
 1E00 text0 CODE >116:C:\Users\zkhua\OneDrive\Documents\GitHub\cansw_mcb\main.c
-332A cinit CODE >14618:C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_1.s
-332A cinit CODE >14620:C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_1.s
-332A cinit CODE >14623:C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_1.s
-332A cinit CODE >14666:C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_1.s
-332E cinit CODE >14667:C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_1.s
-3332 cinit CODE >14668:C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_1.s
-3332 cinit CODE >14669:C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_1.s
-3334 cinit CODE >14670:C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_1.s
-3336 cinit CODE >14671:C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_1.s
-3338 cinit CODE >14672:C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_1.s
-333A cinit CODE >14673:C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_1.s
-333C cinit CODE >14674:C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_1.s
-333E cinit CODE >14677:C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_1.s
-3342 cinit CODE >14678:C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_1.s
-3344 cinit CODE >14679:C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_1.s
-3344 cinit CODE >14680:C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_1.s
-3346 cinit CODE >14681:C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_1.s
-3348 cinit CODE >14682:C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_1.s
-334A cinit CODE >14685:C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_1.s
-334C cinit CODE >14686:C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_1.s
-334E cinit CODE >14687:C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_1.s
-3350 cinit CODE >14688:C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_1.s
-3352 cinit CODE >14696:C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_1.s
-3354 cinit CODE >14697:C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_1.s
-3356 cinit CODE >14698:C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_1.s
-3358 cinit CODE >14699:C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_1.s
-335A cinit CODE >14700:C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_1.s
-335C cinit CODE >14701:C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_1.s
-335E cinit CODE >14707:C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_1.s
-335E cinit CODE >14709:C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_1.s
-3360 cinit CODE >14710:C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_1.s
+332A cinit CODE >14618:C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_1.s
+332A cinit CODE >14620:C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_1.s
+332A cinit CODE >14623:C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_1.s
+332A cinit CODE >14666:C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_1.s
+332E cinit CODE >14667:C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_1.s
+3332 cinit CODE >14668:C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_1.s
+3332 cinit CODE >14669:C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_1.s
+3334 cinit CODE >14670:C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_1.s
+3336 cinit CODE >14671:C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_1.s
+3338 cinit CODE >14672:C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_1.s
+333A cinit CODE >14673:C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_1.s
+333C cinit CODE >14674:C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_1.s
+333E cinit CODE >14677:C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_1.s
+3342 cinit CODE >14678:C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_1.s
+3344 cinit CODE >14679:C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_1.s
+3344 cinit CODE >14680:C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_1.s
+3346 cinit CODE >14681:C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_1.s
+3348 cinit CODE >14682:C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_1.s
+334A cinit CODE >14685:C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_1.s
+334C cinit CODE >14686:C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_1.s
+334E cinit CODE >14687:C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_1.s
+3350 cinit CODE >14688:C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_1.s
+3352 cinit CODE >14696:C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_1.s
+3354 cinit CODE >14697:C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_1.s
+3356 cinit CODE >14698:C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_1.s
+3358 cinit CODE >14699:C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_1.s
+335A cinit CODE >14700:C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_1.s
+335C cinit CODE >14701:C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_1.s
+335E cinit CODE >14707:C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_1.s
+335E cinit CODE >14709:C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_1.s
+3360 cinit CODE >14710:C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_1.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -924,13 +924,13 @@ __end_of_get_offset_bytes 2FEC 0 CODE 0 text12 dist/default/debug\cansw_mcb.debu
 __Lsmallconst 1000 0 SMALLCONST 0 smallconst dist/default/debug\cansw_mcb.debug.o
 _PIR5 39A5 0 ABS 0 - dist/default/debug\cansw_mcb.debug.o
 _T2PR 3FAB 0 ABS 0 - dist/default/debug\cansw_mcb.debug.o
-___sp 0 0 STACK 2 stack C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_9.o
+___sp 0 0 STACK 2 stack C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_9.o
 _main 1C38 0 CODE 0 text0 dist/default/debug\cansw_mcb.debug.o
-___stack_hi 0 0 STACK 2 stack C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_9.o
-___stack_lo 0 0 STACK 2 stack C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_9.o
+___stack_hi 0 0 STACK 2 stack C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_9.o
+___stack_lo 0 0 STACK 2 stack C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_9.o
 can_init@timing 60 0 BANK0 1 cstackBANK0 dist/default/debug\cansw_mcb.debug.o
 __HbssBIGRAM 0 0 ABS 0 bssBIGRAM dist/default/debug\cansw_mcb.debug.o
-start 1A 0 CODE 0 init C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_9.o
+start 1A 0 CODE 0 init C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_9.o
 ___flmul@aexp 7F 0 BANK0 1 cstackBANK0 dist/default/debug\cansw_mcb.debug.o
 ___flmul@bexp 80 0 BANK0 1 cstackBANK0 dist/default/debug\cansw_mcb.debug.o
 ___flmul@prod 81 0 BANK0 1 cstackBANK0 dist/default/debug\cansw_mcb.debug.o
@@ -952,11 +952,11 @@ srb_push@ctx 6B 0 BANK0 1 cstackBANK0 dist/default/debug\cansw_mcb.debug.o
 _osc_init 31D4 0 CODE 0 text19 dist/default/debug\cansw_mcb.debug.o
 __LbssBIGRAM 0 0 ABS 0 bssBIGRAM dist/default/debug\cansw_mcb.debug.o
 ?_get_message_type 1 0 COMRAM 1 cstackCOMRAM dist/default/debug\cansw_mcb.debug.o
-__accesstop 60 0 ABS 0 - C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_9.o
-intlevel0 0 0 CODE 0 text C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_9.o
-intlevel1 0 0 CODE 0 text C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_9.o
-intlevel2 0 0 CODE 0 text C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_9.o
-intlevel3 0 0 CODE 0 text C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_9.o
+__accesstop 60 0 ABS 0 - C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_9.o
+intlevel0 0 0 CODE 0 text C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_9.o
+intlevel1 0 0 CODE 0 text C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_9.o
+intlevel2 0 0 CODE 0 text C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_9.o
+intlevel3 0 0 CODE 0 text C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_9.o
 _srb_is_full 2AFC 0 CODE 0 text10 dist/default/debug\cansw_mcb.debug.o
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/debug\cansw_mcb.debug.o
 _pin_init 34DC 0 CODE 0 text18 dist/default/debug\cansw_mcb.debug.o
@@ -982,8 +982,8 @@ _ADRESH 3EF0 0 ABS 0 - dist/default/debug\cansw_mcb.debug.o
 _ADRESL 3EEF 0 ABS 0 - dist/default/debug\cansw_mcb.debug.o
 __end_of_can_setup 3056 0 CODE 0 text27 dist/default/debug\cansw_mcb.debug.o
 build_general_board_status_msg@timestamp 68 0 BANK0 1 cstackBANK0 dist/default/debug\cansw_mcb.debug.o
-___inthi_sp 0 0 STACK 2 stack C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_9.o
-___intlo_sp 0 0 STACK 2 stack C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_9.o
+___inthi_sp 0 0 STACK 2 stack C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_9.o
+___intlo_sp 0 0 STACK 2 stack C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_9.o
 txb_heartbeat@msg_sent 75 0 BANK0 1 cstackBANK0 dist/default/debug\cansw_mcb.debug.o
 osc_init@i 60 0 BANK0 1 cstackBANK0 dist/default/debug\cansw_mcb.debug.o
 _can_receive_callback 26BC 0 CODE 0 text39 dist/default/debug\cansw_mcb.debug.o
@@ -1051,7 +1051,7 @@ _TXB0D0 37E6 0 ABS 0 - dist/default/debug\cansw_mcb.debug.o
 ?_get_offset_bytes 60 0 BANK0 1 cstackBANK0 dist/default/debug\cansw_mcb.debug.o
 srb_init@pool 68 0 BANK0 1 cstackBANK0 dist/default/debug\cansw_mcb.debug.o
 main@angle_msg C7 0 BANK0 1 cstackBANK0 dist/default/debug\cansw_mcb.debug.o
-isa$xinst 0 0 ABS 0 - C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_9.o
+isa$xinst 0 0 ABS 0 - C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_9.o
 main@last_sensor_measure_millis BB 0 BANK0 1 cstackBANK0 dist/default/debug\cansw_mcb.debug.o
 _send_status_ok 32EE 0 CODE 0 text7 dist/default/debug\cansw_mcb.debug.o
 srb_pop@element 6C 0 BANK0 1 cstackBANK0 dist/default/debug\cansw_mcb.debug.o
@@ -1326,14 +1326,14 @@ _get_message_type 30C0 0 CODE 0 text45 dist/default/debug\cansw_mcb.debug.o
 _can_generate_timing_params 1E0C 0 CODE 0 text32 dist/default/debug\cansw_mcb.debug.o
 can_generate_timing_params@timing 64 0 BANK0 1 cstackBANK0 dist/default/debug\cansw_mcb.debug.o
 __Lfarbss 0 0 FARRAM 0 farbss dist/default/debug\cansw_mcb.debug.o
-___inthi_stack_hi 0 0 STACK 2 stack C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_9.o
-___inthi_stack_lo 0 0 STACK 2 stack C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_9.o
+___inthi_stack_hi 0 0 STACK 2 stack C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_9.o
+___inthi_stack_lo 0 0 STACK 2 stack C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_9.o
 ___lwdiv@divisor 62 0 BANK0 1 cstackBANK0 dist/default/debug\cansw_mcb.debug.o
 __Lfardata 0 0 FARRAM 0 fardata dist/default/debug\cansw_mcb.debug.o
-isa$std 1 0 ABS 0 - C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_9.o
+isa$std 1 0 ABS 0 - C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_9.o
 srb_push@offset 71 0 BANK0 1 cstackBANK0 dist/default/debug\cansw_mcb.debug.o
-stackhi 0 0 ABS 0 - C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_9.o
-stacklo 0 0 ABS 0 - C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_9.o
+stackhi 0 0 ABS 0 - C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_9.o
+stacklo 0 0 ABS 0 - C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_9.o
 ?_filter_potentiometer A9 0 BANK0 1 cstackBANK0 dist/default/debug\cansw_mcb.debug.o
 _OSCCON1 39D9 0 ABS 0 - dist/default/debug\cansw_mcb.debug.o
 _OSCCON2 39DA 0 ABS 0 - dist/default/debug\cansw_mcb.debug.o
@@ -1435,7 +1435,7 @@ __Ltext42 0 0 ABS 0 text42 dist/default/debug\cansw_mcb.debug.o
 __Ltext43 0 0 ABS 0 text43 dist/default/debug\cansw_mcb.debug.o
 __Ltext44 0 0 ABS 0 text44 dist/default/debug\cansw_mcb.debug.o
 __Ltext45 0 0 ABS 0 text45 dist/default/debug\cansw_mcb.debug.o
-__ramtop 1000 0 RAM 0 ramtop C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_9.o
+__ramtop 1000 0 RAM 0 ramtop C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_9.o
 filter_potentiometer@alpha AF 0 BANK0 1 cstackBANK0 dist/default/debug\cansw_mcb.debug.o
 __Lpowerup 0 0 CODE 0 powerup dist/default/debug\cansw_mcb.debug.o
 ?___xxtofl 60 0 BANK0 1 cstackBANK0 dist/default/debug\cansw_mcb.debug.o
@@ -1455,13 +1455,13 @@ ___fltol@sign1 A7 0 BANK0 1 cstackBANK0 dist/default/debug\cansw_mcb.debug.o
 __psmallconst 1000 0 SMALLCONST 0 smallconst dist/default/debug\cansw_mcb.debug.o
 __Lreset_vec 0 0 CODE 0 reset_vec dist/default/debug\cansw_mcb.debug.o
 _CCP3CONbits 3F76 0 ABS 0 - dist/default/debug\cansw_mcb.debug.o
-___heap_hi 0 0 ABS 0 - C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_9.o
-___heap_lo 0 0 ABS 0 - C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_9.o
+___heap_hi 0 0 ABS 0 - C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_9.o
+___heap_lo 0 0 ABS 0 - C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_9.o
 txb_init@pool 6E 0 BANK0 1 cstackBANK0 dist/default/debug\cansw_mcb.debug.o
 ___fltol@f1 9F 0 BANK0 1 cstackBANK0 dist/default/debug\cansw_mcb.debug.o
 ___param_bank 0 0 ABS 0 - dist/default/debug\cansw_mcb.debug.o
-___intlo_stack_hi 0 0 STACK 2 stack C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_9.o
-___intlo_stack_lo 0 0 STACK 2 stack C:\Users\zkhua\AppData\Local\Temp\xcAscm0.\driver_tmp_9.o
+___intlo_stack_hi 0 0 STACK 2 stack C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_9.o
+___intlo_stack_lo 0 0 STACK 2 stack C:\Users\zkhua\AppData\Local\Temp\xcAs3ck.\driver_tmp_9.o
 _RXB0CONbits 3F80 0 ABS 0 - dist/default/debug\cansw_mcb.debug.o
 _can_send_rdy 34C6 0 CODE 0 text4 dist/default/debug\cansw_mcb.debug.o
 __Hbigdata 0 0 BIGRAM 1 bigdata dist/default/debug\cansw_mcb.debug.o

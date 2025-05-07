@@ -37549,14 +37549,6 @@ void can_log(const can_msg_t *msg);
 
 void send_status_ok(void);
 # 2 "main.c" 2
-
-
-
-
-
-
-
-
 # 1 "./config.h" 1
 
 
@@ -37628,7 +37620,7 @@ void send_status_ok(void);
 
 
 #pragma config CP = OFF
-# 11 "main.c" 2
+# 3 "main.c" 2
 # 20 "main.c"
 # 1 "./potentiometer.h" 1
 # 10 "./potentiometer.h"
