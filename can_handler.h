@@ -9,7 +9,7 @@
 #include <stdlib.h>
 #include <xc.h>
 
-#define _XTAL_FREQ 12000000
+#define _XTAL_FREQ 48000000 // 48 MHz
 
 #define E_NOMINAL 0x00 // nominal, no errors
 

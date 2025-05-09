@@ -9,7 +9,7 @@
 #include <stdlib.h>
 #include <xc.h>
 
-#define _XTAL_FREQ 12000000 // 12MHz
+#define _XTAL_FREQ 48000000 // 48 MHz
 
 #if (BOARD_INST_UNIQUE_ID == PRIMARY)
 volatile uint16_t cmd_angle;
