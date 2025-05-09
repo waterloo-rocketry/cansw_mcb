@@ -22,6 +22,6 @@ void pin_init(void) {
 }
 
 void osc_init(void) {
-    // Use internal oscillator, 48 MHz
-    OSCFRQbits.FRQ = 0b0111;
+    // Use internal oscillator, 12 MHz
+    OSCFRQbits.FRQ = 0b0100;
 }
