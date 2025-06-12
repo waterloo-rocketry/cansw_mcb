@@ -1,6 +1,6 @@
 #include "can_handler.h"
 #include "config.h"
-#include "pwm.h"
+#include "mypwm.h"
 #include "setup.h"
 #include "stdbool.h"
 #include "stdint.h"

@@ -19,12 +19,13 @@
       </logicalFolder>
       <itemPath>setup.h</itemPath>
       <itemPath>rocketlib/include/timer.h</itemPath>
-      <itemPath>pwm.h</itemPath>
       <itemPath>can_handler.h</itemPath>
       <itemPath>potentiometer.h</itemPath>
       <itemPath>rocketlib/include/i2c.h</itemPath>
       <itemPath>current_sensor.h</itemPath>
       <itemPath>config.h</itemPath>
+      <itemPath>rocketlib/include/pwm.h</itemPath>
+      <itemPath>mypwm.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -61,13 +62,14 @@
       <logicalFolder name="pic18f26k83" displayName="pic18f26k83" projectFiles="true">
         <itemPath>rocketlib/pic18f26k83/timer.c</itemPath>
         <itemPath>rocketlib/pic18f26k83/i2c.c</itemPath>
+        <itemPath>rocketlib/pic18f26k83/pwm.c</itemPath>
       </logicalFolder>
       <itemPath>main.c</itemPath>
       <itemPath>setup.c</itemPath>
-      <itemPath>pwm.c</itemPath>
       <itemPath>can_handler.c</itemPath>
       <itemPath>potentiometer.c</itemPath>
       <itemPath>current_sensor.c</itemPath>
+      <itemPath>mypwm.c</itemPath>
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>
@@ -123,7 +125,7 @@
         <property key="default-bitfield-type" value="true"/>
         <property key="default-char-type" value="true"/>
         <property key="define-macros"
-                  value="BOARD_TYPE_UNIQUE_ID=BOARD_TYPE_ID_CANARD_MOTOR;BOARD_INST_UNIQUE_ID=0x03;_XTAL_FREQ=12000000"/>
+                  value="BOARD_TYPE_UNIQUE_ID=BOARD_TYPE_ID_CANARD_MOTOR;BOARD_INST_UNIQUE_ID=0x02;_XTAL_FREQ=12000000"/>
         <property key="disable-optimizations" value="true"/>
         <property key="extra-include-directories"
                   value="canlib;rocketlib\include;canlib\pic18f26k83;canlib\message;canlib\util"/>
@@ -283,6 +285,8 @@
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="0-ffff"/>
         <property key="poweroptions.powerenable" value="true"/>
+        <property key="programmerToGoFilePath"
+                  value="C:/Users/zkhua/OneDrive/Documents/GitHub/cansw_mcb/debug/default/default_ptg"/>
         <property key="programmerToGoImageName" value="default_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>

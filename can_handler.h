@@ -2,7 +2,7 @@
 #define CAN_HANDLER_H
 
 #include "canlib.h"
-#include "pwm.h"
+#include "mypwm.h"
 #include "setup.h"
 #include <stdbool.h>
 #include <stdio.h>
