@@ -29,6 +29,7 @@
 
 #define VOLTAGE_LSB 0.0016
 
+void i2c_pin_init(void);
 uint16_t build_config_reg(void);
 bool current_sense_init(void);
 float current_read(void);
