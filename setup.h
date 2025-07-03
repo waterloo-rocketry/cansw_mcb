@@ -12,7 +12,7 @@
 // Time between sending updated angle measurements
 #define MAX_POT_SEND_TIME_DIFF_ms 5
 // Time between potentiometer measurements
-#define SENSOR_MEASURE_TIME_DIFF_ms 1
+#define SENSOR_MEASURE_TIME_DIFF_ms 500
 
 #define HEARTBEAT() (LATA0 = !LATA0)
 

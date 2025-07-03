@@ -1,6 +1,6 @@
 #include "potentiometer.h"
 
-const int zero_reading = 2048;
+static uint16_t zero_reading;
 
 void pot_init(void) {
     // Set AN2 as analog input
@@ -20,11 +20,23 @@ void pot_init(void) {
     while (!FVRCONbits.FVRRDY) {}
 
     ADREFbits.NREF = 0; // Vref- connected to Vss
-    ADREFbits.PREF = 0b11; // Vref+ connected to FVR
+    ADREFbits.PREF = 0b00; // Vref+ connected to Vdd
 
     // Enable ADC Interrupts
     PIE1bits.ADIE = 1; // Enable ADC interrupt
     PIR1bits.ADIF = 0; // Clear ADC interrupt flag
+}
+
+uint16_t pot_zero(void) {
+    uint32_t sum_readings = 0;
+    for (uint8_t i = 0; i < 100; i++) {
+        pot_read(0x02);
+        while (ADCON0bits.GO);
+        sum_readings += (uint16_t)((ADRESH << 8) + ADRESL);    
+        PIR1bits.ADIF = 0; // Clear ADC interrupt flag
+        __delay_ms(1);
+    }
+    return sum_readings / 100;
 }
 
 void pot_read(uint8_t channel) {
@@ -35,18 +47,26 @@ void pot_read(uint8_t channel) {
     ADCON0bits.GO = 1;
 }
 
-uint16_t get_angle(int adc_value) {
-    return (adc_value - zero_reading) * ADC_ANGLE_CONVERSION_FACTOR_mdeg + 32768;
+uint16_t get_angle(uint16_t adc_value, uint16_t zero_value) {
+    int32_t delta = (int32_t)zero_value - (int32_t)adc_value; // signed difference
+    // multiply by 3663 (factor in hundredths of mdeg), then divide by 100
+    int32_t mdeg = (delta * ADC_ANGLE_CONVERSION_FACTOR_hund_mdeg) / 100;  
+    mdeg += 32768; // zero offset
+    if (mdeg < 0) mdeg = 0;
+    if (mdeg > 0xFFFF) mdeg = 0xFFFF;
+    return (uint16_t) mdeg;
 }
 
 uint16_t filter_potentiometer(uint16_t new_reading) {
     const float alpha = 0.2;
-    static uint16_t filtered_value = 0;
-
-    if (filtered_value == 0) {
+    static float filtered_value = 0.0;
+    static bool first = true;
+    
+    if (first) {
         filtered_value = new_reading;
+        first = false;
     }
 
     filtered_value = alpha * new_reading + (1 - alpha) * filtered_value;
-    return filtered_value;
+    return (uint16_t) filtered_value;
 }

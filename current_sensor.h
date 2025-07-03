@@ -2,8 +2,8 @@
 #define CURRENT_SENSOR_H
 
 #include "i2c.h"
-#include "stdbool.h"
-#include "stdint.h"
+#include <stdbool.h>
+#include <stdint.h>
 #include <xc.h>
 
 #define I2C_ADDR 0b1000000
@@ -34,8 +34,6 @@ uint16_t build_config_reg(void);
 bool current_sense_init(void);
 float current_read(void);
 float voltage_read(void);
-float filter_current(float new_reading);
-float filter_voltage(float new_reading);
 
 #endif /* CURRENT_SENSOR_H */
 
