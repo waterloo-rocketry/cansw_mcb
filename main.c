@@ -61,7 +61,11 @@ int main(void) {
     i2c_pin_init();
     i2c_init(0b011);
     current_sense_init();
-    __delay_ms(10000); //allow servo time to move to zero
+    // 10s delay to allow servo to move to zero
+    for(uint16_t i = 0; i < 10000; i++) {
+        __delay_ms(1);
+        CLRWDT(); // clear the watchdog timer
+    }
     const uint16_t pot_zero_reading = pot_zero();
     uint32_t last_sensor_measure_millis = 0;
     uint32_t last_pot_send_millis = 0;

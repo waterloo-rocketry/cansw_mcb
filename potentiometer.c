@@ -35,6 +35,7 @@ uint16_t pot_zero(void) {
         sum_readings += (uint16_t)((ADRESH << 8) + ADRESL);    
         PIR1bits.ADIF = 0; // Clear ADC interrupt flag
         __delay_ms(1);
+        CLRWDT(); // Feed the dog
     }
     return sum_readings / 100;
 }
