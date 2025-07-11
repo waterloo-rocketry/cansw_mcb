@@ -3,21 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/zkhua/OneDrive/Documents/GitHub/cansw_mcb/config.h</file>
+            <file>file:/C:/Users/zkhua/OneDrive/Documents/GitHub/cansw_mcb/can_handler.h</file>
             <file>file:/C:/Users/zkhua/OneDrive/Documents/GitHub/cansw_mcb/current_sensor.h</file>
-            <file>file:/C:/Users/zkhua/OneDrive/Documents/GitHub/cansw_mcb/current_sensor.c</file>
-            <file>file:/C:/Users/zkhua/OneDrive/Documents/GitHub/cansw_mcb/potentiometer.h</file>
-            <file>file:/C:/Users/zkhua/OneDrive/Documents/GitHub/cansw_mcb/potentiometer.c</file>
-            <file>file:/C:/Users/zkhua/OneDrive/Documents/GitHub/cansw_mcb/canlib/pic18f26k83/pic18f26k83_can.c</file>
-            <file>file:/C:/Users/zkhua/OneDrive/Documents/GitHub/cansw_mcb/rocketlib/include/i2c.h</file>
-            <file>file:/C:/Users/zkhua/OneDrive/Documents/GitHub/cansw_mcb/main.c</file>
-            <file>file:/C:/Users/zkhua/OneDrive/Documents/GitHub/cansw_mcb/rocketlib/pic18f26k83/timer.c</file>
-            <file>file:/C:/Users/zkhua/OneDrive/Documents/GitHub/cansw_mcb/canlib/util/can_tx_buffer.c</file>
             <file>file:/C:/Users/zkhua/OneDrive/Documents/GitHub/cansw_mcb/setup.h</file>
+            <file>file:/C:/Users/zkhua/OneDrive/Documents/GitHub/cansw_mcb/current_sensor.c</file>
             <file>file:/C:/Users/zkhua/OneDrive/Documents/GitHub/cansw_mcb/rocketlib/pic18f26k83/i2c.c</file>
+            <file>file:/C:/Users/zkhua/OneDrive/Documents/GitHub/cansw_mcb/potentiometer.c</file>
+            <file>file:/C:/Users/zkhua/OneDrive/Documents/GitHub/cansw_mcb/can_handler.c</file>
+            <file>file:/C:/Users/zkhua/OneDrive/Documents/GitHub/cansw_mcb/rocketlib/include/i2c.h</file>
             <file>file:/C:/Users/zkhua/OneDrive/Documents/GitHub/cansw_mcb/setup.c</file>
             <file>file:/C:/Users/zkhua/OneDrive/Documents/GitHub/cansw_mcb/pwm.c</file>
-            <file>file:/C:/Users/zkhua/OneDrive/Documents/GitHub/cansw_mcb/canlib/message/msg_sensor.c</file>
+            <file>file:/C:/Users/zkhua/OneDrive/Documents/GitHub/cansw_mcb/main.c</file>
         </group>
     </open-files>
 </project-private>

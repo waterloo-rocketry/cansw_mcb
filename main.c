@@ -21,8 +21,8 @@ volatile bool new_cmd = 0;
 volatile uint16_t adc_value; // potentiometer reading directly from adc
 volatile bool new_adc = 0;
 uint16_t test;
-float current;
-float voltage;
+uint16_t current;
+uint16_t voltage;
 uint16_t angle;
 w_status_t success;
 #endif
@@ -67,8 +67,9 @@ int main(void) {
         CLRWDT(); // clear the watchdog timer
     }
     const uint16_t pot_zero_reading = pot_zero();
-    uint32_t last_sensor_measure_millis = 0;
+    uint32_t last_pot_measure_millis = 0;
     uint32_t last_pot_send_millis = 0;
+    uint32_t last_curr_measure_millis = 0;
 #endif
 
     // Enable global interrupts
@@ -87,8 +88,16 @@ int main(void) {
         if ((millis() - last_millis) >= MAX_LOOP_TIME_DIFF_ms) {
             last_millis = millis();
             HEARTBEAT();
-            LATA1 = 1;
-
+            
+#if (BOARD_INST_UNIQUE_ID == FAILSAFE)
+            
+            voltage = voltage_read();
+            voltage_read(); // dummy read because i2c driver fails every other call
+            can_msg_t voltage_msg;
+            build_analog_data_msg(PRIO_LOW, millis(), SENSOR_BATT_VOLT, voltage, &voltage_msg);
+            txb_enqueue(&voltage_msg);
+            
+#endif
             send_status_ok();
         }
 
@@ -104,23 +113,28 @@ int main(void) {
             angle = get_angle(filter_potentiometer(adc_value), pot_zero_reading);
         }
 
-        if ((millis() - last_sensor_measure_millis) >= SENSOR_MEASURE_TIME_DIFF_ms) {
-            last_sensor_measure_millis = millis();
+        if ((millis() - last_pot_measure_millis) >= POT_MEASURE_TIME_DIFF_ms) {
+            last_pot_measure_millis = millis();
             pot_read(0x02);
-            current = current_read();
-            current = current_read();
-            voltage = voltage_read();
-            voltage = voltage_read();
         }
 
-        if ((millis() - last_pot_send_millis) >= MAX_POT_SEND_TIME_DIFF_ms) {
+        if ((millis() - last_pot_send_millis) >= POT_SEND_TIME_DIFF_ms) {
             last_pot_send_millis = millis();
             can_msg_t angle_msg;
 
-            build_analog_data_msg(
-                PRIO_HIGHEST, millis(), SENSOR_CANARD_ENCODER_1, angle, &angle_msg
-            );
+            build_analog_data_msg(PRIO_HIGHEST, millis(), SENSOR_CANARD_ENCODER_1, angle, &angle_msg);
             txb_enqueue(&angle_msg);
+        }
+        
+        if ((millis() - last_curr_measure_millis) >= CURR_MEASURE_TIME_DIFF_ms) {
+            last_curr_measure_millis = millis();
+            
+            current = current_read();
+            current_read(); // dummy read because i2c driver fails every other call
+            
+            can_msg_t curr_msg;
+            build_analog_data_msg(PRIO_LOW, millis(), SENSOR_BATT_CURR, current, &curr_msg);
+            txb_enqueue(&curr_msg);
         }
 #endif
         txb_heartbeat();

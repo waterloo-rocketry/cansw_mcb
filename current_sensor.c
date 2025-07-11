@@ -34,14 +34,14 @@ bool current_sense_init(void) {
     return config_success && cal_success;
 }
 
-float current_read(void) {
+uint16_t current_read(void) {
     uint16_t value;
     i2c_read_reg16(I2C_ADDR, CURRENT_REG, &value);
-    return CURRENT_LSB * value;
+    return CURRENT_LSB * value * 1000; //returns servo draw in mA
 }
 
-float voltage_read(void) {
+uint16_t voltage_read(void) {
     uint16_t value;
     i2c_read_reg16(I2C_ADDR, VOLTAGE_REG, &value);
-    return VOLTAGE_LSB * value;
+    return VOLTAGE_LSB * value * 1000; //returns batt voltage in mV
 }

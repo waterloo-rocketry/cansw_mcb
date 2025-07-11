@@ -22,18 +22,18 @@
 #define MODE (0b111 << 0) // Bits 2-0: 111b for continuous shunt and bus voltage mode
 
 // Calibration
-#define MAX_CURRENT 5.0
-#define R_SHUNT 0.013
+#define MAX_CURRENT 6.0f
+#define R_SHUNT 0.013f
 #define CURRENT_LSB                                                                                \
-    (MAX_CURRENT * 2 / 32768) // Minimum LSB is max current/2^15 per datasheet. 2x safety factor
+    (MAX_CURRENT * 2.0f / 32768.0f) // Minimum LSB is max current/2^15 per datasheet. 2x safety factor
 
-#define VOLTAGE_LSB 0.0016
+#define VOLTAGE_LSB 0.0016f
 
 void i2c_pin_init(void);
 uint16_t build_config_reg(void);
 bool current_sense_init(void);
-float current_read(void);
-float voltage_read(void);
+uint16_t current_read(void);
+uint16_t voltage_read(void);
 
 #endif /* CURRENT_SENSOR_H */
 

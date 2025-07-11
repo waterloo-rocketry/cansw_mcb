@@ -59,15 +59,19 @@ uint16_t get_angle(uint16_t adc_value, uint16_t zero_value) {
 }
 
 uint16_t filter_potentiometer(uint16_t new_reading) {
-    const float alpha = 0.2;
-    static float filtered_value = 0.0;
+    // ? = 1/5, so (1??)=4/5
+    static uint16_t filtered = 0;
     static bool first = true;
-    
+
     if (first) {
-        filtered_value = new_reading;
+        filtered = new_reading;
         first = false;
     }
 
-    filtered_value = alpha * new_reading + (1 - alpha) * filtered_value;
-    return (uint16_t) filtered_value;
+    // filtered = ?·new + (1??)·filtered
+    // multiply everything by 1, divide by 5:
+    filtered = (uint32_t) (new_reading + 4u * filtered + 2u // for rounding: denom/2
+            ) / 5u;
+
+    return filtered;
 }

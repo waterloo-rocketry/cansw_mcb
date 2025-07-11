@@ -61,13 +61,12 @@ void pwm_init(void) {
 }
 
 void updatePulseWidth(uint16_t angle) {
-    float normalized_angle =
-        (float)angle - (32768 - MAX_CANARD_ANGLE_MDEG); // convert 32768 +- 10000 to 0-20000
-    float pulse_width_us = MOTOR_MIN_PULSE_WIDTH_US +
+    uint32_t normalized_angle = angle - (32768 - MAX_CANARD_ANGLE_MDEG); // convert 32768 +- 10000 to 0-20000
+    uint32_t pulse_width_us = MOTOR_MIN_PULSE_WIDTH_US +
                            (normalized_angle * (MOTOR_MAX_PULSE_WIDTH_US - MOTOR_MIN_PULSE_WIDTH_US)
                            ) / (MAX_CANARD_ANGLE_MDEG * 2);
     uint8_t tmr2_prescale = 1 << T2CONbits.CKPS;
-    uint16_t bitWrite = (uint16_t)(pulse_width_us / 1000000 * _XTAL_FREQ / tmr2_prescale);
+    uint16_t bitWrite = pulse_width_us * (_XTAL_FREQ / 1000000) / tmr2_prescale;
     CCPR3H = (bitWrite >> 8) & 0xFF;
     CCPR3L = bitWrite & 0xFF;
 }
