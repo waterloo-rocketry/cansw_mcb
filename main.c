@@ -92,17 +92,31 @@ int main(void) {
         if ((millis() - last_millis) >= MAX_LOOP_TIME_DIFF_ms) {
             last_millis = millis();
             HEARTBEAT();
+            uint16_t gen_err_bitfield = 0;
             
 #if (BOARD_INST_UNIQUE_ID == FAILSAFE)
-            
             voltage = voltage_read();
             voltage_read(); // dummy read because i2c driver fails every other call
             can_msg_t voltage_msg;
             build_analog_data_msg(PRIO_LOW, millis(), SENSOR_BATT_VOLT, voltage, &voltage_msg);
             txb_enqueue(&voltage_msg);
             
+            if (voltage <= UNDERVOLTAGE_THRESHOLD_BATT_mV) {
+                gen_err_bitfield |= (1 << E_BATT_UNDER_VOLTAGE_OFFSET);
+            }
+            
+            else if (voltage >= OVERVOLTAGE_THRESHOLD_BATT_mV) {
+                gen_err_bitfield |= (1 << E_BATT_OVER_VOLTAGE_OFFSET);
+            }
+            
+            if (current >= OVERCURRENT_THRESHOLD_BATT_mA) {
+                gen_err_bitfield |= (1 << E_BATT_OVER_CURRENT_OFFSET);
+            }
+            
 #endif
-            send_status_ok();
+            can_msg_t board_stat_msg;
+            build_general_board_status_msg(PRIO_LOW, millis(), gen_err_bitfield, 0, &board_stat_msg);
+            txb_enqueue(&board_stat_msg);
         }
 
 #if (BOARD_INST_UNIQUE_ID == PRIMARY)

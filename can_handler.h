@@ -17,9 +17,5 @@ void can_setup(void);
 
 void can_receive_callback(const can_msg_t *msg);
 
-void can_log(const can_msg_t *msg);
-
-void send_status_ok(void);
-
 #endif /* CAN_HANDLER_H */
 
