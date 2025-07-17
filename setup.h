@@ -4,8 +4,8 @@
 #include "message_types.h"
 #include "stdbool.h"
 #include <xc.h>
-#define PRIMARY 0x02
-#define FAILSAFE 0x03
+#define PRIMARY 0x04
+#define FAILSAFE 0x05
 
 // Time between main loop code execution
 #define MAX_LOOP_TIME_DIFF_ms 1000

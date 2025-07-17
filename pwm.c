@@ -32,8 +32,7 @@ void pwm_init(void) {
     // 4. Load the CCPRxL register, and the CCPRxH register with the PWM duty cycle value and
     // configure the FMT bit of the CCPxCON register to set the proper register alignment.
 #if (BOARD_INST_UNIQUE_ID == PRIMARY)
-    CCPR3H = (282 >> 8) & 0xFF; // upper 8 bits corresponding to 1500uS
-    CCPR3L = 282 & 0xFF; // lower 8 bits corresponding to 1500uS
+    updatePulseWidth(32768);
 #endif
     // 5. Configure and start Timer2:
     //- Clear the TMR2IF interrupt flag bit of the respective PIR register. See Note below.

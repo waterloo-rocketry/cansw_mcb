@@ -56,17 +56,21 @@ int main(void) {
     timer0_init();
     pwm_init();
     can_setup();
-#if (BOARD_INST_UNIQUE_ID == FAILSAFE)
+#if (BOARD_INST_UNIQUE_ID == PRIMARY)
+    uint32_t last_cmd_millis = 0;
+#elif (BOARD_INST_UNIQUE_ID == FAILSAFE)
     pot_init();
     i2c_pin_init();
     i2c_init(0b011);
     current_sense_init();
+    LATA1 = 0; //indicate zeroing servo
     // 10s delay to allow servo to move to zero
     for(uint16_t i = 0; i < 10000; i++) {
         __delay_ms(1);
         CLRWDT(); // clear the watchdog timer
     }
     const uint16_t pot_zero_reading = pot_zero();
+    LATA1 = 1; //indicate servo zero complete
     uint32_t last_pot_measure_millis = 0;
     uint32_t last_pot_send_millis = 0;
     uint32_t last_curr_measure_millis = 0;
@@ -105,7 +109,13 @@ int main(void) {
         if (new_cmd) {
             updatePulseWidth(cmd_angle);
             new_cmd = 0;
-            LATA1 = 0;
+            last_cmd_millis = millis();
+            LATA1 = 1; //clear error LED
+        }
+        
+        if ((millis() - last_cmd_millis) >= NO_CMD_TIME_DIFF_ms) {
+            updatePulseWidth(32768); //lock to zero if no cmd from proc
+            LATA1 = 0; //error indication LED
         }
 #elif (BOARD_INST_UNIQUE_ID == FAILSAFE)
         if (new_adc) {

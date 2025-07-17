@@ -81,7 +81,7 @@
         <targetDevice>PIC18F26K83</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>PK5Tool</platformTool>
+        <platformTool>noID</platformTool>
         <languageToolchain>XC8</languageToolchain>
         <languageToolchainVersion>3.00</languageToolchainVersion>
         <platform>3</platform>
@@ -123,7 +123,7 @@
         <property key="default-bitfield-type" value="true"/>
         <property key="default-char-type" value="true"/>
         <property key="define-macros"
-                  value="BOARD_TYPE_UNIQUE_ID=BOARD_TYPE_ID_CANARD_MOTOR;BOARD_INST_UNIQUE_ID=0x03;_XTAL_FREQ=12000000"/>
+                  value="BOARD_TYPE_UNIQUE_ID=BOARD_TYPE_ID_CANARD_MOTOR;BOARD_INST_UNIQUE_ID=0x04;_XTAL_FREQ=12000000"/>
         <property key="disable-optimizations" value="true"/>
         <property key="extra-include-directories"
                   value="canlib;rocketlib\include;canlib\pic18f26k83;canlib\message;canlib\util"/>
