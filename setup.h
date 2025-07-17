@@ -18,8 +18,7 @@
 // Current measurement for logging
 #define CURR_MEASURE_TIME_DIFF_ms 200
 
-
-//for error checks
+// for error checks
 #define UNDERVOLTAGE_THRESHOLD_BATT_mV 11400
 #define OVERVOLTAGE_THRESHOLD_BATT_mV 12700
 #define OVERCURRENT_THRESHOLD_BATT_mA 5000 // servo stall current is max 4800mA

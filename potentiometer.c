@@ -31,8 +31,9 @@ uint16_t pot_zero(void) {
     uint32_t sum_readings = 0;
     for (uint8_t i = 0; i < 100; i++) {
         pot_read(0x02);
-        while (ADCON0bits.GO);
-        sum_readings += (uint16_t)((ADRESH << 8) + ADRESL);    
+        while (ADCON0bits.GO)
+            ;
+        sum_readings += (uint16_t)((ADRESH << 8) + ADRESL);
         PIR1bits.ADIF = 0; // Clear ADC interrupt flag
         __delay_ms(1);
         CLRWDT(); // Feed the dog
@@ -51,11 +52,15 @@ void pot_read(uint8_t channel) {
 uint16_t get_angle(uint16_t adc_value, uint16_t zero_value) {
     int32_t delta = (int32_t)zero_value - (int32_t)adc_value; // signed difference
     // multiply by 3663 (factor in hundredths of mdeg), then divide by 100
-    int32_t mdeg = (delta * ADC_ANGLE_CONVERSION_FACTOR_hund_mdeg) / 100;  
+    int32_t mdeg = (delta * ADC_ANGLE_CONVERSION_FACTOR_hund_mdeg) / 100;
     mdeg += 32768; // zero offset
-    if (mdeg < 0) mdeg = 0;
-    if (mdeg > 0xFFFF) mdeg = 0xFFFF;
-    return (uint16_t) mdeg;
+    if (mdeg < 0) {
+        mdeg = 0;
+    }
+    if (mdeg > 0xFFFF) {
+        mdeg = 0xFFFF;
+    }
+    return (uint16_t)mdeg;
 }
 
 uint16_t filter_potentiometer(uint16_t new_reading) {
@@ -70,8 +75,9 @@ uint16_t filter_potentiometer(uint16_t new_reading) {
 
     // filtered = ?·new + (1??)·filtered
     // multiply everything by 1, divide by 5:
-    filtered = (uint32_t) (new_reading + 4u * filtered + 2u // for rounding: denom/2
-            ) / 5u;
+    filtered = (uint32_t)(new_reading + 4u * filtered + 2u // for rounding: denom/2
+               ) /
+               5u;
 
     return filtered;
 }

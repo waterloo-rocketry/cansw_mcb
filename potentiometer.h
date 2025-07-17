@@ -1,8 +1,8 @@
 #ifndef POTENTIOMETER_H
 #define POTENTIOMETER_H
 
-#include <stdint.h>
 #include <stdbool.h>
+#include <stdint.h>
 #include <xc.h>
 
 #define ADC_ANGLE_CONVERSION_FACTOR_hund_mdeg 3663 // 1/4095 * 15000 mdeg electrical angle * 100

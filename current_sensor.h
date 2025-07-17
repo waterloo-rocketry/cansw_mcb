@@ -25,7 +25,8 @@
 #define MAX_CURRENT 6.0f
 #define R_SHUNT 0.013f
 #define CURRENT_LSB                                                                                \
-    (MAX_CURRENT * 2.0f / 32768.0f) // Minimum LSB is max current/2^15 per datasheet. 2x safety factor
+    (MAX_CURRENT * 2.0f / 32768.0f                                                                 \
+    ) // Minimum LSB is max current/2^15 per datasheet. 2x safety factor
 
 #define VOLTAGE_LSB 0.0016f
 
