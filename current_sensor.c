@@ -43,12 +43,16 @@ void current_sense_init(void) {
 
 w_status_t current_read(uint16_t *current) {
     uint16_t value;
-    i2c_read_reg16(I2C_ADDR, CURRENT_REG, &value);
+    w_status_t i2c_status;
+    i2c_status = i2c_read_reg16(I2C_ADDR, CURRENT_REG, &value);
     *current = CURRENT_LSB * value * 1000; // returns servo draw in mA
+    return i2c_status;
 }
 
 w_status_t voltage_read(uint16_t *voltage) {
     uint16_t value;
-    i2c_read_reg16(I2C_ADDR, VOLTAGE_REG, &value);
+    w_status_t i2c_status;
+    i2c_status = i2c_read_reg16(I2C_ADDR, VOLTAGE_REG, &value);
     *voltage = VOLTAGE_LSB * value * 1000; // returns batt voltage in mV
+    return i2c_status;
 }
