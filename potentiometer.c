@@ -73,11 +73,8 @@ uint16_t filter_potentiometer(uint16_t new_reading) {
         first = false;
     }
 
-    // filtered = a·new + (1-a)·filtered
+    // filtered = a*new + (1-a)*filtered
     // multiply everything by 1, divide by 5:
-    filtered = (uint32_t)(new_reading + 4u * filtered + 2u // for rounding: denom/2
-               ) /
-               5u;
-
+    filtered = (uint32_t)(new_reading + 4u * filtered + 2u) / 5u; // for rounding: denom/2
     return filtered;
 }
