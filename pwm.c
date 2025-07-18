@@ -40,7 +40,7 @@ void pwm_init(void) {
     //- Select the timer clock source to be as FOSC/4 using the T2CLK register.
     T2CLK = 0b0001; //(pg 321)
     //- Configure the CKPS bits of the T2CON register with the Timer prescale value.
-    T2CONbits.CKPS = 0b110; // prescale of 64
+    T2CONbits.CKPS = T2_PRESCALE; // prescale of 2^6 = 64
     //- Enable the Timer by setting the ON bit of the T2CON register.
     T2CONbits.ON = 1; // enables timer
 
@@ -66,8 +66,8 @@ void updatePulseWidth(uint16_t angle) {
         MOTOR_MIN_PULSE_WIDTH_US +
         (normalized_angle * (MOTOR_MAX_PULSE_WIDTH_US - MOTOR_MIN_PULSE_WIDTH_US)) /
             (MAX_CANARD_ANGLE_MDEG * 2);
-    uint8_t tmr2_prescale = 1 << T2CONbits.CKPS;
-    uint16_t bitWrite = pulse_width_us * (_XTAL_FREQ / 1000000) / tmr2_prescale;
+    const static uint8_t tmr2_prescale = 1 << T2_PRESCALE;
+    uint16_t bitWrite = pulse_width_us * _XTAL_FREQ_MHZ / tmr2_prescale;
     CCPR3H = (bitWrite >> 8) & 0xFF;
     CCPR3L = bitWrite & 0xFF;
 }

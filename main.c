@@ -95,8 +95,12 @@ int main(void) {
             uint16_t gen_err_bitfield = 0;
 
 #if (BOARD_INST_UNIQUE_ID == FAILSAFE)
-            voltage = voltage_read();
-            voltage_read(); // dummy read because i2c driver fails every other call
+            w_status_t read_status;
+            read_status = voltage_read(&voltage);
+            if (read_status != W_SUCCESS) {
+                voltage_read(&voltage); // dummy read because i2c driver fails every other call
+            }
+
             can_msg_t voltage_msg;
             build_analog_data_msg(PRIO_LOW, millis(), SENSOR_BATT_VOLT, voltage, &voltage_msg);
             txb_enqueue(&voltage_msg);
@@ -156,9 +160,11 @@ int main(void) {
 
         if ((millis() - last_curr_measure_millis) >= CURR_MEASURE_TIME_DIFF_ms) {
             last_curr_measure_millis = millis();
-
-            current = current_read();
-            current_read(); // dummy read because i2c driver fails every other call
+            w_status_t read_status;
+            read_status = current_read(&current);
+            if (read_status != W_SUCCESS) {
+                current_read(&current); // dummy read because i2c driver fails every other call
+            }
 
             can_msg_t curr_msg;
             build_analog_data_msg(PRIO_LOW, millis(), SENSOR_BATT_CURR, current, &curr_msg);

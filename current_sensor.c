@@ -25,23 +25,30 @@ uint16_t build_config_reg(void) {
     return config; // 0x4527
 }
 
-bool current_sense_init(void) {
+void current_sense_init(void) {
     const uint16_t shunt_cal = 0.00512 / (CURRENT_LSB * R_SHUNT);
-    bool config_success = 0;
-    bool cal_success = 0;
+    w_status_t config_success;
+    w_status_t cal_success;
+
     config_success = i2c_write_reg16(I2C_ADDR, CONFIG_REG, build_config_reg());
+    if (config_success != W_SUCCESS) {
+        i2c_write_reg16(I2C_ADDR, CONFIG_REG, build_config_reg());
+    }
+
     cal_success = i2c_write_reg16(I2C_ADDR, CAL_REG, shunt_cal);
-    return config_success && cal_success;
+    if (cal_success != W_SUCCESS) {
+        i2c_write_reg16(I2C_ADDR, CAL_REG, shunt_cal);
+    }
 }
 
-uint16_t current_read(void) {
+w_status_t current_read(uint16_t *current) {
     uint16_t value;
     i2c_read_reg16(I2C_ADDR, CURRENT_REG, &value);
-    return CURRENT_LSB * value * 1000; // returns servo draw in mA
+    *current = CURRENT_LSB * value * 1000; // returns servo draw in mA
 }
 
-uint16_t voltage_read(void) {
+w_status_t voltage_read(uint16_t *voltage) {
     uint16_t value;
     i2c_read_reg16(I2C_ADDR, VOLTAGE_REG, &value);
-    return VOLTAGE_LSB * value * 1000; // returns batt voltage in mV
+    *voltage = VOLTAGE_LSB * value * 1000; // returns batt voltage in mV
 }

@@ -7,8 +7,9 @@
 #include "timer.h"
 #include <xc.h>
 
-#define _XTAL_FREQ 12000000 // 12 MHz
 #define MAX_CANARD_ANGLE_MDEG 10000 //+- 10 degrees
+#define T2_PRESCALE 0b110
+#define _XTAL_FREQ_MHZ (_XTAL_FREQ / 1000000)
 
 void pwm_init(void);
 

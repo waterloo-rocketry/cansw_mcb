@@ -64,7 +64,7 @@ uint16_t get_angle(uint16_t adc_value, uint16_t zero_value) {
 }
 
 uint16_t filter_potentiometer(uint16_t new_reading) {
-    // ? = 1/5, so (1??)=4/5
+    // a = 1/5, so (1-a)=4/5
     static uint16_t filtered = 0;
     static bool first = true;
 
@@ -73,7 +73,7 @@ uint16_t filter_potentiometer(uint16_t new_reading) {
         first = false;
     }
 
-    // filtered = ?·new + (1??)·filtered
+    // filtered = a·new + (1-a)·filtered
     // multiply everything by 1, divide by 5:
     filtered = (uint32_t)(new_reading + 4u * filtered + 2u // for rounding: denom/2
                ) /

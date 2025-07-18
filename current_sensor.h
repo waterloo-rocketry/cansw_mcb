@@ -32,9 +32,9 @@
 
 void i2c_pin_init(void);
 uint16_t build_config_reg(void);
-bool current_sense_init(void);
-uint16_t current_read(void);
-uint16_t voltage_read(void);
+void current_sense_init(void);
+w_status_t current_read(uint16_t *current);
+w_status_t voltage_read(uint16_t *voltage);
 
 #endif /* CURRENT_SENSOR_H */
 
