@@ -14,7 +14,7 @@
 // Time between potentiometer measurements
 #define POT_MEASURE_TIME_DIFF_ms 1
 // Return servo to zero if lack of commands exceeds this time
-#define NO_CMD_TIME_DIFF_ms 100
+#define NO_CMD_TIME_DIFF_ms 1000
 // Current measurement for logging
 #define CURR_MEASURE_TIME_DIFF_ms 200
 
