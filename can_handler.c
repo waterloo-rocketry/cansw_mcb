@@ -86,10 +86,3 @@ void can_receive_callback(const can_msg_t *msg) {
             break;
     }
 }
-
-void send_status_ok(void) {
-    can_msg_t board_stat_msg;
-    build_general_board_status_msg(PRIO_MEDIUM, millis(), E_NOMINAL, 0, &board_stat_msg);
-    txb_enqueue(&board_stat_msg);
-}
-

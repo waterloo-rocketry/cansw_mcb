@@ -4,15 +4,24 @@
 #include "message_types.h"
 #include "stdbool.h"
 #include <xc.h>
-#define PRIMARY 0x02
-#define FAILSAFE 0x03
+#define PRIMARY 0x04
+#define FAILSAFE 0x05
 
 // Time between main loop code execution
 #define MAX_LOOP_TIME_DIFF_ms 1000
 // Time between sending updated angle measurements
-#define MAX_POT_SEND_TIME_DIFF_ms 5
+#define POT_SEND_TIME_DIFF_ms 5
 // Time between potentiometer measurements
-#define SENSOR_MEASURE_TIME_DIFF_ms 1
+#define POT_MEASURE_TIME_DIFF_ms 1
+// Return servo to zero if lack of commands exceeds this time
+#define NO_CMD_TIME_DIFF_ms 1000
+// Current measurement for logging
+#define CURR_MEASURE_TIME_DIFF_ms 200
+
+// for error checks
+#define UNDERVOLTAGE_THRESHOLD_BATT_mV 11400
+#define OVERVOLTAGE_THRESHOLD_BATT_mV 12700
+#define OVERCURRENT_THRESHOLD_BATT_mA 5000 // servo stall current is max 4800mA
 
 #define HEARTBEAT() (LATA0 = !LATA0)
 
