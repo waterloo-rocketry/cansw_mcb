@@ -153,7 +153,7 @@ int main(void) {
             can_msg_t angle_msg;
 
             build_analog_data_msg(
-                PRIO_HIGHEST, millis(), SENSOR_CANARD_ENCODER_1, angle, &angle_msg
+                PRIO_HIGH, millis(), SENSOR_CANARD_ENCODER_1, angle, &angle_msg
             );
             txb_enqueue(&angle_msg);
         }
